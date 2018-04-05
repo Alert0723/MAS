@@ -1,0 +1,273 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <!--#region  Font -->
+    <FontFamily x:Key="Font">Comfortaa</FontFamily>
+    <!--#endregion-->
+
+    <!--#region  Window -->
+    <system:String x:Key="MainOption">Option</system:String>
+    <system:String x:Key="MainAbout">About</system:String>
+    <!--#endregion-->
+
+    <!--#region Version Messager -->
+    <system:String x:Key="FindNewVer">New Version：</system:String>
+    <system:String x:Key="UpdateNow">Update Now</system:String>
+    <!--#endregion-->
+    
+    <!--#region  OutPut Window -->
+    <system:String x:Key="CopyCommands">Copy Commands</system:String>
+    <system:String x:Key="Generate.NBTFiles">Generate .nbt Files</system:String>
+    <!--#endregion-->
+
+    <!--#region  Option Page -->
+    <system:String x:Key="Option_Routine_Setting">Routine</system:String>
+    <system:String x:Key="Option_Language">Language:</system:String>
+
+    <system:String x:Key="Option_Structures_Setting">Structures Setting</system:String>
+    <system:String x:Key="Option_MaxLength">Max length per layer(2~99):</system:String>
+    <system:String x:Key="Option_Chain_extension_direction">Chain extension direction:</system:String>
+    <system:String x:Key="Option_Chain_Vertical">Vertical</system:String>
+    <system:String x:Key="Option_Chain_Horizontal">Horizontal</system:String>
+    <system:String x:Key="Option_Paved_structure">Paved structure</system:String>
+    <!--#endregion-->
+
+    <!--#region  About Page -->
+    <system:String x:Key="About_Developers">Developers：</system:String>
+    <system:String x:Key="About_User_interaction">User interaction：</system:String>
+    <system:String x:Key="About_Technical_participants">Technical participants：</system:String>
+    <system:String x:Key="About_Acknowledgements">Acknowledgements：</system:String>
+
+    <system:String x:Key="About_DLL_Reference">DLL Reference：</system:String>
+    <system:String x:Key="About_Program_Framework">Program Framework：</system:String>
+    <system:String x:Key="About_Controls">UI Controls：</system:String>
+    <system:String x:Key="About_3D_Environment">3D Environment：</system:String>
+    <system:String x:Key="About_Json_Library">Json Library：</system:String>
+    <system:String x:Key="About_Compressed_Library">Compressed Library：</system:String>
+    <!--#endregion-->
+
+    <!--#region  3D预览 -->
+    <system:String x:Key="OpenGL_Grid">Grid</system:String>
+    <system:String x:Key="OpenGL_Axis">Axis</system:String>
+    <system:String x:Key="OpenGL_Scale">Scale</system:String>
+    <!--#endregion-->
+    
+    <!--#region  MAS.C -->
+    <!--#region  禁用提示 -->
+    <system:String x:Key="Enable_Pose">You need to enable Pose Setting</system:String>
+    <system:String x:Key="Enable_Part">You need to enable Part Setting</system:String>
+    <system:String x:Key="Enable_Attribute">You need to enable Attribute Setting</system:String>
+    <system:String x:Key="Enable_Ench">You need to enable Enchant Setting</system:String>
+    <system:String x:Key="Enable_AdvancedMode">You need to enable Advanced mode Setting</system:String>
+    <!--#endregion-->
+
+    <!--#region  页面标题 -->
+    <system:String x:Key="Basic_Settings">Basic Settings</system:String>
+    <system:String x:Key="NBT_Settings">NBT Settings</system:String>
+    <system:String x:Key="DisabledSlots_Settings">Disabled Slots</system:String>
+    <system:String x:Key="Pose_Settings">Pose Settings</system:String>
+    <system:String x:Key="Item_Settings">Item Settings</system:String>
+    <system:String x:Key="AdvancedMode">Advanced mode</system:String>
+    <!--#endregion-->
+
+    <!--#region  基础属性 -->
+    <system:String x:Key="Name">Name :</system:String>
+    <system:String x:Key="Tag">Tag :</system:String>
+    <!--#endregion-->
+
+    <!--#region  NBT属性 -->
+    <system:String x:Key="as_NoAI">NoAI</system:String>
+    <system:String x:Key="as_Invulnerable">Invulnerable</system:String>
+    <system:String x:Key="as_Silent">Silent</system:String>
+    <system:String x:Key="as_Small">Small</system:String>
+    <system:String x:Key="as_Glowing">Glowing</system:String>
+    <system:String x:Key="as_Invisible">Invisible</system:String>
+    <system:String x:Key="as_NoGravity">NoGravity</system:String>
+    <system:String x:Key="as_LeftHanded">LeftHanded</system:String>
+    <system:String x:Key="as_ShowArms">ShowArms</system:String>
+    <system:String x:Key="as_NoBasePlate">NoBasePlate</system:String>
+    <system:String x:Key="as_Marker">Marker</system:String>
+    <system:String x:Key="as_Pose">Pose</system:String>
+    <!--#endregion-->
+
+    <!--#region  盔甲架部位 -->
+    <system:String x:Key="Position_Direction">Reverse rotation</system:String>
+    <system:String x:Key="Rotation">Rotation</system:String>
+    <system:String x:Key="Head">Head</system:String>
+    <system:String x:Key="Body">Body</system:String>
+    <system:String x:Key="Arms">Arms</system:String>
+    <system:String x:Key="LeftArm">LeftArm</system:String>
+    <system:String x:Key="RightArm">RightArm</system:String>
+    <system:String x:Key="MainHand">MainHand</system:String>
+    <system:String x:Key="OffHand">OffHand</system:String>
+    <system:String x:Key="Legs">Legs</system:String>
+    <system:String x:Key="LeftLeg">LeftLeg</system:String>
+    <system:String x:Key="RightLeg">RightLeg</system:String>
+    <system:String x:Key="Boots">Boots</system:String>
+    <!--#endregion-->
+
+    <!--#region  部位物品设置 -->
+    <!--#region  启用复选框 -->
+    <system:String x:Key="Enable_Part_Check">Enable Part</system:String>
+    <system:String x:Key="Enable_Attribute_Check">Enable Attribute</system:String>
+    <system:String x:Key="Enable_Ench_Check">Enable Enchant</system:String>
+    <!--#endregion-->
+
+    <!--#region  物品基本信息 -->
+    <system:String x:Key="Lore">Lore :</system:String>
+    <system:String x:Key="Count">Count :</system:String>
+    <system:String x:Key="Damage">Damage :</system:String>
+    <system:String x:Key="Unbreakable">Unbreakable</system:String>
+    <system:String x:Key="HideFlags">HideFlags</system:String>
+    <!--#endregion-->
+
+    <!--#region  附加属性 -->
+    <system:String x:Key="AttackDamage">AttackDamage:</system:String>
+    <system:String x:Key="FollowRange">FollowRange:</system:String>
+    <system:String x:Key="MaxHealth">MaxHealth:</system:String>
+    <system:String x:Key="KnockBackResistance">KnockBackResistance:</system:String>
+    <system:String x:Key="MovementSpeed">MovementSpeed:</system:String>
+    <system:String x:Key="Luck">Luck:</system:String>
+    <system:String x:Key="Armor">Armor:</system:String>
+    <system:String x:Key="ArmorToughness">ArmorToughness:</system:String>
+    <system:String x:Key="AttackSpeed">AttackSpeed:</system:String>
+    <system:String x:Key="Precent">precent</system:String>
+    <!--#endregion-->
+
+    <!--#region  附魔属性 -->
+    <system:String x:Key="Ench0">Protection:</system:String>
+    <system:String x:Key="Ench1">Fire Protection:</system:String>
+    <system:String x:Key="Ench2">Feather Falling:</system:String>
+    <system:String x:Key="Ench3">Blast Protection:</system:String>
+    <system:String x:Key="Ench4">Projectile Protection:</system:String>
+    <system:String x:Key="Ench5">Respiration:</system:String>
+    <system:String x:Key="Ench6">Aqua Affinity:</system:String>
+    <system:String x:Key="Ench7">Thorns:</system:String>
+    <system:String x:Key="Ench8">Depth Strider:</system:String>
+    <system:String x:Key="Ench9">Frost Walker:</system:String>
+    <system:String x:Key="Ench10">Curse of Binding:</system:String>
+    <system:String x:Key="Ench16">Sharpness:</system:String>
+    <system:String x:Key="Ench17">Smite:</system:String>
+    <system:String x:Key="Ench18">Bane of Arthropods:</system:String>
+    <system:String x:Key="Ench19">Knockback:</system:String>
+    <system:String x:Key="Ench20">Fire Aspect:</system:String>
+    <system:String x:Key="Ench21">Looting:</system:String>
+    <system:String x:Key="Ench22">Sweeping Edge:</system:String>
+    <system:String x:Key="Ench32">Efficiency:</system:String>
+    <system:String x:Key="Ench33">Silk Touch:</system:String>
+    <system:String x:Key="Ench34">Unbreaking:</system:String>
+    <system:String x:Key="Ench35">Fortune:</system:String>
+    <system:String x:Key="Ench48">Power:</system:String>
+    <system:String x:Key="Ench49">Punch:</system:String>
+    <system:String x:Key="Ench50">Flame:</system:String>
+    <system:String x:Key="Ench51">Infinity:</system:String>
+    <system:String x:Key="Ench61">Luck of the Sea:</system:String>
+    <system:String x:Key="Ench62">Lure:</system:String>
+    <system:String x:Key="Ench70">Mending:</system:String>
+    <system:String x:Key="Ench71">Curse of Vanishing:</system:String>
+    <!--#endregion-->
+    <!--#endregion-->
+
+    <!--#region  动作属性设置UI -->
+    <Thickness x:Key="RotationPadding">4,2,-2,2</Thickness>
+    <system:Double x:Key="PoseWidth">62.875</system:Double>
+    <HorizontalAlignment x:Key="RotationAlignment">Center</HorizontalAlignment>
+    <Thickness x:Key="AdvancedModeMargin">10,125,0,0</Thickness>
+    <!--#endregion-->
+
+    <!--#region  页面布局属性设置UI -->
+    <system:Double x:Key="NameLabelLength">59</system:Double>
+    <system:Double x:Key="NameTextboxLength">191</system:Double>
+    <system:Double x:Key="TagLabelLength">50</system:Double>
+    <system:Double x:Key="TagTextboxLength">200</system:Double>
+    <system:Double x:Key="ItemNameTextboxLength">196</system:Double>
+
+    <system:Double x:Key="AttackDamgeLabelLength">86</system:Double>
+    <system:Double x:Key="AttackDamageNumberboxLength">98</system:Double>
+    <system:Double x:Key="FollowRangeLabelLength">75</system:Double>
+    <system:Double x:Key="FollowRangeNumberboxLength">109</system:Double>
+    <system:Double x:Key="MaxHealthLabelLength">65</system:Double>
+    <system:Double x:Key="MaxHealthNumberboxLength">119</system:Double>
+    <system:Double x:Key="KnockBackResistanceLabelLength">119</system:Double>
+    <system:Double x:Key="KnockBackResistanceNumberboxLength">65</system:Double>
+    <system:Double x:Key="MovementSpeedLabelLength">97</system:Double>
+    <system:Double x:Key="MovementSpeedNumberboxLength">87</system:Double>
+    <system:Double x:Key="LuckLabelLength">38</system:Double>
+    <system:Double x:Key="LuckNumberboxLength">146</system:Double>
+    <system:Double x:Key="ArmorLabelLength">46</system:Double>
+    <system:Double x:Key="ArmorNumberboxLength">138</system:Double>
+    <system:Double x:Key="ArmorToughnessLabelLength">98</system:Double>
+    <system:Double x:Key="ArmorToughnessNumberboxLength">86</system:Double>
+    <system:Double x:Key="AttackSpeedLabelLength">75</system:Double>
+    <system:Double x:Key="AttackSpeedNumberboxLength">109</system:Double>
+
+    <system:Double x:Key="Ench0LabelLength">66</system:Double>
+    <system:Double x:Key="Ench0NumberboxLength">60</system:Double>
+    <system:Double x:Key="Ench1LabelLength">88</system:Double>
+    <system:Double x:Key="Ench1NumberboxLength">167</system:Double>
+    <system:Double x:Key="Ench2LabelLength">91</system:Double>
+    <system:Double x:Key="Ench2NumberboxLength">164</system:Double>
+    <system:Double x:Key="Ench3LabelLength">92</system:Double>
+    <system:Double x:Key="Ench3NumberboxLength">163</system:Double>
+    <system:Double x:Key="Ench4LabelLength">115</system:Double>
+    <system:Double x:Key="Ench4NumberboxLength">140</system:Double>
+    <system:Double x:Key="Ench5LabelLength">70</system:Double>
+    <system:Double x:Key="Ench5NumberboxLength">48</system:Double>
+    <system:Double x:Key="Ench6LabelLength">79</system:Double>
+    <system:Double x:Key="Ench6NumberboxLength">176</system:Double>
+    <system:Double x:Key="Ench7LabelLength">50</system:Double>
+    <system:Double x:Key="Ench7NumberboxLength">69</system:Double>
+    <system:Double x:Key="Ench8LabelLength">81</system:Double>
+    <system:Double x:Key="Ench8NumberboxLength">174</system:Double>
+    <system:Double x:Key="Ench9LabelLength">81</system:Double>
+    <system:Double x:Key="Ench9NumberboxLength">174</system:Double>
+    <system:Double x:Key="Ench10LabelLength">97</system:Double>
+    <system:Double x:Key="Ench10NumberboxLength">158</system:Double>
+    <system:Double x:Key="Ench16LabelLength">65</system:Double>
+    <system:Double x:Key="Ench16NumberboxLength">62</system:Double>
+    <system:Double x:Key="Ench17LabelLength">65</system:Double>
+    <system:Double x:Key="Ench17NumberboxLength">62</system:Double>
+    <system:Double x:Key="Ench18LabelLength">112</system:Double>
+    <system:Double x:Key="Ench18NumberboxLength">143</system:Double>
+    <system:Double x:Key="Ench19LabelLength">66</system:Double>
+    <system:Double x:Key="Ench19NumberboxLength">61</system:Double>
+    <system:Double x:Key="Ench20LabelLength">69</system:Double>
+    <system:Double x:Key="Ench20NumberboxLength">58</system:Double>
+    <system:Double x:Key="Ench21LabelLength">51</system:Double>
+    <system:Double x:Key="Ench21NumberboxLength">67</system:Double>
+    <system:Double x:Key="Ench22LabelLength">87</system:Double>
+    <system:Double x:Key="Ench22NumberboxLength">168</system:Double>
+    <system:Double x:Key="Ench32LabelLength">63</system:Double>
+    <system:Double x:Key="Ench32NumberboxLength">64</system:Double>
+    <system:Double x:Key="Ench33LabelLength">63</system:Double>
+    <system:Double x:Key="Ench33NumberboxLength">64</system:Double>
+    <system:Double x:Key="Ench34LabelLength">72</system:Double>
+    <system:Double x:Key="Ench34NumberboxLength">55</system:Double>
+    <system:Double x:Key="Ench35LabelLength">54</system:Double>
+    <system:Double x:Key="Ench35NumberboxLength">73</system:Double>
+    <system:Double x:Key="Ench48LabelLength">45</system:Double>
+    <system:Double x:Key="Ench48NumberboxLength">73</system:Double>
+    <system:Double x:Key="Ench49LabelLength">44</system:Double>
+    <system:Double x:Key="Ench49NumberboxLength">74</system:Double>
+    <system:Double x:Key="Ench50LabelLength">53</system:Double>
+    <system:Double x:Key="Ench50NumberboxLength">65</system:Double>
+    <system:Double x:Key="Ench51LabelLength">49</system:Double>
+    <system:Double x:Key="Ench51NumberboxLength">69</system:Double>
+    <system:Double x:Key="Ench61LabelLength">91</system:Double>
+    <system:Double x:Key="Ench61NumberboxLength">164</system:Double>
+    <system:Double x:Key="Ench62LabelLength">39</system:Double>
+    <system:Double x:Key="Ench62NumberboxLength">79</system:Double>
+    <system:Double x:Key="Ench70LabelLength">57</system:Double>
+    <system:Double x:Key="Ench70NumberboxLength">61</system:Double>
+    <system:Double x:Key="Ench71LabelLength">111</system:Double>
+    <system:Double x:Key="Ench71NumberboxLength">144</system:Double>
+    <!--#endregion-->
+    <!--#endregion-->
+
+    <!--#region  Output Control -->
+    <system:String x:Key="OutPut">OutPut</system:String>
+    <system:String x:Key="Retrieval">Retrieval</system:String>
+    <!--#endregion-->
+
+</ResourceDictionary>

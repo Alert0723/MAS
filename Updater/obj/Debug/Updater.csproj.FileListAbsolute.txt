@@ -1,0 +1,40 @@
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Updater\bin\Debug\MAS Updater.exe
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Updater\bin\Debug\MAS Updater.pdb
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Updater\obj\Debug\Updater.csprojResolveAssemblyReference.cache
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Updater\obj\Debug\MainWindow.g.cs
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Updater\obj\Debug\App.g.cs
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Updater\obj\Debug\MAS Updater_MarkupCompile.cache
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Updater\obj\Debug\MAS Updater_MarkupCompile.lref
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Updater\obj\Debug\App.baml
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Updater\obj\Debug\MainWindow.baml
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Updater\obj\Debug\MAS Updater.g.resources
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Updater\obj\Debug\Updater.Properties.Resources.resources
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Updater\obj\Debug\Updater.csproj.GenerateResource.Cache
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Updater\obj\Debug\Updater.csproj.CoreCompileInputs.cache
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Updater\obj\Debug\MAS Updater.exe
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Updater\obj\Debug\MAS Updater.pdb
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Updater\bin\Debug\MAS Updater.exe.manifest
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Updater\bin\Debug\MAS Updater.application
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Updater\obj\Debug\MAS Updater.TrustInfo.xml
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Updater\obj\Debug\MAS Updater.exe.manifest
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Updater\obj\Debug\MAS Updater.application
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Updater\bin\Debug\MAS Updater.exe.manifest
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Updater\bin\Debug\MAS Updater.application
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Updater\bin\Debug\MAS Updater.exe
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Updater\bin\Debug\MAS Updater.pdb
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Updater\obj\Debug\MainWindow.g.cs
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Updater\obj\Debug\App.g.cs
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Updater\obj\Debug\MAS Updater_MarkupCompile.cache
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Updater\obj\Debug\MAS Updater_MarkupCompile.lref
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Updater\obj\Debug\App.baml
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Updater\obj\Debug\MainWindow.baml
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Updater\obj\Debug\MAS Updater.g.resources
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Updater\obj\Debug\Updater.Properties.Resources.resources
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Updater\obj\Debug\Updater.csproj.GenerateResource.Cache
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Updater\obj\Debug\Updater.csproj.CoreCompileInputs.cache
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Updater\obj\Debug\MAS Updater.TrustInfo.xml
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Updater\obj\Debug\MAS Updater.exe.manifest
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Updater\obj\Debug\MAS Updater.application
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Updater\obj\Debug\MAS Updater.exe
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Updater\obj\Debug\MAS Updater.pdb
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Updater\obj\Debug\Updater.csprojResolveAssemblyReference.cache
