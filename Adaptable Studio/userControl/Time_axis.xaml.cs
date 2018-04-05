@@ -90,14 +90,12 @@ namespace Adaptable_Studio
         {
             e.Handled = true;
             Tick = 0;
-            TimeGrid.Children.Remove(timePoint);
-            TimeLine(0);
-            TimeGrid.Children.Add(timePoint);
         }
 
         private void Control_Loaded(object sender, RoutedEventArgs e)
         {
             if (TotalTick < Canvas.Width) TotalTick = (long)(Canvas.Width / KeyWidth);
+            TimeGridRedraw(sender, e);
             //时间线
             timePoint = new Line()
             {
@@ -106,24 +104,12 @@ namespace Adaptable_Studio
                 X1 = (Tick + 1) * KeyWidth - KeyWidth / 2,
                 X2 = (Tick + 1) * KeyWidth - KeyWidth / 2,
                 Y1 = 0,
-                Y2 = TimeGrid.ActualHeight
+                Y2 = TimeGrid.ActualHeight,
+                IsHitTestVisible = false
             };
             TimeGrid.Children.Add(timePoint);
 
-            //原点关键帧
-            double d = lineWidth * Math.Sin(Math.PI / 4) / 2;//菱形水平始末间距                
-            keyFrame = new Line()
-            {
-                Tag = 0,
-                Stroke = Brushes.LightCyan,
-                StrokeThickness = lineWidth,//线条宽度
-                X1 = KeyWidth / 2 - d,
-                X2 = KeyWidth / 2 + d,
-                Y1 = top - d,
-                Y2 = top + d
-            };
-            keyFrame.MouseDown += First_KeyFrame;
-            TimeGrid.Children.Add(keyFrame);
+            pose[0].key = true;
         }
 
         private void Control_Focus(object sender, RoutedEventArgs e)
@@ -149,7 +135,7 @@ namespace Adaptable_Studio
             else Shadow_1.Opacity = 1;
         }
 
-        /// <summary> 关键帧数据运算 </summary>
+        /// <summary> 关键帧补间数据运算 </summary>
         private void KeyChanged()
         {
             int start, end = 0;//补间始末数据
@@ -175,7 +161,8 @@ namespace Adaptable_Studio
                         {
                             pose[p].pos[q] = pose[start].pos[q];
                             //每元素平均增量
-                            if (p != start) pose[p].pos[q] += (p - start + 1) * (pose[end].pos[q] - pose[start].pos[q]) / TickDelay;
+                            if (p != start)
+                                pose[p].pos[q] += (p - start + 1) * (pose[end].pos[q] - pose[start].pos[q]) / TickDelay;
                         }
                     }
                 }
@@ -183,7 +170,8 @@ namespace Adaptable_Studio
             //多余数据重置
             for (i = end + 1; i < TotalTick; i++)
             {
-                for (int j = 0; j < 19; j++) pose[i].pos[j] = 0;
+                for (int j = 0; j < 19; j++)
+                    pose[i].pos[j] = pose[end].pos[j];
             }
         }
 
@@ -225,16 +213,20 @@ namespace Adaptable_Studio
                 Y2 = Y + d
             };
             keyFrame.MouseDown += KeyFrameMouseDown;
-            keyFrame.MouseLeave += KeyFrameMouseLeave;
+            keyFrame.ContextMenu = (ContextMenu)Resources["KeyFrameMenu"];
+
         }
         #endregion
 
-        const float lineWidth = 6,//线条宽度
-                    top = 25,//到顶部距离
+        const float lineWidth = 6.5f,//关键帧线宽
+                    top = 25,//关键帧到顶部距离
                     KeyWidth = 20;//帧宽度
+        long KeyClickMark = 0;//帧位置暂存数据
         #region Grid元素绘制/事件
-        private void TimeGridResized(object sender, SizeChangedEventArgs e)
+        /// <summary> 控件UI重绘 </summary>        
+        private void TimeGridRedraw(object sender, EventArgs e)
         {
+            #region Clear
             //倒序索引删除刻度+标识
             int index = Canvas.Children.Count;
             for (int i = index - 1; i >= 0; i--)
@@ -243,15 +235,21 @@ namespace Adaptable_Studio
                 else if (Canvas.Children[i] is TextBlock) Canvas.Children.Remove(Canvas.Children[i]);
             }
 
-            for (int i = 1; i <= TotalTick; i++)
+            //倒序索引删除 时间线+关键帧+过渡段
+            index = TimeGrid.Children.Count;
+            for (int i = index - 1; i >= 0; i--)
+                if (TimeGrid.Children[i] is Line) TimeGrid.Children.Remove(TimeGrid.Children[i]);
+            #endregion
+
+            for (int i = 0; i <= TotalTick - 1; i++)
             {
                 //添加刻度-tick
                 timeScale = new Line()
                 {
                     Stroke = Brushes.LightSteelBlue,
-                    StrokeThickness = 0.5,//线条宽度
-                    X1 = i * KeyWidth - KeyWidth / 2,
-                    X2 = i * KeyWidth - KeyWidth / 2,
+                    StrokeThickness = 0.5,//宽度
+                    X1 = (i + 1) * KeyWidth - KeyWidth / 2,
+                    X2 = (i + 1) * KeyWidth - KeyWidth / 2,
                     Y1 = 0,
                     Y2 = 8,
                     IsHitTestVisible = false
@@ -262,9 +260,9 @@ namespace Adaptable_Studio
                 timeScale = new Line()
                 {
                     Stroke = new SolidColorBrush(Color.FromArgb(100, 17, 158, 218)),
-                    StrokeThickness = 0.8,//线条宽度
-                    X1 = i * KeyWidth,
-                    X2 = i * KeyWidth,
+                    StrokeThickness = 0.8,//宽度
+                    X1 = (i + 1) * KeyWidth,
+                    X2 = (i + 1) * KeyWidth,
                     Y1 = 0,
                     Y2 = TimeGrid.ActualHeight,
                     IsHitTestVisible = false
@@ -272,18 +270,38 @@ namespace Adaptable_Studio
                 Canvas.Children.Add(timeScale);
 
                 //添加刻度数字标识
-                int length = (i - 1).ToString().Length;//刻度数字位数
+                int length = i.ToString().Length;//刻度数字位数
                 TextBlock tb = new TextBlock()
                 {
                     IsEnabled = false,
-                    Margin = new Thickness(i * KeyWidth - KeyWidth / 2 - 2.2 * length, 7, Margin.Right, Margin.Bottom),
-                    Text = (i - 1).ToString(),
+                    Margin = new Thickness((i + 1) * KeyWidth - KeyWidth / 2 - 2.2 * length, 7, Margin.Right, Margin.Bottom),
+                    Text = i.ToString(),
                     FontSize = 8,
                     Foreground = new SolidColorBrush(Color.FromArgb(255, 150, 150, 150)),
                     IsHitTestVisible = false
                 };
                 Canvas.Children.Add(tb);
+
+                //添加关键帧
+                int t = 0;//关键帧数量
+                double a = lineWidth * Math.Sin(Math.PI / 4) / 2;//菱形水平始末间距
+                if (pose[i].key)
+                {
+                    NewKeyFrame(ref keyFrame, (i + 0.5) * KeyWidth, top, a, i.ToString());//新建关键帧
+                    TimeGrid.Children.Add(keyFrame);
+                    t++;
+                }
             }
+
+            //添加帧定位指针
+            TimeGrid.Children.Remove(timePoint);
+            TimeLine(Tick);
+            TimeGrid.Children.Add(timePoint);
+        }
+
+        private void TimeGridResized(object sender, SizeChangedEventArgs e)
+        {
+            TimeGridRedraw(sender, e);
         }
 
         private void TimeGrid_PreviewMouseDown(object sender, MouseButtonEventArgs e)
@@ -306,60 +324,36 @@ namespace Adaptable_Studio
             {
                 if (e.GetPosition(TimeGrid).X >= i * KeyWidth && e.GetPosition(TimeGrid).X <= i * KeyWidth + KeyWidth)
                     Position = (long)(i * KeyWidth + KeyWidth / 2);
-            }
+            }//计算鼠标对应帧位置
 
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 mousedown = true;
                 Tick = (long)(Position / KeyWidth);
-                TimeGrid.Children.Remove(timePoint);
-                TimeLine(Tick);
-                TimeGrid.Children.Add(timePoint);
             }//鼠标左键按下
             else if (e.RightButton == MouseButtonState.Pressed)
             {
-                if (pose[(int)(Position / KeyWidth - 0.5)].key == false)//无关键帧条件
-                {
-                    double a = lineWidth * Math.Sin(Math.PI / 4) / 2;//菱形水平始末间距
-                    NewKeyFrame(ref keyFrame, Position, top, a, ((int)(Position / KeyWidth - 0.5)).ToString());//新建关键帧
-                    pose[(int)(Position / KeyWidth - 0.5)].key = true;//关键帧位置
-                    TimeGrid.Children.Add(keyFrame);
-
-                    int t = 0;
-                    foreach (var item in TimeGrid.Children)
-                        if (((Line)item).Tag != null) t++;//检测关键帧数量
-                }
+                pose[(int)(Position / KeyWidth - 0.5)].key = true;//关键帧位置
             }//鼠标右键按下
-            KeyChanged();//关键帧补间事件
+
+            TimeGridRedraw(sender, e);
+            KeyChanged();
         }
 
-        /// <summary> 关键帧点击事件 </summary>
+        /// <summary> 关键帧左键定位/右键菜单数据暂存 </summary>
         private void KeyFrameMouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 e.Handled = true;
                 Tick = long.Parse(((Line)sender).Tag.ToString());
-                TimeGrid.Children.Remove(timePoint);
-                TimeLine(Tick);
-                TimeGrid.Children.Add(timePoint);
+                TimeGridRedraw(sender, e);
             }//鼠标左键按下
             else if (e.RightButton == MouseButtonState.Pressed)
             {
                 e.Handled = true;
-                pose[long.Parse(((Line)sender).Tag.ToString())].key = false;
-                TimeGrid.Children.Remove((Line)sender);
-            }//鼠标右键按下
-            KeyChanged();//关键帧补间事件
-        }
-
-        private void TimeGridMouseEnter(object sender, MouseEventArgs e)
-        {
-            KeyChanged();
-        }
-
-        private void KeyFrameMouseLeave(object sender, MouseEventArgs e)
-        {
+                KeyClickMark = long.Parse(((Line)sender).Tag.ToString());
+            }//鼠标右键按下            
             KeyChanged();
         }
 
@@ -373,9 +367,7 @@ namespace Adaptable_Studio
                     if (e.GetPosition(TimeGrid).X >= i * KeyWidth && e.GetPosition(TimeGrid).X <= i * KeyWidth + KeyWidth)
                         Tick = (long)(i + 0.5);
                 }
-                TimeGrid.Children.Remove(timePoint);
                 TimeLine(Tick);
-                TimeGrid.Children.Add(timePoint);
             }
         }
 
@@ -388,6 +380,42 @@ namespace Adaptable_Studio
         {
             mousedown = false;
         }
+        #endregion
+
+        #region KeyFrame ContestMenu
+        private void FrameForward_Click(object sender, RoutedEventArgs e)
+        {
+            if (KeyClickMark > 0)
+            {
+                pose[KeyClickMark - 1] = pose[KeyClickMark];
+                pose[KeyClickMark].key = false;
+                TimeGridRedraw(sender, e);
+                KeyChanged();
+            }
+        }
+
+        private void FrameBackward_Click(object sender, RoutedEventArgs e)
+        {
+            if (KeyClickMark < TotalTick - 1)
+            {
+                pose[KeyClickMark + 1] = pose[KeyClickMark];
+                pose[KeyClickMark].key = false;
+                TimeGridRedraw(sender, e);
+                KeyChanged();
+            }
+        }
+
+        /// <summary> 关键帧删除 </summary>      
+        private void DeleteFrame_Click(object sender, RoutedEventArgs e)
+        {
+            if (KeyClickMark != 0)
+            {
+                pose[KeyClickMark].key = false;
+                TimeGridRedraw(sender, e);
+                KeyChanged();
+            }
+        }
+
         #endregion
 
         #region Media Button
@@ -438,7 +466,7 @@ namespace Adaptable_Studio
 
         private void Play_Mousedown(object sender, MouseButtonEventArgs e)
         {
-            KeyChanged();//关键帧补间事件
+            KeyChanged();
             if (play_pause_button.Pressed) timer.Start();
             else timer.Stop();
         }
@@ -454,9 +482,7 @@ namespace Adaptable_Studio
             home_button.Pressed = false;
             Scroll.ScrollToHorizontalOffset(0);
             Tick = 0;
-            TimeGrid.Children.Remove(timePoint);
-            TimeLine(Tick);
-            this.TimeGrid.Children.Add(timePoint);
+            TimeGridRedraw(sender, e);
         }
 
         /// <summary> 重置时间轴 </summary>

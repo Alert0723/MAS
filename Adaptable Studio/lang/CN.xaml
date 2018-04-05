@@ -92,7 +92,6 @@
     <!--#endregion-->
 
     <!--#region  盔甲架部位 -->
-    <system:String x:Key="Position_Direction">反向部位旋转</system:String>
     <system:String x:Key="Rotation">动作朝向</system:String>
     <system:String x:Key="Head">头部</system:String>
     <system:String x:Key="Body">躯干</system:String>
@@ -166,6 +165,21 @@
     <system:String x:Key="Ench62">饵钓:</system:String>
     <system:String x:Key="Ench70">经验修补:</system:String>
     <system:String x:Key="Ench71">消失诅咒:</system:String>
+    <!--#endregion-->
+    <!--#endregion-->
+
+    <!--#region  高级模式 -->
+    <!--#region  KeyFrame ContestMenu -->
+    <system:String x:Key="MoveFrameForward">前移关键帧(_F)</system:String>
+    <system:String x:Key="MoveFrameBackward">后移关键帧(_B)</system:String>
+    <system:String x:Key="CopyFrame">复制帧至...</system:String>
+    <system:String x:Key="DeleteFrame">删除关键帧(_D)</system:String>
+
+    <system:String x:Key="DeleteTip">无法删除初始帧</system:String>
+    <!--#endregion-->
+
+    <!--#region  Transition ContestMenu -->
+    <system:String x:Key="Position_Direction">反向部位旋转</system:String>
     <!--#endregion-->
     <!--#endregion-->
 

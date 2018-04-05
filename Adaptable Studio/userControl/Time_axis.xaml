@@ -9,34 +9,43 @@
              mc:Ignorable="d"
              Height="80" Width="608.055" Loaded="Control_Loaded" GotFocus="Control_Focus" LostFocus="Control_Focus">
     <UserControl.Resources>
-        <ContextMenu x:Key="ContextMenu">
-            <MenuItem Name="PartDirection" Header="{DynamicResource Position_Direction}">
-                <MenuItem Name="Head" Header="{DynamicResource Head}">
+        <ContextMenu x:Key="KeyFrameMenu">
+            <!--<MenuItem Name="MoveForwardData" FontSize="11" Header="{DynamicResource MoveFrameForward}" Click="FrameForward_Click"/>
+            <MenuItem Name="MoveBackwardData" FontSize="11" Header="{DynamicResource MoveFrameBackward}" Click="FrameBackward_Click"/>-->
+            <MenuItem Name="CopyData" FontSize="11" Header="{DynamicResource CopyFrame}">
+                <TextBox/>
+            </MenuItem>
+            <Separator></Separator>
+            <MenuItem Name="DeleteFrame" FontSize="11" Header="{DynamicResource DeleteFrame}" ToolTip="{DynamicResource DeleteTip}" Click="DeleteFrame_Click"/>
+        </ContextMenu>
+        <ContextMenu x:Key="TransitionMenu">
+            <MenuItem Name="PartDirection" FontSize="11" Header="{DynamicResource Position_Direction}">
+                <MenuItem Name="Head" FontSize="11" Header="{DynamicResource Head}">
                     <CheckBox Name="Head_X" Content="X" Style="{DynamicResource CustomCheckBox}"/>
                     <CheckBox Name="Head_Y" Content="Y" Style="{DynamicResource CustomCheckBox}"/>
                     <CheckBox Name="Head_Z" Content="Z" Style="{DynamicResource CustomCheckBox}"/>
                 </MenuItem>
-                <MenuItem Name="Body" Header="{DynamicResource Body}">
+                <MenuItem Name="Body" FontSize="11" Header="{DynamicResource Body}">
                     <CheckBox Name="Body_X" Content="X" Style="{DynamicResource CustomCheckBox}"/>
                     <CheckBox Name="Body_Y" Content="Y" Style="{DynamicResource CustomCheckBox}"/>
                     <CheckBox Name="Body_Z" Content="Z" Style="{DynamicResource CustomCheckBox}"/>
                 </MenuItem>
-                <MenuItem Name="LeftArm" Header="{DynamicResource LeftArm}">
+                <MenuItem Name="LeftArm" FontSize="11" Header="{DynamicResource LeftArm}">
                     <CheckBox Name="LeftArm_X" Content="X" Style="{DynamicResource CustomCheckBox}"/>
                     <CheckBox Name="LeftArm_Y" Content="Y" Style="{DynamicResource CustomCheckBox}"/>
                     <CheckBox Name="LeftArm_Z" Content="Z" Style="{DynamicResource CustomCheckBox}"/>
                 </MenuItem>
-                <MenuItem Name="RightArm" Header="{DynamicResource RightArm}">
+                <MenuItem Name="RightArm" FontSize="11" Header="{DynamicResource RightArm}">
                     <CheckBox Name="RightArm_X" Content="X" Style="{DynamicResource CustomCheckBox}"/>
                     <CheckBox Name="RightArm_Y" Content="Y" Style="{DynamicResource CustomCheckBox}"/>
                     <CheckBox Name="RightArm_Z" Content="Z" Style="{DynamicResource CustomCheckBox}"/>
                 </MenuItem>
-                <MenuItem Name="LeftLeg" Header="{DynamicResource LeftLeg}">
+                <MenuItem Name="LeftLeg" FontSize="11" Header="{DynamicResource LeftLeg}">
                     <CheckBox Name="LeftLeg_X" Content="X" Style="{DynamicResource CustomCheckBox}"/>
                     <CheckBox Name="LeftLeg_Y" Content="Y" Style="{DynamicResource CustomCheckBox}"/>
                     <CheckBox Name="LeftLeg_Z" Content="Z" Style="{DynamicResource CustomCheckBox}"/>
                 </MenuItem>
-                <MenuItem Name="RightLeg" Header="{DynamicResource RightLeg}">
+                <MenuItem Name="RightLeg" FontSize="11" Header="{DynamicResource RightLeg}">
                     <CheckBox Name="RightLeg_X" Content="X" Style="{DynamicResource CustomCheckBox}"/>
                     <CheckBox Name="RightLeg_Y" Content="Y" Style="{DynamicResource CustomCheckBox}"/>
                     <CheckBox Name="RightLeg_Z" Content="Z" Style="{DynamicResource CustomCheckBox}"/>
@@ -534,7 +543,7 @@
                 </ei:FluidMoveBehavior>
             </i:Interaction.Behaviors>
             <Canvas x:Name="Canvas" Background="{Binding Background, ElementName=TimeGrid}" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="{Binding Width, ElementName=Scroll}" Margin="0,20,0,0">
-                <Grid x:Name="TimeGrid" ContextMenu="{StaticResource ContextMenu}" Height="{Binding Height, ElementName=Canvas}" MouseMove="TimeGridMouseMove" MouseDown="TimeGridMouseDown" Background="#FF363636" MouseLeave="TimeGridMouseLeave" MouseUp="TimeGridMouseUp" SizeChanged="TimeGridResized" VerticalAlignment="Top" Width="473" Canvas.Left="0" MouseWheel="Scroll_Horizontal_Changed" PreviewMouseDown="TimeGrid_PreviewMouseDown" PreviewMouseMove="TimeGrid_PreviewMouseMove" MouseEnter="TimeGridMouseEnter"/>
+                <Grid x:Name="TimeGrid" Height="{Binding Height, ElementName=Canvas}" MouseMove="TimeGridMouseMove" MouseDown="TimeGridMouseDown" Background="#FF363636" MouseUp="TimeGridMouseUp" SizeChanged="TimeGridResized" VerticalAlignment="Top" Width="473" Canvas.Left="0" MouseWheel="Scroll_Horizontal_Changed" PreviewMouseDown="TimeGrid_PreviewMouseDown" PreviewMouseMove="TimeGrid_PreviewMouseMove"/>
             </Canvas>
         </ScrollViewer>
         <Rectangle StrokeThickness="0" Fill="#FF119EDA" Margin="-132.813,0,0,0" Width="608.055">

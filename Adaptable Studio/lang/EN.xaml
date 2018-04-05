@@ -15,7 +15,7 @@
     <system:String x:Key="FindNewVer">New Version：</system:String>
     <system:String x:Key="UpdateNow">Update Now</system:String>
     <!--#endregion-->
-    
+
     <!--#region  OutPut Window -->
     <system:String x:Key="CopyCommands">Copy Commands</system:String>
     <system:String x:Key="Generate.NBTFiles">Generate .nbt Files</system:String>
@@ -52,7 +52,7 @@
     <system:String x:Key="OpenGL_Axis">Axis</system:String>
     <system:String x:Key="OpenGL_Scale">Scale</system:String>
     <!--#endregion-->
-    
+
     <!--#region  MAS.C -->
     <!--#region  禁用提示 -->
     <system:String x:Key="Enable_Pose">You need to enable Pose Setting</system:String>
@@ -92,7 +92,6 @@
     <!--#endregion-->
 
     <!--#region  盔甲架部位 -->
-    <system:String x:Key="Position_Direction">Reverse rotation</system:String>
     <system:String x:Key="Rotation">Rotation</system:String>
     <system:String x:Key="Head">Head</system:String>
     <system:String x:Key="Body">Body</system:String>
@@ -166,6 +165,21 @@
     <system:String x:Key="Ench62">Lure:</system:String>
     <system:String x:Key="Ench70">Mending:</system:String>
     <system:String x:Key="Ench71">Curse of Vanishing:</system:String>
+    <!--#endregion-->
+    <!--#endregion-->
+
+    <!--#region  盔甲架部位 -->
+    <!--#region  KeyFrame ContextMenu -->
+    <system:String x:Key="MoveFrameForward">Move forward this frame(_F)</system:String>
+    <system:String x:Key="MoveFrameBackward">Move backward this frame(_B)</system:String>
+    <system:String x:Key="CopyFrame">Copy this frame to...</system:String>
+    <system:String x:Key="DeleteFrame">Delete this frame(_D)</system:String>
+
+    <system:String x:Key="DeleteTip">The first key frame can't be deleted</system:String>
+    <!--#endregion-->
+
+    <!--#region  Transition ContextMenu -->
+    <system:String x:Key="Position_Direction">Reverse rotation</system:String>
     <!--#endregion-->
     <!--#endregion-->
 
@@ -263,6 +277,11 @@
     <system:Double x:Key="Ench71LabelLength">111</system:Double>
     <system:Double x:Key="Ench71NumberboxLength">144</system:Double>
     <!--#endregion-->
+    <!--#endregion-->
+
+    <!--#region  MAS.P -->
+
+
     <!--#endregion-->
 
     <!--#region  Output Control -->
