@@ -10,10 +10,12 @@
              Height="80" Width="608.055" Loaded="Control_Loaded" GotFocus="Control_Focus" LostFocus="Control_Focus">
     <UserControl.Resources>
         <ContextMenu x:Key="KeyFrameMenu">
-            <!--<MenuItem Name="MoveForwardData" FontSize="11" Header="{DynamicResource MoveFrameForward}" Click="FrameForward_Click"/>
-            <MenuItem Name="MoveBackwardData" FontSize="11" Header="{DynamicResource MoveFrameBackward}" Click="FrameBackward_Click"/>-->
             <MenuItem Name="CopyData" FontSize="11" Header="{DynamicResource CopyFrame}">
-                <TextBox/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="14" Text="第"/>
+                    <TextBox />
+                    <TextBlock FontSize="14" Text="帧"/>
+                </StackPanel>
             </MenuItem>
             <Separator></Separator>
             <MenuItem Name="DeleteFrame" FontSize="11" Header="{DynamicResource DeleteFrame}" ToolTip="{DynamicResource DeleteTip}" Click="DeleteFrame_Click"/>

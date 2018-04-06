@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -383,28 +384,6 @@ namespace Adaptable_Studio
         #endregion
 
         #region KeyFrame ContestMenu
-        private void FrameForward_Click(object sender, RoutedEventArgs e)
-        {
-            if (KeyClickMark > 0)
-            {
-                pose[KeyClickMark - 1] = pose[KeyClickMark];
-                pose[KeyClickMark].key = false;
-                TimeGridRedraw(sender, e);
-                KeyChanged();
-            }
-        }
-
-        private void FrameBackward_Click(object sender, RoutedEventArgs e)
-        {
-            if (KeyClickMark < TotalTick - 1)
-            {
-                pose[KeyClickMark + 1] = pose[KeyClickMark];
-                pose[KeyClickMark].key = false;
-                TimeGridRedraw(sender, e);
-                KeyChanged();
-            }
-        }
-
         /// <summary> 关键帧删除 </summary>      
         private void DeleteFrame_Click(object sender, RoutedEventArgs e)
         {
@@ -415,7 +394,6 @@ namespace Adaptable_Studio
                 KeyChanged();
             }
         }
-
         #endregion
 
         #region Media Button

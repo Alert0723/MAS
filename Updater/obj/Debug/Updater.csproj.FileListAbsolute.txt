@@ -77,3 +77,4 @@ E:\Visual Studio Objectives\GitWorkArea\MAS\Updater\obj\Debug\MAS Updater.exe.ma
 E:\Visual Studio Objectives\GitWorkArea\MAS\Updater\obj\Debug\MAS Updater.application
 E:\Visual Studio Objectives\GitWorkArea\MAS\Updater\obj\Debug\MAS Updater.exe
 E:\Visual Studio Objectives\GitWorkArea\MAS\Updater\obj\Debug\MAS Updater.pdb
+E:\Visual Studio Objectives\GitWorkArea\MAS\Updater\obj\Debug\Updater.csprojResolveAssemblyReference.cache
