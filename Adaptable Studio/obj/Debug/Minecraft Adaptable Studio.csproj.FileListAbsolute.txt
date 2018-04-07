@@ -359,4 +359,3 @@ E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\Minecraft
 E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.application
 E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.exe
 E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.pdb
-E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.csprojResolveAssemblyReference.cache

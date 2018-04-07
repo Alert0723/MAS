@@ -170,9 +170,8 @@
 
     <!--#region  高级模式 -->
     <!--#region  KeyFrame ContestMenu -->
-    <system:String x:Key="MoveFrameForward">前移关键帧(_F)</system:String>
-    <system:String x:Key="MoveFrameBackward">后移关键帧(_B)</system:String>
-    <system:String x:Key="CopyFrame">复制帧至...</system:String>
+    <system:String x:Key="CopyFrame">复制帧数据(_C)</system:String>
+    <system:String x:Key="PasteFrame">黏贴帧数据(_V)</system:String>
     <system:String x:Key="DeleteFrame">删除关键帧(_D)</system:String>
 
     <system:String x:Key="DeleteTip">无法删除初始帧</system:String>

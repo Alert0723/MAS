@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -14,8 +13,9 @@ namespace Adaptable_Studio
     public partial class Time_axis : UserControl
     {
         Line timePoint = new Line(),//时间线
-             timeScale = new Line(),//刻度
-             keyFrame = new Line();//关键帧
+             timeScale = new Line(),//刻度+隔板
+             keyFrame = new Line(),//关键帧
+             transition = new Line();//过渡段
 
         bool mousedown;
         //0~2:head
@@ -25,10 +25,19 @@ namespace Adaptable_Studio
         //12~14:left leg
         //15~17:right leg
         //18:rotation
-        public struct Pose { public float[] pos; public bool key; }//时间轴结构体
+        public struct Pose { public float[] pos; public bool key; }//时间轴结构体        
 
         public Pose[] pose = new Pose[32767];//时间轴数据存储
+
+        bool[] OneResersed = new bool[19];//方向数据缓存
+        bool[][] IsReversed = new bool[32767][];//部位方向数据
+
         DispatcherTimer timer = new DispatcherTimer() { Interval = new TimeSpan(0, 0, 0, 0, 50) };//播放
+
+        #region 暂存数据
+        long ClickMark = 0;//位置暂存
+        Pose MarkPose = new Pose();//帧结构数据暂存
+        #endregion
 
         #region 自定义属性
         /// <summary> (只读)全局数据结构体 </summary>
@@ -84,7 +93,11 @@ namespace Adaptable_Studio
             InitializeComponent();
             timer.Tick += PlayTimer;//timer事件
             pose[0].key = true;
-            for (int i = 0; i < 32767; i++) pose[i].pos = new float[19]; //动作数据初始化
+            for (int i = 0; i < 32767; i++)
+            {
+                pose[i].pos = new float[19];
+                IsReversed[i] = new bool[19];
+            } //动作数据初始化
         }
 
         private void First_KeyFrame(object sender, MouseButtonEventArgs e)
@@ -176,23 +189,7 @@ namespace Adaptable_Studio
             }
         }
 
-        #region UI绘制模板
-        /// <summary> 新建线条 </summary>
-        private void NewLine(ref Line line, int lineWidth, long pointX, double pointY)
-        {
-            line = new Line()
-            {
-                Stroke = Brushes.LightCyan,
-                StrokeThickness = lineWidth,//线宽
-                X1 = pointX,
-                X2 = pointX,
-                Y1 = 0,
-                Y2 = pointY
-            };
-            line.MouseUp += TimeGridMouseUp;
-            line.MouseMove += TimeGridMouseMove;
-        }
-
+        #region UI绘制模板     
         /// <summary> 时间线位移 </summary>
         private void TimeLine(long tick)
         {
@@ -219,10 +216,9 @@ namespace Adaptable_Studio
         }
         #endregion
 
-        const float lineWidth = 6.5f,//关键帧线宽
-                    top = 25,//关键帧到顶部距离
-                    KeyWidth = 20;//帧宽度
-        long KeyClickMark = 0;//帧位置暂存数据
+        const float lineWidth = 6f,//关键帧线宽
+                    top = 25f,//关键帧到顶部距离
+                    KeyWidth = 20f;//帧宽度        
         #region Grid元素绘制/事件
         /// <summary> 控件UI重绘 </summary>        
         private void TimeGridRedraw(object sender, EventArgs e)
@@ -241,6 +237,10 @@ namespace Adaptable_Studio
             for (int i = index - 1; i >= 0; i--)
                 if (TimeGrid.Children[i] is Line) TimeGrid.Children.Remove(TimeGrid.Children[i]);
             #endregion
+
+            int t = 0;//关键帧偶数量检测
+            int TransitionIndex = 0;//过渡段索引
+            int start = 0, end = 0;//相邻帧位置记录
 
             for (int i = 0; i <= TotalTick - 1; i++)
             {
@@ -283,14 +283,36 @@ namespace Adaptable_Studio
                 };
                 Canvas.Children.Add(tb);
 
-                //添加关键帧
-                int t = 0;//关键帧数量
+                //添加关键帧                
                 double a = lineWidth * Math.Sin(Math.PI / 4) / 2;//菱形水平始末间距
                 if (pose[i].key)
                 {
                     NewKeyFrame(ref keyFrame, (i + 0.5) * KeyWidth, top, a, i.ToString());//新建关键帧
                     TimeGrid.Children.Add(keyFrame);
                     t++;
+                    end = i;
+                }
+
+                //添加过渡段
+                if (t != 0 && t % 2 == 0)
+                {
+                    transition = new Line()
+                    {
+                        Tag = "transition" + TransitionIndex,
+                        Stroke = Brushes.LightCyan,
+                        StrokeThickness = 4.5,//宽度
+                        X1 = (start + 1) * KeyWidth - KeyWidth / 5,
+                        X2 = (end + 1) * KeyWidth - 4 * KeyWidth / 5,
+                        Y1 = top,
+                        Y2 = top,
+                        ContextMenu = (ContextMenu)FindResource("TransitionMenu")
+                    };
+                    Panel.SetZIndex(transition, 0);
+                    transition.MouseDown += TransitionMouseDown;
+                    TimeGrid.Children.Add(transition);
+                    TransitionIndex++;
+                    t = 1;//数量统计清空
+                    start = i;//更改起始计算点
                 }
             }
 
@@ -341,23 +363,6 @@ namespace Adaptable_Studio
             KeyChanged();
         }
 
-        /// <summary> 关键帧左键定位/右键菜单数据暂存 </summary>
-        private void KeyFrameMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                e.Handled = true;
-                Tick = long.Parse(((Line)sender).Tag.ToString());
-                TimeGridRedraw(sender, e);
-            }//鼠标左键按下
-            else if (e.RightButton == MouseButtonState.Pressed)
-            {
-                e.Handled = true;
-                KeyClickMark = long.Parse(((Line)sender).Tag.ToString());
-            }//鼠标右键按下            
-            KeyChanged();
-        }
-
         private void TimeGridMouseMove(object sender, MouseEventArgs e)
         {
             //重绘时间线
@@ -381,15 +386,67 @@ namespace Adaptable_Studio
         {
             mousedown = false;
         }
+
+        /// <summary> 关键帧左键定位/右键菜单数据暂存 </summary>
+        private void KeyFrameMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                e.Handled = true;
+                Tick = long.Parse(((Line)sender).Tag.ToString());
+                TimeGridRedraw(sender, e);
+            }//鼠标左键按下
+            else if (e.RightButton == MouseButtonState.Pressed)
+            {
+                e.Handled = true;
+                ClickMark = long.Parse(((Line)sender).Tag.ToString());
+            }//鼠标右键按下            
+            KeyChanged();
+        }
+
+        /// <summary> 过渡段 右键菜单 </summary>
+        private void TransitionMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+
+            }//鼠标左键按下
+            else if (e.RightButton == MouseButtonState.Pressed)
+            {
+                e.Handled = true;
+                ClickMark = long.Parse(((Line)sender).Tag.ToString().Replace("transition", ""));
+                OneResersed = IsReversed[ClickMark];
+            }//鼠标右键按下
+        }
+        #endregion
+
+        #region Transition ContestMenu
+        private void PartDirection_Click(object sender, RoutedEventArgs e)
+        {
+            ((MenuItem)sender).IsChecked = !((MenuItem)sender).IsChecked;
+            IsReversed[ClickMark][long.Parse(((MenuItem)sender).Tag.ToString())] = ((MenuItem)sender).IsChecked;
+        }
         #endregion
 
         #region KeyFrame ContestMenu
-        /// <summary> 关键帧删除 </summary>      
+        /// <summary> 复制关键帧数据 </summary>
+        private void FrameCopy_Click(object sender, RoutedEventArgs e)
+        {
+            MarkPose = pose[ClickMark];
+        }
+
+        /// <summary> 黏贴关键帧数据 </summary>
+        private void FramePaste_Click(object sender, RoutedEventArgs e)
+        {
+            pose[ClickMark] = MarkPose;
+        }
+
+        /// <summary> 关键帧删除 </summary>
         private void DeleteFrame_Click(object sender, RoutedEventArgs e)
         {
-            if (KeyClickMark != 0)
+            if (ClickMark != 0)
             {
-                pose[KeyClickMark].key = false;
+                pose[ClickMark].key = false;
                 TimeGridRedraw(sender, e);
                 KeyChanged();
             }
