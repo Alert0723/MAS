@@ -29,13 +29,15 @@ namespace Adaptable_Studio
 
         public Pose[] pose = new Pose[32767];//时间轴数据存储
 
-        bool[] OneResersed = new bool[19];//方向数据缓存
-        bool[][] IsReversed = new bool[32767][];//部位方向数据
+        public static bool[] OneResersed = new bool[19];//方向数据缓存
+        public static bool[][] IsReversed = new bool[32767][];//部位方向数据
 
         DispatcherTimer timer = new DispatcherTimer() { Interval = new TimeSpan(0, 0, 0, 0, 50) };//播放
 
+        MASC_Part_Direction pd = new MASC_Part_Direction();
+
         #region 暂存数据
-        long ClickMark = 0;//位置暂存
+        public static long ClickMark = 0;//位置暂存
         Pose MarkPose = new Pose();//帧结构数据暂存
         #endregion
 
@@ -420,15 +422,16 @@ namespace Adaptable_Studio
         }
         #endregion
 
-        #region Transition ContestMenu
+        #region TransitionMenu
         private void PartDirection_Click(object sender, RoutedEventArgs e)
         {
-            ((MenuItem)sender).IsChecked = !((MenuItem)sender).IsChecked;
-            IsReversed[ClickMark][long.Parse(((MenuItem)sender).Tag.ToString())] = ((MenuItem)sender).IsChecked;
+            pd.Close();
+            pd = new MASC_Part_Direction();
+            pd.Show();
         }
         #endregion
 
-        #region KeyFrame ContestMenu
+        #region KeyFrame ContestMenu        
         /// <summary> 复制关键帧数据 </summary>
         private void FrameCopy_Click(object sender, RoutedEventArgs e)
         {
@@ -525,18 +528,20 @@ namespace Adaptable_Studio
         {
             Armor_stand_Page.poseChange = true;
 
-            play_pause_button.Pressed = false;
-            Play_Mousedown(sender, e);
-
-            reset_button.Pressed = false;
-            TimeGrid.Children.Clear();
-            Tick = 0;
-            Control_Loaded(sender, e);
-            for (int i = 1; i < TotalTick; i++) pose[i].key = false;
-            for (int i = 0; i < TotalTick; i++)
+            for (int i = 0; i < 32767; i++)
             {
-                for (int j = 0; j < 19; j++) pose[i].pos[j] = 0;
-            }
+                IsReversed[i] = new bool[19];
+                pose[i].pos = new float[19];
+                pose[i].key = false;
+            } //动作数据初始化
+
+            Tick = 0;
+            play_pause_button.Pressed = false;
+            reset_button.Pressed = false;
+
+            Play_Mousedown(sender, e);
+            Control_Loaded(sender, e);
+            TimeGridRedraw(sender, e);
         }
         #endregion
     }

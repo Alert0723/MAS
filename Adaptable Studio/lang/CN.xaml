@@ -178,7 +178,7 @@
     <!--#endregion-->
 
     <!--#region  Transition ContestMenu -->
-    <system:String x:Key="Position_Direction">反向部位旋转</system:String>
+    <system:String x:Key="Position_Direction">反向旋转部位设置</system:String>
     <!--#endregion-->
     <!--#endregion-->
 

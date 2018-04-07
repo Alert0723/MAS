@@ -138,6 +138,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="class\Dynamic code.cs" />
+    <Compile Include="Functional form\MASC-Part Direction.xaml.cs">
+      <DependentUpon>MASC-Part Direction.xaml</DependentUpon>
+    </Compile>
     <Compile Include="pages\Option_Page.xaml.cs">
       <DependentUpon>Option_Page.xaml</DependentUpon>
     </Compile>
@@ -171,6 +174,10 @@
     <Compile Include="VersionMessager.xaml.cs">
       <DependentUpon>VersionMessager.xaml</DependentUpon>
     </Compile>
+    <Page Include="Functional form\MASC-Part Direction.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="pages\Option_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

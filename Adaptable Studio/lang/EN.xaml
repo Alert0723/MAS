@@ -178,7 +178,7 @@
     <!--#endregion-->
 
     <!--#region  Transition ContextMenu -->
-    <system:String x:Key="Position_Direction">Reverse rotation</system:String>
+    <system:String x:Key="Position_Direction">Reverse rotation Setting</system:String>
     <!--#endregion-->
     <!--#endregion-->
 

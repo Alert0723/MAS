@@ -7,7 +7,8 @@
              xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"             
              x:Name="userControl" x:Class="Adaptable_Studio.Time_axis"
              mc:Ignorable="d"
-             Height="80" Width="608.055" Loaded="Control_Loaded" GotFocus="Control_Focus" LostFocus="Control_Focus">
+             Height="80" Width="608.055"
+             Loaded="Control_Loaded" GotFocus="Control_Focus" LostFocus="Control_Focus">
     <UserControl.Resources>
         <ContextMenu x:Key="KeyFrameMenu">
             <MenuItem Name="CopyData" FontSize="11" Header="{DynamicResource CopyFrame}" Click="FrameCopy_Click"/>
@@ -16,40 +17,7 @@
             <MenuItem Name="DeleteFrame" FontSize="11" Header="{DynamicResource DeleteFrame}" ToolTip="{DynamicResource DeleteTip}" Click="DeleteFrame_Click"/>
         </ContextMenu>
         <ContextMenu x:Key="TransitionMenu">
-            <MenuItem Name="PartDirection" FontSize="11" Header="{DynamicResource Position_Direction}">
-                <MenuItem Name="Rotation" Tag="18" FontSize="11" Header="{DynamicResource Rotation}" Click="PartDirection_Click"/>
-                <MenuItem Name="Head" FontSize="11" Header="{DynamicResource Head}">
-                    <MenuItem Name="Head_X" Tag="0" Header="X" Click="PartDirection_Click"/>
-                    <MenuItem Name="Head_Y" Tag="1" Header="Y" Click="PartDirection_Click"/>
-                    <MenuItem Name="Head_Z" Tag="2" Header="Z" Click="PartDirection_Click"/>
-                </MenuItem>
-                <MenuItem Name="Body" FontSize="11" Header="{DynamicResource Body}">
-                    <MenuItem Name="Body_X" Tag="3" Header="X" Click="PartDirection_Click"/>
-                    <MenuItem Name="Body_Y" Tag="4" Header="Y" Click="PartDirection_Click"/>
-                    <MenuItem Name="Body_Z" Tag="5" Header="Z" Click="PartDirection_Click"/>
-                </MenuItem>
-                <MenuItem Name="LeftArm" FontSize="11" Header="{DynamicResource LeftArm}">
-                    <MenuItem Name="LeftArm_X" Tag="6" Header="X" Click="PartDirection_Click"/>
-                    <MenuItem Name="LeftArm_Y" Tag="7" Header="Y" Click="PartDirection_Click"/>
-                    <MenuItem Name="LeftArm_Z" Tag="8" Header="Z" Click="PartDirection_Click"/>
-                </MenuItem>
-                <MenuItem Name="RightArm" FontSize="11" Header="{DynamicResource RightArm}">
-                    <MenuItem Name="RightArm_X" Tag="9" Header="X" Click="PartDirection_Click"/>
-                    <MenuItem Name="RightArm_Y" Tag="10" Header="Y" Click="PartDirection_Click"/>
-                    <MenuItem Name="RightArm_Z" Tag="11" Header="Z" Click="PartDirection_Click"/>
-                </MenuItem>
-                <MenuItem Name="LeftLeg" FontSize="11" Header="{DynamicResource LeftLeg}">
-                    <MenuItem Name="LeftLeg_X" Tag="12" Header="X" Click="PartDirection_Click"/>
-                    <MenuItem Name="LeftLeg_Y" Tag="13" Header="Y" Click="PartDirection_Click"/>
-                    <MenuItem Name="LeftLeg_Z" Tag="14" Header="Z" Click="PartDirection_Click"/>
-                </MenuItem>
-                <MenuItem Name="RightLeg" FontSize="11" Header="{DynamicResource RightLeg}">
-                    <MenuItem Name="RightLeg_X" Tag="15" Header="X" Click="PartDirection_Click"/>
-                    <MenuItem Name="RightLeg_Y" Tag="16" Header="Y" Click="PartDirection_Click"/>
-                    <MenuItem Name="RightLeg_Z" Tag="17" Header="Z" Click="PartDirection_Click"/>
-                </MenuItem>
-            </MenuItem>
-            <!--<Separator></Separator>-->
+            <MenuItem Name="PartDirection" FontSize="11" Header="{DynamicResource Position_Direction}" Click="PartDirection_Click"/>
         </ContextMenu>
         <ControlTemplate x:Key="ScrollViewerControlTemplate1" TargetType="{x:Type ScrollViewer}">
             <Grid x:Name="Grid" Background="{TemplateBinding Background}">
