@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -32,9 +33,7 @@ namespace Adaptable_Studio
         public static bool[] OneResersed = new bool[19];//方向数据缓存
         public static bool[][] IsReversed = new bool[32767][];//部位方向数据
 
-        DispatcherTimer timer = new DispatcherTimer() { Interval = new TimeSpan(0, 0, 0, 0, 50) };//播放
-
-        MASC_Part_Direction pd = new MASC_Part_Direction();
+        DispatcherTimer timer = new DispatcherTimer() { Interval = new TimeSpan(0, 0, 0, 0, 50) };//播放        
 
         #region 暂存数据
         public static long ClickMark = 0;//位置暂存
@@ -416,18 +415,22 @@ namespace Adaptable_Studio
             else if (e.RightButton == MouseButtonState.Pressed)
             {
                 e.Handled = true;
+                MousePosition.GetCursorPos(out p);
                 ClickMark = long.Parse(((Line)sender).Tag.ToString().Replace("transition", ""));
                 OneResersed = IsReversed[ClickMark];
             }//鼠标右键按下
         }
         #endregion
 
+        MousePosition.POINT p = new MousePosition.POINT(0, 0);
         #region TransitionMenu
         private void PartDirection_Click(object sender, RoutedEventArgs e)
         {
-            pd.Close();
-            pd = new MASC_Part_Direction();
+            MASC_Part_Direction pd = new MASC_Part_Direction();
+            pd.Left = p.X + 20;
+            pd.Top = p.Y - 150;
             pd.Show();
+            pd.Activate();
         }
         #endregion
 
