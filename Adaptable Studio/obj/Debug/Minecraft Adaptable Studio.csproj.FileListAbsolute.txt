@@ -361,3 +361,4 @@ E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\Minecraft
 E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.pdb
 E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\Functional form\MASC-Part Direction.baml
 E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\Functional form\MASC-Part Direction.g.cs
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.csprojResolveAssemblyReference.cache

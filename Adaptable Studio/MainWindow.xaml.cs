@@ -17,10 +17,10 @@ namespace Adaptable_Studio
         string AppPath = Environment.CurrentDirectory,//应用程序根目录
                LogPath;//日志文件路径
 
+        const string version = "Version:0.2.9.0 Alpha";//当前版本号
         public static bool _langCN = true;//汉英切换
         public static int PageIndex = -1;//页面读取值
         public static bool Restart = false;//重启判定
-        const string version = "Version:0.2.8.0 Alpha";//当前版本号
 
         public static string result = "";//指令结果
 
@@ -98,7 +98,7 @@ namespace Adaptable_Studio
             KillProcess("MAS Updater", false);
             File.Delete(AppPath + @"\MAS Updater.exe");
 
-        
+
             try
             {
                 StreamReader test = new StreamReader(WebRequest.Create("http://www.mcbbs.net/thread-580119-1-1.html").GetResponse().GetResponseStream(), Encoding.UTF8);
