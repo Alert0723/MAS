@@ -1,4 +1,4 @@
-﻿Version:0.2.9.0 Alpha
+﻿Version:0.3.0.0 Alpha
 Updater version:1.8.4
 更新时间:2018/4/14
 
@@ -10,8 +10,7 @@ Updater version:1.8.4
 
 
 ●MAS.C
-    时间轴:增加关键帧与过渡段；
-           增加右键菜单；
+    时间轴:修复帧数据复制不稳定问题
            初步搭建反向部位设置
 
 ●MAS.P
