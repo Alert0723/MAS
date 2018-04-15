@@ -445,6 +445,7 @@ namespace Adaptable_Studio
         private void FramePaste_Click(object sender, RoutedEventArgs e)
         {
             pose[ClickMark] = MarkPose;
+            KeyChanged();
         }
 
         /// <summary> 关键帧删除 </summary>
