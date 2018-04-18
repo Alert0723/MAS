@@ -153,16 +153,17 @@ namespace Adaptable_Studio
         /// <summary> 关键帧补间数据运算 </summary>
         private void KeyChanged()
         {
-            int start, end = 0;//补间始末数据
-            int mark = 0;//运算标记
-            int i = 0;//时间轴起点
+            int start, end = 0,//补间始末数据
+                mark = 0,//运算标记
+                TimeIndex = 0,//时间轴起点                              
+                TransitionIndex = 0;//过渡段索引
 
-            while (i < TotalTick)
+            while (TimeIndex < TotalTick)
             {
                 start = mark;
-                for (i = mark + 1; i < TotalTick; i++)
+                for (TimeIndex = mark + 1; TimeIndex < TotalTick; TimeIndex++)
                 {
-                    if (pose[i].key) { end = i; mark = i; break; }
+                    if (pose[TimeIndex].key) { end = TimeIndex; mark = TimeIndex; break; }
                 }//提取两个相邻关键帧数据↓
 
                 int TickDelay = end - start + 1;//tick间隔
@@ -175,18 +176,40 @@ namespace Adaptable_Studio
                         for (int q = 0; q < 19; q++)
                         {
                             pose[p].pos[q] = pose[start].pos[q];
-                            //每元素平均增量
-                            if (p != start)
-                                pose[p].pos[q] += (p - start + 1) * (pose[end].pos[q] - pose[start].pos[q]) / TickDelay;
+                            //判断是否反向旋转
+                            if (IsReversed[TransitionIndex][q])
+                            {
+                                float Alpha, Beta;
+                                if (pose[start].pos[q] >= pose[end].pos[q]) { Alpha = pose[start].pos[q]; Beta = pose[end].pos[q]; }
+                                else { Beta = pose[start].pos[q]; Alpha = pose[end].pos[q]; }
+
+                                float DeltaAngel = (360 - Math.Abs(Alpha - Beta)) / TickDelay;
+
+                                if (pose[start].pos[q] < pose[end].pos[q]) DeltaAngel = -DeltaAngel;
+
+                                pose[p].pos[q] = (p - start + 1) * DeltaAngel;
+                                while (pose[p].pos[q] < -180) pose[p].pos[q] += 360;
+                                while (pose[p].pos[q] > 180) pose[p].pos[q] -= 360;
+                            }
+                            else
+                            {
+                                //pose[p].pos[q] = pose[start].pos[q];
+                                //每元素平均增量
+                                if (p != start)
+                                    pose[p].pos[q] += (p - start + 1) * (pose[end].pos[q] - pose[start].pos[q]) / TickDelay;
+                            }
                         }
                     }
+
                 }
+                TransitionIndex++;
             }
+
             //多余数据重置
-            for (i = end + 1; i < TotalTick; i++)
+            for (TimeIndex = end + 1; TimeIndex < TotalTick; TimeIndex++)
             {
                 for (int j = 0; j < 19; j++)
-                    pose[i].pos[j] = pose[end].pos[j];
+                    pose[TimeIndex].pos[j] = pose[end].pos[j];
             }
         }
 
