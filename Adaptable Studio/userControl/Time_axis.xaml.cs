@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -176,7 +175,7 @@ namespace Adaptable_Studio
                         for (int q = 0; q < 19; q++)
                         {
                             pose[p].pos[q] = pose[start].pos[q];
-                            //判断是否反向旋转
+                            //判断反向旋转
                             if (IsReversed[TransitionIndex][q])
                             {
                                 float Alpha, Beta;

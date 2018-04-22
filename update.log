@@ -1,4 +1,4 @@
-﻿Version:0.3.0.0 Alpha
+﻿Version:0.3.2.0 Alpha
 Updater version:1.8.4
 更新时间:2018/4/14
 
@@ -10,8 +10,7 @@ Updater version:1.8.4
 
 
 ●MAS.C
-    时间轴:修复帧数据复制不稳定问题
-           初步搭建反向部位设置
+    时间轴:实现反向部位设置
 
 ●MAS.P
     开发计划：将生成与预览算法合并为压缩包读取

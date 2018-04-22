@@ -96,4 +96,13 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style x:Key="ChromelessButtonStyle" TargetType="{x:Type ButtonBase}">
+        <Setter Property="Background" Value="{DynamicResource TransparentWhiteBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Template" Value="{StaticResource ChromelessButtonTemplate}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
 </ResourceDictionary>

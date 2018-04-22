@@ -17,7 +17,7 @@ namespace Adaptable_Studio
         string AppPath = Environment.CurrentDirectory,//应用程序根目录
                LogPath;//日志文件路径
 
-        const string version = "Version:0.3.0.0 Alpha";//当前版本号
+        const string version = "Version:0.3.2.0 Alpha";//当前版本号
         public static bool _langCN = true;//汉英切换
         public static int PageIndex = -1;//页面读取值
         public static bool Restart = false;//重启判定
