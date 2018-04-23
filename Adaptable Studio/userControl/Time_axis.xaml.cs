@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -66,8 +67,8 @@ namespace Adaptable_Studio
             get { return (long)(Canvas.Width / KeyWidth); }
             set
             {
-                Canvas.Width = value * KeyWidth;
-                TimeGrid.Width = value * KeyWidth;
+                Canvas.Width = value * KeyWidth + KeyWidth / 2;
+                TimeGrid.Width = value * KeyWidth + KeyWidth / 2;
             }
         }
 
@@ -231,10 +232,11 @@ namespace Adaptable_Studio
                 X1 = X - d,
                 X2 = X + d,
                 Y1 = Y - d,
-                Y2 = Y + d
+                Y2 = Y + d,
+                ContextMenu = (ContextMenu)Resources["KeyFrameMenu"],
+                IsHitTestVisible = false
             };
             keyFrame.MouseDown += KeyFrameMouseDown;
-            keyFrame.ContextMenu = (ContextMenu)Resources["KeyFrameMenu"];
 
         }
         #endregion
@@ -403,6 +405,14 @@ namespace Adaptable_Studio
         private void TimeGridMouseUp(object sender, MouseButtonEventArgs e)
         {
             mousedown = false;
+
+            //启用所有关键帧点击反馈
+            for (int i = 0; i < TotalTick; i++)
+            {
+                foreach (Line item in TimeGrid.Children)
+                    if (item.Tag != null && item.Tag.ToString() == i.ToString())
+                        item.IsHitTestVisible = true;
+            }
         }
 
         private void TimeGridMouseLeave(object sender, MouseEventArgs e)
