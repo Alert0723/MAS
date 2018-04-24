@@ -168,7 +168,15 @@
     <!--#endregion-->
     <!--#endregion-->
 
-    <!--#region  盔甲架部位 -->
+    <!--#region  高级模式 -->
+    <!--#region  TimeAxis -->
+    <system:String x:Key="Play/Pause">Play/Pause</system:String>
+    <system:String x:Key="BackTimeHome">Back to the first tick</system:String>
+    <system:String x:Key="TimeRepeat">Repeat</system:String>
+    <system:String x:Key="AddTick">Add 1 tick</system:String>
+    <system:String x:Key="RemoveTick">Remove 1 tick</system:String>
+    <!--#endregion-->
+
     <!--#region  KeyFrame ContextMenu -->
     <system:String x:Key="CopyFrame">Copy data(_C)</system:String>
     <system:String x:Key="PasteFrame">Paste data(_V)</system:String>

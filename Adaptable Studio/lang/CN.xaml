@@ -169,6 +169,14 @@
     <!--#endregion-->
 
     <!--#region  高级模式 -->
+    <!--#region  TimeAxis -->
+    <system:String x:Key="Play/Pause">播放/暂停</system:String>
+    <system:String x:Key="BackTimeHome">回到第一帧</system:String>
+    <system:String x:Key="TimeRepeat">循环播放</system:String>
+    <system:String x:Key="AddTick">增加1帧</system:String>
+    <system:String x:Key="RemoveTick">减少1帧</system:String>
+    <!--#endregion-->
+
     <!--#region  KeyFrame ContestMenu -->
     <system:String x:Key="CopyFrame">复制帧数据(_C)</system:String>
     <system:String x:Key="PasteFrame">黏贴帧数据(_V)</system:String>

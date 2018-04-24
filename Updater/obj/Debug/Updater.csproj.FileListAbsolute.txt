@@ -97,3 +97,4 @@ E:\Visual Studio Objectives\Minecraft\MAS\Updater\obj\Debug\MAS Updater.exe.mani
 E:\Visual Studio Objectives\Minecraft\MAS\Updater\obj\Debug\MAS Updater.application
 E:\Visual Studio Objectives\Minecraft\MAS\Updater\obj\Debug\MAS Updater.exe
 E:\Visual Studio Objectives\Minecraft\MAS\Updater\obj\Debug\MAS Updater.pdb
+E:\Visual Studio Objectives\Minecraft\MAS\Updater\obj\Debug\Updater.csprojResolveAssemblyReference.cache
