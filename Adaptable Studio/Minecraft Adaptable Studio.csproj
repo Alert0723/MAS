@@ -357,7 +357,6 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="icon\Question mark.png" />
     <Resource Include="icon\tags.png" />
   </ItemGroup>
   <ItemGroup>
@@ -421,6 +420,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="icon\minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon\help.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

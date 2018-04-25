@@ -9,6 +9,7 @@
     <!--#region  Window -->
     <system:String x:Key="MainOption">Option</system:String>
     <system:String x:Key="MainAbout">About</system:String>
+    <system:String x:Key="MainHelp">Page guidance</system:String>
     <!--#endregion-->
 
     <!--#region Version Messager -->
@@ -54,6 +55,11 @@
     <!--#endregion-->
 
     <!--#region  MAS.C -->
+    <!--#region  页面引导 -->
+    <system:String x:Key="Guide_pose">Check to set pose</system:String>
+    <system:String x:Key="Guide_advance_mode">Enable/disable Advance mode ————&gt;</system:String>
+    <!--#endregion-->
+    
     <!--#region  禁用提示 -->
     <system:String x:Key="Enable_Pose">You need to enable Pose Setting</system:String>
     <system:String x:Key="Enable_Part">You need to enable Part Setting</system:String>

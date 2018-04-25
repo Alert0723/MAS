@@ -9,6 +9,7 @@
     <!--#region  Window -->
     <system:String x:Key="MainOption">设置</system:String>
     <system:String x:Key="MainAbout">关于</system:String>
+    <system:String x:Key="MainHelp">功能页面引导</system:String>
     <!--#endregion-->
 
     <!--#region Version Messager -->
@@ -54,6 +55,11 @@
     <!--#endregion-->
 
     <!--#region  MAS.C -->
+    <!--#region  页面引导 -->
+    <system:String x:Key="Guide_pose">勾选启用盔甲动作设置</system:String>
+    <system:String x:Key="Guide_advance_mode">时间轴高级模式开关 ————&gt;</system:String>
+    <!--#endregion-->
+
     <!--#region  禁用提示 -->
     <system:String x:Key="Enable_Pose">无动作设置权限，请勾选动作选项</system:String>
     <system:String x:Key="Enable_Part">无部位设置权限，请启用部位</system:String>

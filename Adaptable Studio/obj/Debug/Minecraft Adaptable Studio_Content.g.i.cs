@@ -8,14 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("textures/armor_stand/stone.bmp")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("textures/armor_stand/wood.bmp")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("textures/special_particle/particle.bmp")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("textures/super_banner/base.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("textures/super_banner/cross.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("textures/super_banner/flower.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("textures/super_banner/mojang.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("textures/super_banner/stripe_downleft.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("textures/super_banner/stripe_downright.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icon/help.png")]
 
 

@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace Adaptable_Studio
 {
@@ -30,6 +31,11 @@ namespace Adaptable_Studio
         public About_Page()
         {
             InitializeComponent();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
@@ -72,5 +78,6 @@ namespace Adaptable_Studio
             WritePrivateProfileString(configureNode, key, keyValue, path);
         }
         #endregion
+
     }
 }

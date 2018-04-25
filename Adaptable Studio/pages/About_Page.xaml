@@ -8,7 +8,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
       Width="942" Height="569"
-      Title="About_Page" FontFamily="Comfortaa">
+      Title="About_Page" FontFamily="Comfortaa" Loaded="Page_Loaded">
     <Grid x:Name="grid">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="SwitchGroup">
