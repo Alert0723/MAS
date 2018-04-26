@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace Adaptable_Studio
 {
@@ -208,6 +209,34 @@ namespace Adaptable_Studio
         #endregion
 
         #region TitleBar
+        bool Guiding = false;
+        /// <summary> 功能页面引导 </summary>
+        private void Help_Click(object sender, RoutedEventArgs e)
+        {
+            Guiding = !Guiding;
+            Page PageContent = (Page)_NavigationFrame.Content;
+            switch (PageIndex)
+            {
+                default://Menu                    
+                    break;
+                case 3://MAS.C                    
+                    if (Guiding)
+                    {
+                        PageContent.FindChild<Grid>("Settings_guide").Visibility = Visibility.Hidden;
+                        PageContent.FindChild<Grid>("Timeaxis_guide").Visibility = Visibility.Hidden;
+                    }
+                    else
+                    {
+                        PageContent.FindChild<Grid>("Settings_guide").Visibility = Visibility.Visible;
+                        PageContent.FindChild<Grid>("Timeaxis_guide").Visibility = Visibility.Visible;
+                    }
+                    break;
+                case 16://MAS.P
+                    _NavigationFrame.Navigate(new Special_particle_Page());
+                    break;
+            }//page读取
+        }
+
         private void Option_Click(object sender, RoutedEventArgs e)
         {
             _NavigationFrame.Navigate(new Option_Page());

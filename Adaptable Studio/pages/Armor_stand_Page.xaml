@@ -1339,8 +1339,9 @@
                             </Grid>
                         </WrapPanel>
                     </WrapPanel>
-                    <Grid x:Name="Guide_grid" IsHitTestVisible="False">
-                        <Label Content="&lt;——————" Margin="49,417,92,1359" RenderTransformOrigin="0.5,0.5" FontSize="16" FontWeight="Bold" Foreground="#FFFF8282">
+                    <Grid x:Name="Settings_guide" IsHitTestVisible="False">
+                        <Border Margin="134,355,45,1429" BorderBrush="#FFFF8282" BorderThickness="2"/>
+                        <Label Content="&lt;——————" Margin="50,415,91,1361" RenderTransformOrigin="0.5,0.5" FontSize="16" FontWeight="Bold" Foreground="#FFFF8282">
                             <Label.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
@@ -1350,7 +1351,7 @@
                                 </TransformGroup>
                             </Label.RenderTransform>
                         </Label>
-                        <Label Content="{DynamicResource Guide_pose}" VerticalAlignment="Top" Margin="99,473,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282"/>
+                        <Label Content="{DynamicResource Guide_pose}" VerticalAlignment="Top" Margin="109,463,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282"/>
                         <Label Content="{DynamicResource Guide_advance_mode}" VerticalAlignment="Top" Margin="38,691,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282"/>
                     </Grid>
                 </Grid>
@@ -1365,12 +1366,20 @@
                     <BlurEffect/>
                 </local:Time_axis.Effect>
             </local:Time_axis>
-            <Label x:Name="label4" Content="{DynamicResource Enable_AdvancedMode}" Background="{x:Null}" Foreground="White" Margin="0,0,110,24"  UseLayoutRounding="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="246" IsHitTestVisible="False"/>
+            <Label x:Name="label4" Content="{DynamicResource Enable_AdvancedMode}" Background="{x:Null}" Foreground="White" Margin="252,0,0,23.306"  UseLayoutRounding="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" IsHitTestVisible="False" HorizontalAlignment="Left"/>
             <Border x:Name="WaringIcon4" BorderThickness="1" HorizontalAlignment="Right" Width="39.151" Margin="0,0,359,20" Height="34.583" VerticalAlignment="Bottom" IsHitTestVisible="False">
                 <Border.Background>
                     <ImageBrush ImageSource="/Minecraft Adaptable Studio;component/icon/Warning.png"/>
                 </Border.Background>
             </Border>
+            <Grid x:Name="Timeaxis_guide" IsHitTestVisible="False">
+                <Border Margin="134,25,0,0" BorderBrush="#FFFF8282" BorderThickness="2"/>
+                <TextBlock Margin="253,63,0,0" Foreground="#FFFF8282" FontSize="10" HorizontalAlignment="Left">
+                    <TextBlock Text="{DynamicResource Guide_time_axis1}" FontWeight="Bold"/>
+                    <LineBreak/>
+                    <TextBlock Text="{DynamicResource Guide_time_axis2 }" FontWeight="Bold"/>
+               </TextBlock>
+            </Grid>
         </Grid>
         <userControl:CustomOutPutBox x:Name="OutPutBox" Height="280" Margin="-191.957,72.96,-97.958,162.96" Grid.Column="3" Grid.Row="3" Width="300" Grid.ColumnSpan="2" MouseDown="OutPut_MouseDown"/>
     </Grid>

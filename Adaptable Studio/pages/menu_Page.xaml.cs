@@ -39,12 +39,14 @@ namespace Adaptable_Studio
         private void MASC(object sender, RoutedEventArgs e)
         {
             IniWrite("System", "PageIndex", "3", iniPath);
+            MainWindow.PageIndex = 3;
             this.NavigationService.Navigate(new Uri("pages/armor_stand_Page.xaml", UriKind.Relative));
         }
 
         private void MASP(object sender, RoutedEventArgs e)
         {
             IniWrite("System", "PageIndex", "16", iniPath);
+            MainWindow.PageIndex = 16;
             this.NavigationService.Navigate(new Uri("pages/special_particle_Page.xaml", UriKind.Relative));
         }
 

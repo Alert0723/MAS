@@ -17,7 +17,7 @@
     </controls:MetroWindow.Resources>
     <controls:MetroWindow.LeftWindowCommands>
         <controls:WindowCommands>
-            <Button x:Name="Help_Button" ToolTip="{DynamicResource MainHelp}">
+            <Button x:Name="Help_Button" FontFamily="{DynamicResource Font}" ToolTip="{DynamicResource MainHelp}" Click="Help_Click">
                 <StackPanel Orientation="Horizontal">
                     <Rectangle Width="20" Height="20" Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type Button}}}">
                         <Rectangle.OpacityMask>
@@ -30,24 +30,24 @@
     </controls:MetroWindow.LeftWindowCommands>
     <controls:MetroWindow.RightWindowCommands>
         <controls:WindowCommands>
-            <Button x:Name="Option_Button" Click="Option_Click" ToolTip="{DynamicResource MainOption}">
+            <Button x:Name="Option_Button" FontFamily="{DynamicResource Font}" Click="Option_Click" ToolTip="{DynamicResource MainOption}">
                 <StackPanel Orientation="Horizontal">
                     <Rectangle Width="20" Height="20" Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type Button}}}">
                         <Rectangle.OpacityMask>
                             <VisualBrush Stretch="Fill" Visual="{StaticResource option}" />
                         </Rectangle.OpacityMask>
                     </Rectangle>
-                    <TextBlock x:Name="OptionText" Margin="4 0 0 0" VerticalAlignment="Center" Text="{DynamicResource MainOption}" />
+                    <!--<TextBlock x:Name="OptionText" Margin="4 0 0 0" VerticalAlignment="Center" Text="{DynamicResource MainOption}" />-->
                 </StackPanel>
             </Button>
-            <Button x:Name="About_Button" Click="About_Click" ToolTip="{DynamicResource MainAbout}">
+            <Button x:Name="About_Button" FontFamily="{DynamicResource Font}" Click="About_Click" ToolTip="{DynamicResource MainAbout}">
                 <StackPanel Orientation="Horizontal">
                     <Rectangle Width="20" Height="20" Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type Button}}}">
                         <Rectangle.OpacityMask>
                             <VisualBrush Stretch="Fill" Visual="{StaticResource about}" />
                         </Rectangle.OpacityMask>
                     </Rectangle>
-                    <TextBlock x:Name="AboutText" Margin="4 0 0 0" VerticalAlignment="Center" Text="{DynamicResource MainAbout}" />
+                    <!--<TextBlock x:Name="AboutText" Margin="4 0 0 0" VerticalAlignment="Center" Text="{DynamicResource MainAbout}" />-->
                 </StackPanel>
             </Button>
         </controls:WindowCommands>
