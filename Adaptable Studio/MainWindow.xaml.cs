@@ -222,13 +222,13 @@ namespace Adaptable_Studio
                 case 3://MAS.C                    
                     if (Guiding)
                     {
-                        PageContent.FindChild<Grid>("Settings_guide").Visibility = Visibility.Hidden;
-                        PageContent.FindChild<Grid>("Timeaxis_guide").Visibility = Visibility.Hidden;
+                        PageContent.FindChild<Grid>("Settings_guide").Visibility = Visibility.Visible;
+                        PageContent.FindChild<Grid>("Timeaxis_guide").Visibility = Visibility.Visible;
                     }
                     else
                     {
-                        PageContent.FindChild<Grid>("Settings_guide").Visibility = Visibility.Visible;
-                        PageContent.FindChild<Grid>("Timeaxis_guide").Visibility = Visibility.Visible;
+                        PageContent.FindChild<Grid>("Settings_guide").Visibility = Visibility.Hidden;
+                        PageContent.FindChild<Grid>("Timeaxis_guide").Visibility = Visibility.Hidden;
                     }
                     break;
                 case 16://MAS.P

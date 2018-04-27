@@ -56,8 +56,8 @@
 
     <!--#region  MAS.C -->
     <!--#region  页面引导 -->
-    <system:String x:Key="Guide_pose">勾选启用盔甲动作设置</system:String>
-    <system:String x:Key="Guide_advance_mode">时间轴高级模式开关 ————&gt;</system:String>
+    <system:String x:Key="Guide_pose">勾选以启用动作设置</system:String>
+    <system:String x:Key="Guide_advance_mode">时间轴模式开关</system:String>
 
     <system:String x:Key="Guide_time_axis1">右键点击黑色区域添加关键帧</system:String>
     <system:String x:Key="Guide_time_axis2">右键点击 关键帧/过渡段 进行操作与编辑</system:String>

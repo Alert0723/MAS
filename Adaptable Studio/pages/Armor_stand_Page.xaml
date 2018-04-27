@@ -1340,19 +1340,48 @@
                         </WrapPanel>
                     </WrapPanel>
                     <Grid x:Name="Settings_guide" IsHitTestVisible="False">
-                        <Border Margin="134,355,45,1429" BorderBrush="#FFFF8282" BorderThickness="2"/>
-                        <Label Content="&lt;——————" Margin="50,415,91,1361" RenderTransformOrigin="0.5,0.5" FontSize="16" FontWeight="Bold" Foreground="#FFFF8282">
+                        <!--#region  Pose Guidance -->
+                        <Border Margin="131,331,0,0" BorderBrush="#FFFF8282" BorderThickness="2" HorizontalAlignment="Left" Width="90" Height="22" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                            <Border.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleY="-1"/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Border.RenderTransform>
+                        </Border>
+                        <Label Content=". . . . . . . . . . . . . . . . . . . . . . . ." Margin="150,430,-89,0" RenderTransformOrigin="0.5,0.5" FontSize="14" FontWeight="Bold" Foreground="#FFFF8282" HorizontalAlignment="Left" VerticalAlignment="Top" Width="208">
                             <Label.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
                                     <SkewTransform/>
-                                    <RotateTransform Angle="-70.377"/>
+                                    <RotateTransform Angle="-90"/>
                                     <TranslateTransform/>
                                 </TransformGroup>
                             </Label.RenderTransform>
                         </Label>
-                        <Label Content="{DynamicResource Guide_pose}" VerticalAlignment="Top" Margin="109,463,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282"/>
-                        <Label Content="{DynamicResource Guide_advance_mode}" VerticalAlignment="Top" Margin="38,691,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282"/>
+                        <Label Content=". . . ." VerticalAlignment="Top" Margin="219,334,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282"/>
+                        <Border Margin="10,545,0,0" BorderBrush="#FFFF8282" BorderThickness="2" HorizontalAlignment="Left" Width="250" Height="100" VerticalAlignment="Top"/>
+                        <Label Content="{DynamicResource Guide_pose}" FontFamily="{DynamicResource Font}" VerticalAlignment="Top" Margin="95,444,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282"/>
+                        <Label Content=". . ." VerticalAlignment="Top" Margin="226,441,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282"/>
+                        <!--#endregion-->
+
+                        <!--#region  AdvanceMode Guidance -->
+                        <Border Margin="10,648,0,0" BorderBrush="#FFFF8282" BorderThickness="2" HorizontalAlignment="Left" Width="160" Height="25" VerticalAlignment="Top"/>
+                        <Label Content="{DynamicResource Guide_advance_mode}" FontFamily="{DynamicResource Font}" VerticalAlignment="Top" Margin="28,671,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282"/>
+                        <Label Content="." VerticalAlignment="Top" Margin="8,665,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282" RenderTransformOrigin="0.5,0.5">
+                            <Label.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Label.RenderTransform>
+                        </Label>
+                        <Label Content=". . ." VerticalAlignment="Top" Margin="4,668,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282" RenderTransformOrigin="0.5,0.5"/>
+                        <!--#endregion-->
                     </Grid>
                 </Grid>
             </ScrollViewer>
@@ -1373,7 +1402,7 @@
                 </Border.Background>
             </Border>
             <Grid x:Name="Timeaxis_guide" IsHitTestVisible="False">
-                <Border Margin="134,25,0,0" BorderBrush="#FFFF8282" BorderThickness="2"/>
+                <Border Margin="134,25,0,0" BorderBrush="#FFFF8282" BorderThickness="2" HorizontalAlignment="Left" Width="472" Height="66" VerticalAlignment="Top"/>
                 <TextBlock Margin="253,63,0,0" Foreground="#FFFF8282" FontSize="10" HorizontalAlignment="Left">
                     <TextBlock Text="{DynamicResource Guide_time_axis1}" FontWeight="Bold"/>
                     <LineBreak/>

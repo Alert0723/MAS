@@ -57,7 +57,7 @@
     <!--#region  MAS.C -->
     <!--#region  页面引导 -->
     <system:String x:Key="Guide_pose">Check to set pose</system:String>
-    <system:String x:Key="Guide_advance_mode">Enable/disable Advance mode ————&gt;</system:String>
+    <system:String x:Key="Guide_advance_mode">Enable/disable Advance mode</system:String>
 
     <system:String x:Key="Guide_time_axis1">Right click black areas to add key frames.</system:String>
     <system:String x:Key="Guide_time_axis2">Right click keyframe / transition section to operate and edit them.</system:String>
