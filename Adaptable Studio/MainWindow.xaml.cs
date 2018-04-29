@@ -209,7 +209,7 @@ namespace Adaptable_Studio
         #endregion
 
         #region TitleBar
-        bool Guiding = false;
+        bool Guiding = true;
         /// <summary> 功能页面引导 </summary>
         private void Help_Click(object sender, RoutedEventArgs e)
         {

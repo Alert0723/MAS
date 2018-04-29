@@ -798,7 +798,7 @@ namespace Adaptable_Studio
 
             //光源设置
             gl.LoadIdentity();//重置模型观察矩阵
-            gl.ClearColor(0.55f, 0.55f, 0.55f, 1f);
+            gl.ClearColor(0.5f, 0.5f, 0.5f, 1f);
             gl.Translate(0f, -1.5f, -8.5f);
             gl.Rotate((float)rot[0], (float)rot[1], 0f);
             float LightX = (float)(Math.Cos(rot[1] - 45) * (Math.PI / 180)) * LightR,

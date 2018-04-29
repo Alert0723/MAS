@@ -544,18 +544,18 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <Grid.RowDefinitions>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="35*"/>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="486*"/>
-            <RowDefinition Height="5*"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="37"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="516*"/>
+            <RowDefinition Height="5"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="35*"/>
-            <ColumnDefinition Width="884*"/>
-            <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="35"/>
+            <ColumnDefinition Width="892"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="5"/>
         </Grid.ColumnDefinitions>
         <!--#endregion-->
         <Grid x:Name="SideBar" Grid.ColumnSpan="2" Margin="0,0,-268.345,0" Grid.RowSpan="5">
@@ -610,7 +610,7 @@
             <Button x:Name="Item" Background="#00000000" BorderBrush="{x:Null}" Foreground="White" Margin="-0.172,168,0,0" Content="I" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" Width="35" FontFamily="Comfortaa" Click="Item_Settings" d:LayoutOverrides="HorizontalAlignment" Grid.Column="1" Height="35" VerticalAlignment="Top"/>
             <ScrollViewer x:Name="Settings" BorderThickness="0" Padding="0" VerticalScrollBarVisibility="Hidden" CanContentScroll="True" Width="268" Grid.Column="1" MinWidth="268.343" Margin="35.166,0,0.167,0" ScrollChanged="SelectBar_Move">
                 <Grid>
-                    <WrapPanel x:Name="wrapPanel" Height="1758.5" ScrollViewer.VerticalScrollBarVisibility="{Binding VerticalScrollBarVisibility, ElementName=Settings}" ScrollViewer.CanContentScroll="{Binding CanContentScroll, ElementName=Settings}" UseLayoutRounding="False" Width="268.343" Margin="0" MinWidth="{Binding MinWidth, ElementName=Settings}">
+                    <WrapPanel x:Name="wrapPanel" ScrollViewer.VerticalScrollBarVisibility="{Binding VerticalScrollBarVisibility, ElementName=Settings}" ScrollViewer.CanContentScroll="{Binding CanContentScroll, ElementName=Settings}" UseLayoutRounding="False" Width="268.343" Margin="0,0,-0.343,-0.5" MinWidth="{Binding MinWidth, ElementName=Settings}">
                         <i:Interaction.Behaviors>
                             <ei:FluidMoveBehavior Duration="0:0:0.2">
                                 <ei:FluidMoveBehavior.EaseX>
@@ -1341,7 +1341,7 @@
                     </WrapPanel>
                     <Grid x:Name="Settings_guide" IsHitTestVisible="False">
                         <!--#region  Pose Guidance -->
-                        <Border Margin="131,331,0,0" BorderBrush="#FFFF8282" BorderThickness="2" HorizontalAlignment="Left" Width="90" Height="22" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                        <Border Margin="131,331,0,0" BorderBrush="#FFFF8282" BorderThickness="1.5" HorizontalAlignment="Left" Width="90" Height="22" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
                             <Border.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform ScaleY="-1"/>
@@ -1351,7 +1351,7 @@
                                 </TransformGroup>
                             </Border.RenderTransform>
                         </Border>
-                        <Label Content=". . . . . . . . . . . . . . . . . . . . . . . ." Margin="150,430,-89,0" RenderTransformOrigin="0.5,0.5" FontSize="14" FontWeight="Bold" Foreground="#FFFF8282" HorizontalAlignment="Left" VerticalAlignment="Top" Width="208">
+                        <Label Content=". . . . . . . . . . . . . . . . . . . . . . . . ." Margin="141,420,-99,0" RenderTransformOrigin="0.5,0.5" FontSize="14" FontWeight="Bold" Foreground="#FFFF8282" HorizontalAlignment="Left" VerticalAlignment="Top" Width="226">
                             <Label.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
@@ -1361,15 +1361,15 @@
                                 </TransformGroup>
                             </Label.RenderTransform>
                         </Label>
-                        <Label Content=". . . ." VerticalAlignment="Top" Margin="219,334,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282"/>
-                        <Border Margin="10,545,0,0" BorderBrush="#FFFF8282" BorderThickness="2" HorizontalAlignment="Left" Width="250" Height="100" VerticalAlignment="Top"/>
-                        <Label Content="{DynamicResource Guide_pose}" FontFamily="{DynamicResource Font}" VerticalAlignment="Top" Margin="95,444,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282"/>
-                        <Label Content=". . ." VerticalAlignment="Top" Margin="226,441,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282"/>
+                        <Label Content=". . . ." VerticalAlignment="Top" Margin="219,325,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282"/>
+                        <Border Margin="10,545,0,0" BorderBrush="#FFFF8282" BorderThickness="1.5" HorizontalAlignment="Left" Width="250" Height="100" VerticalAlignment="Top"/>
+                        <Label Content="{DynamicResource Guide_pose}" FontFamily="{DynamicResource Font}" VerticalAlignment="Top" Margin="111,445,0,0" HorizontalAlignment="Left" FontWeight="Bold" Foreground="#FFFF8282"/>
+                        <Label Content=". . ." VerticalAlignment="Top" Margin="227,440,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282"/>
                         <!--#endregion-->
 
                         <!--#region  AdvanceMode Guidance -->
-                        <Border Margin="10,648,0,0" BorderBrush="#FFFF8282" BorderThickness="2" HorizontalAlignment="Left" Width="160" Height="25" VerticalAlignment="Top"/>
-                        <Label Content="{DynamicResource Guide_advance_mode}" FontFamily="{DynamicResource Font}" VerticalAlignment="Top" Margin="28,671,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282"/>
+                        <Border Margin="10,648,0,0" BorderBrush="#FFFF8282" BorderThickness="1.5" HorizontalAlignment="Left" Width="160" Height="25" VerticalAlignment="Top"/>
+                        <Label Content="{DynamicResource Guide_advance_mode}" FontFamily="{DynamicResource Font}" VerticalAlignment="Top" Margin="28,673,0,0" HorizontalAlignment="Left" FontWeight="Bold" Foreground="#FFFF8282"/>
                         <Label Content="." VerticalAlignment="Top" Margin="8,665,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282" RenderTransformOrigin="0.5,0.5">
                             <Label.RenderTransform>
                                 <TransformGroup>
@@ -1386,7 +1386,7 @@
                 </Grid>
             </ScrollViewer>
         </Grid>
-        <GroupBox x:Name="Preview" Header="ArmorStand Preview" Margin="278.56,1.606,0,103.648" Grid.RowSpan="3" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Background="#FF119EDA" BorderBrush="{x:Null}" Padding="5,8" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" Custom1:ControlsHelper.ContentCharacterCasing="Normal">
+        <GroupBox x:Name="Preview" Header="ArmorStand Preview" Margin="279,2,0,104" Grid.RowSpan="3" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Background="#FF119EDA" BorderBrush="{x:Null}" Padding="5,8" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" Custom1:ControlsHelper.ContentCharacterCasing="Normal">
             <WPF:OpenGLControl x:Name="OpenGLControl" OpenGLDraw="OpenGLControl_OpenGLDraw" Margin="0,0,-2.055,0" MouseUp="OpenGLControl_up" MouseDown="OpenGLControl_down" MouseMove="OpenGLControl_rot_Change" Cursor="SizeAll" OpenGLVersion="OpenGL4_4" FrameRate="30" MouseLeave="OpenGLControl_leave" MouseWheel="OpenGLControl_MouseWheel" HorizontalAlignment="Right" Width="608.055"/>
         </GroupBox>
         <Grid x:Name="Time" Grid.Column="2" Height="90.653" Margin="284,0,0,7.995" Grid.Row="3" VerticalAlignment="Bottom" Width="608.055">
@@ -1401,14 +1401,49 @@
                     <ImageBrush ImageSource="/Minecraft Adaptable Studio;component/icon/Warning.png"/>
                 </Border.Background>
             </Border>
-            <Grid x:Name="Timeaxis_guide" IsHitTestVisible="False">
-                <Border Margin="134,25,0,0" BorderBrush="#FFFF8282" BorderThickness="2" HorizontalAlignment="Left" Width="472" Height="66" VerticalAlignment="Top"/>
-                <TextBlock Margin="253,63,0,0" Foreground="#FFFF8282" FontSize="10" HorizontalAlignment="Left">
-                    <TextBlock Text="{DynamicResource Guide_time_axis1}" FontWeight="Bold"/>
-                    <LineBreak/>
-                    <TextBlock Text="{DynamicResource Guide_time_axis2 }" FontWeight="Bold"/>
-               </TextBlock>
-            </Grid>
+        </Grid>
+        <Grid x:Name="Timeaxis_guide" IsHitTestVisible="False" Grid.ColumnSpan="3" Margin="284,0,0,0" Grid.RowSpan="4" Grid.Column="2">
+            <!--#region  全局 -->
+            <Border Margin="0,0,14,9" BorderBrush="#FFFF8282" BorderThickness="1.5" HorizontalAlignment="Right" Width="475" Height="66" VerticalAlignment="Bottom"/>
+            <TextBlock Text="{DynamicResource Guide_time_axis1}" Foreground="#FFFF8282" FontWeight="Bold" VerticalAlignment="Bottom" Margin="127,0,0,109" HorizontalAlignment="Left" Width="491" FontSize="14"/>
+            <Label Content=". ." VerticalAlignment="Top" Margin="108,504,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282"/>
+            <Label Content="." VerticalAlignment="Top" Margin="116,431,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282"/>
+            <Label Content=". . . . . . . . ." VerticalAlignment="Top" Margin="80,468,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282" RenderTransformOrigin="0.5,0.5">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <!--#endregion-->
+            <!--#region  关键帧/过渡段 -->
+            <Border Margin="0,0,467,41" BorderBrush="#FFFF8282" BorderThickness="1" HorizontalAlignment="Right" Width="16" Height="16" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5">
+                <Border.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="45"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Border.RenderTransform>
+            </Border>
+            <TextBlock Text="{DynamicResource Guide_time_axis2}" Foreground="#FFFF8282" FontWeight="Bold" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="174,0,0,94" Width="431"/>
+            <Label Content=". ." VerticalAlignment="Top" Margin="157,449,0,0" HorizontalAlignment="Left" FontWeight="Bold" Foreground="#FFFF8282" BorderThickness="0" FontSize="10"/>
+            <Label Content=". ." VerticalAlignment="Top" Margin="151,501,0,0" HorizontalAlignment="Left" FontWeight="Bold" Foreground="#FFFF8282" BorderThickness="0" FontSize="10"/>
+            <Label Content=". . . . . . . ." VerticalAlignment="Top" Margin="133,478,0,0" HorizontalAlignment="Left" FontWeight="Bold" Foreground="#FFFF8282" BorderThickness="0" FontSize="10" RenderTransformOrigin="0.5,0.5">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <!--#endregion-->
         </Grid>
         <userControl:CustomOutPutBox x:Name="OutPutBox" Height="280" Margin="-191.957,72.96,-97.958,162.96" Grid.Column="3" Grid.Row="3" Width="300" Grid.ColumnSpan="2" MouseDown="OutPut_MouseDown"/>
     </Grid>
