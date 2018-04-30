@@ -133,6 +133,18 @@ namespace Adaptable_Studio
 
             LogPath = AppPath + @"\log.txt";
 
+            //引导页面
+            if (MainWindow.Guiding)
+            {
+                Settings_guide.Visibility = Visibility.Visible;
+                Timeaxis_guide.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                Settings_guide.Visibility = Visibility.Hidden;
+                Timeaxis_guide.Visibility = Visibility.Hidden;
+            }
+
             #region OpenGL初始化
             MainWindow.Log_Write(LogPath, "[masc]MAS.C初始化");
             OpenGL gl = OpenGLControl.OpenGL;

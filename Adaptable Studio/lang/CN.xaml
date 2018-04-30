@@ -9,7 +9,7 @@
     <!--#region  Window -->
     <system:String x:Key="MainOption">设置</system:String>
     <system:String x:Key="MainAbout">关于</system:String>
-    <system:String x:Key="MainHelp">功能页面引导</system:String>
+    <system:String x:Key="MainHelp">页面功能引导</system:String>
     <!--#endregion-->
 
     <!--#region Version Messager -->
@@ -23,8 +23,11 @@
     <!--#endregion-->
 
     <!--#region  Option Page -->
+    <system:String x:Key="Option_On">开</system:String>
+    <system:String x:Key="Option_Off">关</system:String>
     <system:String x:Key="Option_Routine_Setting">常规</system:String>
     <system:String x:Key="Option_Language">语言切换:</system:String>
+    <system:String x:Key="Option_Guidance">启动时启用页面引导:</system:String>
 
     <system:String x:Key="Option_Structures_Setting">结构设置</system:String>
     <system:String x:Key="Option_MaxLength">每层最大长度(2~99):</system:String>
@@ -56,6 +59,8 @@
 
     <!--#region  MAS.C -->
     <!--#region  页面引导 -->
+    <system:String x:Key="Guide_switch">引导功能开关</system:String>
+
     <system:String x:Key="Guide_pose">勾选以启用动作设置</system:String>
     <system:String x:Key="Guide_advance_mode">时间轴模式开关</system:String>
 

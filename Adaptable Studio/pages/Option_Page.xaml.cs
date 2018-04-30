@@ -48,7 +48,7 @@ namespace Adaptable_Studio
             if (MainWindow.PageIndex > 0)
             {
                 MainWindow.Restart = true;
-                Process.Start(Assembly.GetExecutingAssembly().Location); //重新开启当前程序
+                Process.Start(Assembly.GetExecutingAssembly().Location); //重新启动当前程序
                 Application.Current.Shutdown();//关闭当前程序
             }
             else NavigationService.GoBack();
@@ -86,6 +86,7 @@ namespace Adaptable_Studio
         private void Option_load()
         {
             Lang_CN.IsChecked = MainWindow._langCN;//语言
+            Guidance_on.IsChecked = MainWindow.Guidance;//引导
 
             Max_length.Value = MainWindow.Max_length;//结构最大长度
             Horizontal.IsChecked = !MainWindow.Portrait;//纵横
@@ -94,16 +95,19 @@ namespace Adaptable_Studio
 
         private void Option_save()
         {
+            MainWindow.Guidance = (bool)Guidance_on.IsChecked;//引导开关
+
             MainWindow.Max_length = (int)Max_length.Value;//结构最大长度
             MainWindow.Portrait = (bool)Vertical.IsChecked;//纵横
             MainWindow.Flat = (bool)Flat_structure.IsChecked;//是否平铺
-            #region"ini写入"            
+            #region"ini写入"
+            MainWindow.IniWrite("System", "Guidance", MainWindow.Guidance.ToString(), iniPath);//引导
+
             MainWindow.IniWrite("NbtStructures", "MaxLength", MainWindow.Max_length.ToString(), iniPath);//结构
             MainWindow.IniWrite("NbtStructures", "Portrait", MainWindow.Portrait.ToString(), iniPath);//纵横状态
             MainWindow.IniWrite("NbtStructures", "Flat", MainWindow.Flat.ToString(), iniPath);//平铺
             #endregion
         }
-
 
         #region ini文件读写
         /// <summary> 读取配置文件(字符串, "节名", "键名", 文件路径) </summary>

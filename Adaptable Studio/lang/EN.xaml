@@ -23,8 +23,11 @@
     <!--#endregion-->
 
     <!--#region  Option Page -->
+    <system:String x:Key="Option_On">On</system:String>
+    <system:String x:Key="Option_Off">Off</system:String>
     <system:String x:Key="Option_Routine_Setting">Routine</system:String>
     <system:String x:Key="Option_Language">Language:</system:String>
+    <system:String x:Key="Option_Guidance">Page guidance when start up:</system:String>
 
     <system:String x:Key="Option_Structures_Setting">Structures Setting</system:String>
     <system:String x:Key="Option_MaxLength">Max length per layer(2~99):</system:String>
@@ -56,6 +59,8 @@
 
     <!--#region  MAS.C -->
     <!--#region  页面引导 -->
+    <system:String x:Key="Guide_switch">Guidance switch</system:String>
+    
     <system:String x:Key="Guide_pose">Check to set pose</system:String>
     <system:String x:Key="Guide_advance_mode">Enable/disable Advance mode</system:String>
 

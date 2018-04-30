@@ -18,10 +18,11 @@ namespace Adaptable_Studio
         string AppPath = Environment.CurrentDirectory,//应用程序根目录
                LogPath;//日志文件路径
 
-        const string version = "Version:0.3.4.0 Alpha";//当前版本号
+        const string version = "Version:0.3.5.0 Alpha";//当前版本号
         public static bool _langCN = true;//汉英切换
         public static int PageIndex = -1;//页面读取值
         public static bool Restart = false;//重启判定
+        public static bool Guidance = true;//启动引导
 
         public static string result = "";//指令结果
 
@@ -99,7 +100,6 @@ namespace Adaptable_Studio
             KillProcess("MAS Updater", false);
             File.Delete(AppPath + @"\MAS Updater.exe");
 
-
             try
             {
                 StreamReader test = new StreamReader(WebRequest.Create("http://www.mcbbs.net/thread-580119-1-1.html").GetResponse().GetResponseStream(), Encoding.UTF8);
@@ -132,6 +132,27 @@ namespace Adaptable_Studio
             else
                 dict.Source = new Uri(@"lang\EN.xaml", UriKind.Relative);
             Application.Current.Resources.MergedDictionaries[0] = dict;//资源赋值
+
+            try
+            {
+                IniRead(ref StrName, "System", "Guidance", iniPath);
+                Guidance = bool.Parse(StrName.ToString());
+
+                if (PageIndex == -1)
+                {
+                    Guiding = Guidance;
+                }
+                else
+                {
+                    IniRead(ref StrName, "System", "Guiding", iniPath);
+                    Guiding = bool.Parse(StrName.ToString());
+                }
+            }
+            catch
+            {
+                IniWrite("System", "Guidance", Guidance.ToString(), iniPath);
+                IniWrite("System", "Guiding", Guiding.ToString(), iniPath);
+            }//引导
 
             try
             {
@@ -209,30 +230,35 @@ namespace Adaptable_Studio
         #endregion
 
         #region TitleBar
-        bool Guiding = true;
+        public static bool Guiding = true;
         /// <summary> 功能页面引导 </summary>
         private void Help_Click(object sender, RoutedEventArgs e)
         {
             Guiding = !Guiding;
+            IniWrite("System", "Guiding", Guiding.ToString(), iniPath);
             Page PageContent = (Page)_NavigationFrame.Content;
             switch (PageIndex)
             {
                 default://Menu                    
                     break;
-                case 3://MAS.C                    
-                    if (Guiding)
+                case 3://MAS.C
+                    try
                     {
-                        PageContent.FindChild<Grid>("Settings_guide").Visibility = Visibility.Visible;
-                        PageContent.FindChild<Grid>("Timeaxis_guide").Visibility = Visibility.Visible;
+                        if (Guiding)
+                        {
+                            PageContent.FindChild<Grid>("Settings_guide").Visibility = Visibility.Visible;
+                            PageContent.FindChild<Grid>("Timeaxis_guide").Visibility = Visibility.Visible;
+                        }
+                        else
+                        {
+                            PageContent.FindChild<Grid>("Settings_guide").Visibility = Visibility.Hidden;
+                            PageContent.FindChild<Grid>("Timeaxis_guide").Visibility = Visibility.Hidden;
+                        }
                     }
-                    else
-                    {
-                        PageContent.FindChild<Grid>("Settings_guide").Visibility = Visibility.Hidden;
-                        PageContent.FindChild<Grid>("Timeaxis_guide").Visibility = Visibility.Hidden;
-                    }
+                    catch { }
                     break;
                 case 16://MAS.P
-                    _NavigationFrame.Navigate(new Special_particle_Page());
+
                     break;
             }//page读取
         }
