@@ -1,4 +1,5 @@
 ﻿using ArmorStand.CustomControl;
+using Ionic.Zip;
 using Newtonsoft.Json;
 using SharpGL;
 using SharpGL.SceneGraph;
@@ -197,41 +198,90 @@ namespace Adaptable_Studio
             #endregion
         }
 
+        /// <summary> 通过路径全名获取文件名 </summary>
+        /// <param name="fullFileName">全路径名</param>
+        /// <returns>文件名</returns>
+        public static string GetFileNameFromFullName(string fullFileName)
+        {
+            string fileName = fullFileName;
+            int index = fullFileName.LastIndexOf('\\');
+            if (index >= 0 && index < fullFileName.Length - 1)
+            {
+                fileName = fullFileName.Substring(index + 1);
+            }
+
+            return fileName;
+        }
+
         /// <summary> 样式模板列表构建 </summary>
         private void StyleFiles_Load()
         {
             DirectoryInfo txtFolder = new DirectoryInfo(AppPath + @"\appfile\temp\masp");
             int i = 0;
-            foreach (FileInfo file in txtFolder.GetFiles("*.txt"))
+            //foreach (FileInfo file in txtFolder.GetFiles("*.txt"))
+            //{
+            //    StyleName[i] = file.Name.Replace(".txt", "");
+            //    i++;
+            //}
+
+            //获取压缩包列表
+            foreach (FileInfo file in txtFolder.GetFiles("*.zip"))
             {
-                StyleName[i] = file.Name.Replace(".txt", "");
+                StyleName[i] = file.Name.Replace(".zip", "");
                 i++;
             }
 
-            DirectoryInfo jsonFolder = new DirectoryInfo(AppPath + @"\appfile\temp\masp");
-            i = 0;
-            int j = 0;
-            foreach (FileInfo file in jsonFolder.GetFiles("*.json"))
+            try
             {
-                pre[j].StyleName = file.Name.Replace(".json", "");
-                using (StreamReader sr = new StreamReader(WebRequest.Create(AppPath + @"\appfile\temp\masp\" + file).GetResponse().GetResponseStream(), Encoding.UTF8))
+                DirectoryInfo jsonFolder = new DirectoryInfo(AppPath + @"\appfile\temp\masp");
+                i = 0;
+                int j = 0;
+
+
+
+                foreach (FileInfo file in jsonFolder.GetFiles("*.zip"))
                 {
-                    string str0 = sr.ReadLine();//行读取
-                    do
+                    pre[j].StyleName = file.Name.Replace(".zip", "");
+                    //获取压缩包资源
+                    using (ZipFile zip = new ZipFile(file.DirectoryName))
                     {
-                        if (str0.IndexOf("#") != -1)
+                        //获取压缩包内文件
+                        string InZipFile = GetFileNameFromFullName(file.Name.Replace(".zip", ".json"));
+                        //是否获取成功
+                        if (zip.ContainsEntry(InZipFile))
                         {
-                            pre[j].Controls[i] = str0.Substring(str0.IndexOf("#") + 1, str0.IndexOf("$") - 1);
-                            pre[j].ControlType[i] = str0.Substring(str0.IndexOf("$") + 1, str0.Length - str0.IndexOf("$") - 1);
-                            i++;
+                            var stream = File.OpenRead(file.Name.Replace(".zip", ".json"));//读取包内预览算法文件
+                            
                         }
-                        str0 = sr.ReadLine();
-                    } while (str0 != "");//所需控件读取
-                                         //动态代码
-                    pre[j].Code = sr.ReadToEnd();
+                    }
+
                 }
-                j++;
+
+
+
+                foreach (FileInfo file in jsonFolder.GetFiles("*.json"))
+                {
+                    pre[j].StyleName = file.Name.Replace(".json", "");
+                    using (StreamReader sr = new StreamReader(WebRequest.Create(AppPath + @"\appfile\temp\masp\" + file).GetResponse().GetResponseStream(), Encoding.UTF8))
+                    {
+                        string str0 = sr.ReadLine();//行读取
+                        do
+                        {
+                            if (str0.IndexOf("#") != -1)
+                            {
+                                pre[j].Controls[i] = str0.Substring(str0.IndexOf("#") + 1, str0.IndexOf("$") - 1);
+                                pre[j].ControlType[i] = str0.Substring(str0.IndexOf("$") + 1, str0.Length - str0.IndexOf("$") - 1);
+                                i++;
+                            }
+                            str0 = sr.ReadLine();
+                        } while (str0 != "");//所需控件读取
+                                             //动态代码
+                        pre[j].Code = sr.ReadToEnd();
+                    }
+                    j++;
+                }
             }
+            catch { }
         }
 
         /// <summary> 输出控件 </summary>
