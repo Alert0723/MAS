@@ -259,6 +259,7 @@
             <Run Text="     "/><Run Text="{DynamicResource About_3D_Environment}"/><Run Text="SharpGL"/><LineBreak/>
             <Run Text="     "/><Run Text="{DynamicResource About_Json_Library}"/><Run Text="Newtonsoft.Json"/><LineBreak/>
             <Run Text="     "/><Run Text="{DynamicResource About_Compressed_Library}"/><Run Text="DoNetZip"/><LineBreak/>
+            <Run Text="     "/><Run Text="{DynamicResource About_Plugin_Library}"/><Run Text="SPS.Plugin"/><LineBreak/>
         </TextBlock>
         <Button x:Name="Donate" Content="捐助作者" HorizontalAlignment="Left" Margin="145,525,0,0" VerticalAlignment="Top" Width="130" FontSize="15" ToolTipService.ShowDuration="10000" Style="{DynamicResource CustomButton}" BorderBrush="{x:Null}" Background="{x:Null}" Height="33.999" FontFamily="Microsoft YaHei UI">
             <Button.ToolTip>

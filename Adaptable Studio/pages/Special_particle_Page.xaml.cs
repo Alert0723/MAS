@@ -108,27 +108,47 @@ namespace Adaptable_Studio
         /// <summary> 动态编译Timer </summary>
         private void Coding(object sender, EventArgs e)
         {
+            //临时变量
+            Particle[] par_mark = par;
+            Preview[] pre_mark = pre;
+
             Thread th = new Thread(new ThreadStart(delegate
             {
                 int i = 0;
-                string[] mark = new string[50];
+                string[] mark = new string[50];//编译结果缓存
                 for (int j = 0; j < 50; j++) mark[j] = String.Empty;
 
-                foreach (var particle in par)
+                foreach (var particle in par_mark)
                 {
                     if (particle.Style == String.Empty) break;
                     else
                     {
-                        foreach (var preview in pre)
+                        foreach (var preview in pre_mark)
                         {
                             if (particle.Style == preview.StyleName)
                             {
                                 string str1 = preview.Code;
-                                str1 = str1.Replace("Radius = <value>", "Radius = 2");
-                                str1 = str1.Replace("Angle = <value>", "Angle = 30");
+                                //控件读取线程
+                                Dispatcher.Invoke(new ThreadStart(delegate
+                                {
+                                    for (int param = 0; param < 50; param++)//参数遍历
+                                    {
+                                        if (preview.Controls[param] == null) break;
 
+                                        //搜索UI制定控件值
+                                        switch (preview.ControlType[param])
+                                        {
+                                            case "Value":
+                                                CustomNumberBox cnb = style_edit.FindName(preview.Controls[param]) as CustomNumberBox;
+                                                double value = cnb.Value;
+                                                str1 = str1.Replace(preview.Controls[param] + " = <value>", preview.Controls[param] + " = " + value);
+                                                break;
+                                        }
+                                    }
+                                }));
                                 //动态编译输出
                                 mark[i] = Dynamic_code.Compile(str1);
+
                             }
                         }
                     }
@@ -137,6 +157,10 @@ namespace Adaptable_Studio
                 for (int x = 0; x < 50; x++) par[x].Coded = mark[x];
             }));
             th.Start();
+
+            //变量值归还
+            par = par_mark;
+            pre = pre_mark;
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -440,7 +464,8 @@ namespace Adaptable_Studio
 
             try
             {
-                using (StreamReader sr = new StreamReader(WebRequest.Create(AppPath + @"\appfile\temp\masp\" + par[Style_list.SelectedIndex].Style + ".txt").GetResponse().GetResponseStream(), Encoding.UTF8))
+                string str = Compress.ExtractSingleFile(AppPath + @"\appfile\temp\masp\" + par[Style_list.SelectedIndex].Style + ".zip", par[Style_list.SelectedIndex].Style + ".txt");
+                using (StreamReader sr = new StreamReader(WebRequest.Create(str).GetResponse().GetResponseStream(), Encoding.UTF8))
                 {
                     string[] ControlName = new string[10];//预设控件名
                     string[] ControlType = new string[10];//预设控件类型
@@ -481,6 +506,7 @@ namespace Adaptable_Studio
                                         Margin = new Thickness(80, 100 + 30 * j, Margin.Right, Margin.Bottom)
                                     };
                                     style_edit.Children.Add(nb);
+                                    style_edit.RegisterName(ControlName[j], nb);//注册控件名
                                     break;
                             }//参数类型                        
                         }
@@ -505,24 +531,6 @@ namespace Adaptable_Studio
                     if (r != null)
                     {
                         radius[Style_list.SelectedIndex] = r.Value;
-                    }
-                }
-            }
-        }
-
-        //角度存值
-        public void angle_Changed(object sender, RoutedPropertyChangedEventArgs<double?> e)
-        {
-            GroupBox old_g = style_edit.FindName("Style_Group") as GroupBox;
-            if (old_g != null)
-            {
-                Grid grid = old_g.FindName("Style_Grid") as Grid;
-                if (grid != null)
-                {
-                    CustomNumberBox a = grid.FindName("angle") as CustomNumberBox;
-                    if (a != null)
-                    {
-                        angle[Style_list.SelectedIndex] = a.Value;
                     }
                 }
             }

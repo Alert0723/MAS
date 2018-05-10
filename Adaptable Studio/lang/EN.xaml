@@ -49,6 +49,7 @@
     <system:String x:Key="About_3D_Environment">3D Environment：</system:String>
     <system:String x:Key="About_Json_Library">Json Library：</system:String>
     <system:String x:Key="About_Compressed_Library">Compressed Library：</system:String>
+    <system:String x:Key="About_Plugin_Library">Plugin Developing Platform：</system:String>
     <!--#endregion-->
 
     <!--#region  3D预览 -->

@@ -65,8 +65,8 @@ namespace Adaptable_Studio
                 MethodInfo objMI = objClass.GetType().GetMethod("Main");
 
                 //Console.WriteLine(objMI.Invoke(objClass, null));
-                string a = objMI.Invoke(objClass, null).ToString();
-                return a;
+                //string a = objMI.Invoke(objClass, null).ToString();
+                return "";
             }
         }
     }

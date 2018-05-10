@@ -80,8 +80,8 @@
       <HintPath>..\packages\Costura.Fody.1.6.2\lib\portable-net+sl+win+wpa+wp\Costura.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DotNetZip, Version=1.10.1.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
-      <HintPath>..\packages\DotNetZip.1.10.1\lib\net20\DotNetZip.dll</HintPath>
+    <Reference Include="DotNetZip, Version=1.11.0.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.11.0\lib\net20\DotNetZip.dll</HintPath>
     </Reference>
     <Reference Include="FileFormatWavefront, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FileFormatWavefront.1.0.3.0\lib\net40\FileFormatWavefront.dll</HintPath>
@@ -101,6 +101,12 @@
     <Reference Include="Microsoft.Expression.Prototyping.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Platform.Model.SPS.Plugin, Version=3.2.32.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Platform.Model.SPS.Plugin.3.2.32.0\lib\net40\Platform.Model.SPS.Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="Platform.Support.Core, Version=3.2.32.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Platform.Support.Core.3.2.32.0\lib\net40\Platform.Support.Core.dll</HintPath>
     </Reference>
     <Reference Include="SharpGL, Version=2.4.0.0, Culture=neutral, PublicKeyToken=27fc851303210b27, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpGL.2.4.0.0\lib\net40\SharpGL.dll</HintPath>
