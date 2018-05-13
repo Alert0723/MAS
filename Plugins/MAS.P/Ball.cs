@@ -1,10 +1,9 @@
-﻿using Platform.Model.SPS;
-using Platform.Model.SPS.Attributes;
+﻿
 using System;
 
 namespace Plugins
 {
-    [PlugIn("Ball")]
+    //[PlugIn("Ball")]
     public class Ball
     {
         /// <summary> 算法样式名 </summary>
