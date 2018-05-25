@@ -413,6 +413,7 @@ namespace Adaptable_Studio
             MainWindow.StructureNbt.Clear();
 
             string result = String.Empty;
+            MainWindow.result = String.Empty;
             if (!UI_advancedmode.IsChecked)
             {
                 result = "summon armor_stand ~ ~1 ~ {";
@@ -578,7 +579,7 @@ namespace Adaptable_Studio
                 #endregion
 
                 result += "}";
-                Add_ones(result);
+                Add_ones(result, false);
             }//常规模式
             else
             {
@@ -588,7 +589,7 @@ namespace Adaptable_Studio
 
                 for (int i = 0; i < TimeAxis.TotalTick; i++)
                 {
-                    result = "data merge entity @e[type=armor_stand,limit=1";
+                    result = "data merge entity @e[sort=armor_stand,limit=1";
                     if (UI_tags.Text != String.Empty) result += ",tag=" + tag;
                     result += ",scores={" + "ScoreName=" + i.ToString() + "}"
                      + "] {";
@@ -616,14 +617,14 @@ namespace Adaptable_Studio
                             + TimeAxis.pose[i].pos[18].ToString("0.#") + "f," + "0f],";
 
                     result += "}";
-                    Add_ones(result);
+                    Add_ones(result, true);
                 }//时间轴数据
 
                 //加分
                 result = "scoreboard players add @e";
                 if (UI_tags.Text != String.Empty) result += "[tag=" + tag + "]";
                 result += " ScoreName 1";
-                Add_ones(result);
+                Add_ones(result, true);
             }//高级模式            
         }
 
@@ -635,8 +636,10 @@ namespace Adaptable_Studio
             Application.Current.Shutdown();//关闭当前程序
         }
 
-        /// <summary> 结构文件-单条存储</summary>
-        private static void Add_ones(string Ones)
+        /// <summary> 结构文件-单条存储 </summary>
+        /// <param name="Ones">添加的字符</param>
+        /// <param name="Add">是否为添加模式（否则直接替换结果）</param>
+        private static void Add_ones(string Ones, bool Add = false)
         {
             Ones = Ones.Replace("False", "0");
             Ones = Ones.Replace("True", "1");
@@ -644,7 +647,9 @@ namespace Adaptable_Studio
             Ones = Ones.Replace(",}", "}");
             MainWindow.commands[MainWindow.k] = Ones;
             MainWindow.k++;
-            MainWindow.result += Ones + "\r\n";
+
+            if (Add) MainWindow.result += Ones + "\r\n";
+            else MainWindow.result = Ones + "\r\n";
         }
 
         #region 装备页面
