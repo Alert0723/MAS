@@ -589,7 +589,7 @@ namespace Adaptable_Studio
 
                 for (int i = 0; i < TimeAxis.TotalTick; i++)
                 {
-                    result = "data merge entity @e[sort=armor_stand,limit=1";
+                    result = "data merge entity @e[type=armor_stand,limit=1";
                     if (UI_tags.Text != String.Empty) result += ",tag=" + tag;
                     result += ",scores={" + "ScoreName=" + i.ToString() + "}"
                      + "] {";
