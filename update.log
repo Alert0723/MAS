@@ -1,6 +1,6 @@
-﻿Version:0.3.6.0 Alpha
+﻿Version:0.3.7.0 Alpha
 Updater version:1.8.5
-更新时间:2018/5/6
+更新时间:2018/5/26
 
 「更新内容」
 ●更新器
@@ -9,7 +9,7 @@ Updater version:1.8.5
 ●常规
 
 ●MAS.C
-    引导UI完善
+    修复代码生成bug
 
 ●MAS.P
     开发计划:重构！
