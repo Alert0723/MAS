@@ -19,11 +19,11 @@ namespace Updater
 
         #region 更新模块
         //在线更新日志链接
-        const string updatelog = "http://minecraft-1254149191.coscd.myqcloud.com/adaptable%20studio/update.log";
+        const string updatelog = "http://minecraft-adaptable-studio-1254149191.coscd.myqcloud.com/update.log";
         //更新资源包
-        const string pack = "http://minecraft-1254149191.coscd.myqcloud.com/adaptable%20studio/mas_package.zip";
+        const string pack = "http://minecraft-adaptable-studio-1254149191.coscd.myqcloud.com/mas_package.zip";
         //核心文件
-        const string core = "http://minecraft-1254149191.coscd.myqcloud.com/adaptable%20studio/Minecraft%20Adaptable%20Studio.exe";
+        const string core = "http://minecraft-adaptable-studio-1254149191.coscd.myqcloud.com/Minecraft%20Adaptable%20Studio.exe";
         #endregion
 
         DispatcherTimer timer = new DispatcherTimer() { Interval = new TimeSpan(0, 0, 0, 0, 1) };//计时器

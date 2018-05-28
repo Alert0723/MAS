@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Adaptable_Studio
 {
@@ -27,7 +28,7 @@ namespace Adaptable_Studio
         public static string result = "";//指令结果
 
         //在线更新日志链接
-        const string updatelog = "http://minecraft-1254149191.coscd.myqcloud.com/adaptable%20studio/update.log";
+        const string updatelog = "http://minecraft-adaptable-studio-1254149191.coscd.myqcloud.com/update.log";
 
         #region fNBT
         public static NbtCompound StructureNbt = new NbtCompound("");//文件主框架        
@@ -87,6 +88,14 @@ namespace Adaptable_Studio
             }
             catch { MessageBox.Show("结束进程出错!", processName); }
         }
+
+        #region Shortcut Keys
+        /// <summary> 开发者页面 </summary>        
+        private void CommandBinding_DeveloperPage(object sender, ExecutedRoutedEventArgs e)
+        {
+            _NavigationFrame.Navigate(new Developer_Page());
+        }
+        #endregion
 
         #region Main
         /// <summary> 窗体加载 </summary>
