@@ -18,7 +18,7 @@ namespace Adaptable_Studio
         bool updated;
 
         //更新器下载链接
-        const string updaterlink = "http://minecraft-1254149191.coscd.myqcloud.com/adaptable%20studio/MAS%20Updater.exe";
+        const string updaterlink = "http://minecraft-adaptable-studio-1254149191.coscd.myqcloud.com/MAS%20Updater.exe";
 
         #region ini配置文件
         [DllImport("kernel32")]
@@ -57,26 +57,30 @@ namespace Adaptable_Studio
 
         private void Update_Click(object sender, RoutedEventArgs e)
         {
-            //设置参数
-            HttpWebRequest request = WebRequest.Create(updaterlink) as HttpWebRequest;
-            //发送请求并获取相应回应数据
-            HttpWebResponse response = request.GetResponse() as HttpWebResponse;
-            //直到request.GetResponse()程序开始向目标网页发送Post请求
-            Stream responseStream = response.GetResponseStream();
-            //创建本地文件写入流
-            Stream stream = new FileStream(AppPath + @"\MAS Updater.exe", FileMode.Create);
-            byte[] bArr = new byte[1024];
-            int size = responseStream.Read(bArr, 0, bArr.Length);
-            while (size > 0)
+            try
             {
-                stream.Write(bArr, 0, size);
-                size = responseStream.Read(bArr, 0, bArr.Length);
-            }
-            stream.Close();
-            responseStream.Close();
+                //向目标网页发送Post请求
+                Stream responseStream = WebRequest.Create(updaterlink).GetResponse().GetResponseStream();
+                //创建本地文件写入流
+                using (Stream stream = new FileStream(AppPath + @"\MAS Updater.exe", FileMode.Create))
+                {
+                    byte[] bArr = new byte[1024];
+                    int size = responseStream.Read(bArr, 0, bArr.Length);
+                    while (size > 0)
+                    {
+                        stream.Write(bArr, 0, size);
+                        size = responseStream.Read(bArr, 0, bArr.Length);
+                    }
+                    stream.Close();
+                    responseStream.Close();
 
-            updated = true;
-            Close();
+                    updated = true;
+                }
+            }
+            catch
+            {
+                Log_Write(LogPath, "[VersionMessager]更新器下载失败");
+            }
         }
 
         /// <summary> 日志文件输出 </summary>
