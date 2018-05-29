@@ -85,8 +85,13 @@ namespace Adaptable_Studio
 
         private void Option_load()
         {
-            Lang_CN.IsChecked = MainWindow._langCN;//语言
-            Guidance_on.IsChecked = MainWindow.Guidance;//引导
+            //语言
+            if (MainWindow._langCN) Lang_CN.IsChecked = true;
+            else Lang_EN.IsChecked = true;
+
+            //引导
+            if (MainWindow.Guidance) Guidance_on.IsChecked = true;
+            else Guidance_off.IsChecked = true;
 
             Max_length.Value = MainWindow.Max_length;//结构最大长度
             Horizontal.IsChecked = !MainWindow.Portrait;//纵横

@@ -52,6 +52,12 @@
     <system:String x:Key="About_Plugin_Library">拓展插件开发平台：</system:String>
     <!--#endregion-->
 
+    <!--#region  Developer Page -->
+    <system:String x:Key="Dev_Data _Statistics">数据统计</system:String>
+    <system:String x:Key="Dev_Today_Use">今日使用次数（IP）:</system:String>
+    <system:String x:Key="Dev_Yesterday_Use">昨日使用次数（IP）:</system:String>
+    <!--#endregion-->
+    
     <!--#region  3D预览 -->
     <system:String x:Key="OpenGL_Grid">网格</system:String>
     <system:String x:Key="OpenGL_Axis">坐标系</system:String>

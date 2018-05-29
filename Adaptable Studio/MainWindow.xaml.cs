@@ -19,7 +19,7 @@ namespace Adaptable_Studio
         string AppPath = Environment.CurrentDirectory,//应用程序根目录
                LogPath;//日志文件路径
 
-        const string version = "Version:0.3.7.0 Alpha";//当前版本号
+        const string version = "Version:0.3.8.0 Alpha";//当前版本号
         public static bool _langCN = true;//汉英切换
         public static int PageIndex = -1;//页面读取值
         public static bool Restart = false;//重启判定
@@ -89,14 +89,6 @@ namespace Adaptable_Studio
             catch { MessageBox.Show("结束进程出错!", processName); }
         }
 
-        #region Shortcut Keys
-        /// <summary> 开发者页面 </summary>        
-        private void CommandBinding_DeveloperPage(object sender, ExecutedRoutedEventArgs e)
-        {
-            _NavigationFrame.Navigate(new Developer_Page());
-        }
-        #endregion
-
         #region Main
         /// <summary> 窗体加载 </summary>
         private void Main_Loaded(object sender, RoutedEventArgs e)
@@ -112,6 +104,7 @@ namespace Adaptable_Studio
             try
             {
                 StreamReader test = new StreamReader(WebRequest.Create("http://www.mcbbs.net/thread-580119-1-1.html").GetResponse().GetResponseStream(), Encoding.UTF8);
+                WebView.Navigate(new Uri("http://p9fi3mtgy.bkt.clouddn.com/MAS-Stat.html"));
             }
             catch { Log_Write(LogPath, "[Main]测试访问失败"); }//测试访问
 
@@ -235,6 +228,14 @@ namespace Adaptable_Studio
 
             if (!Restart) IniWrite("System", "PageIndex", "-1", iniPath);
             Environment.Exit(0);
+        }
+        #endregion
+
+        #region Shortcut Keys
+        /// <summary> 开发者页面 </summary>        
+        private void CommandBinding_DeveloperPage(object sender, ExecutedRoutedEventArgs e)
+        {
+            _NavigationFrame.Navigate(new Developer_Page());
         }
         #endregion
 

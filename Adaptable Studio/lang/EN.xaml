@@ -52,6 +52,12 @@
     <system:String x:Key="About_Plugin_Library">Plugin Developing Platform：</system:String>
     <!--#endregion-->
 
+    <!--#region  Developer Page -->
+    <system:String x:Key="Dev_Data _Statistics">Data statistics</system:String>
+    <system:String x:Key="Dev_Today_Use">Number of use today (IP):</system:String>
+    <system:String x:Key="Dev_Yesterday_Use">Number of use yesterday (IP):</system:String>
+    <!--#endregion-->
+    
     <!--#region  3D预览 -->
     <system:String x:Key="OpenGL_Grid">Grid</system:String>
     <system:String x:Key="OpenGL_Axis">Axis</system:String>

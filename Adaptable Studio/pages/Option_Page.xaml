@@ -30,13 +30,13 @@
                 <Label Content="{DynamicResource Option_Routine_Setting}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="{DynamicResource Font}"/>
                 <WrapPanel Name="Language_Panel" Margin="0,50,0,0" Height="30" VerticalAlignment="Top">
                     <Label Content="{DynamicResource Option_Language}" Margin="20,1,0,0" VerticalAlignment="Top" Height="27" HorizontalAlignment="Left" FontSize="14" FontFamily="{DynamicResource Font}"/>
-                    <RadioButton x:Name="Lang_CN" Content="中文" HorizontalAlignment="Left" Margin="50,6,0,0" VerticalAlignment="Top" IsChecked="True" FontFamily="Microsoft YaHei UI" Click="Lang_Save"/>
-                    <RadioButton x:Name="Lang_EN" Content="English" HorizontalAlignment="Left" Margin="90,6,0,0" VerticalAlignment="Top" IsChecked="False" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" Click="Lang_Save"/>
+                    <RadioButton x:Name="Lang_CN" Content="中文" HorizontalAlignment="Left" Margin="50,6,0,0" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI" Click="Lang_Save" IsChecked="True"/>
+                    <RadioButton x:Name="Lang_EN" Content="English" HorizontalAlignment="Left" Margin="90,6,0,0" VerticalAlignment="Top" IsChecked="True" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" Click="Lang_Save"/>
                 </WrapPanel>
 
                 <WrapPanel Name="Guidance_Panel" Margin="0,85,0,0" Height="30" VerticalAlignment="Top">
                     <Label Content="{DynamicResource Option_Guidance}" Margin="20,1,0,0" VerticalAlignment="Top" Height="27" HorizontalAlignment="Left" FontSize="14" FontFamily="{DynamicResource Font}"/>
-                    <RadioButton x:Name="Guidance_on" Content="{DynamicResource Option_On}" HorizontalAlignment="Left" Margin="50,6,0,0" VerticalAlignment="Top" IsChecked="True" FontFamily="{DynamicResource Font}"/>
+                    <RadioButton x:Name="Guidance_on" Content="{DynamicResource Option_On}" HorizontalAlignment="Left" Margin="50,6,0,0" VerticalAlignment="Top" FontFamily="{DynamicResource Font}" IsChecked="True"/>
                     <RadioButton x:Name="Guidance_off" Content="{DynamicResource Option_Off}" HorizontalAlignment="Left" Margin="90,6,0,0" VerticalAlignment="Top" IsChecked="True" FontFamily="{DynamicResource Font}"/>
                 </WrapPanel>
                 <!--#endregion-->

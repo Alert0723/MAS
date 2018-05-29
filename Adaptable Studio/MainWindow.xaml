@@ -15,21 +15,21 @@
         <Image x:Key="about" Source="icon/tags.png"/>
         <Image x:Key="option" Source="icon/option.png"/>
         <Image x:Key="help" Source="icon/help.png"/>
-        
+
         <!--快捷键绑定-->
         <RoutedUICommand x:Key="DeveloperPage" Text="开发者页面" />
-        
     </controls:MetroWindow.Resources>
+
     <controls:MetroWindow.InputBindings>
         <!--快捷键输入绑定-->
         <KeyBinding Gesture="Ctrl+Alt+F12" Command="{StaticResource DeveloperPage}" />
-        
     </controls:MetroWindow.InputBindings>
+
     <controls:MetroWindow.CommandBindings>
         <!--快捷键执行函数绑定-->
         <CommandBinding Command="{StaticResource DeveloperPage}" Executed=" CommandBinding_DeveloperPage"/>
-        
     </controls:MetroWindow.CommandBindings>
+
     <controls:MetroWindow.LeftWindowCommands>
         <controls:WindowCommands>
             <Button x:Name="Help_Button" FontFamily="{DynamicResource Font}" ToolTip="{DynamicResource MainHelp}" Click="Help_Click">
@@ -67,5 +67,8 @@
             </Button>
         </controls:WindowCommands>
     </controls:MetroWindow.RightWindowCommands>
-    <Frame x:Name="_NavigationFrame" NavigationUIVisibility="Hidden"/>
+    <Grid>
+        <WebBrowser x:Name="WebView" HorizontalAlignment="Left" Height="44" Margin="10,10,0,0" VerticalAlignment="Top" Width="208" Visibility="Hidden"/>
+        <Frame x:Name="_NavigationFrame" NavigationUIVisibility="Hidden"/>
+    </Grid>
 </controls:MetroWindow>

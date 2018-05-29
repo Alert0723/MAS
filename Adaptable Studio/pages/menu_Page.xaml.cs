@@ -33,7 +33,7 @@ namespace Adaptable_Studio
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.RemoveBackEntry();
+            NavigationService.RemoveBackEntry();
         }
 
         private void MASC(object sender, RoutedEventArgs e)
