@@ -146,9 +146,6 @@
     <Compile Include="Functional form\MASC-Part Direction.xaml.cs">
       <DependentUpon>MASC-Part Direction.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pages\Developer_Page.xaml.cs">
-      <DependentUpon>Developer_Page.xaml</DependentUpon>
-    </Compile>
     <Compile Include="pages\Option_Page.xaml.cs">
       <DependentUpon>Option_Page.xaml</DependentUpon>
     </Compile>
@@ -185,10 +182,6 @@
     <Page Include="Functional form\MASC-Part Direction.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="pages\Developer_Page.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="pages\Option_Page.xaml">
       <SubType>Designer</SubType>

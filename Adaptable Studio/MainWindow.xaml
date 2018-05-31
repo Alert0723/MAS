@@ -17,18 +17,18 @@
         <Image x:Key="help" Source="icon/help.png"/>
 
         <!--快捷键绑定-->
-        <RoutedUICommand x:Key="DeveloperPage" Text="开发者页面" />
+        <!--<RoutedUICommand x:Key="DeveloperPage" Text="开发者页面" />-->
     </controls:MetroWindow.Resources>
 
-    <controls:MetroWindow.InputBindings>
-        <!--快捷键输入绑定-->
+    <!--<controls:MetroWindow.InputBindings>
+        --><!--快捷键输入绑定--><!--
         <KeyBinding Gesture="Ctrl+Alt+F12" Command="{StaticResource DeveloperPage}" />
     </controls:MetroWindow.InputBindings>
 
     <controls:MetroWindow.CommandBindings>
-        <!--快捷键执行函数绑定-->
+        --><!--快捷键执行函数绑定--><!--
         <CommandBinding Command="{StaticResource DeveloperPage}" Executed=" CommandBinding_DeveloperPage"/>
-    </controls:MetroWindow.CommandBindings>
+    </controls:MetroWindow.CommandBindings>-->
 
     <controls:MetroWindow.LeftWindowCommands>
         <controls:WindowCommands>

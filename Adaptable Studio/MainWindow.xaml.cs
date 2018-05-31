@@ -19,7 +19,7 @@ namespace Adaptable_Studio
         string AppPath = Environment.CurrentDirectory,//应用程序根目录
                LogPath;//日志文件路径
 
-        const string version = "Version:0.3.8.0 Alpha";//当前版本号
+        const string version = "Version:0.3.9.0 Alpha";//当前版本号
         public static bool _langCN = true;//汉英切换
         public static int PageIndex = -1;//页面读取值
         public static bool Restart = false;//重启判定
@@ -231,13 +231,13 @@ namespace Adaptable_Studio
         }
         #endregion
 
-        #region Shortcut Keys
-        /// <summary> 开发者页面 </summary>        
-        private void CommandBinding_DeveloperPage(object sender, ExecutedRoutedEventArgs e)
-        {
-            _NavigationFrame.Navigate(new Developer_Page());
-        }
-        #endregion
+        //#region Shortcut Keys
+        ///// <summary> 开发者页面 </summary>        
+        //private void CommandBinding_DeveloperPage(object sender, ExecutedRoutedEventArgs e)
+        //{
+
+        //}
+        //#endregion
 
         #region TitleBar
         public static bool Guiding = true;
