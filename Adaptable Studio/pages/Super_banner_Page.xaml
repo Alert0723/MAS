@@ -10,9 +10,9 @@
       Title="super_banner_Page" Width="942" Height="569" Loaded="Page_Loaded">
     <Grid Margin="0,0,525,0">
         <WPF:OpenGLControl x:Name="OpenGLControl" OpenGLDraw="OpenGLControl_OpenGLDraw" Margin="0,0,-2,0"  OpenGLVersion="OpenGL4_4" FrameRate="30"/>
-        <Button Click="Button_Click" Content="Button" HorizontalAlignment="Left" Margin="665,321,-418,0" VerticalAlignment="Top" Width="170" Height="108"/>
+        <Button Click="Button_Click" Content="当前层数++" HorizontalAlignment="Left" Margin="665,288,-418,0" VerticalAlignment="Top" Width="170" Height="108"/>
         <local:ColorBoard x:Name="Color_Set" HorizontalAlignment="Left" Height="134" Margin="503,35,-233,0" VerticalAlignment="Top" Width="147"/>
-        <Button Click="Button_Click_1" Content="Button" HorizontalAlignment="Left" Margin="665,451,-418,0" VerticalAlignment="Top" Width="170" Height="108"/>
+        <Button Click="Button_Click_1" Content="总层数++" HorizontalAlignment="Left" Margin="665,419,-418,0" VerticalAlignment="Top" Width="170" Height="108"/>
         <Label x:Name="l1" Content="0" HorizontalAlignment="Left" Margin="524,380,-207,0" VerticalAlignment="Top" Width="100"/>
         <Label x:Name="l2" Content="0" HorizontalAlignment="Left" Margin="524,321,-207,0" VerticalAlignment="Top" Width="100"/>
 

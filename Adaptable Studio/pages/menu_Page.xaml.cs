@@ -36,11 +36,18 @@ namespace Adaptable_Studio
             NavigationService.RemoveBackEntry();
         }
 
+        private void MASB(object sender, RoutedEventArgs e)
+        {
+            IniWrite("System", "PageIndex", "2", iniPath);
+            MainWindow.PageIndex = 2;
+            NavigationService.Navigate(new Uri("pages/Super_banner_Page.xaml", UriKind.Relative));
+        }
+
         private void MASC(object sender, RoutedEventArgs e)
         {
             IniWrite("System", "PageIndex", "3", iniPath);
             MainWindow.PageIndex = 3;
-            this.NavigationService.Navigate(new Uri("pages/armor_stand_Page.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("pages/armor_stand_Page.xaml", UriKind.Relative));
         }
 
         private void MASP(object sender, RoutedEventArgs e)
