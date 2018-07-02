@@ -12,7 +12,8 @@
       xmlns:System="clr-namespace:System;assembly=mscorlib"      
       x:Class="Adaptable_Studio.Armor_stand_Page"
       mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300"
-      Title="armor_stand_Page" Width="942" Height="569" Loaded="Page_Loaded" FontFamily="{DynamicResource Font}">
+      FontFamily="{DynamicResource Font}"
+      Title="armor_stand_Page" Width="942" Height="569" Loaded="Page_Loaded">
     <!--Height="569"-->
     <!--Height="1800"-->
     <Grid x:Name="ALL">
@@ -1048,7 +1049,7 @@
                                 </TabItem>
                             </TabControl>
                         </WrapPanel>
-                        <WrapPanel x:Name="ItemPanel" MouseEnter="ItemGrid_update" MouseLeave="ItemGrid_update" Height="958.5">
+                        <WrapPanel x:Name="ItemPanel" MouseEnter="ItemGrid_update" MouseLeave="ItemGrid_update" Height="1020">
                             <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="EnablePart_Settings" Height="20" Width="100" Content="{DynamicResource Enable_Part_Check}" Margin="5,0,0,5" >
                                 <i:Interaction.Triggers>
                                     <ei:PropertyChangedTrigger Binding="{Binding IsChecked, ElementName=EnablePart_Settings}">
@@ -1082,7 +1083,7 @@
                                 </i:Interaction.Triggers>
                             </CheckBox>
                             <userControl:CustomRestButton x:Name="Item_Reset" Height="20" Width="120" Margin="31,0,0,5" Padding="0" RestContent="Reset?" MouseLeftButtonDown="ItemReset_LeftButtonDown"/>
-                            <Grid x:Name="Item_grid" Height="933" Width="255" Margin="5,0,0,0">
+                            <Grid x:Name="Item_grid" Height="995" Width="255" Margin="5,0,0,0">
                                 <WrapPanel x:Name="grid1" IsHitTestVisible="False" d:IsEffectDisabled="True">
                                     <WrapPanel.Effect>
                                         <BlurEffect/>
