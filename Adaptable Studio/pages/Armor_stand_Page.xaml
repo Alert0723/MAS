@@ -1354,7 +1354,7 @@
                         <Label Content="{DynamicResource Guide_switch}" FontFamily="{DynamicResource Font}" VerticalAlignment="Top" Margin="71,17,0,0" HorizontalAlignment="Left" FontWeight="Bold" Foreground="#FFFF8282"/>
 
                         <!--#region  Pose Guidance -->
-                        <Border Margin="131,331,0,0" BorderBrush="#FFFF8282" BorderThickness="1.5" HorizontalAlignment="Left" Width="90" Height="22" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                        <Border Margin="131,330,0,0" BorderBrush="#FFFF8282" BorderThickness="1.5" HorizontalAlignment="Left" Width="90" Height="22" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
                             <Border.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform ScaleY="-1"/>
@@ -1364,7 +1364,7 @@
                                 </TransformGroup>
                             </Border.RenderTransform>
                         </Border>
-                        <Label Content=". . . . . . . . . . . . . . . . . . . . . . . . ." Margin="141,420,-99,0" RenderTransformOrigin="0.5,0.5" FontSize="14" FontWeight="Bold" Foreground="#FFFF8282" HorizontalAlignment="Left" VerticalAlignment="Top" Width="226">
+                        <Label FontFamily="Microsoft YaHei UI" Content=". . . . . . . . . . . . . . . . . . . . . . . . ." Margin="141,420,-99,0" RenderTransformOrigin="0.5,0.5" FontSize="14" FontWeight="Bold" Foreground="#FFFF8282" HorizontalAlignment="Left" VerticalAlignment="Top" Width="226">
                             <Label.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
@@ -1374,10 +1374,10 @@
                                 </TransformGroup>
                             </Label.RenderTransform>
                         </Label>
-                        <Label Content=". . . ." VerticalAlignment="Top" Margin="219,325,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282"/>
+                        <Label FontFamily="Microsoft YaHei UI" Content=". . . ." VerticalAlignment="Top" Margin="219,325,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282"/>
                         <Border Margin="10,545,0,0" BorderBrush="#FFFF8282" BorderThickness="1.5" HorizontalAlignment="Left" Width="250" Height="100" VerticalAlignment="Top"/>
                         <Label Content="{DynamicResource Guide_pose}" FontFamily="{DynamicResource Font}" VerticalAlignment="Top" Margin="111,445,0,0" HorizontalAlignment="Left" FontWeight="Bold" Foreground="#FFFF8282"/>
-                        <Label Content=". . ." VerticalAlignment="Top" Margin="227,440,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282"/>
+                        <Label FontFamily="Microsoft YaHei UI" Content=". . ." VerticalAlignment="Top" Margin="227,440,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282"/>
                         <!--#endregion-->
 
                         <!--#region  AdvanceMode Guidance -->
@@ -1419,9 +1419,9 @@
             <!--#region  全局 -->
             <Border Margin="0,0,14,9" BorderBrush="#FFFF8282" BorderThickness="1.5" HorizontalAlignment="Right" Width="475" Height="66" VerticalAlignment="Bottom"/>
             <TextBlock Text="{DynamicResource Guide_time_axis1}" Foreground="#FFFF8282" FontWeight="Bold" VerticalAlignment="Bottom" Margin="127,0,0,109" HorizontalAlignment="Left" Width="491" FontSize="14"/>
-            <Label Content=". ." VerticalAlignment="Top" Margin="108,504,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282"/>
-            <Label Content="." VerticalAlignment="Top" Margin="116,431,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282"/>
-            <Label Content=". . . . . . . . ." VerticalAlignment="Top" Margin="80,468,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282" RenderTransformOrigin="0.5,0.5">
+            <Label FontFamily="Microsoft YaHei UI" Content=". ." VerticalAlignment="Top" Margin="108,504,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282"/>
+            <Label FontFamily="Microsoft YaHei UI" Content="." VerticalAlignment="Top" Margin="116,431,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282"/>
+            <Label FontFamily="Microsoft YaHei UI" Content=". . . . . . . . ." VerticalAlignment="Top" Margin="80,468,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282" RenderTransformOrigin="0.5,0.5">
                 <Label.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -1444,9 +1444,9 @@
                 </Border.RenderTransform>
             </Border>
             <TextBlock Text="{DynamicResource Guide_time_axis2}" Foreground="#FFFF8282" FontWeight="Bold" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="174,0,0,94" Width="431"/>
-            <Label Content=". ." VerticalAlignment="Top" Margin="157,449,0,0" HorizontalAlignment="Left" FontWeight="Bold" Foreground="#FFFF8282" BorderThickness="0" FontSize="10"/>
-            <Label Content=". ." VerticalAlignment="Top" Margin="151,501,0,0" HorizontalAlignment="Left" FontWeight="Bold" Foreground="#FFFF8282" BorderThickness="0" FontSize="10"/>
-            <Label Content=". . . . . . . ." VerticalAlignment="Top" Margin="133,478,0,0" HorizontalAlignment="Left" FontWeight="Bold" Foreground="#FFFF8282" BorderThickness="0" FontSize="10" RenderTransformOrigin="0.5,0.5">
+            <Label FontFamily="Microsoft YaHei UI" Content=". ." VerticalAlignment="Top" Margin="157,449,0,0" HorizontalAlignment="Left" FontWeight="Bold" Foreground="#FFFF8282" BorderThickness="0" FontSize="10"/>
+            <Label FontFamily="Microsoft YaHei UI" Content=". ." VerticalAlignment="Top" Margin="151,501,0,0" HorizontalAlignment="Left" FontWeight="Bold" Foreground="#FFFF8282" BorderThickness="0" FontSize="10"/>
+            <Label FontFamily="Microsoft YaHei UI" Content=". . . . . . . ." VerticalAlignment="Top" Margin="133,478,0,0" HorizontalAlignment="Left" FontWeight="Bold" Foreground="#FFFF8282" BorderThickness="0" FontSize="10" RenderTransformOrigin="0.5,0.5">
                 <Label.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
