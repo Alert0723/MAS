@@ -12,7 +12,7 @@
       xmlns:System="clr-namespace:System;assembly=mscorlib"      
       x:Class="Adaptable_Studio.Armor_stand_Page"
       mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300"
-      Title="armor_stand_Page" Width="942" Height="569" Loaded="Page_Loaded">
+      Title="armor_stand_Page" Width="942" Height="569" Loaded="Page_Loaded" FontFamily="{DynamicResource Font}">
     <!--Height="569"-->
     <!--Height="1800"-->
     <Grid x:Name="ALL">

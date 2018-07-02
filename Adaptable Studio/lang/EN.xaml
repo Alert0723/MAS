@@ -12,7 +12,7 @@
     <system:String x:Key="MainHelp">Page guidance</system:String>
     <!--#endregion-->
 
-    <!--#region Version Messager -->
+    <!--#region  Version Messager -->
     <system:String x:Key="FindNewVer">New Version：</system:String>
     <system:String x:Key="UpdateNow">Update Now</system:String>
     <!--#endregion-->
@@ -50,12 +50,6 @@
     <system:String x:Key="About_Json_Library">Json Library：</system:String>
     <system:String x:Key="About_Compressed_Library">Compressed Library：</system:String>
     <system:String x:Key="About_Plugin_Library">Plugin Developing Platform：</system:String>
-    <!--#endregion-->
-
-    <!--#region  Developer Page -->
-    <system:String x:Key="Dev_Data _Statistics">Data statistics</system:String>
-    <system:String x:Key="Dev_Today_Use">Number of use today (IP):</system:String>
-    <system:String x:Key="Dev_Yesterday_Use">Number of use yesterday (IP):</system:String>
     <!--#endregion-->
     
     <!--#region  3D预览 -->

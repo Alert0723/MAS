@@ -226,15 +226,36 @@ namespace Adaptable_Studio
         /// <summary> 样式模板列表构建 </summary>
         private void StyleFiles_Load()
         {
-            DirectoryInfo txtFolder = new DirectoryInfo(AppPath + @"\appfile\temp\masp");
+            DirectoryInfo DllFolder = new DirectoryInfo(AppPath + @"\appfile\temp\masp");
             int i = 0;
 
-            //获取模板压缩包列表
-            foreach (FileInfo file in txtFolder.GetFiles("*.zip"))
+            //获取模板列表
+            foreach (FileInfo file in DllFolder.GetFiles("*.dll"))
             {
-                StyleName[i] = file.Name.Replace(".zip", "");
-                i++;
+                try
+                {
+                    string DllPath = file.FullName;
+                    Assembly assembly = Assembly.LoadFrom(DllPath);
+                    Type type = assembly.GetType(file.Name.Replace(".dll", ""));//用类型的命名空间和名称获得类型
+                    //StyleName[i] = assembly.
+                    i++;
+                }
+                catch { }
+
             }
+
+
+
+
+            //DirectoryInfo txtFolder = new DirectoryInfo(AppPath + @"\appfile\temp\masp");
+            //int i = 0;
+
+            ////获取模板压缩包列表
+            //foreach (FileInfo file in txtFolder.GetFiles("*.zip"))
+            //{
+            //    StyleName[i] = file.Name.Replace(".zip", "");
+            //    i++;
+            //}
 
             try
             {

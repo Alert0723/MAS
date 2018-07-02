@@ -1,12 +1,12 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 
 namespace Plugins
-{
-    //[PlugIn("Ball")]
+{    
     public class Ball
     {
         /// <summary> 算法样式名 </summary>
-        public string StyleSign
+        public static string StyleSign
         {
             get { return "Ball"; }
         }
