@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
@@ -53,7 +54,8 @@ namespace Adaptable_Studio
             if (MainWindow.PageIndex > 0)
             {
                 MainWindow.Restart = true;
-                Process.Start(Assembly.GetExecutingAssembly().Location); //重新开启当前程序
+                Process.Start(Assembly.GetExecutingAssembly().Location); //开启新程序
+                Thread.Sleep(2000);
                 Application.Current.Shutdown();//关闭当前程序
             }
             else NavigationService.GoBack();
