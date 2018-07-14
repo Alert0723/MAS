@@ -1396,8 +1396,8 @@
                 </WrapPanel>
             </ScrollViewer>
         </Grid>
-        <GroupBox x:Name="Preview" Header="ArmorStand Preview" Margin="279,2,0,104" Grid.RowSpan="3" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Background="#FF119EDA" BorderBrush="{x:Null}" Padding="5,8" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" Custom1:ControlsHelper.ContentCharacterCasing="Normal" Cursor="SizeAll">
-            <Grid Background="#FFCDCDCD" MouseMove="ArmorStandView_MouseMove" MouseDown="ArmorStandView_MouseDown" MouseUp="ArmorStandView_MouseUp" MouseLeave="ArmorStandView_MouseLeave" MouseWheel="ArmorStandView_MouseWheel">
+        <GroupBox x:Name="Preview" Header="ArmorStand Preview" Margin="279,2,0,104" Grid.RowSpan="3" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Background="#FF119EDA" BorderBrush="{x:Null}" Padding="5,8" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" Custom1:ControlsHelper.ContentCharacterCasing="Normal">
+            <Grid x:Name="PreviewGrid" Background="#FFCDCDCD" MouseMove="ArmorStandView_MouseMove" MouseDown="ArmorStandView_MouseDown" MouseWheel="ArmorStandView_MouseWheel" MouseUp="ArmorStandView_MouseUp">
                 <Viewport3D x:Name="ArmorStandView">
                     <Viewport3D.Camera>
                         <PerspectiveCamera x:Name="MainCamera"
@@ -1406,7 +1406,7 @@
                                UpDirection="0,1,0"
                                NearPlaneDistance="0"
                                FarPlaneDistance="100"
-                               FieldOfView="120"/>
+                               FieldOfView="90"/>
                     </Viewport3D.Camera>
 
                     <ModelVisual3D>
@@ -1449,8 +1449,8 @@
                 <Viewport3D x:Name="AxisView" Width="80" Height="80" HorizontalAlignment="Right" VerticalAlignment="Top">
                     <Viewport3D.Camera>
                         <PerspectiveCamera x:Name="AxisCamera"
-                               Position="{Binding ElementName=MainCamera, Path=Position}"
-                               LookDirection="{Binding ElementName=MainCamera, Path=LookDirection}"
+                               Position="0,5,-10"
+                               LookDirection="0,-0.5,1"
                                UpDirection="0,1,0"
                                NearPlaneDistance="0"
                                FarPlaneDistance="100"
@@ -1496,7 +1496,7 @@
                         <ModelVisual3D Content="{DynamicResource AxisZ}"/>
                     </ModelVisual3D>
                 </Viewport3D>
-                <Label x:Name="lab" Margin="10,10,0,375" Foreground="Black" HorizontalAlignment="Left"/>
+                <Label x:Name="lab" Margin="10,10,0,0" Foreground="Black" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             </Grid>
         </GroupBox>
         <Grid x:Name="Time" Grid.Column="2" Height="90.653" Margin="284,0,0,7.995" Grid.Row="3" VerticalAlignment="Bottom" Width="608.055">

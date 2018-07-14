@@ -75,11 +75,10 @@ namespace Adaptable_Studio
         #endregion
 
         #region Viewport3D
-        const double CameraRadius = 10;//摄像机半径(相对于原点)
-        double[] CameraRot = new double[2] { 15, 60 };//水平旋转角,竖直旋转角(相对于原点)
-        Point3D CameraPoint = new Point3D();
+        double CameraRadius = 15;//摄像机半径(相对于原点)
+        double[] CameraRot = new double[2] { 15, 60 };//水平旋转角,竖直旋转角(相对于原点)        
+        double[] CameraLookAtPoint = new double[3] { 0, 0, 0 };//摄像机视点
 
-        bool preview_rot;//是否按下鼠标
         double[] mouse_location = new double[2];//鼠标位置
 
         float[] pose = new float[19];
@@ -923,61 +922,137 @@ namespace Adaptable_Studio
         private void ArmorStandView_MouseWheel(object sender, MouseWheelEventArgs e)
         {
             if (e.Delta >= 0)
-                MainCamera.FieldOfView++;
+                CameraRadius += 0.5;
             else
-                MainCamera.FieldOfView--;
+                CameraRadius -= 0.5;
 
-            lab.Content = "Scale:" + MainCamera.FieldOfView;
+            CameraReset();
+
+            lab.Content = "Radius:" + CameraRadius;
         }
 
         #region 预览视角旋转-摄像机坐标计算
         private void ArmorStandView_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            preview_rot = true;
             mouse_location[0] = e.GetPosition((IInputElement)sender).X;
             mouse_location[1] = e.GetPosition((IInputElement)sender).Y;
-        }
 
-        private void ArmorStandView_MouseLeave(object sender, MouseEventArgs e)
-        {
-            preview_rot = false;
+            if (e.LeftButton == MouseButtonState.Pressed) PreviewGrid.Cursor = Cursors.SizeAll;
+            else if (e.RightButton == MouseButtonState.Pressed) PreviewGrid.Cursor = Cursors.ScrollAll;
         }
 
         private void ArmorStandView_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            preview_rot = false;
+            PreviewGrid.Cursor = Cursors.Arrow;
         }
+
+        Vector3D LookDir, UpDir, MoveDir;
 
         private void ArmorStandView_MouseMove(object sender, MouseEventArgs e)
         {
-            if (preview_rot)
+            PreviewGrid.Cursor = Cursors.Arrow;
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
+                PreviewGrid.Cursor = Cursors.SizeAll;
                 CameraRot[0] += (e.GetPosition((IInputElement)sender).X - mouse_location[0]) * 180 / 460;
                 CameraRot[1] += -(e.GetPosition((IInputElement)sender).Y - mouse_location[1]) * 180 / 460;
-                //CameraRot[0] += -(e.GetPosition((IInputElement)sender).X - mouse_location[0]);
-                //CameraRot[1] += e.GetPosition((IInputElement)sender).Y - mouse_location[1];
-                CameraReset();
-                mouse_location[0] = e.GetPosition((IInputElement)sender).X;
-                mouse_location[1] = e.GetPosition((IInputElement)sender).Y;
-            }
+
+                lab.Content = "CameraRot: " + CameraRot[0] + " , " + CameraRot[1];
+            }//左键转向
+            else if (e.RightButton == MouseButtonState.Pressed)
+            {
+                PreviewGrid.Cursor = Cursors.ScrollAll;
+
+                //叉乘 a×b=(y1z2-y2z1,z1x2-z2x1,x1y2-x2y1)
+                LookDir = MainCamera.LookDirection;//Camera朝向向量
+                UpDir = new Vector3D()//Camera垂直法向量 (LookDir×(0,0,1))
+                {
+                    X = LookDir.Y,
+                    Y = -LookDir.X,
+                    Z = 0
+                };
+
+                //平面法向量                
+                MoveDir.X = LookDir.Y * UpDir.Z - UpDir.Y * LookDir.Z;
+                MoveDir.Y = LookDir.Z * UpDir.X - LookDir.X * UpDir.Z;
+                MoveDir.Z = LookDir.X * UpDir.Y - LookDir.Y * UpDir.X;
+
+                if (e.GetPosition((IInputElement)sender).X - mouse_location[0] > 0)
+                {
+                    CameraLookAtPoint[0] += -MoveDir.X / 1800;
+                    CameraLookAtPoint[2] += -MoveDir.Z / 1800;
+                }
+                else if (e.GetPosition((IInputElement)sender).X - mouse_location[0] < 0)
+                {
+                    CameraLookAtPoint[0] += MoveDir.X / 1800;
+                    CameraLookAtPoint[2] += MoveDir.Z / 1800;
+                }
+
+                if (e.GetPosition((IInputElement)sender).Y - mouse_location[1] > 0)
+                {
+                    CameraLookAtPoint[1] += 0.08;
+                    MainCamera.Position = new Point3D()
+                    {
+                        X = MainCamera.Position.X,
+                        Y = MainCamera.Position.Y + 0.08,
+                        Z = MainCamera.Position.Z
+                    };
+
+                }
+                else if (e.GetPosition((IInputElement)sender).Y - mouse_location[1] < 0)
+                {
+                    CameraLookAtPoint[1] -= 0.08;
+                    MainCamera.Position = new Point3D()
+                    {
+                        X = MainCamera.Position.X,
+                        Y = MainCamera.Position.Y - 0.08,
+                        Z = MainCamera.Position.Z
+                    };
+                }
+
+                MainCamera.LookDirection = new Vector3D()
+                {
+                    X = CameraLookAtPoint[0] - MainCamera.Position.X,
+                    Y = CameraLookAtPoint[1] - MainCamera.Position.Y,
+                    Z = CameraLookAtPoint[2] - MainCamera.Position.Z
+                };
+
+                lab.Content = "Camera LookAt: " + CameraLookAtPoint[0] + "," + CameraLookAtPoint[1] + "," + CameraLookAtPoint[2]
+                    + "\n Look Direction:" + MainCamera.LookDirection;
+            }//右键平面移动
+
+            CameraReset();
+            mouse_location[0] = e.GetPosition((IInputElement)sender).X;
+            mouse_location[1] = e.GetPosition((IInputElement)sender).Y;
 
             if (CameraRot[0] > 360) CameraRot[0] = 0;
             else if (CameraRot[0] < 0) CameraRot[0] = 360;
             if (CameraRot[1] > 175) CameraRot[1] = 175;
             else if (CameraRot[1] < 5) CameraRot[1] = 5;
-
-            lab.Content = "CameraRot: " + CameraRot[0] + " , " + CameraRot[1];
         }
 
         void CameraReset()
         {
-            CameraPoint.X = Math.Sin(CameraRot[1] * Math.PI / 180) * Math.Cos(CameraRot[0] * Math.PI / 180) * CameraRadius;
-            CameraPoint.Y = Math.Cos(CameraRot[1] * Math.PI / 180) * CameraRadius;
-            CameraPoint.Z = Math.Sin(CameraRot[1] * Math.PI / 180) * Math.Sin(CameraRot[0] * Math.PI / 180) * CameraRadius;
+            //主视窗Camera
+            Point3D Point = new Point3D()
+            {
+                X = CameraLookAtPoint[0] + Math.Sin(CameraRot[1] * Math.PI / 180) * Math.Cos(CameraRot[0] * Math.PI / 180) * CameraRadius,
+                Y = CameraLookAtPoint[1] + Math.Cos(CameraRot[1] * Math.PI / 180) * CameraRadius,
+                Z = CameraLookAtPoint[2] + Math.Sin(CameraRot[1] * Math.PI / 180) * Math.Sin(CameraRot[0] * Math.PI / 180) * CameraRadius
+            };
+            MainCamera.Position = Point;
+            MainCamera.LookDirection = new Vector3D() { X = -Point.X + CameraLookAtPoint[0], Y = -Point.Y + CameraLookAtPoint[1], Z = -Point.Z + CameraLookAtPoint[2] };
 
-            MainCamera.Position = CameraPoint;
-
-            MainCamera.LookDirection = new Vector3D() { X = -CameraPoint.X, Y = -CameraPoint.Y, Z = -CameraPoint.Z };
+            //坐标系视窗Camera
+            double AxisRadius = 10;
+            Point = new Point3D()
+            {
+                X = Math.Sin(CameraRot[1] * Math.PI / 180) * Math.Cos(CameraRot[0] * Math.PI / 180) * AxisRadius,
+                Y = Math.Cos(CameraRot[1] * Math.PI / 180) * AxisRadius,
+                Z = Math.Sin(CameraRot[1] * Math.PI / 180) * Math.Sin(CameraRot[0] * Math.PI / 180) * AxisRadius
+            };
+            AxisCamera.Position = Point;
+            AxisCamera.LookDirection = new Vector3D() { X = -Point.X, Y = -Point.Y, Z = -Point.Z };
         }
         #endregion
         #endregion
@@ -1044,6 +1119,7 @@ namespace Adaptable_Studio
             //格式：GetPrivateProfileString("节名", "键名", "", 字符串, 255, 文件路径)
             GetPrivateProfileString(configureNode, key, "", StrName, 255, path);
         }
+
         /// <summary> 写入配置文件("节名", "键名", 键值, 文件路径) </summary>
         public static void IniWrite(string configureNode, string key, string keyValue, string path)
         {
