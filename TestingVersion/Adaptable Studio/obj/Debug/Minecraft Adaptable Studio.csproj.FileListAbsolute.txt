@@ -1,0 +1,434 @@
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.csprojResolveAssemblyReference.cache
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\OutPut.baml
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\Label_NumberBox.baml
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\Check_TextBox.baml
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\OutPut.g.cs
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\Label_NumberBox.g.cs
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\pages\armor_stand_Page.g.cs
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\Check_TextBox.g.cs
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\Input_Slider.g.cs
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\Check_NumberBox.g.cs
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\MainWindow.g.cs
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\App.g.cs
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\App.baml
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\pages\armor_stand_Page.baml
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\Input_Slider.baml
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\Check_NumberBox.baml
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\MainWindow.baml
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\Adaptable_Studio.Properties.Resources.resources
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.csproj.GenerateResource.Cache
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\obj\Debug\Adaptable Studio.exe
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\obj\Debug\Adaptable Studio.pdb
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\bin\Debug\Adaptable Studio.exe.manifest
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\bin\Debug\Adaptable Studio.application
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\bin\Debug\Adaptable Studio.exe
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\bin\Debug\Adaptable Studio.pdb
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\bin\Debug\fNbt.dll
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\bin\Debug\MahApps.Metro.dll
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\bin\Debug\Newtonsoft.Json.dll
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\bin\Debug\SharpGL.dll
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\bin\Debug\SharpGL.SceneGraph.dll
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\bin\Debug\SharpGL.WPF.dll
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\bin\Debug\System.Windows.Interactivity.dll
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\bin\Debug\fNbt.pdb
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\bin\Debug\MahApps.Metro.pdb
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\bin\Debug\MahApps.Metro.xml
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\bin\Debug\Newtonsoft.Json.xml
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\bin\Debug\SharpGL.pdb
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\bin\Debug\SharpGL.xml
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\bin\Debug\SharpGL.SceneGraph.pdb
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\bin\Debug\SharpGL.SceneGraph.xml
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\bin\Debug\SharpGL.WPF.pdb
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\bin\Debug\SharpGL.WPF.xml
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.csprojResolveAssemblyReference.cache
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\obj\Debug\OutPut.baml
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\Label_NumberBox.baml
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\Check_TextBox.baml
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\obj\Debug\About.g.cs
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\obj\Debug\OutPut.g.cs
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\Label_NumberBox.g.cs
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\obj\Debug\pages\armor_stand_Page.g.cs
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\Check_TextBox.g.cs
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\Input_Slider.g.cs
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\Check_NumberBox.g.cs
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\obj\Debug\MainWindow.g.cs
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\obj\Debug\App.g.cs
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\obj\Debug\Adaptable Studio_MarkupCompile.cache
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\obj\Debug\Adaptable Studio_MarkupCompile.lref
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\obj\Debug\App.baml
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\obj\Debug\About.baml
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\obj\Debug\pages\armor_stand_Page.baml
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\Input_Slider.baml
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\Check_NumberBox.baml
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\obj\Debug\MainWindow.baml
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\obj\Debug\Adaptable Studio.g.resources
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\obj\Debug\Adaptable_Studio.Properties.Resources.resources
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.csproj.GenerateResource.Cache
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\obj\Debug\Adaptable Studio.TrustInfo.xml
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\obj\Debug\Adaptable Studio.exe.manifest
+E:\Visual Studio\Adaptable Studio\Adaptable Studio\obj\Debug\Adaptable Studio.application
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\OutPut.baml
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\OutPut.g.cs
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\pages\armor_stand_Page.g.cs
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\MainWindow.g.cs
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\App.g.cs
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\App.baml
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\pages\armor_stand_Page.baml
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\MainWindow.baml
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\Adaptable_Studio.Properties.Resources.resources
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.csproj.GenerateResource.Cache
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.csprojResolveAssemblyReference.cache
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.exe.config
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.exe.manifest
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.application
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.exe
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.pdb
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.csproj.App.config
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\About.g.cs
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\ColorBoard.g.cs
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\pages\menu_Page.g.cs
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\Option.g.cs
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\pages\special_particle_Page.g.cs
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\pages\super_banner_Page.g.cs
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio_MarkupCompile.cache
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio_MarkupCompile.lref
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\About.baml
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\ColorBoard.baml
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\pages\menu_Page.baml
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\Option.baml
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\pages\special_particle_Page.baml
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\pages\super_banner_Page.baml
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.g.resources
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.csproj.CoreCompileInputs.cache
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.TrustInfo.xml
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.exe.manifest
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.application
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.exe
+C:\Users\MsYqgzt\OneDrive\Visual Studio Objectives\Minecraft\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.pdb
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.exe.config
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.exe.manifest
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.application
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.exe
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.pdb
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\ResourceDictionary\Button.baml
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\ResourceDictionary\CheckBox.baml
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\ResourceDictionary\ControlStyles.baml
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\ResourceDictionary\Slider.baml
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\ResourceDictionary\TabControl.baml
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\ResourceDictionary\TabItem.baml
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\lang\CN.baml
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\lang\EN.baml
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\OutPut.baml
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\MainWindow.baml
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\App.baml
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\pages\Specific_model_Page.g.cs
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\CustomNumberBox.g.cs
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\CustomOutPutBox.g.cs
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\CustomRestButton.g.cs
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\CustomToggleButton.g.cs
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\KeepButton.g.cs
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\Time_axis.g.cs
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\pages\About_Page.g.cs
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\ColorBoard.g.cs
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\pages\menu_Page.g.cs
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\Option.g.cs
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\OutPut.g.cs
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\pages\Super_banner_Page.g.cs
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\pages\Shortcut_dialogue_Page.g.cs
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\pages\Armor_stand_Page.g.cs
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\MainWindow.g.cs
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\App.g.cs
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio_MarkupCompile.cache
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio_MarkupCompile.lref
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\pages\Specific_model_Page.baml
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\CustomNumberBox.baml
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\CustomOutPutBox.baml
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\CustomRestButton.baml
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\CustomToggleButton.baml
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\KeepButton.baml
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\Time_axis.baml
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\pages\About_Page.baml
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\ColorBoard.baml
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\pages\menu_Page.baml
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\Option.baml
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\pages\Super_banner_Page.baml
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\pages\Shortcut_dialogue_Page.baml
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\pages\Armor_stand_Page.baml
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.g.resources
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\Adaptable_Studio.Properties.Resources.resources
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.csproj.GenerateResource.Cache
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.csproj.CoreCompileInputs.cache
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.TrustInfo.xml
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.exe.manifest
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.application
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.exe
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.pdb
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\Properties\DesignTimeResources.baml
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.csprojResolveAssemblyReference.cache
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\pages\Option_Page.g.cs
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\pages\Special_particle_Page.g.cs
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\pages\Option_Page.baml
+D:\VISUAL STUDIO\PROJECTS\Adaptable Studio\Adaptable Studio\obj\Debug\pages\Special_particle_Page.baml
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.exe.config
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.exe.manifest
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.application
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.exe
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.pdb
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\ResourceDictionary\Button.baml
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\ResourceDictionary\CheckBox.baml
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\ResourceDictionary\ControlStyles.baml
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\ResourceDictionary\Slider.baml
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\ResourceDictionary\TabControl.baml
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\ResourceDictionary\TabItem.baml
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\lang\CN.baml
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\lang\EN.baml
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\pages\Option_Page.g.cs
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\pages\Special_particle_Page.g.cs
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\pages\Specific_model_Page.g.cs
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\CustomNumberBox.g.cs
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\CustomOutPutBox.g.cs
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\CustomRestButton.g.cs
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\CustomToggleButton.g.cs
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\KeepButton.g.cs
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\Time_axis.g.cs
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\pages\About_Page.g.cs
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\ColorBoard.g.cs
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\pages\menu_Page.g.cs
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\Option.g.cs
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\pages\Super_banner_Page.g.cs
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\pages\Shortcut_dialogue_Page.g.cs
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio_MarkupCompile.cache
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio_MarkupCompile.lref
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\pages\Option_Page.baml
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\pages\Special_particle_Page.baml
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\pages\Specific_model_Page.baml
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\Properties\DesignTimeResources.baml
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\CustomNumberBox.baml
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\CustomOutPutBox.baml
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\CustomRestButton.baml
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\CustomToggleButton.baml
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\KeepButton.baml
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\userControl\Time_axis.baml
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\pages\About_Page.baml
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\ColorBoard.baml
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\pages\menu_Page.baml
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\Option.baml
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\pages\Super_banner_Page.baml
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\pages\Shortcut_dialogue_Page.baml
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.g.resources
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.csproj.CoreCompileInputs.cache
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.TrustInfo.xml
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.exe.manifest
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.application
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.exe
+C:\Users\MsYqgzt\Desktop\Adaptable Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.pdb
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.exe.config
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.exe.manifest
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.application
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.exe
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.pdb
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.csprojResolveAssemblyReference.cache
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\ResourceDictionary\Button.baml
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\ResourceDictionary\CheckBox.baml
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\ResourceDictionary\ControlStyles.baml
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\ResourceDictionary\Slider.baml
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\ResourceDictionary\TabControl.baml
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\ResourceDictionary\TabItem.baml
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\ResourceDictionary\Theme\Dark.baml
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\ResourceDictionary\Theme\Light.baml
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\lang\CN.baml
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\lang\EN.baml
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\pages\About_Page.baml
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\pages\menu_Page.baml
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\OutPut.baml
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\MainWindow.baml
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\VersionMessager.baml
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\App.baml
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\pages\Option_Page.g.cs
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\pages\Special_particle_Page.g.cs
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\pages\Specific_model_Page.g.cs
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\userControl\CustomNumberBox.g.cs
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\userControl\CustomOutPutBox.g.cs
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\userControl\CustomRestButton.g.cs
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\userControl\CustomToggleButton.g.cs
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\userControl\KeepButton.g.cs
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\userControl\Time_axis.g.cs
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\pages\About_Page.g.cs
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\ColorBoard.g.cs
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\pages\menu_Page.g.cs
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\OutPut.g.cs
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\pages\Super_banner_Page.g.cs
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\pages\Shortcut_dialogue_Page.g.cs
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\pages\Armor_stand_Page.g.cs
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\MainWindow.g.cs
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\VersionMessager.g.cs
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\App.g.cs
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio_MarkupCompile.cache
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio_MarkupCompile.lref
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\pages\Option_Page.baml
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\pages\Special_particle_Page.baml
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\pages\Specific_model_Page.baml
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\Properties\DesignTimeResources.baml
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\userControl\CustomNumberBox.baml
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\userControl\CustomOutPutBox.baml
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\userControl\CustomRestButton.baml
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\userControl\CustomToggleButton.baml
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\userControl\KeepButton.baml
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\userControl\Time_axis.baml
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\ColorBoard.baml
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\pages\Super_banner_Page.baml
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\pages\Shortcut_dialogue_Page.baml
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\pages\Armor_stand_Page.baml
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.g.resources
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\Adaptable_Studio.Properties.Resources.resources
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.csproj.GenerateResource.cache
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.csproj.CoreCompileInputs.cache
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.TrustInfo.xml
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.exe.manifest
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.application
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.exe
+E:\Visual Studio Objectives\GitWorkArea\Minecraft_Adaptable_Studio\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.pdb
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.exe.config
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.exe.manifest
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.application
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.exe
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.pdb
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\ResourceDictionary\Button.baml
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\ResourceDictionary\CheckBox.baml
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\ResourceDictionary\ControlStyles.baml
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\ResourceDictionary\Slider.baml
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\ResourceDictionary\TabControl.baml
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\ResourceDictionary\TabItem.baml
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\ResourceDictionary\Theme\Dark.baml
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\ResourceDictionary\Theme\Light.baml
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\lang\CN.baml
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\lang\EN.baml
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\pages\About_Page.baml
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\pages\menu_Page.baml
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\OutPut.baml
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\MainWindow.baml
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\VersionMessager.baml
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\App.baml
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\pages\Option_Page.g.cs
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\pages\Special_particle_Page.g.cs
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\pages\Specific_model_Page.g.cs
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\userControl\CustomNumberBox.g.cs
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\userControl\CustomOutPutBox.g.cs
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\userControl\CustomRestButton.g.cs
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\userControl\CustomToggleButton.g.cs
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\userControl\KeepButton.g.cs
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\userControl\Time_axis.g.cs
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\pages\About_Page.g.cs
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\ColorBoard.g.cs
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\pages\menu_Page.g.cs
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\OutPut.g.cs
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\pages\Super_banner_Page.g.cs
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\pages\Shortcut_dialogue_Page.g.cs
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\pages\Armor_stand_Page.g.cs
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\MainWindow.g.cs
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\VersionMessager.g.cs
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\App.g.cs
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio_MarkupCompile.cache
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio_MarkupCompile.lref
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\pages\Option_Page.baml
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\pages\Special_particle_Page.baml
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\pages\Specific_model_Page.baml
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\Properties\DesignTimeResources.baml
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\userControl\CustomNumberBox.baml
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\userControl\CustomOutPutBox.baml
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\userControl\CustomRestButton.baml
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\userControl\CustomToggleButton.baml
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\userControl\KeepButton.baml
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\userControl\Time_axis.baml
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\ColorBoard.baml
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\pages\Super_banner_Page.baml
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\pages\Shortcut_dialogue_Page.baml
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\pages\Armor_stand_Page.baml
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.g.resources
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\Adaptable_Studio.Properties.Resources.resources
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.csproj.GenerateResource.cache
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.csproj.CoreCompileInputs.cache
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.TrustInfo.xml
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.exe.manifest
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.application
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.exe
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.pdb
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\Functional form\MASC-Part Direction.baml
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\Functional form\MASC-Part Direction.g.cs
+E:\Visual Studio Objectives\GitWorkArea\MAS\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.csprojResolveAssemblyReference.cache
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.exe.config
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.exe.manifest
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.application
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.exe
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.pdb
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.csprojAssemblyReference.cache
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\Functional form\MASC-Part Direction.baml
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\pages\Specific_model_Page.baml
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\ResourceDictionary\Button.baml
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\ResourceDictionary\CheckBox.baml
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\ResourceDictionary\ControlStyles.baml
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\ResourceDictionary\Slider.baml
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\ResourceDictionary\TabControl.baml
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\ResourceDictionary\TabItem.baml
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\ResourceDictionary\Theme\Dark.baml
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\ResourceDictionary\Theme\Light.baml
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\lang\CN.baml
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\lang\EN.baml
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\pages\About_Page.baml
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\pages\menu_Page.baml
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\OutPut.baml
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\MainWindow.baml
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\VersionMessager.baml
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\App.baml
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\Functional form\MASC-Part Direction.g.cs
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\pages\Option_Page.g.cs
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\pages\Special_particle_Page.g.cs
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\pages\Specific_model_Page.g.cs
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\userControl\CustomNumberBox.g.cs
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\userControl\CustomOutPutBox.g.cs
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\userControl\CustomRestButton.g.cs
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\userControl\CustomToggleButton.g.cs
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\userControl\KeepButton.g.cs
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\userControl\Time_axis.g.cs
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\pages\About_Page.g.cs
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\ColorBoard.g.cs
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\pages\menu_Page.g.cs
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\OutPut.g.cs
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\pages\Super_banner_Page.g.cs
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\pages\Shortcut_dialogue_Page.g.cs
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\pages\Armor_stand_Page.g.cs
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\MainWindow.g.cs
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\VersionMessager.g.cs
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\App.g.cs
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio_MarkupCompile.cache
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio_MarkupCompile.lref
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\pages\Option_Page.baml
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\pages\Special_particle_Page.baml
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\Properties\DesignTimeResources.baml
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\userControl\CustomNumberBox.baml
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\userControl\CustomOutPutBox.baml
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\userControl\CustomRestButton.baml
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\userControl\CustomToggleButton.baml
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\userControl\KeepButton.baml
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\userControl\Time_axis.baml
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\ColorBoard.baml
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\pages\Super_banner_Page.baml
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\pages\Shortcut_dialogue_Page.baml
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\pages\Armor_stand_Page.baml
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.g.resources
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\Adaptable_Studio.Properties.Resources.resources
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.csproj.GenerateResource.cache
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.csproj.CoreCompileInputs.cache
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.TrustInfo.xml
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.exe.manifest
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.application
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.exe
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.pdb
+E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\3D Model.baml

@@ -1,0 +1,276 @@
+﻿<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"      
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+      x:Name="page" x:Class="Adaptable_Studio.About_Page"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Width="942" Height="569"
+      Title="About_Page" FontFamily="Comfortaa" Loaded="Page_Loaded">
+    <Grid x:Name="grid">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="SwitchGroup">
+                <VisualState x:Name="SwitchOn">
+                    <Storyboard>
+                        <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="home">
+                            <EasingThicknessKeyFrame KeyTime="0" Value="15,25,0,0"/>
+                            <EasingThicknessKeyFrame KeyTime="0:0:0.2" Value="25,25,0,0">
+                                <EasingThicknessKeyFrame.EasingFunction>
+                                    <QuarticEase EasingMode="EaseOut"/>
+                                </EasingThicknessKeyFrame.EasingFunction>
+                            </EasingThicknessKeyFrame>
+                        </ThicknessAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="home">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
+                                <EasingDoubleKeyFrame.EasingFunction>
+                                    <QuarticEase EasingMode="EaseOut"/>
+                                </EasingDoubleKeyFrame.EasingFunction>
+                            </EasingDoubleKeyFrame>
+                        </DoubleAnimationUsingKeyFrames>
+                        <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="feedback">
+                            <EasingThicknessKeyFrame KeyTime="0" Value="0,525,0,0"/>
+                            <EasingThicknessKeyFrame KeyTime="0:0:0.2" Value="10,525,0,0">
+                                <EasingThicknessKeyFrame.EasingFunction>
+                                    <QuarticEase EasingMode="EaseOut"/>
+                                </EasingThicknessKeyFrame.EasingFunction>
+                            </EasingThicknessKeyFrame>
+                        </ThicknessAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="feedback">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
+                                <EasingDoubleKeyFrame.EasingFunction>
+                                    <QuarticEase EasingMode="EaseOut"/>
+                                </EasingDoubleKeyFrame.EasingFunction>
+                            </EasingDoubleKeyFrame>
+                        </DoubleAnimationUsingKeyFrames>
+                        <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="Donate">
+                            <EasingThicknessKeyFrame KeyTime="0" Value="135,525,0,0"/>
+                            <EasingThicknessKeyFrame KeyTime="0:0:0.075" Value="135,525,0,0"/>
+                            <EasingThicknessKeyFrame KeyTime="0:0:0.3" Value="145,525,0,0">
+                                <EasingThicknessKeyFrame.EasingFunction>
+                                    <QuarticEase EasingMode="EaseOut"/>
+                                </EasingThicknessKeyFrame.EasingFunction>
+                            </EasingThicknessKeyFrame>
+                        </ThicknessAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Donate">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.075" Value="0"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1">
+                                <EasingDoubleKeyFrame.EasingFunction>
+                                    <QuarticEase EasingMode="EaseOut"/>
+                                </EasingDoubleKeyFrame.EasingFunction>
+                            </EasingDoubleKeyFrame>
+                        </DoubleAnimationUsingKeyFrames>
+                        <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="Developers">
+                            <EasingThicknessKeyFrame KeyTime="0" Value="290,10,0,0"/>
+                            <EasingThicknessKeyFrame KeyTime="0:0:0.16" Value="290,10,0,0"/>
+                            <EasingThicknessKeyFrame KeyTime="0:0:0.4" Value="300,10,0,0">
+                                <EasingThicknessKeyFrame.EasingFunction>
+                                    <QuarticEase EasingMode="EaseOut"/>
+                                </EasingThicknessKeyFrame.EasingFunction>
+                            </EasingThicknessKeyFrame>
+                        </ThicknessAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Developers">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.16" Value="0"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1">
+                                <EasingDoubleKeyFrame.EasingFunction>
+                                    <QuarticEase EasingMode="EaseOut"/>
+                                </EasingDoubleKeyFrame.EasingFunction>
+                            </EasingDoubleKeyFrame>
+                        </DoubleAnimationUsingKeyFrames>
+                        <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="DllUsed">
+                            <EasingThicknessKeyFrame KeyTime="0" Value="290,275,0,119"/>
+                            <EasingThicknessKeyFrame KeyTime="0:0:0.25" Value="290,275,0,119"/>
+                            <EasingThicknessKeyFrame KeyTime="0:0:0.5" Value="300,275,0,119">
+                                <EasingThicknessKeyFrame.EasingFunction>
+                                    <QuarticEase EasingMode="EaseOut"/>
+                                </EasingThicknessKeyFrame.EasingFunction>
+                            </EasingThicknessKeyFrame>
+                        </ThicknessAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="DllUsed">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.25" Value="0"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1">
+                                <EasingDoubleKeyFrame.EasingFunction>
+                                    <QuarticEase EasingMode="EaseOut"/>
+                                </EasingDoubleKeyFrame.EasingFunction>
+                            </EasingDoubleKeyFrame>
+                        </DoubleAnimationUsingKeyFrames>
+                        <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="textBlock">
+                            <EasingThicknessKeyFrame KeyTime="0" Value="797.333,547.826,0,0"/>
+                            <EasingThicknessKeyFrame KeyTime="0:0:0.343" Value="797.333,547.826,0,0"/>
+                            <EasingThicknessKeyFrame KeyTime="0:0:0.6" Value="807.333,547.826,0,0">
+                                <EasingThicknessKeyFrame.EasingFunction>
+                                    <QuarticEase EasingMode="EaseOut"/>
+                                </EasingThicknessKeyFrame.EasingFunction>
+                            </EasingThicknessKeyFrame>
+                        </ThicknessAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.343" Value="0"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1">
+                                <EasingDoubleKeyFrame.EasingFunction>
+                                    <QuarticEase EasingMode="EaseOut"/>
+                                </EasingDoubleKeyFrame.EasingFunction>
+                            </EasingDoubleKeyFrame>
+                        </DoubleAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="SwitchOff">
+                    <Storyboard>
+                        <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="home">
+                            <EasingThicknessKeyFrame KeyTime="0" Value="25,25,0,0"/>
+                            <EasingThicknessKeyFrame KeyTime="0:0:0.2" Value="35,25,0,0">
+                                <EasingThicknessKeyFrame.EasingFunction>
+                                    <QuarticEase EasingMode="EaseOut"/>
+                                </EasingThicknessKeyFrame.EasingFunction>
+                            </EasingThicknessKeyFrame>
+                        </ThicknessAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="home">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0">
+                                <EasingDoubleKeyFrame.EasingFunction>
+                                    <QuarticEase EasingMode="EaseOut"/>
+                                </EasingDoubleKeyFrame.EasingFunction>
+                            </EasingDoubleKeyFrame>
+                        </DoubleAnimationUsingKeyFrames>
+                        <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="feedback">
+                            <EasingThicknessKeyFrame KeyTime="0" Value="10,525,0,0"/>
+                            <EasingThicknessKeyFrame KeyTime="0:0:0.2" Value="20,525,0,0">
+                                <EasingThicknessKeyFrame.EasingFunction>
+                                    <QuarticEase EasingMode="EaseOut"/>
+                                </EasingThicknessKeyFrame.EasingFunction>
+                            </EasingThicknessKeyFrame>
+                        </ThicknessAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="feedback">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0">
+                                <EasingDoubleKeyFrame.EasingFunction>
+                                    <QuarticEase EasingMode="EaseOut"/>
+                                </EasingDoubleKeyFrame.EasingFunction>
+                            </EasingDoubleKeyFrame>
+                        </DoubleAnimationUsingKeyFrames>
+                        <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="Donate">
+                            <EasingThicknessKeyFrame KeyTime="0:0:0.1" Value="145,525,0,0"/>
+                            <EasingThicknessKeyFrame KeyTime="0:0:0.325" Value="155,525,0,0">
+                                <EasingThicknessKeyFrame.EasingFunction>
+                                    <QuarticEase EasingMode="EaseOut"/>
+                                </EasingThicknessKeyFrame.EasingFunction>
+                            </EasingThicknessKeyFrame>
+                        </ThicknessAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Donate">
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.325" Value="0">
+                                <EasingDoubleKeyFrame.EasingFunction>
+                                    <QuarticEase EasingMode="EaseOut"/>
+                                </EasingDoubleKeyFrame.EasingFunction>
+                            </EasingDoubleKeyFrame>
+                        </DoubleAnimationUsingKeyFrames>
+                        <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="Developers">
+                            <EasingThicknessKeyFrame KeyTime="0:0:0.2" Value="300,10,0,0"/>
+                            <EasingThicknessKeyFrame KeyTime="0:0:0.425" Value="310,10,0,0">
+                                <EasingThicknessKeyFrame.EasingFunction>
+                                    <QuarticEase EasingMode="EaseOut"/>
+                                </EasingThicknessKeyFrame.EasingFunction>
+                            </EasingThicknessKeyFrame>
+                        </ThicknessAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Developers">
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.425" Value="0">
+                                <EasingDoubleKeyFrame.EasingFunction>
+                                    <QuarticEase EasingMode="EaseOut"/>
+                                </EasingDoubleKeyFrame.EasingFunction>
+                            </EasingDoubleKeyFrame>
+                        </DoubleAnimationUsingKeyFrames>
+                        <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="DllUsed">
+                            <EasingThicknessKeyFrame KeyTime="0:0:0.3" Value="300,275,0,119"/>
+                            <EasingThicknessKeyFrame KeyTime="0:0:0.5" Value="310,275,0,119">
+                                <EasingThicknessKeyFrame.EasingFunction>
+                                    <QuarticEase EasingMode="EaseOut"/>
+                                </EasingThicknessKeyFrame.EasingFunction>
+                            </EasingThicknessKeyFrame>
+                        </ThicknessAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="DllUsed">
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
+                                <EasingDoubleKeyFrame.EasingFunction>
+                                    <QuarticEase EasingMode="EaseOut"/>
+                                </EasingDoubleKeyFrame.EasingFunction>
+                            </EasingDoubleKeyFrame>
+                        </DoubleAnimationUsingKeyFrames>
+                        <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="textBlock">
+                            <EasingThicknessKeyFrame KeyTime="0:0:0.4" Value="807.333,547.826,0,0"/>
+                            <EasingThicknessKeyFrame KeyTime="0:0:0.6" Value="817.333,547.826,0,0">
+                                <EasingThicknessKeyFrame.EasingFunction>
+                                    <QuarticEase EasingMode="EaseOut"/>
+                                </EasingThicknessKeyFrame.EasingFunction>
+                            </EasingThicknessKeyFrame>
+                        </ThicknessAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock">
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0">
+                                <EasingDoubleKeyFrame.EasingFunction>
+                                    <QuarticEase EasingMode="EaseOut"/>
+                                </EasingDoubleKeyFrame.EasingFunction>
+                            </EasingDoubleKeyFrame>
+                        </DoubleAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="Loaded">
+                <ei:GoToStateAction StateName="SwitchOn"/>
+            </i:EventTrigger>
+            <i:EventTrigger EventName="Unloaded">
+                <ei:GoToStateAction StateName="SwitchOff"/>
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
+        <Button x:Name="home" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="35" Height="35" Click="Back_Click" Margin="25,25,0,0" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <ImageBrush ImageSource="/Minecraft Adaptable Studio;component/icon/Up.png"/>
+            </Button.Background>
+        </Button>
+        <TextBlock x:Name="Developers" HorizontalAlignment="Left" FontSize="14" TextWrapping="Wrap" VerticalAlignment="Top" Height="215" Width="642" Foreground="White" Margin="300,10,0,0">
+            <LineBreak/>
+            <Run Text="{DynamicResource About_Developers}"/> <Run Text= "MsYqgzt      夜之暗夜"/><LineBreak/>
+            <LineBreak/><Run Text="{DynamicResource About_User_interaction}"/><Run Text="夜之暗夜"/><LineBreak/>
+            <LineBreak/><Run Text="{DynamicResource About_Technical_participants}"/><Run Text="skeleton小白      pca006132       bobby825        龙腾猫跃"/><LineBreak/>
+            <LineBreak/><Run Text="{DynamicResource About_Acknowledgements}"/><Run Text="chengzi_SC        乙烯_中国       chyx"/><LineBreak/>
+        </TextBlock>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="807.333,547.826,0,0" TextWrapping="Wrap" Text="The Command's Power 2018" VerticalAlignment="Top" FontSize="10" Foreground="White" Width="124.667"/>
+        <TextBlock x:Name="DllUsed" FontSize="14" Foreground="White" Margin="300,275,0,119">
+            <Run Text="{DynamicResource About_DLL_Reference}"/><LineBreak/>
+            <Run/><LineBreak/>
+            <Run Text="     "/><Run Text="{DynamicResource About_Program_Framework}"/><Run Text=".Net Framework"/><LineBreak/>
+            <Run Text="     "/><Run Text="{DynamicResource About_Controls}"/><Run Text="Mahapps.Metro"/><LineBreak/>
+            <Run Text="     "/><Run Text="{DynamicResource About_3D_Environment}"/><Run Text="SharpGL"/><LineBreak/>
+            <Run Text="     "/><Run Text="{DynamicResource About_Json_Library}"/><Run Text="Newtonsoft.Json"/><LineBreak/>
+            <Run Text="     "/><Run Text="{DynamicResource About_Compressed_Library}"/><Run Text="DoNetZip"/><LineBreak/>
+            <Run Text="     "/><Run Text="{DynamicResource About_Plugin_Library}"/><Run Text="SPS.Plugin"/><LineBreak/>
+        </TextBlock>
+        <Button x:Name="Donate" Content="捐助作者" HorizontalAlignment="Left" Margin="145,525,0,0" VerticalAlignment="Top" Width="130" FontSize="15" ToolTipService.ShowDuration="10000" Style="{DynamicResource CustomButton}" BorderBrush="{x:Null}" Background="{x:Null}" Height="33.999" FontFamily="Microsoft YaHei UI">
+            <Button.ToolTip>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="15"><Run Text="支 "/><LineBreak/><Run Text="付 "/><LineBreak/><Run Text="宝 "/></TextBlock>
+                    <Image Width="150" Height="150" Source="/Minecraft Adaptable Studio;component/image/Alipay.png"/>
+                    <TextBlock FontSize="15"><Run Text="  微 "/><LineBreak/><Run Text="  信 "/></TextBlock>
+                    <Image Width="150" Height="150" Source="/Minecraft Adaptable Studio;component/image/WeChat.png"/>
+                </StackPanel>
+            </Button.ToolTip>
+        </Button>
+        <Button x:Name="feedback" Content="建议反馈" HorizontalAlignment="Left" Margin="10,525,0,0" VerticalAlignment="Top" Width="130" FontSize="15" Foreground="White" BorderBrush="{x:Null}" Background="{x:Null}" Style="{DynamicResource CustomButton}" Height="34" FontFamily="Microsoft YaHei UI" Click="Feedback_Click"/>
+    </Grid>
+</Page>

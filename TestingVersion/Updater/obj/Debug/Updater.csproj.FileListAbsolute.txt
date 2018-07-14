@@ -1,0 +1,20 @@
+E:\Visual Studio Objectives\Minecraft\MAS\Updater\bin\Debug\MAS Updater.exe.manifest
+E:\Visual Studio Objectives\Minecraft\MAS\Updater\bin\Debug\MAS Updater.application
+E:\Visual Studio Objectives\Minecraft\MAS\Updater\bin\Debug\MAS Updater.exe
+E:\Visual Studio Objectives\Minecraft\MAS\Updater\bin\Debug\MAS Updater.pdb
+E:\Visual Studio Objectives\Minecraft\MAS\Updater\obj\Debug\Updater.csprojAssemblyReference.cache
+E:\Visual Studio Objectives\Minecraft\MAS\Updater\obj\Debug\MainWindow.baml
+E:\Visual Studio Objectives\Minecraft\MAS\Updater\obj\Debug\MainWindow.g.cs
+E:\Visual Studio Objectives\Minecraft\MAS\Updater\obj\Debug\App.g.cs
+E:\Visual Studio Objectives\Minecraft\MAS\Updater\obj\Debug\MAS Updater_MarkupCompile.cache
+E:\Visual Studio Objectives\Minecraft\MAS\Updater\obj\Debug\MAS Updater_MarkupCompile.lref
+E:\Visual Studio Objectives\Minecraft\MAS\Updater\obj\Debug\App.baml
+E:\Visual Studio Objectives\Minecraft\MAS\Updater\obj\Debug\MAS Updater.g.resources
+E:\Visual Studio Objectives\Minecraft\MAS\Updater\obj\Debug\Updater.Properties.Resources.resources
+E:\Visual Studio Objectives\Minecraft\MAS\Updater\obj\Debug\Updater.csproj.GenerateResource.cache
+E:\Visual Studio Objectives\Minecraft\MAS\Updater\obj\Debug\Updater.csproj.CoreCompileInputs.cache
+E:\Visual Studio Objectives\Minecraft\MAS\Updater\obj\Debug\MAS Updater.TrustInfo.xml
+E:\Visual Studio Objectives\Minecraft\MAS\Updater\obj\Debug\MAS Updater.exe.manifest
+E:\Visual Studio Objectives\Minecraft\MAS\Updater\obj\Debug\MAS Updater.application
+E:\Visual Studio Objectives\Minecraft\MAS\Updater\obj\Debug\MAS Updater.exe
+E:\Visual Studio Objectives\Minecraft\MAS\Updater\obj\Debug\MAS Updater.pdb

@@ -1,0 +1,32 @@
+﻿<Application x:Class="Adaptable_Studio.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"             
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <Style x:Name="Font" TargetType="{x:Type TextElement}">
+                <!--内嵌字体-->
+                <Setter Property="FontFamily" Value="pack://application:,,,/font/#Comfortaa"/>
+            </Style>
+
+            <ResourceDictionary.MergedDictionaries>
+                <!--英汉互译资源-->
+                <ResourceDictionary Source="pack://application:,,,/lang/CN.xaml"/>
+                <!--控件样式-->
+                <ResourceDictionary Source="pack://application:,,,/ResourceDictionary/ControlStyles.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ResourceDictionary/Theme/Dark.xaml" />
+
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseDark.xaml" />
+                
+                <!--模型资源-->
+                <ResourceDictionary Source="pack://application:,,,/3D Model.xaml"/>
+                
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
