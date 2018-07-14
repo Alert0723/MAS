@@ -609,8 +609,371 @@
             <Button x:Name="Pose" Background="#00000000" BorderBrush="{x:Null}" Foreground="White" Margin="-0.172,128,0,0" Height="35" VerticalAlignment="Top" Content="P" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" Width="35" FontFamily="Comfortaa" Click="Rotation_Settings" d:LayoutOverrides="HorizontalAlignment" Grid.Column="1"/>
             <Button x:Name="Item" Background="#00000000" BorderBrush="{x:Null}" Foreground="White" Margin="-0.172,168,0,0" Content="I" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" Width="35" FontFamily="Comfortaa" Click="Item_Settings" d:LayoutOverrides="HorizontalAlignment" Grid.Column="1" Height="35" VerticalAlignment="Top"/>
             <ScrollViewer x:Name="Settings" BorderThickness="0" Padding="0" VerticalScrollBarVisibility="Hidden" CanContentScroll="True" Width="268" Grid.Column="1" MinWidth="268.343" Margin="35.166,0,0.167,0" ScrollChanged="SelectBar_Move">
-                <Grid>
-                    <WrapPanel x:Name="wrapPanel" ScrollViewer.VerticalScrollBarVisibility="{Binding VerticalScrollBarVisibility, ElementName=Settings}" ScrollViewer.CanContentScroll="{Binding CanContentScroll, ElementName=Settings}" UseLayoutRounding="False" Width="268.343" Margin="0,0,-0.343,-0.5" MinWidth="{Binding MinWidth, ElementName=Settings}">
+                <WrapPanel x:Name="wrapPanel" ScrollViewer.VerticalScrollBarVisibility="{Binding VerticalScrollBarVisibility, ElementName=Settings}" ScrollViewer.CanContentScroll="{Binding CanContentScroll, ElementName=Settings}" UseLayoutRounding="False" Width="268.343" MinWidth="{Binding MinWidth, ElementName=Settings}" Height="1799.18">
+                    <i:Interaction.Behaviors>
+                        <ei:FluidMoveBehavior Duration="0:0:0.2">
+                            <ei:FluidMoveBehavior.EaseX>
+                                <QuarticEase EasingMode="EaseOut"/>
+                            </ei:FluidMoveBehavior.EaseX>
+                            <ei:FluidMoveBehavior.EaseY>
+                                <QuarticEase EasingMode="EaseOut"/>
+                            </ei:FluidMoveBehavior.EaseY>
+                        </ei:FluidMoveBehavior>
+                    </i:Interaction.Behaviors>
+                    <Label x:Name="BasicSettings" Content="{DynamicResource Basic_Settings}" Foreground="White" Background="{x:Null}" FontSize="25"  IsHitTestVisible="False" Margin="5,32,0,0" Height="67.93" VerticalContentAlignment="Center"/>
+                    <WrapPanel x:Name="BasicPannel" Height="60" Width="250" Margin="10,0,0,0">
+                        <Label Content="{DynamicResource Name}" Width="{DynamicResource NameLabelLength}"  FontSize="14" Margin="0,0,0,5"/>
+                        <TextBox x:Name="UI_name" BorderBrush="{x:Null}" Foreground="White" Background="#FF2F2F2F" VerticalContentAlignment="Center" FontSize="13" Height="24" VerticalAlignment="Top" HorizontalScrollBarVisibility="Disabled" Width="{DynamicResource NameTextboxLength}" Margin="0,0,0,5"/>
+                        <Label Content="{DynamicResource Tag}" Width="{DynamicResource TagLabelLength}"  FontSize="14"/>
+                        <TextBox x:Name="UI_tags" BorderBrush="{x:Null}" Foreground="White" Background="#FF2F2F2F" VerticalContentAlignment="Center" FontSize="13" Height="24" VerticalAlignment="Top" HorizontalScrollBarVisibility="Disabled" Width="{DynamicResource TagTextboxLength}"/>
+                    </WrapPanel>
+                    <Label x:Name="NbtSettings" Content="{DynamicResource NBT_Settings}" Foreground="White" Background="{x:Null}" FontSize="25"  IsHitTestVisible="False" BorderThickness="0,15" Margin="5,0,0,0" Padding="5"/>
+                    <WrapPanel x:Name="NbtPannel" Height="220" Width="230" Margin="10,0,0,0">
+                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="UI_NoAI" Height="20" Width="105" Content="{DynamicResource as_NoAI}" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="UI_nogravity" Height="20" Width="105" Content="{DynamicResource as_NoGravity}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,0,0,0" />
+                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="UI_invulnerable" Height="20" Width="105" Content="{DynamicResource as_Invulnerable}" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="UI_lefthanded" Height="20" Width="105" Content="{DynamicResource as_LeftHanded}" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" />
+                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="UI_silent" Height="20" Width="105" Content="{DynamicResource as_Silent}" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="UI_showarms" Height="20" Width="105" Content="{DynamicResource as_ShowArms}" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" />
+                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="UI_small" Height="20" Width="105" Content="{DynamicResource as_Small}" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="UI_nobaseplate" Height="20" Width="105" Content="{DynamicResource as_NoBasePlate}" Margin="20,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="UI_glowing" Height="20" Width="105" Content="{DynamicResource as_Glowing}" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="UI_marker" Height="20" Width="105" Content="{DynamicResource as_Marker}" Margin="20,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="UI_invisible" Height="20" Width="105" Content="{DynamicResource as_Invisible}" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="Pose_Settings" Height="20" Width="105" Content="{DynamicResource as_Pose}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,0,0,0" >
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger SourceName="Pose_Settings" SourceObject="{Binding ElementName=Pose_Settings}" EventName="PreviewMouseDown">
+                                    <i:Interaction.Behaviors>
+                                        <ei:ConditionBehavior>
+                                            <ei:ConditionalExpression>
+                                                <ei:ComparisonCondition LeftOperand="{Binding IsChecked, ElementName=Pose_Settings}" RightOperand="False"/>
+                                            </ei:ConditionalExpression>
+                                        </ei:ConditionBehavior>
+                                    </i:Interaction.Behaviors>
+                                    <ei:ChangePropertyAction TargetName="grid" TargetObject="{Binding ElementName=grid, Mode=OneWay}" PropertyName="Effect"/>
+                                    <ei:ChangePropertyAction TargetName="grid" TargetObject="{Binding ElementName=grid, Mode=OneWay}" PropertyName="IsHitTestVisible" Value="True"/>
+                                    <ei:GoToStateAction StateName="RotationUnLocked"/>
+                                </i:EventTrigger>
+                                <i:EventTrigger SourceName="Pose_Settings" SourceObject="{Binding ElementName=Pose_Settings}" EventName="PreviewMouseDown">
+                                    <i:Interaction.Behaviors>
+                                        <ei:ConditionBehavior>
+                                            <ei:ConditionalExpression>
+                                                <ei:ComparisonCondition LeftOperand="{Binding IsChecked, ElementName=Pose_Settings}" RightOperand="True"/>
+                                            </ei:ConditionalExpression>
+                                        </ei:ConditionBehavior>
+                                    </i:Interaction.Behaviors>
+                                    <ei:ChangePropertyAction TargetName="grid" TargetObject="{Binding ElementName=grid, Mode=OneWay}" PropertyName="Effect">
+                                        <ei:ChangePropertyAction.Value>
+                                            <BlurEffect/>
+                                        </ei:ChangePropertyAction.Value>
+                                    </ei:ChangePropertyAction>
+                                    <ei:ChangePropertyAction TargetName="grid" TargetObject="{Binding ElementName=grid, Mode=OneWay}" PropertyName="IsHitTestVisible"/>
+                                    <ei:GoToStateAction StateName="RotationLocked"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </CheckBox>
+                        <Label Content="{DynamicResource DisabledSlots_Settings}" Width="230" Height="30"  FontSize="16" Margin="0,5"/>
+                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="disabled_head" Height="20" Width="105" Content="{DynamicResource Head}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" />
+                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="disabled_chest" Height="20" Width="105" Content="{DynamicResource Body}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,0,0,0" />
+                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="disabled_hand" Height="20" Width="105" Content="{DynamicResource Arms}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" />
+                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="disabled_legs" Height="20" Width="105" Content="{DynamicResource Legs}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,0,0,0" />
+                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="disabled_boots" Height="20" Width="105" Content="{DynamicResource Boots}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" />
+                    </WrapPanel>
+                    <Label x:Name="PoseSettings" Content="{DynamicResource Pose_Settings}" Foreground="White" Background="{x:Null}" FontSize="25"  IsHitTestVisible="False" BorderThickness="0,15" Margin="5,0,0,0"/>
+                    <Grid x:Name="PosePannel" Height="150" Width="250" Margin="10,0,0,0" Background="#00000000" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                        <Label Content="{DynamicResource Rotation}" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" FontSize="10" Width="60" VerticalContentAlignment="Center" Height="20" HorizontalContentAlignment="{DynamicResource RotationAlignment}" Padding="5"/>
+                        <Slider Style="{DynamicResource CustomSlider}" x:Name="Rotation_Setting" Width="190" Margin="55,0,5,130" FontSize="9" Maximum="180" Minimum="-180" AutoToolTipPlacement="TopLeft"/>
+                        <Grid x:Name="grid" Margin="0,20,0,0" IsHitTestVisible="False" Height="105" VerticalAlignment="Top" d:IsEffectDisabled="True">
+                            <Grid.Effect>
+                                <BlurEffect/>
+                            </Grid.Effect>
+                            <TabControl x:Name="Pose_Slector" Width="{DynamicResource PoseWidth}" Background="{x:Null}" BorderBrush="{x:Null}" IsSynchronizedWithCurrentItem="False" UseLayoutRounding="False" TabStripPlacement="Left" Style="{DynamicResource CustomTabControl_Vertical}" HorizontalAlignment="Left" IsHitTestVisible="True" SelectionChanged="PostTabChanged" Margin="0,0,0,2.5">
+                                <TabControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel IsItemsHost="True"/>
+                                    </ItemsPanelTemplate>
+
+                                </TabControl.ItemsPanel>
+                                <TabControl.ItemContainerStyle>
+                                    <Style TargetType="{x:Type TabItem}">
+                                        <Setter Property="FocusVisualStyle">
+                                            <Setter.Value>
+                                                <Style>
+                                                    <Setter Property="Control.Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate>
+                                                                <Rectangle Margin="2" SnapsToDevicePixels="True" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="Foreground" Value="Black"/>
+                                        <Setter Property="Background" Value="{x:Null}"/>
+                                        <Setter Property="BorderBrush" Value="{x:Null}"/>
+                                        <Setter Property="Margin" Value="0"/>
+                                        <Setter Property="Padding" Value="6,2"/>
+                                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="{x:Type TabItem}">
+                                                    <Grid x:Name="templateRoot" SnapsToDevicePixels="True">
+                                                        <VisualStateManager.VisualStateGroups>
+                                                            <VisualStateGroup x:Name="CommonStates">
+                                                                <VisualStateGroup.Transitions>
+                                                                    <VisualTransition GeneratedDuration="0:0:0.2">
+                                                                        <VisualTransition.GeneratedEasingFunction>
+                                                                            <QuarticEase EasingMode="EaseOut"/>
+                                                                        </VisualTransition.GeneratedEasingFunction>
+                                                                    </VisualTransition>
+                                                                </VisualStateGroup.Transitions>
+                                                                <VisualState x:Name="Normal"/>
+                                                                <VisualState x:Name="MouseOver"/>
+                                                                <VisualState x:Name="Disabled"/>
+                                                            </VisualStateGroup>
+                                                        </VisualStateManager.VisualStateGroups>
+                                                        <Border x:Name="mainBorder" BorderThickness="1,1,1,0" Margin="0">
+                                                            <Border x:Name="innerBorder" BorderBrush="{x:Null}" BorderThickness="1,1,1,0" Background="#FF119EDA" Margin="-2,0,-1,-2" Opacity="0"/>
+                                                        </Border>
+                                                        <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding HeaderTemplate}" Content="{TemplateBinding Header}" ContentStringFormat="{TemplateBinding HeaderStringFormat}" ContentSource="Header" Focusable="False" HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type ItemsControl}}}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type ItemsControl}}}" RenderTransformOrigin="0.5,0.5">
+                                                            <ContentPresenter.RenderTransform>
+                                                                <TransformGroup>
+                                                                    <ScaleTransform/>
+                                                                    <SkewTransform/>
+                                                                    <RotateTransform/>
+                                                                    <TranslateTransform/>
+                                                                </TransformGroup>
+                                                            </ContentPresenter.RenderTransform>
+                                                        </ContentPresenter>
+                                                    </Grid>
+                                                    <ControlTemplate.Triggers>
+                                                        <MultiDataTrigger>
+                                                            <MultiDataTrigger.Conditions>
+                                                                <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Left"/>
+                                                            </MultiDataTrigger.Conditions>
+                                                            <Setter Property="Background" TargetName="mainBorder" Value="{x:Null}"/>
+                                                            <Setter Property="BorderBrush" TargetName="mainBorder" Value="{x:Null}"/>
+                                                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="0"/>
+                                                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="0"/>
+                                                        </MultiDataTrigger>
+                                                        <MultiDataTrigger>
+                                                            <MultiDataTrigger.Conditions>
+                                                                <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Bottom"/>
+                                                            </MultiDataTrigger.Conditions>
+                                                            <Setter Property="Background" TargetName="mainBorder" Value="{x:Null}"/>
+                                                            <Setter Property="BorderBrush" TargetName="mainBorder" Value="{x:Null}"/>
+                                                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="0"/>
+                                                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="0"/>
+                                                        </MultiDataTrigger>
+                                                        <MultiDataTrigger>
+                                                            <MultiDataTrigger.Conditions>
+                                                                <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Right"/>
+                                                            </MultiDataTrigger.Conditions>
+                                                            <Setter Property="Background" TargetName="mainBorder" Value="{x:Null}"/>
+                                                            <Setter Property="BorderBrush" TargetName="mainBorder" Value="{x:Null}"/>
+                                                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="0"/>
+                                                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="0"/>
+                                                        </MultiDataTrigger>
+                                                        <MultiDataTrigger>
+                                                            <MultiDataTrigger.Conditions>
+                                                                <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Top"/>
+                                                            </MultiDataTrigger.Conditions>
+                                                            <Setter Property="Background" TargetName="mainBorder" Value="{x:Null}"/>
+                                                            <Setter Property="BorderBrush" TargetName="mainBorder" Value="{x:Null}"/>
+                                                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="0"/>
+                                                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="0"/>
+                                                        </MultiDataTrigger>
+                                                        <MultiDataTrigger>
+                                                            <MultiDataTrigger.Conditions>
+                                                                <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Left"/>
+                                                            </MultiDataTrigger.Conditions>
+                                                            <Setter Property="Opacity" TargetName="contentPresenter" Value="0.56"/>
+                                                            <Setter Property="Background" TargetName="mainBorder" Value="#FFF0F0F0"/>
+                                                            <Setter Property="BorderBrush" TargetName="mainBorder" Value="#FFD9D9D9"/>
+                                                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,0,1"/>
+                                                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,0,1"/>
+                                                        </MultiDataTrigger>
+                                                        <MultiDataTrigger>
+                                                            <MultiDataTrigger.Conditions>
+                                                                <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Bottom"/>
+                                                            </MultiDataTrigger.Conditions>
+                                                            <Setter Property="Opacity" TargetName="contentPresenter" Value="0.56"/>
+                                                            <Setter Property="Background" TargetName="mainBorder" Value="#FFF0F0F0"/>
+                                                            <Setter Property="BorderBrush" TargetName="mainBorder" Value="#FFD9D9D9"/>
+                                                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,0,1,1"/>
+                                                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,0,1,1"/>
+                                                        </MultiDataTrigger>
+                                                        <MultiDataTrigger>
+                                                            <MultiDataTrigger.Conditions>
+                                                                <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Right"/>
+                                                            </MultiDataTrigger.Conditions>
+                                                            <Setter Property="Opacity" TargetName="contentPresenter" Value="0.56"/>
+                                                            <Setter Property="Background" TargetName="mainBorder" Value="#FFF0F0F0"/>
+                                                            <Setter Property="BorderBrush" TargetName="mainBorder" Value="#FFD9D9D9"/>
+                                                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="0,1,1,1"/>
+                                                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,1,1,1"/>
+                                                        </MultiDataTrigger>
+                                                        <MultiDataTrigger>
+                                                            <MultiDataTrigger.Conditions>
+                                                                <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Top"/>
+                                                            </MultiDataTrigger.Conditions>
+                                                            <Setter Property="Opacity" TargetName="contentPresenter" Value="0.56"/>
+                                                            <Setter Property="Background" TargetName="mainBorder" Value="#FFF0F0F0"/>
+                                                            <Setter Property="BorderBrush" TargetName="mainBorder" Value="#FFD9D9D9"/>
+                                                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,1,0"/>
+                                                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,1,0"/>
+                                                        </MultiDataTrigger>
+                                                        <MultiDataTrigger>
+                                                            <MultiDataTrigger.Conditions>
+                                                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Left"/>
+                                                            </MultiDataTrigger.Conditions>
+                                                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,0,1"/>
+                                                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,0,1"/>
+                                                        </MultiDataTrigger>
+                                                        <MultiDataTrigger>
+                                                            <MultiDataTrigger.Conditions>
+                                                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Left"/>
+                                                            </MultiDataTrigger.Conditions>
+                                                            <Setter Property="Panel.ZIndex" Value="1"/>
+                                                            <Setter Property="Margin" Value="-2,-2,0,-2"/>
+                                                            <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
+                                                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,0,1"/>
+                                                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,0,1"/>
+                                                        </MultiDataTrigger>
+                                                        <MultiDataTrigger>
+                                                            <MultiDataTrigger.Conditions>
+                                                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Bottom"/>
+                                                            </MultiDataTrigger.Conditions>
+                                                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,0,1,1"/>
+                                                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,0,1,1"/>
+                                                        </MultiDataTrigger>
+                                                        <MultiDataTrigger>
+                                                            <MultiDataTrigger.Conditions>
+                                                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Bottom"/>
+                                                            </MultiDataTrigger.Conditions>
+                                                            <Setter Property="Panel.ZIndex" Value="1"/>
+                                                            <Setter Property="Margin" Value="-2,0,-2,-2"/>
+                                                            <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
+                                                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,0,1,1"/>
+                                                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,0,1,1"/>
+                                                        </MultiDataTrigger>
+                                                        <MultiDataTrigger>
+                                                            <MultiDataTrigger.Conditions>
+                                                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Right"/>
+                                                            </MultiDataTrigger.Conditions>
+                                                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="0,1,1,1"/>
+                                                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,1,1,1"/>
+                                                        </MultiDataTrigger>
+                                                        <MultiDataTrigger>
+                                                            <MultiDataTrigger.Conditions>
+                                                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Right"/>
+                                                            </MultiDataTrigger.Conditions>
+                                                            <Setter Property="Panel.ZIndex" Value="1"/>
+                                                            <Setter Property="Margin" Value="0,-2,-2,-2"/>
+                                                            <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
+                                                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="0,1,1,1"/>
+                                                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,1,1,1"/>
+                                                        </MultiDataTrigger>
+                                                        <MultiDataTrigger>
+                                                            <MultiDataTrigger.Conditions>
+                                                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Top"/>
+                                                            </MultiDataTrigger.Conditions>
+                                                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,1,0"/>
+                                                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,1,0"/>
+                                                        </MultiDataTrigger>
+                                                        <MultiDataTrigger>
+                                                            <MultiDataTrigger.Conditions>
+                                                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Top"/>
+                                                            </MultiDataTrigger.Conditions>
+                                                            <Setter Property="Panel.ZIndex" Value="1"/>
+                                                            <Setter Property="Margin" Value="-2,-2,-2,0"/>
+                                                            <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
+                                                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,1,0"/>
+                                                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,1,0"/>
+                                                        </MultiDataTrigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </TabControl.ItemContainerStyle>
+                                <TabItem x:Name="PoseHead" Header="{DynamicResource Head}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="-2,0,-10,0" UseLayoutRounding="False" Style="{DynamicResource CustomTabItem_Vertical}" HorizontalContentAlignment="Stretch" Padding="{DynamicResource RotationPadding}" ScrollViewer.CanContentScroll="True"/>
+                                <TabItem x:Name="PoseBody" Header="{DynamicResource Body}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="-2,0,-10,0" Style="{DynamicResource CustomTabItem_Vertical}" Padding="{DynamicResource RotationPadding}"/>
+                                <TabItem x:Name="PoseLeftArm" Header="{DynamicResource LeftArm}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="-2,0,-10,0" Style="{DynamicResource CustomTabItem_Vertical}" Padding="{DynamicResource RotationPadding}"/>
+                                <TabItem x:Name="PoseRightArm" Header="{DynamicResource RightArm}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="-2,0,-10,0" Style="{DynamicResource CustomTabItem_Vertical}" Padding="{DynamicResource RotationPadding}"/>
+                                <TabItem x:Name="PoseLeftLeg" Header="{DynamicResource LeftLeg}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="-2,0,-10,0" Style="{DynamicResource CustomTabItem_Vertical}" Padding="{DynamicResource RotationPadding}"/>
+                                <TabItem x:Name="PoseRightLeg" Header="{DynamicResource RightLeg}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="-2,0,-10,0" Style="{DynamicResource CustomTabItem_Vertical}" Padding="{DynamicResource RotationPadding}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
+                            </TabControl>
+                            <Grid x:Name="Grid_Pose_Settings" Margin="60,12.5,0,12.5">
+                                <Label Content="X" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" FontSize="10" Width="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="20" Margin="0,10,0,0"/>
+                                <Slider Style="{DynamicResource CustomSlider}" x:Name="X_Pose" Width="Auto" Margin="30,10,0,50" FontSize="9" Maximum="180" Minimum="-180" AutoToolTipPlacement="TopLeft"/>
+                                <Label Content="Y" HorizontalAlignment="Left" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" FontSize="10" Width="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,30"/>
+                                <Slider Style="{DynamicResource CustomSlider}" x:Name="Y_Pose" Width="Auto" Margin="30,30,0,30" FontSize="9" Maximum="180" Minimum="-180" AutoToolTipPlacement="TopLeft"/>
+                                <Label Content="Z" HorizontalAlignment="Left" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" FontSize="10" Width="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,0,10" Height="20" VerticalAlignment="Bottom"/>
+                                <Slider Style="{DynamicResource CustomSlider}" x:Name="Z_Pose" Width="Auto" Margin="30,50,0,10" FontSize="9" Maximum="180" Minimum="-180" AutoToolTipPlacement="TopLeft"/>
+                            </Grid>
+                        </Grid>
+                        <Label x:Name="label" Content="{DynamicResource Enable_Pose}" Background="{x:Null}" Foreground="White" Margin="58,57,-1,0"  UseLayoutRounding="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalAlignment="Top" IsHitTestVisible="False" HorizontalContentAlignment="Center"/>
+                        <Border x:Name="WaringIcon" BorderThickness="1" HorizontalAlignment="Left" Width="39.151" Margin="18.849,50.324,0,0" Height="34.583" VerticalAlignment="Top" IsHitTestVisible="False">
+                            <Border.Background>
+                                <ImageBrush ImageSource="/Minecraft Adaptable Studio;component/icon/Warning.png"/>
+                            </Border.Background>
+                        </Border>
+                        <userControl:CustomToggleButton x:Name="UI_advancedmode" Height="25" Margin="{DynamicResource AdvancedModeMargin}" Width="35" VerticalAlignment="Top" HorizontalAlignment="Left">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger SourceName="UI_advancedmode" SourceObject="{Binding ElementName=UI_advancedmode}" EventName="PreviewMouseDown">
+                                    <i:Interaction.Behaviors>
+                                        <ei:ConditionBehavior>
+                                            <ei:ConditionalExpression>
+                                                <ei:ComparisonCondition LeftOperand="{Binding IsChecked, ElementName=UI_advancedmode}" RightOperand="False"/>
+                                            </ei:ConditionalExpression>
+                                        </ei:ConditionBehavior>
+                                    </i:Interaction.Behaviors>
+                                    <ei:ChangePropertyAction TargetName="TimeAxis" TargetObject="{Binding ElementName=TimeAxis}" PropertyName="IsHitTestVisible" Value="True"/>
+                                    <ei:ChangePropertyAction TargetName="TimeAxis" TargetObject="{Binding ElementName=TimeAxis}" PropertyName="Effect"/>
+                                    <ei:GoToStateAction StateName="TimeAxisUnLocked"/>
+                                </i:EventTrigger>
+                                <i:EventTrigger SourceName="UI_advancedmode" SourceObject="{Binding ElementName=UI_advancedmode}" EventName="PreviewMouseDown">
+                                    <i:Interaction.Behaviors>
+                                        <ei:ConditionBehavior>
+                                            <ei:ConditionalExpression>
+                                                <ei:ComparisonCondition LeftOperand="{Binding IsChecked, ElementName=UI_advancedmode}" RightOperand="True"/>
+                                            </ei:ConditionalExpression>
+                                        </ei:ConditionBehavior>
+                                    </i:Interaction.Behaviors>
+                                    <ei:ChangePropertyAction TargetName="TimeAxis" TargetObject="{Binding ElementName=TimeAxis}" PropertyName="Effect">
+                                        <ei:ChangePropertyAction.Value>
+                                            <BlurEffect/>
+                                        </ei:ChangePropertyAction.Value>
+                                    </ei:ChangePropertyAction>
+                                    <ei:ChangePropertyAction TargetName="TimeAxis" TargetObject="{Binding ElementName=TimeAxis}" PropertyName="IsHitTestVisible"/>
+                                    <ei:GoToStateAction StateName="TimeAxisLocked"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </userControl:CustomToggleButton>
+                        <Label Content="{DynamicResource AdvancedMode}" Margin="45,125,85,0" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa"/>
+                        <userControl:CustomRestButton x:Name="Pose_Reset" Height="20" Width="120" Margin="0,125,5,0" Padding="0" HorizontalAlignment="Right" RestContent="Reset?" MouseLeftButtonDown="PoseReset_LeftButtonDown"/>
+                    </Grid>
+                    <Label x:Name="ItemSettings" Content="{DynamicResource Item_Settings}" Foreground="White" Background="{x:Null}" FontSize="25"  IsHitTestVisible="False" BorderThickness="0,15" Margin="5,0,0,0" Padding="5"/>
+                    <WrapPanel x:Name="PartSlectorPanel" Width="305" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Margin="0,0,0,10">
                         <i:Interaction.Behaviors>
                             <ei:FluidMoveBehavior Duration="0:0:0.2">
                                 <ei:FluidMoveBehavior.EaseX>
@@ -621,725 +984,360 @@
                                 </ei:FluidMoveBehavior.EaseY>
                             </ei:FluidMoveBehavior>
                         </i:Interaction.Behaviors>
-                        <Label x:Name="BasicSettings" Content="{DynamicResource Basic_Settings}" Foreground="White" Background="{x:Null}" FontSize="25"  IsHitTestVisible="False" Margin="5,32,0,0" Height="67.93" VerticalContentAlignment="Center"/>
-                        <WrapPanel x:Name="BasicPannel" Height="60" Width="250" Margin="10,0,0,0">
-                            <Label Content="{DynamicResource Name}" Width="{DynamicResource NameLabelLength}"  FontSize="14" Margin="0,0,0,5"/>
-                            <TextBox x:Name="UI_name" BorderBrush="{x:Null}" Foreground="White" Background="#FF2F2F2F" VerticalContentAlignment="Center" FontSize="13" Height="24" VerticalAlignment="Top" HorizontalScrollBarVisibility="Disabled" Width="{DynamicResource NameTextboxLength}" Margin="0,0,0,5"/>
-                            <Label Content="{DynamicResource Tag}" Width="{DynamicResource TagLabelLength}"  FontSize="14"/>
-                            <TextBox x:Name="UI_tags" BorderBrush="{x:Null}" Foreground="White" Background="#FF2F2F2F" VerticalContentAlignment="Center" FontSize="13" Height="24" VerticalAlignment="Top" HorizontalScrollBarVisibility="Disabled" Width="{DynamicResource TagTextboxLength}"/>
-                        </WrapPanel>
-                        <Label x:Name="NbtSettings" Content="{DynamicResource NBT_Settings}" Foreground="White" Background="{x:Null}" FontSize="25"  IsHitTestVisible="False" BorderThickness="0,15" Margin="5,0,0,0" Padding="5"/>
-                        <WrapPanel x:Name="NbtPannel" Height="220" Width="230" Margin="10,0,0,0">
-                            <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="UI_NoAI" Height="20" Width="105" Content="{DynamicResource as_NoAI}" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                            <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="UI_nogravity" Height="20" Width="105" Content="{DynamicResource as_NoGravity}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,0,0,0" />
-                            <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="UI_invulnerable" Height="20" Width="105" Content="{DynamicResource as_Invulnerable}" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                            <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="UI_lefthanded" Height="20" Width="105" Content="{DynamicResource as_LeftHanded}" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" />
-                            <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="UI_silent" Height="20" Width="105" Content="{DynamicResource as_Silent}" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                            <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="UI_showarms" Height="20" Width="105" Content="{DynamicResource as_ShowArms}" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" />
-                            <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="UI_small" Height="20" Width="105" Content="{DynamicResource as_Small}" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                            <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="UI_nobaseplate" Height="20" Width="105" Content="{DynamicResource as_NoBasePlate}" Margin="20,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                            <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="UI_glowing" Height="20" Width="105" Content="{DynamicResource as_Glowing}" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                            <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="UI_marker" Height="20" Width="105" Content="{DynamicResource as_Marker}" Margin="20,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                            <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="UI_invisible" Height="20" Width="105" Content="{DynamicResource as_Invisible}" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                            <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="Pose_Settings" Height="20" Width="105" Content="{DynamicResource as_Pose}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,0,0,0" >
+                        <TabControl x:Name="Part_Slector" Background="{x:Null}" BorderBrush="{x:Null}" IsSynchronizedWithCurrentItem="False" UseLayoutRounding="False" Style="{DynamicResource CustomTabControl_Horizontal}" IsHitTestVisible="True" RenderTransformOrigin="0.5,0.5" ScrollViewer.VerticalScrollBarVisibility="Disabled" Padding="2" Margin="0" ItemContainerStyle="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" Height="24" Width="305" SelectionChanged="Item_TabChanged">
+                            <TabControl.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform AngleX="-0.526"/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="-0.491"/>
+                                </TransformGroup>
+                            </TabControl.RenderTransform>
+                            <TabControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel IsItemsHost="True"/>
+                                </ItemsPanelTemplate>
+
+                            </TabControl.ItemsPanel>
+                            <TabItem Header="{DynamicResource Head}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="-2,0,-2,-2" Padding="6,2" UseLayoutRounding="False" Style="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" Width="44" VerticalContentAlignment="Bottom">
                                 <i:Interaction.Triggers>
-                                    <i:EventTrigger SourceName="Pose_Settings" SourceObject="{Binding ElementName=Pose_Settings}" EventName="PreviewMouseDown">
-                                        <i:Interaction.Behaviors>
-                                            <ei:ConditionBehavior>
-                                                <ei:ConditionalExpression>
-                                                    <ei:ComparisonCondition LeftOperand="{Binding IsChecked, ElementName=Pose_Settings}" RightOperand="False"/>
-                                                </ei:ConditionalExpression>
-                                            </ei:ConditionBehavior>
-                                        </i:Interaction.Behaviors>
-                                        <ei:ChangePropertyAction TargetName="grid" TargetObject="{Binding ElementName=grid, Mode=OneWay}" PropertyName="Effect"/>
-                                        <ei:ChangePropertyAction TargetName="grid" TargetObject="{Binding ElementName=grid, Mode=OneWay}" PropertyName="IsHitTestVisible" Value="True"/>
-                                        <ei:GoToStateAction StateName="RotationUnLocked"/>
-                                    </i:EventTrigger>
-                                    <i:EventTrigger SourceName="Pose_Settings" SourceObject="{Binding ElementName=Pose_Settings}" EventName="PreviewMouseDown">
-                                        <i:Interaction.Behaviors>
-                                            <ei:ConditionBehavior>
-                                                <ei:ConditionalExpression>
-                                                    <ei:ComparisonCondition LeftOperand="{Binding IsChecked, ElementName=Pose_Settings}" RightOperand="True"/>
-                                                </ei:ConditionalExpression>
-                                            </ei:ConditionBehavior>
-                                        </i:Interaction.Behaviors>
-                                        <ei:ChangePropertyAction TargetName="grid" TargetObject="{Binding ElementName=grid, Mode=OneWay}" PropertyName="Effect">
+                                    <i:EventTrigger EventName="PreviewMouseDown">
+                                        <ei:ChangePropertyAction TargetName="Part_Slector_wrapPanel" TargetObject="{Binding ElementName=PartSlectorPanel}" PropertyName="Margin">
                                             <ei:ChangePropertyAction.Value>
-                                                <BlurEffect/>
+                                                <Thickness>0,0,0,10</Thickness>
                                             </ei:ChangePropertyAction.Value>
                                         </ei:ChangePropertyAction>
-                                        <ei:ChangePropertyAction TargetName="grid" TargetObject="{Binding ElementName=grid, Mode=OneWay}" PropertyName="IsHitTestVisible"/>
-                                        <ei:GoToStateAction StateName="RotationLocked"/>
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
-                            </CheckBox>
-                            <Label Content="{DynamicResource DisabledSlots_Settings}" Width="230" Height="30"  FontSize="16" Margin="0,5"/>
-                            <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="disabled_head" Height="20" Width="105" Content="{DynamicResource Head}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" />
-                            <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="disabled_chest" Height="20" Width="105" Content="{DynamicResource Body}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,0,0,0" />
-                            <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="disabled_hand" Height="20" Width="105" Content="{DynamicResource Arms}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" />
-                            <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="disabled_legs" Height="20" Width="105" Content="{DynamicResource Legs}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,0,0,0" />
-                            <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="disabled_boots" Height="20" Width="105" Content="{DynamicResource Boots}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" />
-                        </WrapPanel>
-                        <Label x:Name="PoseSettings" Content="{DynamicResource Pose_Settings}" Foreground="White" Background="{x:Null}" FontSize="25"  IsHitTestVisible="False" BorderThickness="0,15" Margin="5,0,0,0"/>
-                        <Grid x:Name="PosePannel" Height="150" Width="250" Margin="10,0,0,0" Background="#00000000" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-                            <Label Content="{DynamicResource Rotation}" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" FontSize="10" Width="60" VerticalContentAlignment="Center" Height="20" HorizontalContentAlignment="{DynamicResource RotationAlignment}" Padding="5"/>
-                            <Slider Style="{DynamicResource CustomSlider}" x:Name="Rotation_Setting" Width="190" Margin="55,0,5,130" FontSize="9" Maximum="180" Minimum="-180" AutoToolTipPlacement="TopLeft"/>
-                            <Grid x:Name="grid" Margin="0,20,0,0" IsHitTestVisible="False" Height="105" VerticalAlignment="Top" d:IsEffectDisabled="True">
-                                <Grid.Effect>
+                            </TabItem>
+                            <TabItem Header="{DynamicResource Body}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="1,0,-2,-2" Style="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" Width="44" VerticalContentAlignment="Bottom">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="PreviewMouseDown">
+                                        <ei:ChangePropertyAction TargetName="Part_Slector_wrapPanel" TargetObject="{Binding ElementName=PartSlectorPanel}" PropertyName="Margin">
+                                            <ei:ChangePropertyAction.Value>
+                                                <Thickness>0,0,0,10</Thickness>
+                                            </ei:ChangePropertyAction.Value>
+                                        </ei:ChangePropertyAction>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TabItem>
+                            <TabItem Header="{DynamicResource MainHand}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="1,0,-2,-2" Style="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" Width="61" VerticalContentAlignment="Bottom"/>
+                            <TabItem Header="{DynamicResource OffHand}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="1,0,-2,-2" Style="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" Width="60" VerticalContentAlignment="Bottom"/>
+                            <TabItem Header="{DynamicResource Legs}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="1,0,-2,-2" Style="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" Width="44" VerticalContentAlignment="Bottom">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="PreviewMouseDown">
+                                        <ei:ChangePropertyAction TargetName="Part_Slector_wrapPanel" TargetObject="{Binding ElementName=PartSlectorPanel}" PropertyName="Margin">
+                                            <ei:ChangePropertyAction.Value>
+                                                <Thickness>-31,0,0,10</Thickness>
+                                            </ei:ChangePropertyAction.Value>
+                                        </ei:ChangePropertyAction>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TabItem>
+                            <TabItem Header="{DynamicResource Boots}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="1,0,-2,-2" Style="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" Width="44" VerticalContentAlignment="Bottom">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="PreviewMouseDown">
+                                        <ei:ChangePropertyAction TargetName="Part_Slector_wrapPanel" TargetObject="{Binding ElementName=PartSlectorPanel}" PropertyName="Margin">
+                                            <ei:ChangePropertyAction.Value>
+                                                <Thickness>-31,0,0,10</Thickness>
+                                            </ei:ChangePropertyAction.Value>
+                                        </ei:ChangePropertyAction>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TabItem>
+                        </TabControl>
+                    </WrapPanel>
+                    <WrapPanel x:Name="ItemPanel" MouseEnter="ItemGrid_update" MouseLeave="ItemGrid_update" Height="1020">
+                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="EnablePart_Settings" Height="20" Width="100" Content="{DynamicResource Enable_Part_Check}" Margin="5,0,0,5" >
+                            <i:Interaction.Triggers>
+                                <ei:PropertyChangedTrigger Binding="{Binding IsChecked, ElementName=EnablePart_Settings}">
+                                    <i:Interaction.Behaviors>
+                                        <ei:ConditionBehavior>
+                                            <ei:ConditionalExpression>
+                                                <ei:ComparisonCondition LeftOperand="{Binding IsChecked, ElementName=EnablePart_Settings}" RightOperand="False"/>
+                                            </ei:ConditionalExpression>
+                                        </ei:ConditionBehavior>
+                                    </i:Interaction.Behaviors>
+                                    <ei:ChangePropertyAction TargetName="grid1" TargetObject="{Binding ElementName=grid1}" PropertyName="Effect">
+                                        <ei:ChangePropertyAction.Value>
+                                            <BlurEffect/>
+                                        </ei:ChangePropertyAction.Value>
+                                    </ei:ChangePropertyAction>
+                                    <ei:GoToStateAction StateName="ItemPartLocked"/>
+                                    <ei:ChangePropertyAction TargetName="grid1" TargetObject="{Binding ElementName=grid1}" PropertyName="IsHitTestVisible"/>
+                                </ei:PropertyChangedTrigger>
+                                <ei:PropertyChangedTrigger Binding="{Binding IsChecked, ElementName=EnablePart_Settings}">
+                                    <i:Interaction.Behaviors>
+                                        <ei:ConditionBehavior>
+                                            <ei:ConditionalExpression>
+                                                <ei:ComparisonCondition LeftOperand="{Binding IsChecked, ElementName=EnablePart_Settings}" RightOperand="True"/>
+                                            </ei:ConditionalExpression>
+                                        </ei:ConditionBehavior>
+                                    </i:Interaction.Behaviors>
+                                    <ei:ChangePropertyAction TargetName="grid1" TargetObject="{Binding ElementName=grid1}" PropertyName="Effect"/>
+                                    <ei:GoToStateAction StateName="ItemPartUnLocked"/>
+                                    <ei:ChangePropertyAction TargetName="grid1" TargetObject="{Binding ElementName=grid1}" PropertyName="IsHitTestVisible" Value="True"/>
+                                </ei:PropertyChangedTrigger>
+                            </i:Interaction.Triggers>
+                        </CheckBox>
+                        <userControl:CustomRestButton x:Name="Item_Reset" Height="20" Width="120" Margin="31,0,0,5" Padding="0" RestContent="Reset?" MouseLeftButtonDown="ItemReset_LeftButtonDown"/>
+                        <Grid x:Name="Item_grid" Height="995" Width="255" Margin="5,0,0,0">
+                            <WrapPanel x:Name="grid1" IsHitTestVisible="False" d:IsEffectDisabled="True">
+                                <WrapPanel.Effect>
                                     <BlurEffect/>
-                                </Grid.Effect>
-                                <TabControl x:Name="Pose_Slector" Width="{DynamicResource PoseWidth}" Background="{x:Null}" BorderBrush="{x:Null}" IsSynchronizedWithCurrentItem="False" UseLayoutRounding="False" TabStripPlacement="Left" Style="{DynamicResource CustomTabControl_Vertical}" HorizontalAlignment="Left" IsHitTestVisible="True" SelectionChanged="PostTabChanged" Margin="0,0,0,2.5">
-                                    <TabControl.ItemsPanel>
-                                        <ItemsPanelTemplate>
-                                            <StackPanel IsItemsHost="True"/>
-                                        </ItemsPanelTemplate>
-
-                                    </TabControl.ItemsPanel>
-                                    <TabControl.ItemContainerStyle>
-                                        <Style TargetType="{x:Type TabItem}">
-                                            <Setter Property="FocusVisualStyle">
-                                                <Setter.Value>
-                                                    <Style>
-                                                        <Setter Property="Control.Template">
-                                                            <Setter.Value>
-                                                                <ControlTemplate>
-                                                                    <Rectangle Margin="2" SnapsToDevicePixels="True" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
-                                                                </ControlTemplate>
-                                                            </Setter.Value>
-                                                        </Setter>
-                                                    </Style>
-                                                </Setter.Value>
-                                            </Setter>
-                                            <Setter Property="Foreground" Value="Black"/>
-                                            <Setter Property="Background" Value="{x:Null}"/>
-                                            <Setter Property="BorderBrush" Value="{x:Null}"/>
-                                            <Setter Property="Margin" Value="0"/>
-                                            <Setter Property="Padding" Value="6,2"/>
-                                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                                            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
-                                            <Setter Property="Template">
-                                                <Setter.Value>
-                                                    <ControlTemplate TargetType="{x:Type TabItem}">
-                                                        <Grid x:Name="templateRoot" SnapsToDevicePixels="True">
-                                                            <VisualStateManager.VisualStateGroups>
-                                                                <VisualStateGroup x:Name="CommonStates">
-                                                                    <VisualStateGroup.Transitions>
-                                                                        <VisualTransition GeneratedDuration="0:0:0.2">
-                                                                            <VisualTransition.GeneratedEasingFunction>
-                                                                                <QuarticEase EasingMode="EaseOut"/>
-                                                                            </VisualTransition.GeneratedEasingFunction>
-                                                                        </VisualTransition>
-                                                                    </VisualStateGroup.Transitions>
-                                                                    <VisualState x:Name="Normal"/>
-                                                                    <VisualState x:Name="MouseOver"/>
-                                                                    <VisualState x:Name="Disabled"/>
-                                                                </VisualStateGroup>
-                                                            </VisualStateManager.VisualStateGroups>
-                                                            <Border x:Name="mainBorder" BorderThickness="1,1,1,0" Margin="0">
-                                                                <Border x:Name="innerBorder" BorderBrush="{x:Null}" BorderThickness="1,1,1,0" Background="#FF119EDA" Margin="-2,0,-1,-2" Opacity="0"/>
-                                                            </Border>
-                                                            <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding HeaderTemplate}" Content="{TemplateBinding Header}" ContentStringFormat="{TemplateBinding HeaderStringFormat}" ContentSource="Header" Focusable="False" HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type ItemsControl}}}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type ItemsControl}}}" RenderTransformOrigin="0.5,0.5">
-                                                                <ContentPresenter.RenderTransform>
-                                                                    <TransformGroup>
-                                                                        <ScaleTransform/>
-                                                                        <SkewTransform/>
-                                                                        <RotateTransform/>
-                                                                        <TranslateTransform/>
-                                                                    </TransformGroup>
-                                                                </ContentPresenter.RenderTransform>
-                                                            </ContentPresenter>
-                                                        </Grid>
-                                                        <ControlTemplate.Triggers>
-                                                            <MultiDataTrigger>
-                                                                <MultiDataTrigger.Conditions>
-                                                                    <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
-                                                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Left"/>
-                                                                </MultiDataTrigger.Conditions>
-                                                                <Setter Property="Background" TargetName="mainBorder" Value="{x:Null}"/>
-                                                                <Setter Property="BorderBrush" TargetName="mainBorder" Value="{x:Null}"/>
-                                                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="0"/>
-                                                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="0"/>
-                                                            </MultiDataTrigger>
-                                                            <MultiDataTrigger>
-                                                                <MultiDataTrigger.Conditions>
-                                                                    <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
-                                                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Bottom"/>
-                                                                </MultiDataTrigger.Conditions>
-                                                                <Setter Property="Background" TargetName="mainBorder" Value="{x:Null}"/>
-                                                                <Setter Property="BorderBrush" TargetName="mainBorder" Value="{x:Null}"/>
-                                                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="0"/>
-                                                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="0"/>
-                                                            </MultiDataTrigger>
-                                                            <MultiDataTrigger>
-                                                                <MultiDataTrigger.Conditions>
-                                                                    <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
-                                                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Right"/>
-                                                                </MultiDataTrigger.Conditions>
-                                                                <Setter Property="Background" TargetName="mainBorder" Value="{x:Null}"/>
-                                                                <Setter Property="BorderBrush" TargetName="mainBorder" Value="{x:Null}"/>
-                                                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="0"/>
-                                                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="0"/>
-                                                            </MultiDataTrigger>
-                                                            <MultiDataTrigger>
-                                                                <MultiDataTrigger.Conditions>
-                                                                    <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
-                                                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Top"/>
-                                                                </MultiDataTrigger.Conditions>
-                                                                <Setter Property="Background" TargetName="mainBorder" Value="{x:Null}"/>
-                                                                <Setter Property="BorderBrush" TargetName="mainBorder" Value="{x:Null}"/>
-                                                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="0"/>
-                                                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="0"/>
-                                                            </MultiDataTrigger>
-                                                            <MultiDataTrigger>
-                                                                <MultiDataTrigger.Conditions>
-                                                                    <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
-                                                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Left"/>
-                                                                </MultiDataTrigger.Conditions>
-                                                                <Setter Property="Opacity" TargetName="contentPresenter" Value="0.56"/>
-                                                                <Setter Property="Background" TargetName="mainBorder" Value="#FFF0F0F0"/>
-                                                                <Setter Property="BorderBrush" TargetName="mainBorder" Value="#FFD9D9D9"/>
-                                                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,0,1"/>
-                                                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,0,1"/>
-                                                            </MultiDataTrigger>
-                                                            <MultiDataTrigger>
-                                                                <MultiDataTrigger.Conditions>
-                                                                    <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
-                                                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Bottom"/>
-                                                                </MultiDataTrigger.Conditions>
-                                                                <Setter Property="Opacity" TargetName="contentPresenter" Value="0.56"/>
-                                                                <Setter Property="Background" TargetName="mainBorder" Value="#FFF0F0F0"/>
-                                                                <Setter Property="BorderBrush" TargetName="mainBorder" Value="#FFD9D9D9"/>
-                                                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,0,1,1"/>
-                                                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,0,1,1"/>
-                                                            </MultiDataTrigger>
-                                                            <MultiDataTrigger>
-                                                                <MultiDataTrigger.Conditions>
-                                                                    <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
-                                                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Right"/>
-                                                                </MultiDataTrigger.Conditions>
-                                                                <Setter Property="Opacity" TargetName="contentPresenter" Value="0.56"/>
-                                                                <Setter Property="Background" TargetName="mainBorder" Value="#FFF0F0F0"/>
-                                                                <Setter Property="BorderBrush" TargetName="mainBorder" Value="#FFD9D9D9"/>
-                                                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="0,1,1,1"/>
-                                                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,1,1,1"/>
-                                                            </MultiDataTrigger>
-                                                            <MultiDataTrigger>
-                                                                <MultiDataTrigger.Conditions>
-                                                                    <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
-                                                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Top"/>
-                                                                </MultiDataTrigger.Conditions>
-                                                                <Setter Property="Opacity" TargetName="contentPresenter" Value="0.56"/>
-                                                                <Setter Property="Background" TargetName="mainBorder" Value="#FFF0F0F0"/>
-                                                                <Setter Property="BorderBrush" TargetName="mainBorder" Value="#FFD9D9D9"/>
-                                                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,1,0"/>
-                                                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,1,0"/>
-                                                            </MultiDataTrigger>
-                                                            <MultiDataTrigger>
-                                                                <MultiDataTrigger.Conditions>
-                                                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="false"/>
-                                                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Left"/>
-                                                                </MultiDataTrigger.Conditions>
-                                                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,0,1"/>
-                                                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,0,1"/>
-                                                            </MultiDataTrigger>
-                                                            <MultiDataTrigger>
-                                                                <MultiDataTrigger.Conditions>
-                                                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
-                                                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Left"/>
-                                                                </MultiDataTrigger.Conditions>
-                                                                <Setter Property="Panel.ZIndex" Value="1"/>
-                                                                <Setter Property="Margin" Value="-2,-2,0,-2"/>
-                                                                <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
-                                                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,0,1"/>
-                                                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,0,1"/>
-                                                            </MultiDataTrigger>
-                                                            <MultiDataTrigger>
-                                                                <MultiDataTrigger.Conditions>
-                                                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="false"/>
-                                                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Bottom"/>
-                                                                </MultiDataTrigger.Conditions>
-                                                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,0,1,1"/>
-                                                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,0,1,1"/>
-                                                            </MultiDataTrigger>
-                                                            <MultiDataTrigger>
-                                                                <MultiDataTrigger.Conditions>
-                                                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
-                                                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Bottom"/>
-                                                                </MultiDataTrigger.Conditions>
-                                                                <Setter Property="Panel.ZIndex" Value="1"/>
-                                                                <Setter Property="Margin" Value="-2,0,-2,-2"/>
-                                                                <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
-                                                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,0,1,1"/>
-                                                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,0,1,1"/>
-                                                            </MultiDataTrigger>
-                                                            <MultiDataTrigger>
-                                                                <MultiDataTrigger.Conditions>
-                                                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="false"/>
-                                                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Right"/>
-                                                                </MultiDataTrigger.Conditions>
-                                                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="0,1,1,1"/>
-                                                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,1,1,1"/>
-                                                            </MultiDataTrigger>
-                                                            <MultiDataTrigger>
-                                                                <MultiDataTrigger.Conditions>
-                                                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
-                                                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Right"/>
-                                                                </MultiDataTrigger.Conditions>
-                                                                <Setter Property="Panel.ZIndex" Value="1"/>
-                                                                <Setter Property="Margin" Value="0,-2,-2,-2"/>
-                                                                <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
-                                                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="0,1,1,1"/>
-                                                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,1,1,1"/>
-                                                            </MultiDataTrigger>
-                                                            <MultiDataTrigger>
-                                                                <MultiDataTrigger.Conditions>
-                                                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="false"/>
-                                                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Top"/>
-                                                                </MultiDataTrigger.Conditions>
-                                                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,1,0"/>
-                                                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,1,0"/>
-                                                            </MultiDataTrigger>
-                                                            <MultiDataTrigger>
-                                                                <MultiDataTrigger.Conditions>
-                                                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
-                                                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Top"/>
-                                                                </MultiDataTrigger.Conditions>
-                                                                <Setter Property="Panel.ZIndex" Value="1"/>
-                                                                <Setter Property="Margin" Value="-2,-2,-2,0"/>
-                                                                <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
-                                                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,1,0"/>
-                                                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,1,0"/>
-                                                            </MultiDataTrigger>
-                                                        </ControlTemplate.Triggers>
-                                                    </ControlTemplate>
-                                                </Setter.Value>
-                                            </Setter>
-                                        </Style>
-                                    </TabControl.ItemContainerStyle>
-                                    <TabItem x:Name="PoseHead" Header="{DynamicResource Head}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="-2,0,-10,0" UseLayoutRounding="False" Style="{DynamicResource CustomTabItem_Vertical}" HorizontalContentAlignment="Stretch" Padding="{DynamicResource RotationPadding}" ScrollViewer.CanContentScroll="True"/>
-                                    <TabItem x:Name="PoseBody" Header="{DynamicResource Body}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="-2,0,-10,0" Style="{DynamicResource CustomTabItem_Vertical}" Padding="{DynamicResource RotationPadding}"/>
-                                    <TabItem x:Name="PoseLeftArm" Header="{DynamicResource LeftArm}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="-2,0,-10,0" Style="{DynamicResource CustomTabItem_Vertical}" Padding="{DynamicResource RotationPadding}"/>
-                                    <TabItem x:Name="PoseRightArm" Header="{DynamicResource RightArm}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="-2,0,-10,0" Style="{DynamicResource CustomTabItem_Vertical}" Padding="{DynamicResource RotationPadding}"/>
-                                    <TabItem x:Name="PoseLeftLeg" Header="{DynamicResource LeftLeg}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="-2,0,-10,0" Style="{DynamicResource CustomTabItem_Vertical}" Padding="{DynamicResource RotationPadding}"/>
-                                    <TabItem x:Name="PoseRightLeg" Header="{DynamicResource RightLeg}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="-2,0,-10,0" Style="{DynamicResource CustomTabItem_Vertical}" Padding="{DynamicResource RotationPadding}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
-                                </TabControl>
-                                <Grid x:Name="Grid_Pose_Settings" Margin="60,12.5,0,12.5">
-                                    <Label Content="X" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" FontSize="10" Width="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="20" Margin="0,10,0,0"/>
-                                    <Slider Style="{DynamicResource CustomSlider}" x:Name="X_Pose" Width="Auto" Margin="30,10,0,50" FontSize="9" Maximum="180" Minimum="-180" AutoToolTipPlacement="TopLeft"/>
-                                    <Label Content="Y" HorizontalAlignment="Left" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" FontSize="10" Width="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,30"/>
-                                    <Slider Style="{DynamicResource CustomSlider}" x:Name="Y_Pose" Width="Auto" Margin="30,30,0,30" FontSize="9" Maximum="180" Minimum="-180" AutoToolTipPlacement="TopLeft"/>
-                                    <Label Content="Z" HorizontalAlignment="Left" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" FontSize="10" Width="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,0,10" Height="20" VerticalAlignment="Bottom"/>
-                                    <Slider Style="{DynamicResource CustomSlider}" x:Name="Z_Pose" Width="Auto" Margin="30,50,0,10" FontSize="9" Maximum="180" Minimum="-180" AutoToolTipPlacement="TopLeft"/>
+                                </WrapPanel.Effect>
+                                <ComboBox x:Name="ItemList" Width="252" Margin="3,2,0,3" IsReadOnly="True" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" IsTextSearchCaseSensitive="True" BorderBrush="{x:Null}" Custom1:ControlsHelper.MouseOverBorderBrush="{x:Null}" Custom1:ControlsHelper.FocusBorderBrush="{x:Null}"/>
+                                <Label Content="{DynamicResource Name}" Width="{DynamicResource NameLabelLength}"  FontSize="14" Margin="0,0,0,2"/>
+                                <TextBox x:Name="UI_itemname" BorderBrush="{x:Null}" Foreground="White" Background="#FF2F2F2F" VerticalContentAlignment="Center" FontSize="13" Height="24" VerticalAlignment="Top" HorizontalScrollBarVisibility="Disabled" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" Width="{DynamicResource ItemNameTextboxLength}" Margin="0,0,0,2" TabIndex="5"/>
+                                <Label Content="{DynamicResource Lore}" Width="{DynamicResource TagLabelLength}"  FontSize="14" Margin="0,0,0,2"/>
+                                <TextBox x:Name="UI_itemlore" BorderBrush="{x:Null}" Foreground="White" Background="#FF2F2F2F" VerticalContentAlignment="Center" FontSize="13" Height="24" VerticalAlignment="Top" HorizontalScrollBarVisibility="Disabled" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" Width="205" Margin="0,0,0,2" TabIndex="6"/>
+                                <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="Item_Unbreakable" Height="20" Width="120" Content="{DynamicResource Unbreakable}" FontSize="11" TabIndex="3" />
+                                <Label Content="{DynamicResource Count}"  FontSize="10" Width="45"/>
+                                <Custom:CustomNumberBox x:Name="Item_Count" Height="20" Width="89" TabIndex="1" Interval="1" Maximum="64" Minimum="1" Value="1"/>
+                                <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="Item_HideFlags" Height="20" Width="120" Content="{DynamicResource HideFlags}" FontSize="11" Margin="0" TabIndex="4" />
+                                <Label Content="{DynamicResource Damage}"  FontSize="10" Width="54"/>
+                                <Custom:CustomNumberBox x:Name="Item_Damage" Height="20" Width="80" TabIndex="0" Interval="1" Maximum="32767"/>
+                                <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="Enable_Attribute_Settings" Height="20" Width="120" Content="{DynamicResource Enable_Attribute_Check}" HorizontalAlignment="Left" Margin="0,15,0,2" TabIndex="7" >
+                                    <i:Interaction.Triggers>
+                                        <ei:PropertyChangedTrigger Binding="{Binding IsChecked, ElementName=Enable_Attribute_Settings}">
+                                            <i:Interaction.Behaviors>
+                                                <ei:ConditionBehavior>
+                                                    <ei:ConditionalExpression>
+                                                        <ei:ComparisonCondition LeftOperand="{Binding IsChecked, ElementName=Enable_Attribute_Settings}" RightOperand="True"/>
+                                                    </ei:ConditionalExpression>
+                                                </ei:ConditionBehavior>
+                                            </i:Interaction.Behaviors>
+                                            <ei:ChangePropertyAction TargetName="grid2" TargetObject="{Binding ElementName=grid2}" PropertyName="IsHitTestVisible" Value="True"/>
+                                            <ei:ChangePropertyAction TargetName="grid2" TargetObject="{Binding ElementName=grid2}" PropertyName="Effect"/>
+                                            <ei:GoToStateAction StateName="ItemAttributeUnLocked"/>
+                                        </ei:PropertyChangedTrigger>
+                                        <ei:PropertyChangedTrigger Binding="{Binding IsChecked, ElementName=Enable_Attribute_Settings}">
+                                            <i:Interaction.Behaviors>
+                                                <ei:ConditionBehavior>
+                                                    <ei:ConditionalExpression>
+                                                        <ei:ComparisonCondition LeftOperand="{Binding IsChecked, ElementName=Enable_Attribute_Settings}" RightOperand="False"/>
+                                                    </ei:ConditionalExpression>
+                                                </ei:ConditionBehavior>
+                                            </i:Interaction.Behaviors>
+                                            <ei:ChangePropertyAction TargetName="grid2" TargetObject="{Binding ElementName=grid2}" PropertyName="Effect">
+                                                <ei:ChangePropertyAction.Value>
+                                                    <BlurEffect Radius="10"/>
+                                                </ei:ChangePropertyAction.Value>
+                                            </ei:ChangePropertyAction>
+                                            <ei:ChangePropertyAction TargetName="grid2" TargetObject="{Binding ElementName=grid2}" PropertyName="IsHitTestVisible"/>
+                                            <ei:GoToStateAction StateName="ItemAttributeLocked"/>
+                                        </ei:PropertyChangedTrigger>
+                                    </i:Interaction.Triggers>
+                                </CheckBox>
+                                <local:KeepButton x:Name="AttributeExpander" Height="15" Width="255" Defult_Image="/Minecraft Adaptable Studio;component/icon/Down.png" Pressed_Image="/Minecraft Adaptable Studio;component/icon/Up.png" Margin="0,1">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger SourceName="AttributeExpander" SourceObject="{Binding ElementName=AttributeExpander}" EventName="MouseDown">
+                                            <i:Interaction.Behaviors>
+                                                <ei:ConditionBehavior>
+                                                    <ei:ConditionalExpression>
+                                                        <ei:ComparisonCondition LeftOperand="{Binding Pressed, ElementName=AttributeExpander}" RightOperand="False"/>
+                                                    </ei:ConditionalExpression>
+                                                </ei:ConditionBehavior>
+                                            </i:Interaction.Behaviors>
+                                            <ei:GoToStateAction StateName="AttributeExpanded"/>
+                                        </i:EventTrigger>
+                                        <i:EventTrigger SourceName="AttributeExpander" SourceObject="{Binding ElementName=AttributeExpander}" EventName="MouseDown">
+                                            <i:Interaction.Behaviors>
+                                                <ei:ConditionBehavior>
+                                                    <ei:ConditionalExpression>
+                                                        <ei:ComparisonCondition LeftOperand="{Binding Pressed, ElementName=AttributeExpander}" RightOperand="True"/>
+                                                    </ei:ConditionalExpression>
+                                                </ei:ConditionBehavior>
+                                            </i:Interaction.Behaviors>
+                                            <ei:GoToStateAction StateName="AttributeUnExpanded"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </local:KeepButton>
+                                <Grid x:Name="AttributeExpandGrid" Margin="0" Height="212" Width="263">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0*"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <WrapPanel x:Name="grid2" Grid.ColumnSpan="2" d:IsEffectDisabled="True" IsHitTestVisible="False">
+                                        <WrapPanel.Effect>
+                                            <BlurEffect Radius="10"/>
+                                        </WrapPanel.Effect>
+                                        <Label Content="{DynamicResource AttackDamage}"  FontSize="11" Width="{DynamicResource AttackDamgeLabelLength}"/>
+                                        <Custom:CustomNumberBox x:Name="AttackDamage" Height="20" Width="{DynamicResource AttackDamageNumberboxLength}" TabIndex="0" Interval="0.1" Maximum="32767"/>
+                                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="AttackDamage_precent" Content="{DynamicResource Precent}" Width="65"  FontSize="11" Padding="5,0,0,2" Margin="5,0,0,0" VerticalContentAlignment="Center" TabIndex="0"/>
+                                        <Label Content="{DynamicResource FollowRange}"  FontSize="10" Width="{DynamicResource FollowRangeLabelLength}"/>
+                                        <Custom:CustomNumberBox x:Name="FollowRange" Height="20" Width="{DynamicResource FollowRangeNumberboxLength}" TabIndex="1" Interval="0.1" Maximum="32767"/>
+                                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="FollowRange_precent" Content="{DynamicResource Precent}" Width="65"  FontSize="11" Margin="5,0,0,0" Padding="5,0,0,2" TabIndex="1"/>
+                                        <Label Content="{DynamicResource MaxHealth}"  FontSize="11" Width="{DynamicResource MaxHealthLabelLength}"/>
+                                        <Custom:CustomNumberBox x:Name="MaxHealth" Height="20" Width="{DynamicResource MaxHealthNumberboxLength}" TabIndex="2" Interval="0.1" Maximum="32767"/>
+                                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="MaxHealth_precent" Content="{DynamicResource Precent}" Width="65"  FontSize="11" Margin="5,0,0,0" Padding="5,0,0,2" TabIndex="2"/>
+                                        <Label Content="{DynamicResource KnockBackResistance}"  FontSize="11" Width="{DynamicResource KnockBackResistanceLabelLength}"/>
+                                        <Custom:CustomNumberBox x:Name="KnockBackResistance" Height="20" Width="{DynamicResource KnockBackResistanceNumberboxLength}" TabIndex="3" Interval="0.1" Maximum="32767"/>
+                                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="KnockBackResistance_precent" Content="{DynamicResource Precent}" Width="65"  FontSize="11" Margin="5,0,0,0" Padding="5,0,0,2" TabIndex="3"/>
+                                        <Label Content="{DynamicResource MovementSpeed}"  FontSize="11" Width="{DynamicResource MovementSpeedLabelLength}"/>
+                                        <Custom:CustomNumberBox x:Name="MovementSpeed" Height="20" Width="{DynamicResource MovementSpeedNumberboxLength}" TabIndex="4" Interval="0.1" Maximum="32767"/>
+                                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="MovementSpeed_precent" Content="{DynamicResource Precent}" Width="65"  FontSize="11" Margin="5,0,0,0" Padding="5,0,0,2" TabIndex="4"/>
+                                        <Label Content="{DynamicResource Luck}"  FontSize="11" Width="{DynamicResource LuckLabelLength}"/>
+                                        <Custom:CustomNumberBox x:Name="Luck" Height="20" Width="{DynamicResource LuckNumberboxLength}" TabIndex="5" Interval="0.1" Maximum="32767"/>
+                                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="Luck_precent" Content="{DynamicResource Precent}" Width="65"  FontSize="11" Margin="5,0,0,0" Padding="5,0,0,2" TabIndex="5"/>
+                                        <Label Content="{DynamicResource Armor}"  FontSize="11" Width="{DynamicResource ArmorLabelLength}"/>
+                                        <Custom:CustomNumberBox x:Name="Armor" Height="20" Width="{DynamicResource ArmorNumberboxLength}" TabIndex="6" Interval="0.1" Maximum="32767"/>
+                                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="Armor_precent" Content="{DynamicResource Precent}" Width="65"  FontSize="11" Margin="5,0,0,0" Padding="5,0,0,2" TabIndex="6"/>
+                                        <Label Content="{DynamicResource ArmorToughness}"  FontSize="11" Width="{DynamicResource ArmorToughnessLabelLength}"/>
+                                        <Custom:CustomNumberBox x:Name="ArmorToughness" Height="20" Width="{DynamicResource ArmorToughnessNumberboxLength}" TabIndex="7" Interval="0.1" Maximum="32767"/>
+                                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="ArmorToughness_precent" Content="{DynamicResource Precent}" Width="65"  FontSize="11" Margin="5,0,0,0" Padding="5,0,0,2" TabIndex="7"/>
+                                        <Label Content="{DynamicResource AttackSpeed}"  FontSize="11" Width="{DynamicResource AttackSpeedLabelLength}"/>
+                                        <Custom:CustomNumberBox x:Name="AttackSpeed" Height="20" Width="{DynamicResource AttackSpeedNumberboxLength}" TabIndex="8" Interval="0.1" Maximum="32767"/>
+                                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="AttackSpeed_precent" Content="{DynamicResource Precent}" Width="65"  FontSize="11" Margin="5,0,0,0" Padding="5,0,0,2" TabIndex="8"/>
+                                    </WrapPanel>
+                                    <Label x:Name="label2" Content="{DynamicResource Enable_Attribute}" Background="{x:Null}" Foreground="White"  UseLayoutRounding="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" Margin="55,0,2,105.584" VerticalAlignment="Bottom" FontSize="10.5" Grid.ColumnSpan="2" IsHitTestVisible="False" HorizontalContentAlignment="Center"/>
+                                    <Border x:Name="WaringIcon2" BorderThickness="1" Width="39.151" Height="34.583" HorizontalAlignment="Left" Margin="28.849,0,0,100.084" VerticalAlignment="Bottom" Grid.ColumnSpan="2" IsHitTestVisible="False">
+                                        <Border.Background>
+                                            <ImageBrush ImageSource="/Minecraft Adaptable Studio;component/icon/Warning.png"/>
+                                        </Border.Background>
+                                    </Border>
                                 </Grid>
-                            </Grid>
-                            <Label x:Name="label" Content="{DynamicResource Enable_Pose}" Background="{x:Null}" Foreground="White" Margin="58,57,-1,0"  UseLayoutRounding="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalAlignment="Top" IsHitTestVisible="False" HorizontalContentAlignment="Center"/>
-                            <Border x:Name="WaringIcon" BorderThickness="1" HorizontalAlignment="Left" Width="39.151" Margin="18.849,50.324,0,0" Height="34.583" VerticalAlignment="Top" IsHitTestVisible="False">
+                                <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="EnableEnchant_Settings" Content="{DynamicResource Enable_Ench_Check}" Width="120" Height="20" Margin="0,15,0,2" TabIndex="8" >
+                                    <i:Interaction.Triggers>
+                                        <ei:PropertyChangedTrigger Binding="{Binding IsChecked, ElementName=EnableEnchant_Settings}">
+                                            <i:Interaction.Behaviors>
+                                                <ei:ConditionBehavior>
+                                                    <ei:ConditionalExpression>
+                                                        <ei:ComparisonCondition LeftOperand="{Binding IsChecked, ElementName=EnableEnchant_Settings}" RightOperand="True"/>
+                                                    </ei:ConditionalExpression>
+                                                </ei:ConditionBehavior>
+                                            </i:Interaction.Behaviors>
+                                            <ei:ChangePropertyAction TargetName="grid3" TargetObject="{Binding ElementName=grid3}" PropertyName="IsHitTestVisible" Value="True"/>
+                                            <ei:ChangePropertyAction TargetName="grid3" TargetObject="{Binding ElementName=grid3}" PropertyName="Effect"/>
+                                            <ei:GoToStateAction StateName="ItemEnchantUnLocked"/>
+                                        </ei:PropertyChangedTrigger>
+                                        <ei:PropertyChangedTrigger Binding="{Binding IsChecked, ElementName=EnableEnchant_Settings}">
+                                            <i:Interaction.Behaviors>
+                                                <ei:ConditionBehavior>
+                                                    <ei:ConditionalExpression>
+                                                        <ei:ComparisonCondition LeftOperand="{Binding IsChecked, ElementName=EnableEnchant_Settings}" RightOperand="False"/>
+                                                    </ei:ConditionalExpression>
+                                                </ei:ConditionBehavior>
+                                            </i:Interaction.Behaviors>
+                                            <ei:ChangePropertyAction TargetName="grid3" TargetObject="{Binding ElementName=grid3}" PropertyName="Effect">
+                                                <ei:ChangePropertyAction.Value>
+                                                    <BlurEffect Radius="10"/>
+                                                </ei:ChangePropertyAction.Value>
+                                            </ei:ChangePropertyAction>
+                                            <ei:ChangePropertyAction TargetName="grid3" TargetObject="{Binding ElementName=grid3}" PropertyName="IsHitTestVisible"/>
+                                            <ei:GoToStateAction StateName="ItemEnchantLocked"/>
+                                        </ei:PropertyChangedTrigger>
+                                    </i:Interaction.Triggers>
+                                </CheckBox>
+                                <local:KeepButton x:Name="EnchantExpander" Height="15" Width="255" Defult_Image="/Minecraft Adaptable Studio;component/icon/Down.png" Pressed_Image="/Minecraft Adaptable Studio;component/icon/Up.png" Margin="0,1">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger SourceName="EnchantExpander" SourceObject="{Binding ElementName=EnchantExpander}" EventName="MouseDown">
+                                            <i:Interaction.Behaviors>
+                                                <ei:ConditionBehavior>
+                                                    <ei:ConditionalExpression>
+                                                        <ei:ComparisonCondition LeftOperand="{Binding Pressed, ElementName=EnchantExpander}" RightOperand="False"/>
+                                                    </ei:ConditionalExpression>
+                                                </ei:ConditionBehavior>
+                                            </i:Interaction.Behaviors>
+                                            <ei:GoToStateAction StateName="EnchantExpanded"/>
+                                        </i:EventTrigger>
+                                        <i:EventTrigger SourceName="EnchantExpander" SourceObject="{Binding ElementName=EnchantExpander}" EventName="MouseDown">
+                                            <i:Interaction.Behaviors>
+                                                <ei:ConditionBehavior>
+                                                    <ei:ConditionalExpression>
+                                                        <ei:ComparisonCondition LeftOperand="{Binding Pressed, ElementName=EnchantExpander}" RightOperand="True"/>
+                                                    </ei:ConditionalExpression>
+                                                </ei:ConditionBehavior>
+                                            </i:Interaction.Behaviors>
+                                            <ei:GoToStateAction StateName="EnchantUnExpanded"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </local:KeepButton>
+                                <Grid x:Name="EnchantExpandGrid" VerticalAlignment="Top" d:IsEffectDisabled="True" Height="500" Width="255">
+                                    <WrapPanel x:Name="grid3" IsHitTestVisible="False" d:IsEffectDisabled="True">
+                                        <WrapPanel.Effect>
+                                            <BlurEffect Radius="10"/>
+                                        </WrapPanel.Effect>
+                                        <!--#endregion-->
+                                        <!--#region  附魔属性 -->
+                                        <Label Content="{DynamicResource Ench16}"  FontSize="11" Width="{DynamicResource Ench16LabelLength}"/>
+                                        <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench16NumberboxLength}" TabIndex="16" Interval="1" Maximum="32767" Tag="16"/>
+                                        <Label Content="{DynamicResource Ench48}"  FontSize="11" Width="{DynamicResource Ench48LabelLength}" Margin="10,0,0,0"/>
+                                        <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench48NumberboxLength}" TabIndex="48" Interval="1" Maximum="32767" Tag="48"/>
+                                        <Label Content="{DynamicResource Ench19}"  FontSize="11" Width="{DynamicResource Ench19LabelLength}"/>
+                                        <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench19NumberboxLength}" TabIndex="19" Interval="1" Maximum="32767" Tag="19"/>
+                                        <Label Content="{DynamicResource Ench49}"  FontSize="11" Width="{DynamicResource Ench49LabelLength}" Margin="10,0,0,0"/>
+                                        <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench49NumberboxLength}" TabIndex="49" Interval="1" Maximum="32767" Tag="49"/>
+                                        <Label Content="{DynamicResource Ench20}"  FontSize="11" Width="{DynamicResource Ench20LabelLength}"/>
+                                        <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench20NumberboxLength}" TabIndex="20" Interval="1" Maximum="32767" Tag="20"/>
+                                        <Label Content="{DynamicResource Ench51}"  FontSize="11" Width="{DynamicResource Ench51LabelLength}" Margin="10,0,0,0"/>
+                                        <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench51NumberboxLength}" TabIndex="51" Interval="1" Maximum="32767" Tag="51"/>
+                                        <Label Content="{DynamicResource Ench17}" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" FontSize="11" Width="{DynamicResource Ench17LabelLength}"/>
+                                        <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench17NumberboxLength}" TabIndex="17" Interval="1" Maximum="32767" Tag="17"/>
+                                        <Label Content="{DynamicResource Ench50}"  FontSize="11" Width="{DynamicResource Ench50LabelLength}" Margin="10,0,0,0"/>
+                                        <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench50NumberboxLength}" TabIndex="50" Interval="1" Maximum="32767" Tag="50"/>
+                                        <Label Content="{DynamicResource Ench35}"  FontSize="11" Width="{DynamicResource Ench35LabelLength}"/>
+                                        <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench35NumberboxLength}" TabIndex="35" Interval="1" Maximum="32767" Tag="35"/>
+                                        <Label Content="{DynamicResource Ench70}"  FontSize="11" Width="{DynamicResource Ench70LabelLength}" Margin="10,0,0,0"/>
+                                        <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench70NumberboxLength}" TabIndex="70" Interval="1" Maximum="32767" Tag="70"/>
+                                        <Label Content="{DynamicResource Ench32}"  FontSize="11" Width="{DynamicResource Ench32LabelLength}"/>
+                                        <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench32NumberboxLength}" TabIndex="32" Interval="1" Maximum="32767" Tag="32"/>
+                                        <Label Content="{DynamicResource Ench21}"  FontSize="11" Width="{DynamicResource Ench21LabelLength}" Margin="10,0,0,0"/>
+                                        <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench21NumberboxLength}" TabIndex="21" Interval="1" Maximum="32767" Tag="21"/>
+                                        <Label Content="{DynamicResource Ench33}"  FontSize="11" Width="{DynamicResource Ench33LabelLength}"/>
+                                        <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench33NumberboxLength}" TabIndex="33" Interval="1" Maximum="32767" Tag="33"/>
+                                        <Label Content="{DynamicResource Ench5}"  FontSize="11" Width="{DynamicResource Ench5LabelLength}" Margin="10,0,0,0"/>
+                                        <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench5NumberboxLength}" TabIndex="5" Interval="1" Maximum="32767" Tag="5"/>
+                                        <Label Content="{DynamicResource Ench34}"  FontSize="11" Width="{DynamicResource Ench34LabelLength}"/>
+                                        <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench34NumberboxLength}" TabIndex="34" Interval="1" Maximum="32767" Tag="34"/>
+                                        <Label Content="{DynamicResource Ench62}"  FontSize="11" Width="{DynamicResource Ench62LabelLength}" Margin="10,0,0,0"/>
+                                        <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench62NumberboxLength}" TabIndex="62" Interval="1" Maximum="32767" Tag="62"/>
+                                        <Label Content="{DynamicResource Ench0}"  FontSize="11" Width="{DynamicResource Ench0LabelLength}"/>
+                                        <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench0NumberboxLength}" TabIndex="0" Interval="1" Maximum="32767" Tag="0"/>
+                                        <Label Content="{DynamicResource Ench7}"  FontSize="11" Width="{DynamicResource Ench7LabelLength}" Margin="10,0,0,0"/>
+                                        <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench7NumberboxLength}" TabIndex="7" Interval="1" Maximum="32767" Tag="7"/>
+                                        <Label Content="{DynamicResource Ench1}"  FontSize="11" Width="{DynamicResource Ench1LabelLength}"/>
+                                        <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench1NumberboxLength}" TabIndex="1" Interval="1" Maximum="32767" Tag="1"/>
+                                        <Label Content="{DynamicResource Ench2}"  FontSize="11" Width="{DynamicResource Ench2LabelLength}"/>
+                                        <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench2NumberboxLength}" TabIndex="2" Interval="1" Maximum="32767" Tag="2"/>
+                                        <Label Content="{DynamicResource Ench3}"  FontSize="11" Width="{DynamicResource Ench3LabelLength}"/>
+                                        <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench3NumberboxLength}" TabIndex="3" Interval="1" Maximum="32767" Tag="3"/>
+                                        <Label Content="{DynamicResource Ench4}"  FontSize="11" Width="{DynamicResource Ench4LabelLength}"/>
+                                        <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench4NumberboxLength}" TabIndex="4" Interval="1" Maximum="32767" Tag="4"/>
+                                        <Label Content="{DynamicResource Ench6}"  FontSize="11" Width="{DynamicResource Ench6LabelLength}"/>
+                                        <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench6NumberboxLength}" TabIndex="6" Interval="1" Maximum="32767" Tag="6"/>
+                                        <Label Content="{DynamicResource Ench9}"  FontSize="11" Width="{DynamicResource Ench9LabelLength}"/>
+                                        <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench9NumberboxLength}" TabIndex="9" Interval="1" Maximum="32767" Tag="9"/>
+                                        <Label Content="{DynamicResource Ench8}"  FontSize="11" Width="{DynamicResource Ench8LabelLength}"/>
+                                        <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench8NumberboxLength}" TabIndex="8" Interval="1" Maximum="32767" Tag="8"/>
+                                        <Label Content="{DynamicResource Ench22}"  FontSize="11" Width="{DynamicResource Ench22LabelLength}"/>
+                                        <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench22NumberboxLength}" TabIndex="22" Interval="1" Maximum="32767" Tag="22"/>
+                                        <Label Content="{DynamicResource Ench61}"  FontSize="11" Width="{DynamicResource Ench61LabelLength}" />
+                                        <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench61NumberboxLength}" TabIndex="61" Interval="1" Maximum="32767" Tag="61"/>
+                                        <Label Content="{DynamicResource Ench18}"  FontSize="11" Width="{DynamicResource Ench18LabelLength}"/>
+                                        <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench18NumberboxLength}" TabIndex="18" Interval="1" Maximum="32767" Tag="18"/>
+                                        <Label Content="{DynamicResource Ench71}" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" FontSize="11" Width="{DynamicResource Ench71LabelLength}"/>
+                                        <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench71NumberboxLength}" TabIndex="71" Interval="1" Maximum="32767" Tag="71" Margin="0"/>
+                                        <Label Content="{DynamicResource Ench10}" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" FontSize="11" Width="{DynamicResource Ench10LabelLength}"/>
+                                        <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench10NumberboxLength}" TabIndex="10" Interval="1" Maximum="32767" Tag="10"/>
+                                    </WrapPanel>
+                                    <Label x:Name="label3" Content="{DynamicResource Enable_Ench}" Background="{x:Null}" Foreground="White"  UseLayoutRounding="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" HorizontalContentAlignment="Center" FontSize="10.5" Margin="60,69,0,0" HorizontalAlignment="Left" Width="182" VerticalAlignment="Top" IsHitTestVisible="False"/>
+                                    <Border x:Name="WaringIcon3" BorderThickness="1" Width="39.151" Height="34.583" HorizontalAlignment="Left" Margin="28.849,62,0,0" VerticalAlignment="Top" IsHitTestVisible="False">
+                                        <Border.Background>
+                                            <ImageBrush ImageSource="/Minecraft Adaptable Studio;component/icon/Warning.png"/>
+                                        </Border.Background>
+                                    </Border>
+                                </Grid>
+                            </WrapPanel>
+                            <Label x:Name="label1" Content="{DynamicResource Enable_Part}" Background="{x:Null}" Foreground="White"  UseLayoutRounding="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" Margin="55,38,5,0" VerticalAlignment="Top" IsHitTestVisible="False" HorizontalContentAlignment="Center"/>
+                            <Border x:Name="WaringIcon1" BorderThickness="1" Width="39.151" Height="34.583" HorizontalAlignment="Left" Margin="28.849,33.509,0,0" VerticalAlignment="Top" IsHitTestVisible="False">
                                 <Border.Background>
                                     <ImageBrush ImageSource="/Minecraft Adaptable Studio;component/icon/Warning.png"/>
                                 </Border.Background>
                             </Border>
-                            <userControl:CustomToggleButton x:Name="UI_advancedmode" Height="25" Margin="{DynamicResource AdvancedModeMargin}" Width="35" VerticalAlignment="Top" HorizontalAlignment="Left">
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger SourceName="UI_advancedmode" SourceObject="{Binding ElementName=UI_advancedmode}" EventName="PreviewMouseDown">
-                                        <i:Interaction.Behaviors>
-                                            <ei:ConditionBehavior>
-                                                <ei:ConditionalExpression>
-                                                    <ei:ComparisonCondition LeftOperand="{Binding IsChecked, ElementName=UI_advancedmode}" RightOperand="False"/>
-                                                </ei:ConditionalExpression>
-                                            </ei:ConditionBehavior>
-                                        </i:Interaction.Behaviors>
-                                        <ei:ChangePropertyAction TargetName="TimeAxis" TargetObject="{Binding ElementName=TimeAxis}" PropertyName="IsHitTestVisible" Value="True"/>
-                                        <ei:ChangePropertyAction TargetName="TimeAxis" TargetObject="{Binding ElementName=TimeAxis}" PropertyName="Effect"/>
-                                        <ei:GoToStateAction StateName="TimeAxisUnLocked"/>
-                                    </i:EventTrigger>
-                                    <i:EventTrigger SourceName="UI_advancedmode" SourceObject="{Binding ElementName=UI_advancedmode}" EventName="PreviewMouseDown">
-                                        <i:Interaction.Behaviors>
-                                            <ei:ConditionBehavior>
-                                                <ei:ConditionalExpression>
-                                                    <ei:ComparisonCondition LeftOperand="{Binding IsChecked, ElementName=UI_advancedmode}" RightOperand="True"/>
-                                                </ei:ConditionalExpression>
-                                            </ei:ConditionBehavior>
-                                        </i:Interaction.Behaviors>
-                                        <ei:ChangePropertyAction TargetName="TimeAxis" TargetObject="{Binding ElementName=TimeAxis}" PropertyName="Effect">
-                                            <ei:ChangePropertyAction.Value>
-                                                <BlurEffect/>
-                                            </ei:ChangePropertyAction.Value>
-                                        </ei:ChangePropertyAction>
-                                        <ei:ChangePropertyAction TargetName="TimeAxis" TargetObject="{Binding ElementName=TimeAxis}" PropertyName="IsHitTestVisible"/>
-                                        <ei:GoToStateAction StateName="TimeAxisLocked"/>
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                            </userControl:CustomToggleButton>
-                            <Label Content="{DynamicResource AdvancedMode}" Margin="45,125,85,0" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa"/>
-                            <userControl:CustomRestButton x:Name="Pose_Reset" Height="20" Width="120" Margin="0,125,5,0" Padding="0" HorizontalAlignment="Right" RestContent="Reset?" MouseLeftButtonDown="PoseReset_LeftButtonDown"/>
                         </Grid>
-                        <Label x:Name="ItemSettings" Content="{DynamicResource Item_Settings}" Foreground="White" Background="{x:Null}" FontSize="25"  IsHitTestVisible="False" BorderThickness="0,15" Margin="5,0,0,0" Padding="5"/>
-                        <WrapPanel x:Name="PartSlectorPanel" Width="305" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Margin="0,0,0,10">
-                            <i:Interaction.Behaviors>
-                                <ei:FluidMoveBehavior Duration="0:0:0.2">
-                                    <ei:FluidMoveBehavior.EaseX>
-                                        <QuarticEase EasingMode="EaseOut"/>
-                                    </ei:FluidMoveBehavior.EaseX>
-                                    <ei:FluidMoveBehavior.EaseY>
-                                        <QuarticEase EasingMode="EaseOut"/>
-                                    </ei:FluidMoveBehavior.EaseY>
-                                </ei:FluidMoveBehavior>
-                            </i:Interaction.Behaviors>
-                            <TabControl x:Name="Part_Slector" Background="{x:Null}" BorderBrush="{x:Null}" IsSynchronizedWithCurrentItem="False" UseLayoutRounding="False" Style="{DynamicResource CustomTabControl_Horizontal}" IsHitTestVisible="True" RenderTransformOrigin="0.5,0.5" ScrollViewer.VerticalScrollBarVisibility="Disabled" Padding="2" Margin="0" ItemContainerStyle="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" Height="24" Width="305" SelectionChanged="Item_TabChanged">
-                                <TabControl.RenderTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform/>
-                                        <SkewTransform AngleX="-0.526"/>
-                                        <RotateTransform/>
-                                        <TranslateTransform X="-0.491"/>
-                                    </TransformGroup>
-                                </TabControl.RenderTransform>
-                                <TabControl.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <StackPanel IsItemsHost="True"/>
-                                    </ItemsPanelTemplate>
-
-                                </TabControl.ItemsPanel>
-                                <TabItem Header="{DynamicResource Head}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="-2,0,-2,-2" Padding="6,2" UseLayoutRounding="False" Style="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" Width="44" VerticalContentAlignment="Bottom">
-                                    <i:Interaction.Triggers>
-                                        <i:EventTrigger EventName="PreviewMouseDown">
-                                            <ei:ChangePropertyAction TargetName="Part_Slector_wrapPanel" TargetObject="{Binding ElementName=PartSlectorPanel}" PropertyName="Margin">
-                                                <ei:ChangePropertyAction.Value>
-                                                    <Thickness>0,0,0,10</Thickness>
-                                                </ei:ChangePropertyAction.Value>
-                                            </ei:ChangePropertyAction>
-                                        </i:EventTrigger>
-                                    </i:Interaction.Triggers>
-                                </TabItem>
-                                <TabItem Header="{DynamicResource Body}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="1,0,-2,-2" Style="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" Width="44" VerticalContentAlignment="Bottom">
-                                    <i:Interaction.Triggers>
-                                        <i:EventTrigger EventName="PreviewMouseDown">
-                                            <ei:ChangePropertyAction TargetName="Part_Slector_wrapPanel" TargetObject="{Binding ElementName=PartSlectorPanel}" PropertyName="Margin">
-                                                <ei:ChangePropertyAction.Value>
-                                                    <Thickness>0,0,0,10</Thickness>
-                                                </ei:ChangePropertyAction.Value>
-                                            </ei:ChangePropertyAction>
-                                        </i:EventTrigger>
-                                    </i:Interaction.Triggers>
-                                </TabItem>
-                                <TabItem Header="{DynamicResource MainHand}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="1,0,-2,-2" Style="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" Width="61" VerticalContentAlignment="Bottom"/>
-                                <TabItem Header="{DynamicResource OffHand}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="1,0,-2,-2" Style="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" Width="60" VerticalContentAlignment="Bottom"/>
-                                <TabItem Header="{DynamicResource Legs}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="1,0,-2,-2" Style="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" Width="44" VerticalContentAlignment="Bottom">
-                                    <i:Interaction.Triggers>
-                                        <i:EventTrigger EventName="PreviewMouseDown">
-                                            <ei:ChangePropertyAction TargetName="Part_Slector_wrapPanel" TargetObject="{Binding ElementName=PartSlectorPanel}" PropertyName="Margin">
-                                                <ei:ChangePropertyAction.Value>
-                                                    <Thickness>-31,0,0,10</Thickness>
-                                                </ei:ChangePropertyAction.Value>
-                                            </ei:ChangePropertyAction>
-                                        </i:EventTrigger>
-                                    </i:Interaction.Triggers>
-                                </TabItem>
-                                <TabItem Header="{DynamicResource Boots}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="1,0,-2,-2" Style="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" Width="44" VerticalContentAlignment="Bottom">
-                                    <i:Interaction.Triggers>
-                                        <i:EventTrigger EventName="PreviewMouseDown">
-                                            <ei:ChangePropertyAction TargetName="Part_Slector_wrapPanel" TargetObject="{Binding ElementName=PartSlectorPanel}" PropertyName="Margin">
-                                                <ei:ChangePropertyAction.Value>
-                                                    <Thickness>-31,0,0,10</Thickness>
-                                                </ei:ChangePropertyAction.Value>
-                                            </ei:ChangePropertyAction>
-                                        </i:EventTrigger>
-                                    </i:Interaction.Triggers>
-                                </TabItem>
-                            </TabControl>
-                        </WrapPanel>
-                        <WrapPanel x:Name="ItemPanel" MouseEnter="ItemGrid_update" MouseLeave="ItemGrid_update" Height="1020">
-                            <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="EnablePart_Settings" Height="20" Width="100" Content="{DynamicResource Enable_Part_Check}" Margin="5,0,0,5" >
-                                <i:Interaction.Triggers>
-                                    <ei:PropertyChangedTrigger Binding="{Binding IsChecked, ElementName=EnablePart_Settings}">
-                                        <i:Interaction.Behaviors>
-                                            <ei:ConditionBehavior>
-                                                <ei:ConditionalExpression>
-                                                    <ei:ComparisonCondition LeftOperand="{Binding IsChecked, ElementName=EnablePart_Settings}" RightOperand="False"/>
-                                                </ei:ConditionalExpression>
-                                            </ei:ConditionBehavior>
-                                        </i:Interaction.Behaviors>
-                                        <ei:ChangePropertyAction TargetName="grid1" TargetObject="{Binding ElementName=grid1}" PropertyName="Effect">
-                                            <ei:ChangePropertyAction.Value>
-                                                <BlurEffect/>
-                                            </ei:ChangePropertyAction.Value>
-                                        </ei:ChangePropertyAction>
-                                        <ei:GoToStateAction StateName="ItemPartLocked"/>
-                                        <ei:ChangePropertyAction TargetName="grid1" TargetObject="{Binding ElementName=grid1}" PropertyName="IsHitTestVisible"/>
-                                    </ei:PropertyChangedTrigger>
-                                    <ei:PropertyChangedTrigger Binding="{Binding IsChecked, ElementName=EnablePart_Settings}">
-                                        <i:Interaction.Behaviors>
-                                            <ei:ConditionBehavior>
-                                                <ei:ConditionalExpression>
-                                                    <ei:ComparisonCondition LeftOperand="{Binding IsChecked, ElementName=EnablePart_Settings}" RightOperand="True"/>
-                                                </ei:ConditionalExpression>
-                                            </ei:ConditionBehavior>
-                                        </i:Interaction.Behaviors>
-                                        <ei:ChangePropertyAction TargetName="grid1" TargetObject="{Binding ElementName=grid1}" PropertyName="Effect"/>
-                                        <ei:GoToStateAction StateName="ItemPartUnLocked"/>
-                                        <ei:ChangePropertyAction TargetName="grid1" TargetObject="{Binding ElementName=grid1}" PropertyName="IsHitTestVisible" Value="True"/>
-                                    </ei:PropertyChangedTrigger>
-                                </i:Interaction.Triggers>
-                            </CheckBox>
-                            <userControl:CustomRestButton x:Name="Item_Reset" Height="20" Width="120" Margin="31,0,0,5" Padding="0" RestContent="Reset?" MouseLeftButtonDown="ItemReset_LeftButtonDown"/>
-                            <Grid x:Name="Item_grid" Height="995" Width="255" Margin="5,0,0,0">
-                                <WrapPanel x:Name="grid1" IsHitTestVisible="False" d:IsEffectDisabled="True">
-                                    <WrapPanel.Effect>
-                                        <BlurEffect/>
-                                    </WrapPanel.Effect>
-                                    <ComboBox x:Name="ItemList" Width="252" Margin="3,2,0,3" IsReadOnly="True" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" IsTextSearchCaseSensitive="True" BorderBrush="{x:Null}" Custom1:ControlsHelper.MouseOverBorderBrush="{x:Null}" Custom1:ControlsHelper.FocusBorderBrush="{x:Null}"/>
-                                    <Label Content="{DynamicResource Name}" Width="{DynamicResource NameLabelLength}"  FontSize="14" Margin="0,0,0,2"/>
-                                    <TextBox x:Name="UI_itemname" BorderBrush="{x:Null}" Foreground="White" Background="#FF2F2F2F" VerticalContentAlignment="Center" FontSize="13" Height="24" VerticalAlignment="Top" HorizontalScrollBarVisibility="Disabled" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" Width="{DynamicResource ItemNameTextboxLength}" Margin="0,0,0,2" TabIndex="5"/>
-                                    <Label Content="{DynamicResource Lore}" Width="{DynamicResource TagLabelLength}"  FontSize="14" Margin="0,0,0,2"/>
-                                    <TextBox x:Name="UI_itemlore" BorderBrush="{x:Null}" Foreground="White" Background="#FF2F2F2F" VerticalContentAlignment="Center" FontSize="13" Height="24" VerticalAlignment="Top" HorizontalScrollBarVisibility="Disabled" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" Width="205" Margin="0,0,0,2" TabIndex="6"/>
-                                    <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="Item_Unbreakable" Height="20" Width="120" Content="{DynamicResource Unbreakable}" FontSize="11" TabIndex="3" />
-                                    <Label Content="{DynamicResource Count}"  FontSize="10" Width="45"/>
-                                    <Custom:CustomNumberBox x:Name="Item_Count" Height="20" Width="89" TabIndex="1" Interval="1" Maximum="64" Minimum="1" Value="1"/>
-                                    <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="Item_HideFlags" Height="20" Width="120" Content="{DynamicResource HideFlags}" FontSize="11" Margin="0" TabIndex="4" />
-                                    <Label Content="{DynamicResource Damage}"  FontSize="10" Width="54"/>
-                                    <Custom:CustomNumberBox x:Name="Item_Damage" Height="20" Width="80" TabIndex="0" Interval="1" Maximum="32767"/>
-                                    <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="Enable_Attribute_Settings" Height="20" Width="120" Content="{DynamicResource Enable_Attribute_Check}" HorizontalAlignment="Left" Margin="0,15,0,2" TabIndex="7" >
-                                        <i:Interaction.Triggers>
-                                            <ei:PropertyChangedTrigger Binding="{Binding IsChecked, ElementName=Enable_Attribute_Settings}">
-                                                <i:Interaction.Behaviors>
-                                                    <ei:ConditionBehavior>
-                                                        <ei:ConditionalExpression>
-                                                            <ei:ComparisonCondition LeftOperand="{Binding IsChecked, ElementName=Enable_Attribute_Settings}" RightOperand="True"/>
-                                                        </ei:ConditionalExpression>
-                                                    </ei:ConditionBehavior>
-                                                </i:Interaction.Behaviors>
-                                                <ei:ChangePropertyAction TargetName="grid2" TargetObject="{Binding ElementName=grid2}" PropertyName="IsHitTestVisible" Value="True"/>
-                                                <ei:ChangePropertyAction TargetName="grid2" TargetObject="{Binding ElementName=grid2}" PropertyName="Effect"/>
-                                                <ei:GoToStateAction StateName="ItemAttributeUnLocked"/>
-                                            </ei:PropertyChangedTrigger>
-                                            <ei:PropertyChangedTrigger Binding="{Binding IsChecked, ElementName=Enable_Attribute_Settings}">
-                                                <i:Interaction.Behaviors>
-                                                    <ei:ConditionBehavior>
-                                                        <ei:ConditionalExpression>
-                                                            <ei:ComparisonCondition LeftOperand="{Binding IsChecked, ElementName=Enable_Attribute_Settings}" RightOperand="False"/>
-                                                        </ei:ConditionalExpression>
-                                                    </ei:ConditionBehavior>
-                                                </i:Interaction.Behaviors>
-                                                <ei:ChangePropertyAction TargetName="grid2" TargetObject="{Binding ElementName=grid2}" PropertyName="Effect">
-                                                    <ei:ChangePropertyAction.Value>
-                                                        <BlurEffect Radius="10"/>
-                                                    </ei:ChangePropertyAction.Value>
-                                                </ei:ChangePropertyAction>
-                                                <ei:ChangePropertyAction TargetName="grid2" TargetObject="{Binding ElementName=grid2}" PropertyName="IsHitTestVisible"/>
-                                                <ei:GoToStateAction StateName="ItemAttributeLocked"/>
-                                            </ei:PropertyChangedTrigger>
-                                        </i:Interaction.Triggers>
-                                    </CheckBox>
-                                    <local:KeepButton x:Name="AttributeExpander" Height="15" Width="255" Defult_Image="/Minecraft Adaptable Studio;component/icon/Down.png" Pressed_Image="/Minecraft Adaptable Studio;component/icon/Up.png" Margin="0,1">
-                                        <i:Interaction.Triggers>
-                                            <i:EventTrigger SourceName="AttributeExpander" SourceObject="{Binding ElementName=AttributeExpander}" EventName="MouseDown">
-                                                <i:Interaction.Behaviors>
-                                                    <ei:ConditionBehavior>
-                                                        <ei:ConditionalExpression>
-                                                            <ei:ComparisonCondition LeftOperand="{Binding Pressed, ElementName=AttributeExpander}" RightOperand="False"/>
-                                                        </ei:ConditionalExpression>
-                                                    </ei:ConditionBehavior>
-                                                </i:Interaction.Behaviors>
-                                                <ei:GoToStateAction StateName="AttributeExpanded"/>
-                                            </i:EventTrigger>
-                                            <i:EventTrigger SourceName="AttributeExpander" SourceObject="{Binding ElementName=AttributeExpander}" EventName="MouseDown">
-                                                <i:Interaction.Behaviors>
-                                                    <ei:ConditionBehavior>
-                                                        <ei:ConditionalExpression>
-                                                            <ei:ComparisonCondition LeftOperand="{Binding Pressed, ElementName=AttributeExpander}" RightOperand="True"/>
-                                                        </ei:ConditionalExpression>
-                                                    </ei:ConditionBehavior>
-                                                </i:Interaction.Behaviors>
-                                                <ei:GoToStateAction StateName="AttributeUnExpanded"/>
-                                            </i:EventTrigger>
-                                        </i:Interaction.Triggers>
-                                    </local:KeepButton>
-                                    <Grid x:Name="AttributeExpandGrid" Margin="0" Height="212" Width="263">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="0*"/>
-                                            <ColumnDefinition/>
-                                        </Grid.ColumnDefinitions>
-                                        <WrapPanel x:Name="grid2" Grid.ColumnSpan="2" d:IsEffectDisabled="True" IsHitTestVisible="False">
-                                            <WrapPanel.Effect>
-                                                <BlurEffect Radius="10"/>
-                                            </WrapPanel.Effect>
-                                            <Label Content="{DynamicResource AttackDamage}"  FontSize="11" Width="{DynamicResource AttackDamgeLabelLength}"/>
-                                            <Custom:CustomNumberBox x:Name="AttackDamage" Height="20" Width="{DynamicResource AttackDamageNumberboxLength}" TabIndex="0" Interval="0.1" Maximum="32767"/>
-                                            <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="AttackDamage_precent" Content="{DynamicResource Precent}" Width="65"  FontSize="11" Padding="5,0,0,2" Margin="5,0,0,0" VerticalContentAlignment="Center" TabIndex="0"/>
-                                            <Label Content="{DynamicResource FollowRange}"  FontSize="10" Width="{DynamicResource FollowRangeLabelLength}"/>
-                                            <Custom:CustomNumberBox x:Name="FollowRange" Height="20" Width="{DynamicResource FollowRangeNumberboxLength}" TabIndex="1" Interval="0.1" Maximum="32767"/>
-                                            <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="FollowRange_precent" Content="{DynamicResource Precent}" Width="65"  FontSize="11" Margin="5,0,0,0" Padding="5,0,0,2" TabIndex="1"/>
-                                            <Label Content="{DynamicResource MaxHealth}"  FontSize="11" Width="{DynamicResource MaxHealthLabelLength}"/>
-                                            <Custom:CustomNumberBox x:Name="MaxHealth" Height="20" Width="{DynamicResource MaxHealthNumberboxLength}" TabIndex="2" Interval="0.1" Maximum="32767"/>
-                                            <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="MaxHealth_precent" Content="{DynamicResource Precent}" Width="65"  FontSize="11" Margin="5,0,0,0" Padding="5,0,0,2" TabIndex="2"/>
-                                            <Label Content="{DynamicResource KnockBackResistance}"  FontSize="11" Width="{DynamicResource KnockBackResistanceLabelLength}"/>
-                                            <Custom:CustomNumberBox x:Name="KnockBackResistance" Height="20" Width="{DynamicResource KnockBackResistanceNumberboxLength}" TabIndex="3" Interval="0.1" Maximum="32767"/>
-                                            <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="KnockBackResistance_precent" Content="{DynamicResource Precent}" Width="65"  FontSize="11" Margin="5,0,0,0" Padding="5,0,0,2" TabIndex="3"/>
-                                            <Label Content="{DynamicResource MovementSpeed}"  FontSize="11" Width="{DynamicResource MovementSpeedLabelLength}"/>
-                                            <Custom:CustomNumberBox x:Name="MovementSpeed" Height="20" Width="{DynamicResource MovementSpeedNumberboxLength}" TabIndex="4" Interval="0.1" Maximum="32767"/>
-                                            <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="MovementSpeed_precent" Content="{DynamicResource Precent}" Width="65"  FontSize="11" Margin="5,0,0,0" Padding="5,0,0,2" TabIndex="4"/>
-                                            <Label Content="{DynamicResource Luck}"  FontSize="11" Width="{DynamicResource LuckLabelLength}"/>
-                                            <Custom:CustomNumberBox x:Name="Luck" Height="20" Width="{DynamicResource LuckNumberboxLength}" TabIndex="5" Interval="0.1" Maximum="32767"/>
-                                            <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="Luck_precent" Content="{DynamicResource Precent}" Width="65"  FontSize="11" Margin="5,0,0,0" Padding="5,0,0,2" TabIndex="5"/>
-                                            <Label Content="{DynamicResource Armor}"  FontSize="11" Width="{DynamicResource ArmorLabelLength}"/>
-                                            <Custom:CustomNumberBox x:Name="Armor" Height="20" Width="{DynamicResource ArmorNumberboxLength}" TabIndex="6" Interval="0.1" Maximum="32767"/>
-                                            <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="Armor_precent" Content="{DynamicResource Precent}" Width="65"  FontSize="11" Margin="5,0,0,0" Padding="5,0,0,2" TabIndex="6"/>
-                                            <Label Content="{DynamicResource ArmorToughness}"  FontSize="11" Width="{DynamicResource ArmorToughnessLabelLength}"/>
-                                            <Custom:CustomNumberBox x:Name="ArmorToughness" Height="20" Width="{DynamicResource ArmorToughnessNumberboxLength}" TabIndex="7" Interval="0.1" Maximum="32767"/>
-                                            <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="ArmorToughness_precent" Content="{DynamicResource Precent}" Width="65"  FontSize="11" Margin="5,0,0,0" Padding="5,0,0,2" TabIndex="7"/>
-                                            <Label Content="{DynamicResource AttackSpeed}"  FontSize="11" Width="{DynamicResource AttackSpeedLabelLength}"/>
-                                            <Custom:CustomNumberBox x:Name="AttackSpeed" Height="20" Width="{DynamicResource AttackSpeedNumberboxLength}" TabIndex="8" Interval="0.1" Maximum="32767"/>
-                                            <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="AttackSpeed_precent" Content="{DynamicResource Precent}" Width="65"  FontSize="11" Margin="5,0,0,0" Padding="5,0,0,2" TabIndex="8"/>
-                                        </WrapPanel>
-                                        <Label x:Name="label2" Content="{DynamicResource Enable_Attribute}" Background="{x:Null}" Foreground="White"  UseLayoutRounding="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" Margin="55,0,2,105.584" VerticalAlignment="Bottom" FontSize="10.5" Grid.ColumnSpan="2" IsHitTestVisible="False" HorizontalContentAlignment="Center"/>
-                                        <Border x:Name="WaringIcon2" BorderThickness="1" Width="39.151" Height="34.583" HorizontalAlignment="Left" Margin="28.849,0,0,100.084" VerticalAlignment="Bottom" Grid.ColumnSpan="2" IsHitTestVisible="False">
-                                            <Border.Background>
-                                                <ImageBrush ImageSource="/Minecraft Adaptable Studio;component/icon/Warning.png"/>
-                                            </Border.Background>
-                                        </Border>
-                                    </Grid>
-                                    <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="EnableEnchant_Settings" Content="{DynamicResource Enable_Ench_Check}" Width="120" Height="20" Margin="0,15,0,2" TabIndex="8" >
-                                        <i:Interaction.Triggers>
-                                            <ei:PropertyChangedTrigger Binding="{Binding IsChecked, ElementName=EnableEnchant_Settings}">
-                                                <i:Interaction.Behaviors>
-                                                    <ei:ConditionBehavior>
-                                                        <ei:ConditionalExpression>
-                                                            <ei:ComparisonCondition LeftOperand="{Binding IsChecked, ElementName=EnableEnchant_Settings}" RightOperand="True"/>
-                                                        </ei:ConditionalExpression>
-                                                    </ei:ConditionBehavior>
-                                                </i:Interaction.Behaviors>
-                                                <ei:ChangePropertyAction TargetName="grid3" TargetObject="{Binding ElementName=grid3}" PropertyName="IsHitTestVisible" Value="True"/>
-                                                <ei:ChangePropertyAction TargetName="grid3" TargetObject="{Binding ElementName=grid3}" PropertyName="Effect"/>
-                                                <ei:GoToStateAction StateName="ItemEnchantUnLocked"/>
-                                            </ei:PropertyChangedTrigger>
-                                            <ei:PropertyChangedTrigger Binding="{Binding IsChecked, ElementName=EnableEnchant_Settings}">
-                                                <i:Interaction.Behaviors>
-                                                    <ei:ConditionBehavior>
-                                                        <ei:ConditionalExpression>
-                                                            <ei:ComparisonCondition LeftOperand="{Binding IsChecked, ElementName=EnableEnchant_Settings}" RightOperand="False"/>
-                                                        </ei:ConditionalExpression>
-                                                    </ei:ConditionBehavior>
-                                                </i:Interaction.Behaviors>
-                                                <ei:ChangePropertyAction TargetName="grid3" TargetObject="{Binding ElementName=grid3}" PropertyName="Effect">
-                                                    <ei:ChangePropertyAction.Value>
-                                                        <BlurEffect Radius="10"/>
-                                                    </ei:ChangePropertyAction.Value>
-                                                </ei:ChangePropertyAction>
-                                                <ei:ChangePropertyAction TargetName="grid3" TargetObject="{Binding ElementName=grid3}" PropertyName="IsHitTestVisible"/>
-                                                <ei:GoToStateAction StateName="ItemEnchantLocked"/>
-                                            </ei:PropertyChangedTrigger>
-                                        </i:Interaction.Triggers>
-                                    </CheckBox>
-                                    <local:KeepButton x:Name="EnchantExpander" Height="15" Width="255" Defult_Image="/Minecraft Adaptable Studio;component/icon/Down.png" Pressed_Image="/Minecraft Adaptable Studio;component/icon/Up.png" Margin="0,1">
-                                        <i:Interaction.Triggers>
-                                            <i:EventTrigger SourceName="EnchantExpander" SourceObject="{Binding ElementName=EnchantExpander}" EventName="MouseDown">
-                                                <i:Interaction.Behaviors>
-                                                    <ei:ConditionBehavior>
-                                                        <ei:ConditionalExpression>
-                                                            <ei:ComparisonCondition LeftOperand="{Binding Pressed, ElementName=EnchantExpander}" RightOperand="False"/>
-                                                        </ei:ConditionalExpression>
-                                                    </ei:ConditionBehavior>
-                                                </i:Interaction.Behaviors>
-                                                <ei:GoToStateAction StateName="EnchantExpanded"/>
-                                            </i:EventTrigger>
-                                            <i:EventTrigger SourceName="EnchantExpander" SourceObject="{Binding ElementName=EnchantExpander}" EventName="MouseDown">
-                                                <i:Interaction.Behaviors>
-                                                    <ei:ConditionBehavior>
-                                                        <ei:ConditionalExpression>
-                                                            <ei:ComparisonCondition LeftOperand="{Binding Pressed, ElementName=EnchantExpander}" RightOperand="True"/>
-                                                        </ei:ConditionalExpression>
-                                                    </ei:ConditionBehavior>
-                                                </i:Interaction.Behaviors>
-                                                <ei:GoToStateAction StateName="EnchantUnExpanded"/>
-                                            </i:EventTrigger>
-                                        </i:Interaction.Triggers>
-                                    </local:KeepButton>
-                                    <Grid x:Name="EnchantExpandGrid" VerticalAlignment="Top" d:IsEffectDisabled="True" Height="500" Width="255">
-                                        <WrapPanel x:Name="grid3" IsHitTestVisible="False" d:IsEffectDisabled="True">
-                                            <WrapPanel.Effect>
-                                                <BlurEffect Radius="10"/>
-                                            </WrapPanel.Effect>
-                                            <!--#region  附魔属性 -->
-                                            <Label Content="{DynamicResource Ench16}"  FontSize="11" Width="{DynamicResource Ench16LabelLength}"/>
-                                            <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench16NumberboxLength}" TabIndex="16" Interval="1" Maximum="32767" Tag="16"/>
-                                            <Label Content="{DynamicResource Ench48}"  FontSize="11" Width="{DynamicResource Ench48LabelLength}" Margin="10,0,0,0"/>
-                                            <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench48NumberboxLength}" TabIndex="48" Interval="1" Maximum="32767" Tag="48"/>
-                                            <Label Content="{DynamicResource Ench19}"  FontSize="11" Width="{DynamicResource Ench19LabelLength}"/>
-                                            <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench19NumberboxLength}" TabIndex="19" Interval="1" Maximum="32767" Tag="19"/>
-                                            <Label Content="{DynamicResource Ench49}"  FontSize="11" Width="{DynamicResource Ench49LabelLength}" Margin="10,0,0,0"/>
-                                            <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench49NumberboxLength}" TabIndex="49" Interval="1" Maximum="32767" Tag="49"/>
-                                            <Label Content="{DynamicResource Ench20}"  FontSize="11" Width="{DynamicResource Ench20LabelLength}"/>
-                                            <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench20NumberboxLength}" TabIndex="20" Interval="1" Maximum="32767" Tag="20"/>
-                                            <Label Content="{DynamicResource Ench51}"  FontSize="11" Width="{DynamicResource Ench51LabelLength}" Margin="10,0,0,0"/>
-                                            <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench51NumberboxLength}" TabIndex="51" Interval="1" Maximum="32767" Tag="51"/>
-                                            <Label Content="{DynamicResource Ench17}" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" FontSize="11" Width="{DynamicResource Ench17LabelLength}"/>
-                                            <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench17NumberboxLength}" TabIndex="17" Interval="1" Maximum="32767" Tag="17"/>
-                                            <Label Content="{DynamicResource Ench50}"  FontSize="11" Width="{DynamicResource Ench50LabelLength}" Margin="10,0,0,0"/>
-                                            <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench50NumberboxLength}" TabIndex="50" Interval="1" Maximum="32767" Tag="50"/>
-                                            <Label Content="{DynamicResource Ench35}"  FontSize="11" Width="{DynamicResource Ench35LabelLength}"/>
-                                            <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench35NumberboxLength}" TabIndex="35" Interval="1" Maximum="32767" Tag="35"/>
-                                            <Label Content="{DynamicResource Ench70}"  FontSize="11" Width="{DynamicResource Ench70LabelLength}" Margin="10,0,0,0"/>
-                                            <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench70NumberboxLength}" TabIndex="70" Interval="1" Maximum="32767" Tag="70"/>
-                                            <Label Content="{DynamicResource Ench32}"  FontSize="11" Width="{DynamicResource Ench32LabelLength}"/>
-                                            <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench32NumberboxLength}" TabIndex="32" Interval="1" Maximum="32767" Tag="32"/>
-                                            <Label Content="{DynamicResource Ench21}"  FontSize="11" Width="{DynamicResource Ench21LabelLength}" Margin="10,0,0,0"/>
-                                            <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench21NumberboxLength}" TabIndex="21" Interval="1" Maximum="32767" Tag="21"/>
-                                            <Label Content="{DynamicResource Ench33}"  FontSize="11" Width="{DynamicResource Ench33LabelLength}"/>
-                                            <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench33NumberboxLength}" TabIndex="33" Interval="1" Maximum="32767" Tag="33"/>
-                                            <Label Content="{DynamicResource Ench5}"  FontSize="11" Width="{DynamicResource Ench5LabelLength}" Margin="10,0,0,0"/>
-                                            <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench5NumberboxLength}" TabIndex="5" Interval="1" Maximum="32767" Tag="5"/>
-                                            <Label Content="{DynamicResource Ench34}"  FontSize="11" Width="{DynamicResource Ench34LabelLength}"/>
-                                            <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench34NumberboxLength}" TabIndex="34" Interval="1" Maximum="32767" Tag="34"/>
-                                            <Label Content="{DynamicResource Ench62}"  FontSize="11" Width="{DynamicResource Ench62LabelLength}" Margin="10,0,0,0"/>
-                                            <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench62NumberboxLength}" TabIndex="62" Interval="1" Maximum="32767" Tag="62"/>
-                                            <Label Content="{DynamicResource Ench0}"  FontSize="11" Width="{DynamicResource Ench0LabelLength}"/>
-                                            <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench0NumberboxLength}" TabIndex="0" Interval="1" Maximum="32767" Tag="0"/>
-                                            <Label Content="{DynamicResource Ench7}"  FontSize="11" Width="{DynamicResource Ench7LabelLength}" Margin="10,0,0,0"/>
-                                            <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench7NumberboxLength}" TabIndex="7" Interval="1" Maximum="32767" Tag="7"/>
-                                            <Label Content="{DynamicResource Ench1}"  FontSize="11" Width="{DynamicResource Ench1LabelLength}"/>
-                                            <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench1NumberboxLength}" TabIndex="1" Interval="1" Maximum="32767" Tag="1"/>
-                                            <Label Content="{DynamicResource Ench2}"  FontSize="11" Width="{DynamicResource Ench2LabelLength}"/>
-                                            <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench2NumberboxLength}" TabIndex="2" Interval="1" Maximum="32767" Tag="2"/>
-                                            <Label Content="{DynamicResource Ench3}"  FontSize="11" Width="{DynamicResource Ench3LabelLength}"/>
-                                            <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench3NumberboxLength}" TabIndex="3" Interval="1" Maximum="32767" Tag="3"/>
-                                            <Label Content="{DynamicResource Ench4}"  FontSize="11" Width="{DynamicResource Ench4LabelLength}"/>
-                                            <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench4NumberboxLength}" TabIndex="4" Interval="1" Maximum="32767" Tag="4"/>
-                                            <Label Content="{DynamicResource Ench6}"  FontSize="11" Width="{DynamicResource Ench6LabelLength}"/>
-                                            <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench6NumberboxLength}" TabIndex="6" Interval="1" Maximum="32767" Tag="6"/>
-                                            <Label Content="{DynamicResource Ench9}"  FontSize="11" Width="{DynamicResource Ench9LabelLength}"/>
-                                            <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench9NumberboxLength}" TabIndex="9" Interval="1" Maximum="32767" Tag="9"/>
-                                            <Label Content="{DynamicResource Ench8}"  FontSize="11" Width="{DynamicResource Ench8LabelLength}"/>
-                                            <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench8NumberboxLength}" TabIndex="8" Interval="1" Maximum="32767" Tag="8"/>
-                                            <Label Content="{DynamicResource Ench22}"  FontSize="11" Width="{DynamicResource Ench22LabelLength}"/>
-                                            <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench22NumberboxLength}" TabIndex="22" Interval="1" Maximum="32767" Tag="22"/>
-                                            <Label Content="{DynamicResource Ench61}"  FontSize="11" Width="{DynamicResource Ench61LabelLength}" />
-                                            <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench61NumberboxLength}" TabIndex="61" Interval="1" Maximum="32767" Tag="61"/>
-                                            <Label Content="{DynamicResource Ench18}"  FontSize="11" Width="{DynamicResource Ench18LabelLength}"/>
-                                            <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench18NumberboxLength}" TabIndex="18" Interval="1" Maximum="32767" Tag="18"/>
-                                            <Label Content="{DynamicResource Ench71}" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" FontSize="11" Width="{DynamicResource Ench71LabelLength}"/>
-                                            <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench71NumberboxLength}" TabIndex="71" Interval="1" Maximum="32767" Tag="71" Margin="0"/>
-                                            <Label Content="{DynamicResource Ench10}" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" FontSize="11" Width="{DynamicResource Ench10LabelLength}"/>
-                                            <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench10NumberboxLength}" TabIndex="10" Interval="1" Maximum="32767" Tag="10"/>
-                                            <!--#endregion-->
-                                        </WrapPanel>
-                                        <Label x:Name="label3" Content="{DynamicResource Enable_Ench}" Background="{x:Null}" Foreground="White"  UseLayoutRounding="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" HorizontalContentAlignment="Center" FontSize="10.5" Margin="60,69,0,0" HorizontalAlignment="Left" Width="182" VerticalAlignment="Top" IsHitTestVisible="False"/>
-                                        <Border x:Name="WaringIcon3" BorderThickness="1" Width="39.151" Height="34.583" HorizontalAlignment="Left" Margin="28.849,62,0,0" VerticalAlignment="Top" IsHitTestVisible="False">
-                                            <Border.Background>
-                                                <ImageBrush ImageSource="/Minecraft Adaptable Studio;component/icon/Warning.png"/>
-                                            </Border.Background>
-                                        </Border>
-                                    </Grid>
-                                </WrapPanel>
-                                <Label x:Name="label1" Content="{DynamicResource Enable_Part}" Background="{x:Null}" Foreground="White"  UseLayoutRounding="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" Margin="55,38,5,0" VerticalAlignment="Top" IsHitTestVisible="False" HorizontalContentAlignment="Center"/>
-                                <Border x:Name="WaringIcon1" BorderThickness="1" Width="39.151" Height="34.583" HorizontalAlignment="Left" Margin="28.849,33.509,0,0" VerticalAlignment="Top" IsHitTestVisible="False">
-                                    <Border.Background>
-                                        <ImageBrush ImageSource="/Minecraft Adaptable Studio;component/icon/Warning.png"/>
-                                    </Border.Background>
-                                </Border>
-                            </Grid>
-                        </WrapPanel>
                     </WrapPanel>
-                    <Grid x:Name="Settings_guide" IsHitTestVisible="False">
+                    <Grid x:Name="Settings_guide" IsHitTestVisible="False" Height="1798.68" Width="268.343" Margin="0,-1796.5,0,0">
                         <Label Content=". . . . . . ." VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282" RenderTransformOrigin="0.5,0.5" Margin="-5,0,0,0">
                             <Label.RenderTransform>
                                 <TransformGroup>
@@ -1353,6 +1351,8 @@
                         <Label Content=". . ." VerticalAlignment="Top" Margin="47,12,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282"/>
                         <Label Content="{DynamicResource Guide_switch}" FontFamily="{DynamicResource Font}" VerticalAlignment="Top" Margin="71,17,0,0" HorizontalAlignment="Left" FontWeight="Bold" Foreground="#FFFF8282"/>
 
+                        <!--#endregion-->
+                        <!--#endregion-->
                         <!--#region  Pose Guidance -->
                         <Border Margin="131,328,0,0" BorderBrush="#FFFF8282" BorderThickness="1.5" HorizontalAlignment="Left" Width="90" Height="24" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
                             <Border.RenderTransform>
@@ -1378,8 +1378,6 @@
                         <Border Margin="10,545,0,0" BorderBrush="#FFFF8282" BorderThickness="1.5" HorizontalAlignment="Left" Width="250" Height="100" VerticalAlignment="Top"/>
                         <Label Content="{DynamicResource Guide_pose}" FontFamily="{DynamicResource Font}" VerticalAlignment="Top" Margin="111,445,0,0" HorizontalAlignment="Left" FontWeight="Bold" Foreground="#FFFF8282"/>
                         <Label FontFamily="Microsoft YaHei UI" Content=". . ." VerticalAlignment="Top" Margin="227,440,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282"/>
-                        <!--#endregion-->
-
                         <!--#region  AdvanceMode Guidance -->
                         <Border Margin="10,648,0,0" BorderBrush="#FFFF8282" BorderThickness="1.5" HorizontalAlignment="Left" Width="160" Height="25" VerticalAlignment="Top"/>
                         <Label Content="{DynamicResource Guide_advance_mode}" FontFamily="{DynamicResource Font}" VerticalAlignment="Top" Margin="28,673,0,0" HorizontalAlignment="Left" FontWeight="Bold" Foreground="#FFFF8282"/>
@@ -1394,9 +1392,8 @@
                             </Label.RenderTransform>
                         </Label>
                         <Label Content=". . ." VerticalAlignment="Top" Margin="4,668,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282" RenderTransformOrigin="0.5,0.5"/>
-                        <!--#endregion-->
                     </Grid>
-                </Grid>
+                </WrapPanel>
             </ScrollViewer>
         </Grid>
         <GroupBox x:Name="Preview" Header="ArmorStand Preview" Margin="279,2,0,104" Grid.RowSpan="3" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Background="#FF119EDA" BorderBrush="{x:Null}" Padding="5,8" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" Custom1:ControlsHelper.ContentCharacterCasing="Normal" Cursor="SizeAll">

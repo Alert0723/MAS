@@ -432,3 +432,73 @@ E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\Minecraft A
 E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.exe
 E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.pdb
 E:\Visual Studio Objectives\Minecraft\MAS\Adaptable Studio\obj\Debug\3D Model.baml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.exe.config
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.exe.manifest
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.application
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.exe
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\bin\Debug\Minecraft Adaptable Studio.pdb
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.csprojResolveAssemblyReference.cache
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\Functional form\MASC-Part Direction.baml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\3D Model.baml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\pages\Specific_model_Page.baml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\ResourceDictionary\Button.baml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\ResourceDictionary\CheckBox.baml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\ResourceDictionary\ControlStyles.baml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\ResourceDictionary\Slider.baml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\ResourceDictionary\TabControl.baml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\ResourceDictionary\TabItem.baml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\ResourceDictionary\Theme\Dark.baml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\ResourceDictionary\Theme\Light.baml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\lang\CN.baml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\lang\EN.baml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\pages\About_Page.baml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\pages\menu_Page.baml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\OutPut.baml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\MainWindow.baml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\VersionMessager.baml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\App.baml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\Functional form\MASC-Part Direction.g.cs
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\pages\Option_Page.g.cs
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\pages\Special_particle_Page.g.cs
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\pages\Specific_model_Page.g.cs
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\userControl\CustomNumberBox.g.cs
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\userControl\CustomOutPutBox.g.cs
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\userControl\CustomRestButton.g.cs
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\userControl\CustomToggleButton.g.cs
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\userControl\KeepButton.g.cs
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\userControl\Time_axis.g.cs
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\pages\About_Page.g.cs
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\ColorBoard.g.cs
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\pages\menu_Page.g.cs
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\OutPut.g.cs
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\pages\Super_banner_Page.g.cs
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\pages\Shortcut_dialogue_Page.g.cs
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\pages\Armor_stand_Page.g.cs
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\MainWindow.g.cs
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\VersionMessager.g.cs
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\App.g.cs
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio_MarkupCompile.cache
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio_MarkupCompile.lref
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\pages\Option_Page.baml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\pages\Special_particle_Page.baml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\Properties\DesignTimeResources.baml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\userControl\CustomNumberBox.baml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\userControl\CustomOutPutBox.baml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\userControl\CustomRestButton.baml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\userControl\CustomToggleButton.baml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\userControl\KeepButton.baml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\userControl\Time_axis.baml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\ColorBoard.baml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\pages\Super_banner_Page.baml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\pages\Shortcut_dialogue_Page.baml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\pages\Armor_stand_Page.baml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.g.resources
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\Adaptable_Studio.Properties.Resources.resources
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.csproj.GenerateResource.cache
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.csproj.CoreCompileInputs.cache
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.TrustInfo.xml
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.exe.manifest
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.application
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.exe
+D:\VISUAL STUDIO\PROJECTS\GitWorkArea\MAS\TestingVersion\Adaptable Studio\obj\Debug\Minecraft Adaptable Studio.pdb
