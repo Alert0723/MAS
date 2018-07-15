@@ -1496,6 +1496,11 @@
                         <ModelVisual3D Content="{DynamicResource AxisZ}"/>
                     </ModelVisual3D>
                 </Viewport3D>
+                <Button x:Name="Relocation" Style="{DynamicResource CustomButton}" Margin="0,0,9,5" BorderBrush="{x:Null}" Width="20" Height="20" Click="Viewport_Relocation" VerticalAlignment="Bottom" HorizontalAlignment="Right" ToolTip="{DynamicResource Viewport_Relocation}">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Minecraft Adaptable Studio;component/icon/Viewport3D/Relocation.png" Stretch="Uniform"/>
+                    </Button.Background>
+                </Button>
                 <Label x:Name="lab" Margin="10,10,0,0" Foreground="Black" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             </Grid>
         </GroupBox>

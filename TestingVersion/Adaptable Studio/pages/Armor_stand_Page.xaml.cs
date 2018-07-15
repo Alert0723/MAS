@@ -75,7 +75,7 @@ namespace Adaptable_Studio
         #endregion
 
         #region Viewport3D
-        double CameraRadius = 15;//摄像机半径(相对于原点)
+        double CameraRadius = 25;//摄像机半径(相对于原点)
         double[] CameraRot = new double[2] { 15, 60 };//水平旋转角,竖直旋转角(相对于原点)        
         double[] CameraLookAtPoint = new double[3] { 0, 0, 0 };//摄像机视点
 
@@ -869,6 +869,17 @@ namespace Adaptable_Studio
         //}
 
         #region Viewport3D
+        #region Buttons
+        /// <summary> 预览视重置 </summary>        
+        private void Viewport_Relocation(object sender, RoutedEventArgs e)
+        {
+            CameraRadius = 25;
+            CameraRot = new double[2] { 15, 60 };//水平旋转角,竖直旋转角(相对于原点)        
+            CameraLookAtPoint = new double[3] { 0, 0, 0 };//摄像机视点
+            CameraReset();
+        }
+        #endregion
+
         /// <summary> 鼠标滚轮控制</summary>
         private void ArmorStandView_MouseWheel(object sender, MouseWheelEventArgs e)
         {

@@ -51,8 +51,10 @@
     <system:String x:Key="About_Compressed_Library">Compressed Library：</system:String>
     <system:String x:Key="About_Plugin_Library">Plugin Developing Platform：</system:String>
     <!--#endregion-->
-    
+
     <!--#region  3D预览 -->
+    <system:String x:Key="Viewport_Relocation">Reset 3D viewport</system:String>
+
     <system:String x:Key="OpenGL_Grid">Grid</system:String>
     <system:String x:Key="OpenGL_Axis">Axis</system:String>
     <system:String x:Key="OpenGL_Scale">Scale</system:String>
@@ -61,7 +63,7 @@
     <!--#region  MAS.C -->
     <!--#region  页面引导 -->
     <system:String x:Key="Guide_switch">Guidance switch</system:String>
-    
+
     <system:String x:Key="Guide_pose">Check to set pose</system:String>
     <system:String x:Key="Guide_advance_mode">Enable/disable Advance mode</system:String>
 

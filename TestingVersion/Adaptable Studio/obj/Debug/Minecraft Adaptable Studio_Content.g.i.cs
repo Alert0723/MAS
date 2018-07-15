@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("textures/masc/stone.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icon/viewport3d/relocation.png")]
 
 

@@ -51,8 +51,10 @@
     <system:String x:Key="About_Compressed_Library">压缩库：</system:String>
     <system:String x:Key="About_Plugin_Library">拓展插件开发平台：</system:String>
     <!--#endregion-->
-    
+
     <!--#region  3D预览 -->
+    <system:String x:Key="Viewport_Relocation">重置3D视角</system:String>
+    
     <system:String x:Key="OpenGL_Grid">网格</system:String>
     <system:String x:Key="OpenGL_Axis">坐标系</system:String>
     <system:String x:Key="OpenGL_Scale">缩放</system:String>
