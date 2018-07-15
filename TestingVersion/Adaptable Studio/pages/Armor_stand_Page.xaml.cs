@@ -134,6 +134,7 @@ namespace Adaptable_Studio
             #region Viewport3D 初始化
             MainWindow.Log_Write(LogPath, "[masc]Viewport3D初始化");
             CameraReset();
+            LightDirectionReset();
             MainWindow.Log_Write(LogPath, "[Viewport3D]初始化完成");
             #endregion           
 
@@ -867,63 +868,13 @@ namespace Adaptable_Studio
         //    gl.Flush();
         //}
 
-        ///// <summary> 坐标重置</summary>
-        //public void OpenGL_reset(OpenGL gl)
-        //{
-        //    gl.LoadIdentity();// 重置当前模型观察矩阵
-        //    gl.Translate(0f, -1.5f, -8.5f);
-        //    gl.Rotate((float)rot[0], (float)rot[1], 0f);//观察角度
-        //    gl.Scale(GL_Scale, GL_Scale, GL_Scale);//缩放
-        //    gl.Rotate(0f, -pose[18], 0f);
-        //}
-
-        ///// <summary> 鼠标滚轮控制</summary>
-        //private void OpenGLControl_MouseWheel(object sender, MouseWheelEventArgs e)
-        //{
-        //    if (e.Delta > 0 && GL_Scale < 3) GL_Scale += 0.02;
-        //    if (e.Delta < 0 && GL_Scale > 1) GL_Scale -= 0.02;
-        //}
-
-        //#region 预览视角旋转事件
-        //private void OpenGLControl_down(object sender, MouseButtonEventArgs e)
-        //{
-        //    preview_rot = true;
-        //    mouse_location[0] = e.GetPosition((IInputElement)sender).X;
-        //    mouse_location[1] = e.GetPosition((IInputElement)sender).Y;
-        //}
-
-        //private void OpenGLControl_up(object sender, MouseButtonEventArgs e)
-        //{
-        //    preview_rot = false;
-        //}
-
-        //private void OpenGLControl_leave(object sender, MouseEventArgs e)
-        //{
-        //    preview_rot = false;
-        //}
-
-        //private void OpenGLControl_rot_Change(object sender, MouseEventArgs e)
-        //{
-        //    if (preview_rot)
-        //    {
-        //        rot[1] += (e.GetPosition((IInputElement)sender).X - mouse_location[0]) * 180 / 460;
-        //        rot[0] += (e.GetPosition((IInputElement)sender).Y - mouse_location[1]) * 180 / 460;
-        //        mouse_location[0] = e.GetPosition((IInputElement)sender).X;
-        //        mouse_location[1] = e.GetPosition((IInputElement)sender).Y;
-        //    }
-        //    if (rot[0] > 90) { rot[0] = 90; }
-        //    if (rot[0] < -90) { rot[0] = -90; }
-        //}
-        //#endregion
-        //#endregion
-
         #region Viewport3D
         /// <summary> 鼠标滚轮控制</summary>
         private void ArmorStandView_MouseWheel(object sender, MouseWheelEventArgs e)
         {
-            if (e.Delta >= 0)
+            if (e.Delta < 0)
                 CameraRadius += 0.5;
-            else
+            else if (e.Delta > 0)
                 CameraRadius -= 0.5;
 
             CameraReset();
@@ -937,6 +888,8 @@ namespace Adaptable_Studio
             mouse_location[0] = e.GetPosition((IInputElement)sender).X;
             mouse_location[1] = e.GetPosition((IInputElement)sender).Y;
 
+            UpDirection_Get();
+
             if (e.LeftButton == MouseButtonState.Pressed) PreviewGrid.Cursor = Cursors.SizeAll;
             else if (e.RightButton == MouseButtonState.Pressed) PreviewGrid.Cursor = Cursors.ScrollAll;
         }
@@ -947,6 +900,36 @@ namespace Adaptable_Studio
         }
 
         Vector3D LookDir, UpDir, MoveDir;
+        /// <summary> 平面法向量计算 </summary>
+        void UpDirection_Get()
+        {
+            //叉乘 a×b=(y1z2-y2z1,z1x2-z2x1,x1y2-x2y1)
+            LookDir = MainCamera.LookDirection;//Camera朝向向量            
+            UpDir = new Vector3D() { X = 0, Y = 1, Z = 0 };//Camera垂直法向量
+
+            //平面法向量
+            MoveDir = new Vector3D()
+            {
+                X = LookDir.Y * UpDir.Z - UpDir.Y * LookDir.Z,
+                Y = LookDir.Z * UpDir.X - LookDir.X * UpDir.Z,
+                Z = LookDir.X * UpDir.Y - LookDir.Y * UpDir.X
+            };
+        }
+
+        /// <summary> 方向光源计算 </summary>
+        void LightDirectionReset()
+        {
+            //光源方向计算
+            double r = 2.25;
+            //Math.Sqrt(Math.Pow(DirectionalLight.Direction.X, 2) + Math.Pow(DirectionalLight.Direction.Z, 2))
+            double LightRot = CameraRot[0] - 60;
+            DirectionalLight.Direction = new Vector3D()
+            {
+                X = Math.Cos(LightRot) * r,
+                Y = -6,
+                Z = Math.Sin(LightRot) * r
+            };
+        }
 
         private void ArmorStandView_MouseMove(object sender, MouseEventArgs e)
         {
@@ -957,58 +940,26 @@ namespace Adaptable_Studio
                 CameraRot[0] += (e.GetPosition((IInputElement)sender).X - mouse_location[0]) * 180 / 460;
                 CameraRot[1] += -(e.GetPosition((IInputElement)sender).Y - mouse_location[1]) * 180 / 460;
 
-                lab.Content = "CameraRot: " + CameraRot[0] + " , " + CameraRot[1];
+                LightDirectionReset();
+
+                lab.Content = "CameraRot: " + CameraRot[0] + " , " + CameraRot[1]
+                    + "\nLight Direction: " + DirectionalLight.Direction;
             }//左键转向
             else if (e.RightButton == MouseButtonState.Pressed)
             {
                 PreviewGrid.Cursor = Cursors.ScrollAll;
+                UpDirection_Get();
 
-                //叉乘 a×b=(y1z2-y2z1,z1x2-z2x1,x1y2-x2y1)
-                LookDir = MainCamera.LookDirection;//Camera朝向向量
-                UpDir = new Vector3D()//Camera垂直法向量 (LookDir×(0,0,1))
+                //水平移动
+                if (e.GetPosition((IInputElement)sender).X - mouse_location[0] != 0)
                 {
-                    X = LookDir.Y,
-                    Y = -LookDir.X,
-                    Z = 0
-                };
-
-                //平面法向量                
-                MoveDir.X = LookDir.Y * UpDir.Z - UpDir.Y * LookDir.Z;
-                MoveDir.Y = LookDir.Z * UpDir.X - LookDir.X * UpDir.Z;
-                MoveDir.Z = LookDir.X * UpDir.Y - LookDir.Y * UpDir.X;
-
-                if (e.GetPosition((IInputElement)sender).X - mouse_location[0] > 0)
-                {
-                    CameraLookAtPoint[0] += -MoveDir.X / 1800;
-                    CameraLookAtPoint[2] += -MoveDir.Z / 1800;
-                }
-                else if (e.GetPosition((IInputElement)sender).X - mouse_location[0] < 0)
-                {
-                    CameraLookAtPoint[0] += MoveDir.X / 1800;
-                    CameraLookAtPoint[2] += MoveDir.Z / 1800;
+                    CameraLookAtPoint[0] -= (e.GetPosition((IInputElement)sender).X - mouse_location[0]) * MoveDir.X / 360;
+                    CameraLookAtPoint[2] -= (e.GetPosition((IInputElement)sender).X - mouse_location[0]) * MoveDir.Z / 360;
                 }
 
-                if (e.GetPosition((IInputElement)sender).Y - mouse_location[1] > 0)
-                {
-                    CameraLookAtPoint[1] += 0.08;
-                    MainCamera.Position = new Point3D()
-                    {
-                        X = MainCamera.Position.X,
-                        Y = MainCamera.Position.Y + 0.08,
-                        Z = MainCamera.Position.Z
-                    };
-
-                }
-                else if (e.GetPosition((IInputElement)sender).Y - mouse_location[1] < 0)
-                {
-                    CameraLookAtPoint[1] -= 0.08;
-                    MainCamera.Position = new Point3D()
-                    {
-                        X = MainCamera.Position.X,
-                        Y = MainCamera.Position.Y - 0.08,
-                        Z = MainCamera.Position.Z
-                    };
-                }
+                //竖直移动
+                if (e.GetPosition((IInputElement)sender).Y - mouse_location[1] != 0)
+                    CameraLookAtPoint[1] += (e.GetPosition((IInputElement)sender).Y - mouse_location[1]) * 0.05;
 
                 MainCamera.LookDirection = new Vector3D()
                 {
@@ -1016,17 +967,15 @@ namespace Adaptable_Studio
                     Y = CameraLookAtPoint[1] - MainCamera.Position.Y,
                     Z = CameraLookAtPoint[2] - MainCamera.Position.Z
                 };
-
-                lab.Content = "Camera LookAt: " + CameraLookAtPoint[0] + "," + CameraLookAtPoint[1] + "," + CameraLookAtPoint[2]
-                    + "\n Look Direction:" + MainCamera.LookDirection;
             }//右键平面移动
 
             CameraReset();
+
             mouse_location[0] = e.GetPosition((IInputElement)sender).X;
             mouse_location[1] = e.GetPosition((IInputElement)sender).Y;
 
-            if (CameraRot[0] > 360) CameraRot[0] = 0;
-            else if (CameraRot[0] < 0) CameraRot[0] = 360;
+            if (CameraRot[0] > 180) CameraRot[0] = -180;
+            else if (CameraRot[0] < -180) CameraRot[0] = 180;
             if (CameraRot[1] > 175) CameraRot[1] = 175;
             else if (CameraRot[1] < 5) CameraRot[1] = 5;
         }
