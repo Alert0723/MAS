@@ -75,9 +75,9 @@ namespace Adaptable_Studio
         #endregion
 
         #region Viewport3D
-        double CameraRadius = 25;//摄像机半径(相对于原点)
+        double CameraRadius = 50;//摄像机半径(相对于原点)
         double[] CameraRot = new double[2] { 15, 60 };//水平旋转角,竖直旋转角(相对于原点)        
-        double[] CameraLookAtPoint = new double[3] { 0, 0, 0 };//摄像机视点
+        double[] CameraLookAtPoint = new double[3] { 0, 10, 0 };//摄像机视点
 
         double[] mouse_location = new double[2];//鼠标位置
 
@@ -954,6 +954,8 @@ namespace Adaptable_Studio
                 LightDirectionReset();
 
                 lab.Content = "CameraRot: " + CameraRot[0] + " , " + CameraRot[1]
+                    + "\nCamera Dir: " + MainCamera.LookDirection
+                    + "\nCamera Position: " + MainCamera.Position
                     + "\nLight Direction: " + DirectionalLight.Direction;
             }//左键转向
             else if (e.RightButton == MouseButtonState.Pressed)

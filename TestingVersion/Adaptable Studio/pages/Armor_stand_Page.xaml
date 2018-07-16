@@ -1401,46 +1401,139 @@
                 <Viewport3D x:Name="ArmorStandView">
                     <Viewport3D.Camera>
                         <PerspectiveCamera x:Name="MainCamera"
-                               Position="0,5,-10"
-                               LookDirection="0,-0.5,1"
+                               Position="40,35,10"
+                               LookDirection="-42,-25,-11"
                                UpDirection="0,1,0"
                                NearPlaneDistance="0"
                                FarPlaneDistance="100"
-                               FieldOfView="90"/>
+                               FieldOfView="60"/>
                     </Viewport3D.Camera>
 
-                    <ModelVisual3D>
+                    <ModelVisual3D x:Name="Light">
                         <ModelVisual3D.Content>
-                            <DirectionalLight x:Name="DirectionalLight" Color="White" Direction="-2,-6,1"/>
+                            <DirectionalLight x:Name="DirectionalLight" Color="White" Direction="-5,-1,2"/>
                         </ModelVisual3D.Content>
                     </ModelVisual3D>
 
                     <ModelVisual3D>
-                        <!--<ModelVisual3D.Transform>
-                            <Transform3DGroup>
-                                <RotateTransform3D>
-                                    <RotateTransform3D.Rotation>
-                                        <AxisAngleRotation3D x:Name="MainRotX"
-                                                 Axis="1,0,0"
-                                                 Angle="0"/>
-                                    </RotateTransform3D.Rotation>
-                                </RotateTransform3D>
-                                <RotateTransform3D>
-                                    <RotateTransform3D.Rotation>
-                                        <AxisAngleRotation3D x:Name="MainRotY"
-                                                 Axis="0,1,0"
-                                                 Angle="0"/>
-                                    </RotateTransform3D.Rotation>
-                                </RotateTransform3D>
-                                <RotateTransform3D>
-                                    <RotateTransform3D.Rotation>
-                                        <AxisAngleRotation3D x:Name="MainRotZ"
-                                                 Axis="0,0,1"
-                                                 Angle="0"/>
-                                    </RotateTransform3D.Rotation>
-                                </RotateTransform3D>
-                            </Transform3DGroup>
-                        </ModelVisual3D.Transform>-->
+                        <ModelVisual3D x:Name="Head">
+                            <ModelVisual3D Content="{DynamicResource Head}"/>
+                            <ModelVisual3D.Transform>
+                                <Transform3DGroup>
+                                    <RotateTransform3D CenterX="0" CenterY="20.7" CenterZ="0">
+                                        <RotateTransform3D.Rotation>
+                                            <AxisAngleRotation3D x:Name="HeadRotX"
+                                                         Axis="1,0,0"
+                                                         Angle="0"/>
+                                        </RotateTransform3D.Rotation>
+                                    </RotateTransform3D>
+                                    <RotateTransform3D CenterX="0" CenterY="20.7" CenterZ="0">
+                                        <RotateTransform3D.Rotation>
+                                            <AxisAngleRotation3D x:Name="HeadRotY"
+                                                         Axis="0,1,0"
+                                                         Angle="0"/>
+                                        </RotateTransform3D.Rotation>
+                                    </RotateTransform3D>
+                                    <RotateTransform3D CenterX="0" CenterY="20.7" CenterZ="0">
+                                        <RotateTransform3D.Rotation>
+                                            <AxisAngleRotation3D x:Name="HeadRotZ"
+                                                         Axis="0,0,1"
+                                                         Angle="0"/>
+                                        </RotateTransform3D.Rotation>
+                                    </RotateTransform3D>
+                                </Transform3DGroup>
+                            </ModelVisual3D.Transform>
+                        </ModelVisual3D>
+
+                        <ModelVisual3D x:Name="Chest">
+                            <ModelVisual3D Content="{DynamicResource Chest1}"/>
+                            <ModelVisual3D Content="{DynamicResource Chest2}"/>
+                            <ModelVisual3D Content="{DynamicResource Chest3}"/>
+                            <ModelVisual3D Content="{DynamicResource Chest4}"/>
+                            <ModelVisual3D.Transform>
+                                <Transform3DGroup>
+                                    <RotateTransform3D CenterX="0" CenterY="19.8" CenterZ="0">
+                                        <RotateTransform3D.Rotation>
+                                            <AxisAngleRotation3D x:Name="ChestRotX"
+                                                         Axis="1,0,0"
+                                                         Angle="0"/>
+                                        </RotateTransform3D.Rotation>
+                                    </RotateTransform3D>
+                                    <RotateTransform3D CenterX="0" CenterY="19.8" CenterZ="0">
+                                        <RotateTransform3D.Rotation>
+                                            <AxisAngleRotation3D x:Name="ChestRotY"
+                                                         Axis="0,1,0"
+                                                         Angle="0"/>
+                                        </RotateTransform3D.Rotation>
+                                    </RotateTransform3D>
+                                    <RotateTransform3D CenterX="0" CenterY="19.8" CenterZ="0">
+                                        <RotateTransform3D.Rotation>
+                                            <AxisAngleRotation3D x:Name="ChestRotZ"
+                                                         Axis="0,0,1"
+                                                         Angle="0"/>
+                                        </RotateTransform3D.Rotation>
+                                    </RotateTransform3D>
+                                </Transform3DGroup>
+                            </ModelVisual3D.Transform>
+                        </ModelVisual3D>
+
+                        <ModelVisual3D x:Name="LL">
+                            <ModelVisual3D Content="{DynamicResource LeftLeg}"/>
+                            <ModelVisual3D.Transform>
+                                <Transform3DGroup>
+                                    <RotateTransform3D CenterX="0" CenterY="9.9" CenterZ="-1.8">
+                                        <RotateTransform3D.Rotation>
+                                            <AxisAngleRotation3D x:Name="LeftLegRotX"
+                                                         Axis="1,0,0"
+                                                         Angle="0"/>
+                                        </RotateTransform3D.Rotation>
+                                    </RotateTransform3D>
+                                    <RotateTransform3D CenterX="0" CenterY="9.9" CenterZ="-1.8">
+                                        <RotateTransform3D.Rotation>
+                                            <AxisAngleRotation3D x:Name="LeftLegRotY"
+                                                         Axis="0,1,0"
+                                                         Angle="0"/>
+                                        </RotateTransform3D.Rotation>
+                                    </RotateTransform3D>
+                                    <RotateTransform3D CenterX="0" CenterY="9.9" CenterZ="-1.8">
+                                        <RotateTransform3D.Rotation>
+                                            <AxisAngleRotation3D x:Name="LeftLegRotZ"
+                                                         Axis="0,0,1"
+                                                         Angle="0"/>
+                                        </RotateTransform3D.Rotation>
+                                    </RotateTransform3D>
+                                </Transform3DGroup>
+                            </ModelVisual3D.Transform>
+                        </ModelVisual3D>
+
+                        <ModelVisual3D x:Name="RL">
+                            <ModelVisual3D Content="{DynamicResource RightLeg}"/>
+                            <ModelVisual3D.Transform>
+                                <Transform3DGroup>
+                                    <RotateTransform3D CenterX="0" CenterY="9.9" CenterZ="1.8">
+                                        <RotateTransform3D.Rotation>
+                                            <AxisAngleRotation3D x:Name="RightLegRotX"
+                                                         Axis="1,0,0"
+                                                         Angle="0"/>
+                                        </RotateTransform3D.Rotation>
+                                    </RotateTransform3D>
+                                    <RotateTransform3D CenterX="0" CenterY="9.9" CenterZ="1.8">
+                                        <RotateTransform3D.Rotation>
+                                            <AxisAngleRotation3D x:Name="RightLegRotY"
+                                                         Axis="0,1,0"
+                                                         Angle="0"/>
+                                        </RotateTransform3D.Rotation>
+                                    </RotateTransform3D>
+                                    <RotateTransform3D CenterX="0" CenterY="9.9" CenterZ="1.8">
+                                        <RotateTransform3D.Rotation>
+                                            <AxisAngleRotation3D x:Name="RightLegRotZ"
+                                                         Axis="0,0,1"
+                                                         Angle="0"/>
+                                        </RotateTransform3D.Rotation>
+                                    </RotateTransform3D>
+                                </Transform3DGroup>
+                            </ModelVisual3D.Transform>
+                        </ModelVisual3D>
 
                         <ModelVisual3D Content="{DynamicResource BasePlate}"/>
                     </ModelVisual3D>
