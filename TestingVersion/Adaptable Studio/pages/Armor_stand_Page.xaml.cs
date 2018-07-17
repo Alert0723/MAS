@@ -11,6 +11,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Media3D;
+using System.Windows.Threading;
 
 namespace Adaptable_Studio
 {
@@ -76,12 +77,13 @@ namespace Adaptable_Studio
 
         #region Viewport3D
         double CameraRadius = 50;//摄像机半径(相对于原点)
-        double[] CameraRot = new double[2] { 15, 60 };//水平旋转角,竖直旋转角(相对于原点)        
+        double[] CameraRot = new double[2] { 15, 60 };//水平旋转角,竖直旋转角(相对于原点)
         double[] CameraLookAtPoint = new double[3] { 0, 10, 0 };//摄像机视点
 
         double[] mouse_location = new double[2];//鼠标位置
 
-        float[] pose = new float[19];
+        double[] pose = new double[19];
+        DispatcherTimer Flush3D = new DispatcherTimer() { Interval = new TimeSpan(0, 0, 0, 0, 40) };
         #endregion
 
         #region ini配置文件
@@ -102,6 +104,8 @@ namespace Adaptable_Studio
         public Armor_stand_Page()
         {
             InitializeComponent();
+            Flush3D.Tick += Viewport_Flish;
+            Flush3D.Start();
             for (int i = 0; i < 6; i++)
             {
                 Item_Data[i].IsEnabled = new bool();
@@ -256,7 +260,7 @@ namespace Adaptable_Studio
 
         private void PostTabChanged(object sender, SelectionChangedEventArgs e)
         {
-            float X = 0, Y = 0, Z = 0;
+            double X = 0, Y = 0, Z = 0;
             int index = Pose_Slector.SelectedIndex;
 
             switch (index)
@@ -755,127 +759,29 @@ namespace Adaptable_Studio
         }
         #endregion
 
-        //#region OpenGL绘制
-        ///// <summary> 绘制主体 </summary>
-        //private void OpenGLControl_OpenGLDraw(object sender, OpenGLEventArgs args)
-        //{
-        //    OpenGL gl = args.OpenGL;
-        //    gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);//深度清除缓存
-
-        //    //光源设置
-        //    gl.LoadIdentity();//重置模型观察矩阵
-        //    gl.ClearColor(0.5f, 0.5f, 0.5f, 1f);
-        //    gl.Translate(0f, -1.5f, -8.5f);
-        //    gl.Rotate((float)rot[0], (float)rot[1], 0f);
-        //    float LightX = (float)(Math.Cos(rot[1] - 45) * (Math.PI / 180)) * LightR,
-        //          LightZ = (float)(Math.Sin(rot[1] - 45) * (Math.PI / 180)) * LightR;
-        //    float[] light_position = new float[4] { LightX, 2f, LightZ, 1f };//光源位置
-        //    gl.Light(OpenGL.GL_LIGHT0, OpenGL.GL_POSITION, light_position);
-
-        //    gl.LoadIdentity();//重置模型观察矩阵
-
-        //    //动作赋值
-        //    PoseGet(args);
-
-        //    if (TimeAxis.IsKey && UI_advancedmode.IsChecked)
-        //    {
-        //        gl.DrawText(1, 10, 1, 0, 0, "KeyText", 80, ".");
-        //        gl.DrawText(30, 13, 1, 0, 0, "KeyText", 10, "Key");
-        //    }//关键帧提示
-
-        //    gl.Color(1f, 1f, 1f);
-        //    gl.Enable(OpenGL.GL_TEXTURE_2D);//启用2D纹理映射
-
-        //    gl.Enable(OpenGL.GL_LIGHTING);
-        //    #region 底座绘制
-        //    Stone.Bind(gl);
-        //    gl.Translate(0f, -1.5f, -8.5f);
-        //    gl.Rotate((float)rot[0], (float)rot[1], 0f);
-        //    gl.Scale(GL_Scale, GL_Scale, GL_Scale);
-        //    if (!(bool)UI_nobaseplate.IsChecked) OpenGL_Draw.Draw_BasePlate(gl);//显示底座            
-        //    #endregion
-
-        //    gl.Disable(OpenGL.GL_LIGHTING);
-        //    #region 坐标轴绘制
-        //    gl.Disable(OpenGL.GL_TEXTURE_2D);//禁用2D纹理映射
-        //    gl.Rotate(0f, 0f, 0f); //X坐标轴  
-        //    gl.Color(0.9f, 0.1f, 0.1f);
-        //    OpenGL_Draw.Draw_Axis(gl);
-        //    gl.Rotate(0f, 0f, 90.0f); //Y坐标轴
-        //    gl.Color(0.1f, 0.9f, 0.1f);
-        //    OpenGL_Draw.Draw_Axis(gl);
-        //    gl.Rotate(0f, -90.0f, 0f);//Z坐标轴                 
-        //    gl.Color(0.1f, 0.1f, 0.9f);
-        //    OpenGL_Draw.Draw_Axis(gl);
-        //    gl.Enable(OpenGL.GL_TEXTURE_2D);//启用2D纹理映射
-        //    #endregion
-
-        //    gl.Enable(OpenGL.GL_LIGHTING);
-        //    #region 朝向旋转部分
-        //    gl.Color(1f, 1f, 1f);
-        //    OpenGL_reset(gl);
-        //    OpenGL_Draw.Draw_arrow(gl);//箭头
-        //    gl.Color(0.9f, 0.9f, 0.9f);
-        //    Wood.Bind(gl);
-        //    #region 头部绘制
-        //    OpenGL_reset(gl);
-        //    if ((bool)UI_small.IsChecked) gl.Scale(0.6f, 0.6f, 0.6f);
-        //    gl.Translate(0f, 2.07f, 0f);
-        //    gl.Rotate(-pose[2], -pose[1], -pose[0]);
-        //    OpenGL_Draw.Draw_Head(gl);
-        //    #endregion
-
-        //    #region 躯干绘制
-        //    OpenGL_reset(gl);
-        //    if ((bool)UI_small.IsChecked) gl.Scale(0.6f, 0.6f, 0.6f);
-        //    gl.Translate(0f, 1.98f, 0f);
-        //    gl.Rotate(-pose[5], -pose[4], -pose[3]);
-        //    OpenGL_Draw.Draw_Chest(gl);
-        //    #endregion
-
-        //    #region 双臂绘制
-        //    if ((bool)UI_showarms.IsChecked)
-        //    {
-        //        OpenGL_reset(gl);
-        //        if ((bool)UI_small.IsChecked) gl.Scale(0.6f, 0.6f, 0.6f);
-        //        gl.Translate(0f, 1.98f, -0.54f);
-        //        gl.Rotate(-pose[8], -pose[7], -pose[6]);
-        //        OpenGL_Draw.Draw_Arm(gl);
-        //        OpenGL_reset(gl);
-        //        if ((bool)UI_small.IsChecked) gl.Scale(0.6f, 0.6f, 0.6f);
-        //        gl.Translate(0f, 1.98f, 0.54f);
-        //        gl.Rotate(-pose[11], -pose[10], -pose[9]);
-        //        OpenGL_Draw.Draw_Arm(gl);
-        //    }
-        //    #endregion
-
-        //    #region 双腿绘制
-        //    OpenGL_reset(gl);
-        //    if ((bool)UI_small.IsChecked) gl.Scale(0.6f, 0.6f, 0.6f);
-        //    gl.Translate(0f, 0.99f, -0.18f);
-        //    gl.Rotate(-pose[14], -pose[13], -pose[12]);
-        //    OpenGL_Draw.Draw_Leg(gl);
-        //    OpenGL_reset(gl);
-        //    if ((bool)UI_small.IsChecked) gl.Scale(0.6f, 0.6f, 0.6f);
-        //    gl.Translate(0f, 0.99f, 0.18f);
-        //    gl.Rotate(-pose[17], -pose[16], -pose[15]);
-        //    OpenGL_Draw.Draw_Leg(gl);
-        //    #endregion
-        //    #endregion
-
-        //    gl.Disable(OpenGL.GL_TEXTURE_2D);//禁用2D纹理映射            
-
-        //    gl.Flush();
-        //}
-
         #region Viewport3D
+        void Viewport_Flish(object sender, EventArgs e)
+        {
+            PoseGet(e);
+            HeadRotX0.Angle = -pose[2];
+            HeadRotY0.Angle = -pose[1]; HeadRotY1.Angle = pose[1];
+            HeadRotZ0.Angle = -pose[0]; HeadRotZ1.Angle = pose[0];
+
+            ChestRotX.Angle = -pose[5]; ChestRotY.Angle = -pose[4]; ChestRotZ.Angle = -pose[3];
+            LeftArmRotX.Angle = -pose[8]; LeftArmRotY.Angle = -pose[7]; LeftArmRotZ.Angle = -pose[6];
+            RightArmRotX.Angle = -pose[11]; RightArmRotY.Angle = -pose[10]; RightArmRotZ.Angle = -pose[9];
+            LeftLegRotX.Angle = -pose[14]; LeftLegRotY.Angle = -pose[13]; LeftLegRotZ.Angle = -pose[12];
+            RightArmRotX.Angle = -pose[17]; RightArmRotY.Angle = -pose[16]; RightArmRotZ.Angle = -pose[15];
+            Rotation.Angle = -pose[18];
+        }
+
         #region Buttons
         /// <summary> 预览视重置 </summary>        
         private void Viewport_Relocation(object sender, RoutedEventArgs e)
         {
-            CameraRadius = 25;
+            CameraRadius = 50;
             CameraRot = new double[2] { 15, 60 };//水平旋转角,竖直旋转角(相对于原点)        
-            CameraLookAtPoint = new double[3] { 0, 0, 0 };//摄像机视点
+            CameraLookAtPoint = new double[3] { 0, 10, 0 };//摄像机视点
             CameraReset();
         }
         #endregion
@@ -934,12 +840,12 @@ namespace Adaptable_Studio
             double r = 2.25;
             //Math.Sqrt(Math.Pow(DirectionalLight.Direction.X, 2) + Math.Pow(DirectionalLight.Direction.Z, 2))
             double LightRot = CameraRot[0] - 60;
-            DirectionalLight.Direction = new Vector3D()
-            {
-                X = Math.Cos(LightRot) * r,
-                Y = -6,
-                Z = Math.Sin(LightRot) * r
-            };
+            //DirectionalLight.Direction = new Vector3D()
+            //{
+            //    X = Math.Cos(LightRot) * r,
+            //    Y = -6,
+            //    Z = Math.Sin(LightRot) * r
+            //};
         }
 
         private void ArmorStandView_MouseMove(object sender, MouseEventArgs e)
@@ -956,7 +862,8 @@ namespace Adaptable_Studio
                 lab.Content = "CameraRot: " + CameraRot[0] + " , " + CameraRot[1]
                     + "\nCamera Dir: " + MainCamera.LookDirection
                     + "\nCamera Position: " + MainCamera.Position
-                    + "\nLight Direction: " + DirectionalLight.Direction;
+                    //+ "\nLight Direction: " + DirectionalLight.Direction
+                    ;
             }//左键转向
             else if (e.RightButton == MouseButtonState.Pressed)
             {
@@ -1022,9 +929,9 @@ namespace Adaptable_Studio
         public static bool poseChange;
         private void PoseGet(EventArgs e)
         {
-            float X = (float)X_Pose.Value,
-                  Y = (float)Y_Pose.Value,
-                  Z = (float)Z_Pose.Value;
+            double X = X_Pose.Value,
+                  Y = Y_Pose.Value,
+                  Z = Z_Pose.Value;
             int i = 0;
             if (PoseHead.IsSelected) i = 0;
             else if (PoseBody.IsSelected) i = 3;
@@ -1035,7 +942,7 @@ namespace Adaptable_Studio
 
             if (!UI_advancedmode.IsChecked)
             {
-                pose[18] = (float)Rotation_Setting.Value;
+                pose[18] = Rotation_Setting.Value;
                 if ((bool)Pose_Settings.IsChecked)
                 {
                     pose[i] = X;
@@ -1046,7 +953,7 @@ namespace Adaptable_Studio
             else
             {
                 if (poseChange && !TimeAxis.IsPlaying) Rotation_Setting.Value = TimeAxis.FramePose.pos[18];
-                TimeAxis.FramePose.pos[18] = (float)Rotation_Setting.Value;
+                TimeAxis.FramePose.pos[18] = Rotation_Setting.Value;
                 pose[18] = TimeAxis.FramePose.pos[18];
 
                 if ((bool)Pose_Settings.IsChecked)

@@ -96,7 +96,7 @@ namespace Adaptable_Studio
         /// <summary> 史蒂夫模型框架绘制 </summary>        
         public void Steve_framework(OpenGL gl)
         {
-            gl.Color(0.75f, 0.75f, 0f);            
+            gl.Color(0.75f, 0.75f, 0f);
             gl.Translate(0f, 0.006f, 0f);
             gl.Begin(OpenGL.GL_LINES);
             Draw_Block(gl, -1.125f, 0f, -2.25f, 1.125f, 6.75f, 0f);
@@ -222,57 +222,11 @@ namespace Adaptable_Studio
             gl.Vertex(1.60191f, 0.025f, -0.468627f);
             gl.End();
         }
-
-        /// <summary> 底座绘制 </summary>
-        public static void Draw_BasePlate(OpenGL gl)
-        {
-            Draw_Block(gl, 0.54f, 0.0075f, 0.54f, -0.54f, 0.0975f, -0.54f);
-        }
-
-        #region Standard model
-        public static void Draw_Head(OpenGL gl)
-        {
-            Draw_Block(gl, -0.09f, 0.63f, -0.09f, 0.09f, -0.09f, 0.09f);
-        }
-
-        public static void Draw_Chest(OpenGL gl)
-        {
-            Draw_Block(gl, 0.135f, 0.09f, 0.54f, -0.135f, -0.18f, -0.54f);
-            Draw_Block(gl, -0.09f, -0.805f, -0.09f, 0.09f, -0.175f, -0.27f);
-            Draw_Block(gl, -0.09f, -0.805f, 0.09f, 0.09f, -0.175f, 0.27f);
-            Draw_Block(gl, -0.09f, -0.985f, -0.36f, 0.09f, -0.805f, 0.36f);
-        }
-
-        public static void Draw_Arm(OpenGL gl)
-        {
-            Draw_Block(gl, -0.09f, -0.99f, -0.09f, 0.09f, 0.09f, 0.09f);
-        }
-
-        public static void Draw_Leg(OpenGL gl)
-        {
-            Draw_Block(gl, -0.09f, -0.9f, -0.09f, 0.1f, 0.09f, 0.09f);
-        }
-
-        //public static void HeadItem(OpenGL gl, Texture Null, Texture Back)
-        //{
-        //    Null.Bind(gl);
-        //    gl.Enable(OpenGL.GL_BLEND);
-        //    Draw_Block(gl, -0.36f, 0.80f, -0.36f, 0.36f, 0.81f, 0.36f);//Top                      
-
-        //    Back.Bind(gl);
-        //    Draw_Block(gl, -0.36f, 0.09f, -0.36f, -0.35f, 0.81f, 0.36f);//Back
-
-        //    Null.Bind(gl);
-        //    Draw_Block(gl, -0.36f, 0.09f, 0.35f, 0.36f, 0.81f, 0.36f);//Left            
-        //    Draw_Block(gl, -0.36f, 0.09f, -0.35f, 0.36f, 0.81f, -0.36f);//Right            
-        //    gl.Disable(OpenGL.GL_BLEND);
-        //}
-        #endregion
         #endregion
 
         #region special particle
         public void Par_Draw(OpenGL gl, ref double[] Axis_points)
-        {            
+        {
             gl.Translate(Axis_points[0], Axis_points[1], Axis_points[2]);
             gl.Begin(OpenGL.GL_QUADS);
             gl.TexCoord(1f, 1f); gl.Vertex(0.08f, 0.08f, 0f);

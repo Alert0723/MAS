@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -26,7 +25,7 @@ namespace Adaptable_Studio
         //12~14:left leg
         //15~17:right leg
         //18:rotation
-        public struct Pose { public float[] pos; public bool key; }//时间轴结构体        
+        public struct Pose { public double[] pos; public bool key; }//时间轴结构体        
 
         public Pose[] pose = new Pose[32767];//时间轴数据存储
 
@@ -96,7 +95,7 @@ namespace Adaptable_Studio
             pose[0].key = true;
             for (int i = 0; i < 32767; i++)
             {
-                pose[i].pos = new float[19];
+                pose[i].pos = new double[19];
                 IsReversed[i] = new bool[19];
             } //动作数据初始化
         }
@@ -179,11 +178,11 @@ namespace Adaptable_Studio
                             //判断反向旋转
                             if (IsReversed[TransitionIndex][q])
                             {
-                                float Alpha, Beta;
+                                double Alpha, Beta;
                                 if (pose[start].pos[q] >= pose[end].pos[q]) { Alpha = pose[start].pos[q]; Beta = pose[end].pos[q]; }
                                 else { Beta = pose[start].pos[q]; Alpha = pose[end].pos[q]; }
 
-                                float DeltaAngel = (360 - Math.Abs(Alpha - Beta)) / TickDelay;
+                                double DeltaAngel = (360 - Math.Abs(Alpha - Beta)) / TickDelay;
 
                                 if (pose[start].pos[q] < pose[end].pos[q]) DeltaAngel = -DeltaAngel;
 
@@ -567,7 +566,7 @@ namespace Adaptable_Studio
             for (int i = 0; i < 32767; i++)
             {
                 IsReversed[i] = new bool[19];
-                pose[i].pos = new float[19];
+                pose[i].pos = new double[19];
                 pose[i].key = false;
             } //动作数据初始化
 
