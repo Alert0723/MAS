@@ -763,10 +763,7 @@ namespace Adaptable_Studio
         void Viewport_Flish(object sender, EventArgs e)
         {
             PoseGet(e);
-            HeadRotX0.Angle = -pose[2];
-            HeadRotY0.Angle = -pose[1]; HeadRotY1.Angle = pose[1];
-            HeadRotZ0.Angle = -pose[0]; HeadRotZ1.Angle = pose[0];
-
+            HeadRotX.Angle = -pose[2]; HeadRotY.Angle = -pose[1]; HeadRotZ.Angle = -pose[0];
             ChestRotX.Angle = -pose[5]; ChestRotY.Angle = -pose[4]; ChestRotZ.Angle = -pose[3];
             LeftArmRotX.Angle = -pose[8]; LeftArmRotY.Angle = -pose[7]; LeftArmRotZ.Angle = -pose[6];
             RightArmRotX.Angle = -pose[11]; RightArmRotY.Angle = -pose[10]; RightArmRotZ.Angle = -pose[9];
