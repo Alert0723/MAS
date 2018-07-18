@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <!--#region  Axis-->
+    <!--#region  Axis -->
     <GeometryModel3D x:Key="AxisX">
         <GeometryModel3D.Geometry>
             <MeshGeometry3D
@@ -49,7 +49,7 @@
     <!--#endregion-->
 
     <!--#region  MAS.C -->
-    <GeometryModel3D x:Key="Head">
+    <GeometryModel3D x:Key="AS_Head">
         <GeometryModel3D.Geometry>
             <MeshGeometry3D 
                 Positions=" 0.9 27 0.9 , 0.9 27 -0.9 , -0.9 27 0.9 , -0.9 27 -0.9 ,
@@ -69,7 +69,7 @@
         </GeometryModel3D.Material>
     </GeometryModel3D>
 
-    <GeometryModel3D x:Key="LeftArm">
+    <GeometryModel3D x:Key="AS_LeftArm">
         <GeometryModel3D.Geometry>
             <MeshGeometry3D 
                 Positions=" 0.9 20.7 -4.5 , 0.9 20.7 -6.3 , -0.9 20.7 -4.5 , -0.9 20.7 -6.3 ,
@@ -89,7 +89,7 @@
         </GeometryModel3D.Material>
     </GeometryModel3D>
 
-    <GeometryModel3D x:Key="RightArm">
+    <GeometryModel3D x:Key="AS_RightArm">
         <GeometryModel3D.Geometry>
             <MeshGeometry3D 
                 Positions=" 0.9 20.7 6.3 , 0.9 20.7 4.5 , -0.9 20.7 6.3 , -0.9 20.7 4.5 ,
@@ -110,7 +110,7 @@
     </GeometryModel3D>
 
     <!--#region  Chest -->
-    <GeometryModel3D x:Key="Chest1">
+    <GeometryModel3D x:Key="AS_Chest1">
         <GeometryModel3D.Geometry>
             <MeshGeometry3D 
                 Positions=" 1.35 20.7 5.4 , 1.35 20.7 -5.4 , -1.35 20.7 5.4 , -1.35 20.7 -5.4 ,
@@ -130,7 +130,7 @@
         </GeometryModel3D.Material>
     </GeometryModel3D>
 
-    <GeometryModel3D x:Key="Chest2">
+    <GeometryModel3D x:Key="AS_Chest2">
         <GeometryModel3D.Geometry>
             <MeshGeometry3D 
                 Positions=" 0.9 18.05 -2.7 , -0.9 18.05 -2.7 , -0.9 18.05 -0.9 , 0.9 18.05 -0.9 ,
@@ -148,7 +148,7 @@
         </GeometryModel3D.Material>
     </GeometryModel3D>
 
-    <GeometryModel3D x:Key="Chest3">
+    <GeometryModel3D x:Key="AS_Chest3">
         <GeometryModel3D.Geometry>
             <MeshGeometry3D 
                 Positions=" 0.9 18.05 2.7 , -0.9 18.05 2.7 , -0.7 18.05 0.9 , 0.9 18.05 0.9 ,
@@ -166,7 +166,7 @@
         </GeometryModel3D.Material>
     </GeometryModel3D>
 
-    <GeometryModel3D x:Key="Chest4">
+    <GeometryModel3D x:Key="AS_Chest4">
         <GeometryModel3D.Geometry>
             <MeshGeometry3D
                 Positions=" 0.9 11.75 3.6 , 0.9 11.75 -3.6 , -0.9 11.75 3.6 , -0.9 11.75 -3.6 ,
@@ -187,7 +187,7 @@
     </GeometryModel3D>
     <!--#endregion-->
 
-    <GeometryModel3D x:Key="LeftLeg">
+    <GeometryModel3D x:Key="AS_LeftLeg">
         <GeometryModel3D.Geometry>
             <MeshGeometry3D 
                 Positions=" 0.9 10.8 -0.9 ,0.9 10.8 -2.7 , -0.9 10.8 -0.9 , -0.9 10.8 -2.7 ,
@@ -207,7 +207,7 @@
         </GeometryModel3D.Material>
     </GeometryModel3D>
 
-    <GeometryModel3D x:Key="RightLeg">
+    <GeometryModel3D x:Key="AS_RightLeg">
         <GeometryModel3D.Geometry>
             <MeshGeometry3D 
                 Positions=" 0.9 10.8 2.7 , 0.9 10.8 0.9 , -0.9 10.8 2.7 , -0.9 10.8 0.9 ,
@@ -227,7 +227,7 @@
         </GeometryModel3D.Material>
     </GeometryModel3D>
 
-    <GeometryModel3D x:Key="BasePlate">
+    <GeometryModel3D x:Key="AS_BasePlate">
         <GeometryModel3D.Geometry>
             <MeshGeometry3D 
                 Positions=" 5.4 0.9 5.4 , 5.4 0.9 -5.4 , -5.4 0.9 5.4 , -5.4 0.9 -5.4

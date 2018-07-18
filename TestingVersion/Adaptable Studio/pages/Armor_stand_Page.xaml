@@ -1420,7 +1420,7 @@
                         <ModelVisual3D x:Name="armor_stand">
                             <ModelVisual3D x:Name="Head">
                                 <ModelVisual3D>
-                                    <ModelVisual3D Content="{DynamicResource Head}"/>
+                                    <ModelVisual3D Content="{DynamicResource AS_Head}"/>
                                     <ModelVisual3D.Transform>
                                         <Transform3DGroup>
                                             <RotateTransform3D x:Name="HeadX" CenterX="0" CenterY="20.7" CenterZ="0">
@@ -1450,10 +1450,10 @@
                             </ModelVisual3D>
 
                             <ModelVisual3D x:Name="Chest">
-                                <ModelVisual3D Content="{DynamicResource Chest1}"/>
-                                <ModelVisual3D Content="{DynamicResource Chest2}"/>
-                                <ModelVisual3D Content="{DynamicResource Chest3}"/>
-                                <ModelVisual3D Content="{DynamicResource Chest4}"/>
+                                <ModelVisual3D Content="{DynamicResource AS_Chest1}"/>
+                                <ModelVisual3D Content="{DynamicResource AS_Chest2}"/>
+                                <ModelVisual3D Content="{DynamicResource AS_Chest3}"/>
+                                <ModelVisual3D Content="{DynamicResource AS_Chest4}"/>
                                 <ModelVisual3D.Transform>
                                     <Transform3DGroup>
                                         <RotateTransform3D CenterX="0" CenterY="19.8" CenterZ="0">
@@ -1482,7 +1482,7 @@
                             </ModelVisual3D>
 
                             <ModelVisual3D x:Name="LA">
-                                <ModelVisual3D Content="{DynamicResource LeftArm}"/>
+                                <ModelVisual3D Content="{DynamicResource AS_LeftArm}"/>
                                 <ModelVisual3D.Transform>
                                     <Transform3DGroup>
                                         <RotateTransform3D CenterX="0" CenterY="19.8" CenterZ="-5.4">
@@ -1511,7 +1511,7 @@
                             </ModelVisual3D>
 
                             <ModelVisual3D x:Name="RA">
-                                <ModelVisual3D Content="{DynamicResource RightArm}"/>
+                                <ModelVisual3D Content="{DynamicResource AS_RightArm}"/>
                                 <ModelVisual3D.Transform>
                                     <Transform3DGroup>
                                         <RotateTransform3D CenterX="0" CenterY="19.8" CenterZ="5.4">
@@ -1540,7 +1540,7 @@
                             </ModelVisual3D>
 
                             <ModelVisual3D x:Name="LL">
-                                <ModelVisual3D Content="{DynamicResource LeftLeg}"/>
+                                <ModelVisual3D Content="{DynamicResource AS_LeftLeg}"/>
                                 <ModelVisual3D.Transform>
                                     <Transform3DGroup>
                                         <RotateTransform3D CenterX="0" CenterY="9.9" CenterZ="-1.8">
@@ -1569,7 +1569,7 @@
                             </ModelVisual3D>
 
                             <ModelVisual3D x:Name="RL">
-                                <ModelVisual3D Content="{DynamicResource RightLeg}"/>
+                                <ModelVisual3D Content="{DynamicResource AS_RightLeg}"/>
                                 <ModelVisual3D.Transform>
                                     <Transform3DGroup>
                                         <RotateTransform3D CenterX="0" CenterY="9.9" CenterZ="1.8">
@@ -1608,7 +1608,7 @@
                             </ModelVisual3D.Transform>
                         </ModelVisual3D>
 
-                        <ModelVisual3D Content="{DynamicResource BasePlate}"/>
+                        <ModelVisual3D Content="{DynamicResource AS_BasePlate}"/>
                     </ModelVisual3D>
                 </Viewport3D>
 
