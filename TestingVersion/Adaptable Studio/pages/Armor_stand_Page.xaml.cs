@@ -79,11 +79,8 @@ namespace Adaptable_Studio
         double CameraRadius = 50;//摄像机半径(相对于原点)
         double[] CameraRot = new double[2] { 15, 60 };//水平旋转角,竖直旋转角(相对于原点)
         double[] CameraLookAtPoint = new double[3] { 0, 10, 0 };//摄像机视点
-
         double[] mouse_location = new double[2];//鼠标位置
-
         double[] pose = new double[19];
-        DispatcherTimer Flush3D = new DispatcherTimer() { Interval = new TimeSpan(0, 0, 0, 0, 40) };
         #endregion
 
         #region ini配置文件
@@ -104,8 +101,6 @@ namespace Adaptable_Studio
         public Armor_stand_Page()
         {
             InitializeComponent();
-            Flush3D.Tick += Viewport_Flish;
-            Flush3D.Start();
             for (int i = 0; i < 6; i++)
             {
                 Item_Data[i].IsEnabled = new bool();
@@ -137,7 +132,8 @@ namespace Adaptable_Studio
 
             #region Viewport3D 初始化
             MainWindow.Log_Write(LogPath, "[masc]Viewport3D初始化");
-            CameraReset();
+            CameraReset(MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);//主摄像机
+            CameraReset(AxisCamera, CameraRot, new double[3], 10);//坐标系摄像机
             LightDirectionReset();
             MainWindow.Log_Write(LogPath, "[Viewport3D]初始化完成");
             #endregion           
@@ -759,27 +755,32 @@ namespace Adaptable_Studio
         }
         #endregion
 
-        #region Viewport3D
-        void Viewport_Flish(object sender, EventArgs e)
+        public double[] PartRot
         {
-            PoseGet(e);
-            HeadRotX.Angle = -pose[2]; HeadRotY.Angle = -pose[1]; HeadRotZ.Angle = -pose[0];
-            ChestRotX.Angle = -pose[5]; ChestRotY.Angle = -pose[4]; ChestRotZ.Angle = -pose[3];
-            LeftArmRotX.Angle = -pose[8]; LeftArmRotY.Angle = -pose[7]; LeftArmRotZ.Angle = -pose[6];
-            RightArmRotX.Angle = -pose[11]; RightArmRotY.Angle = -pose[10]; RightArmRotZ.Angle = -pose[9];
-            LeftLegRotX.Angle = -pose[14]; LeftLegRotY.Angle = -pose[13]; LeftLegRotZ.Angle = -pose[12];
-            RightArmRotX.Angle = -pose[17]; RightArmRotY.Angle = -pose[16]; RightArmRotZ.Angle = -pose[15];
-            Rotation.Angle = -pose[18];
+            get { return pose; }
+            set
+            {
+                pose = value;
+                HeadRotX.Angle = -value[2]; HeadRotY.Angle = -value[1]; HeadRotZ.Angle = -value[0];
+                ChestRotX.Angle = -value[5]; ChestRotY.Angle = -value[4]; ChestRotZ.Angle = -value[3];
+                LeftArmRotX.Angle = -value[8]; LeftArmRotY.Angle = -value[7]; LeftArmRotZ.Angle = -value[6];
+                RightArmRotX.Angle = -value[11]; RightArmRotY.Angle = -value[10]; RightArmRotZ.Angle = -value[9];
+                LeftLegRotX.Angle = -value[14]; LeftLegRotY.Angle = -value[13]; LeftLegRotZ.Angle = -value[12];
+                RightArmRotX.Angle = -value[17]; RightArmRotY.Angle = -value[16]; RightArmRotZ.Angle = -value[15];
+                Rotation.Angle = -value[18];
+            }
         }
 
+        #region Viewport3D
         #region Buttons
         /// <summary> 预览视重置 </summary>        
         private void Viewport_Relocation(object sender, RoutedEventArgs e)
         {
             CameraRadius = 50;
-            CameraRot = new double[2] { 15, 60 };//水平旋转角,竖直旋转角(相对于原点)        
+            CameraRot = new double[2] { 15, 60 };//水平旋转角,竖直旋转角(相对于原点)
             CameraLookAtPoint = new double[3] { 0, 10, 0 };//摄像机视点
-            CameraReset();
+            CameraReset(MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);//主摄像机
+            CameraReset(AxisCamera, CameraRot, new double[3], 10);//坐标系摄像机
         }
         #endregion
 
@@ -791,9 +792,7 @@ namespace Adaptable_Studio
             else if (e.Delta > 0)
                 CameraRadius -= 0.5;
 
-            CameraReset();
-
-            lab.Content = "Radius:" + CameraRadius;
+            CameraReset(MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);//主摄像机            
         }
 
         #region 预览视角旋转-摄像机坐标计算
@@ -833,18 +832,18 @@ namespace Adaptable_Studio
         /// <summary> 方向光源计算 </summary>
         void LightDirectionReset()
         {
-            //光源方向计算
-            double r = 2.25;
-            //Math.Sqrt(Math.Pow(DirectionalLight.Direction.X, 2) + Math.Pow(DirectionalLight.Direction.Z, 2))
-            double LightRot = CameraRot[0] - 60;
-            //DirectionalLight.Direction = new Vector3D()
-            //{
-            //    X = Math.Cos(LightRot) * r,
-            //    Y = -6,
-            //    Z = Math.Sin(LightRot) * r
-            //};
+            PerspectiveCamera mark = new PerspectiveCamera();
+            CameraReset(mark, new double[] { CameraRot[0] + 45, CameraRot[1] }, new double[3], 10);
+
+            DirectionalLight.Direction = new Vector3D()
+            {
+                X = mark.LookDirection.Z,
+                Y = -2,
+                Z = -mark.LookDirection.X
+            };
         }
 
+        /// <summary> 鼠标拖拽 </summary>
         private void ArmorStandView_MouseMove(object sender, MouseEventArgs e)
         {
             PreviewGrid.Cursor = Cursors.Arrow;
@@ -855,12 +854,6 @@ namespace Adaptable_Studio
                 CameraRot[1] += -(e.GetPosition((IInputElement)sender).Y - mouse_location[1]) * 180 / 460;
 
                 LightDirectionReset();
-
-                lab.Content = "CameraRot: " + CameraRot[0] + " , " + CameraRot[1]
-                    + "\nCamera Dir: " + MainCamera.LookDirection
-                    + "\nCamera Position: " + MainCamera.Position
-                    //+ "\nLight Direction: " + DirectionalLight.Direction
-                    ;
             }//左键转向
             else if (e.RightButton == MouseButtonState.Pressed)
             {
@@ -876,7 +869,7 @@ namespace Adaptable_Studio
 
                 //竖直移动
                 if (e.GetPosition((IInputElement)sender).Y - mouse_location[1] != 0)
-                    CameraLookAtPoint[1] += (e.GetPosition((IInputElement)sender).Y - mouse_location[1]) * 0.05;
+                    CameraLookAtPoint[1] += (e.GetPosition((IInputElement)sender).Y - mouse_location[1]) * 0.08;
 
                 MainCamera.LookDirection = new Vector3D()
                 {
@@ -886,49 +879,43 @@ namespace Adaptable_Studio
                 };
             }//右键平面移动
 
-            CameraReset();
+            CameraReset(MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);
+            CameraReset(AxisCamera, CameraRot, new double[3], 10);
 
             mouse_location[0] = e.GetPosition((IInputElement)sender).X;
             mouse_location[1] = e.GetPosition((IInputElement)sender).Y;
 
-            if (CameraRot[0] > 180) CameraRot[0] = -180;
-            else if (CameraRot[0] < -180) CameraRot[0] = 180;
+            if (CameraRot[0] > 360) CameraRot[0] = 0;
+            else if (CameraRot[0] < 0) CameraRot[0] = 360;
             if (CameraRot[1] > 175) CameraRot[1] = 175;
             else if (CameraRot[1] < 5) CameraRot[1] = 5;
         }
 
-        void CameraReset()
+        /// <summary> 摄像机位置设定 </summary>
+        /// <param name="camera">摄像机</param>
+        /// <param name="rotation">摄像机角度朝向(水平,竖直)</param>
+        /// <param name="LookAtPoint">摄像机观察目标点</param>
+        /// <param name="radius">摄像机环绕半径</param>
+        void CameraReset(PerspectiveCamera camera, double[] rotation, double[] LookAtPoint, double radius)
         {
-            //主视窗Camera
             Point3D Point = new Point3D()
             {
-                X = CameraLookAtPoint[0] + Math.Sin(CameraRot[1] * Math.PI / 180) * Math.Cos(CameraRot[0] * Math.PI / 180) * CameraRadius,
-                Y = CameraLookAtPoint[1] + Math.Cos(CameraRot[1] * Math.PI / 180) * CameraRadius,
-                Z = CameraLookAtPoint[2] + Math.Sin(CameraRot[1] * Math.PI / 180) * Math.Sin(CameraRot[0] * Math.PI / 180) * CameraRadius
+                X = LookAtPoint[0] + Math.Sin(rotation[1] * Math.PI / 180) * Math.Cos(rotation[0] * Math.PI / 180) * radius,
+                Y = LookAtPoint[1] + Math.Cos(rotation[1] * Math.PI / 180) * radius,
+                Z = LookAtPoint[2] + Math.Sin(rotation[1] * Math.PI / 180) * Math.Sin(rotation[0] * Math.PI / 180) * radius
             };
-            MainCamera.Position = Point;
-            MainCamera.LookDirection = new Vector3D() { X = -Point.X + CameraLookAtPoint[0], Y = -Point.Y + CameraLookAtPoint[1], Z = -Point.Z + CameraLookAtPoint[2] };
-
-            //坐标系视窗Camera
-            double AxisRadius = 10;
-            Point = new Point3D()
-            {
-                X = Math.Sin(CameraRot[1] * Math.PI / 180) * Math.Cos(CameraRot[0] * Math.PI / 180) * AxisRadius,
-                Y = Math.Cos(CameraRot[1] * Math.PI / 180) * AxisRadius,
-                Z = Math.Sin(CameraRot[1] * Math.PI / 180) * Math.Sin(CameraRot[0] * Math.PI / 180) * AxisRadius
-            };
-            AxisCamera.Position = Point;
-            AxisCamera.LookDirection = new Vector3D() { X = -Point.X, Y = -Point.Y, Z = -Point.Z };
+            camera.Position = Point;
+            camera.LookDirection = new Vector3D() { X = -Point.X + LookAtPoint[0], Y = -Point.Y + LookAtPoint[1], Z = -Point.Z + LookAtPoint[2] };
         }
         #endregion
         #endregion
 
         public static bool poseChange;
-        private void PoseGet(EventArgs e)
+        private void Pose_Changed(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             double X = X_Pose.Value,
-                  Y = Y_Pose.Value,
-                  Z = Z_Pose.Value;
+                   Y = Y_Pose.Value,
+                   Z = Z_Pose.Value;
             int i = 0;
             if (PoseHead.IsSelected) i = 0;
             else if (PoseBody.IsSelected) i = 3;
@@ -939,12 +926,12 @@ namespace Adaptable_Studio
 
             if (!UI_advancedmode.IsChecked)
             {
-                pose[18] = Rotation_Setting.Value;
+                PartRot[18] = Rotation_Setting.Value;
                 if ((bool)Pose_Settings.IsChecked)
                 {
-                    pose[i] = X;
-                    pose[i + 1] = Y;
-                    pose[i + 2] = Z;
+                    PartRot[i] = X;
+                    PartRot[i + 1] = Y;
+                    PartRot[i + 2] = Z;
                 }
             }//普通模式
             else
@@ -962,9 +949,9 @@ namespace Adaptable_Studio
                         Z_Pose.Value = TimeAxis.FramePose.pos[i + 2];
                     }
 
-                    TimeAxis.FramePose.pos[i] = (float)X_Pose.Value;
-                    TimeAxis.FramePose.pos[i + 1] = (float)Y_Pose.Value;
-                    TimeAxis.FramePose.pos[i + 2] = (float)Z_Pose.Value;
+                    TimeAxis.FramePose.pos[i] = X_Pose.Value;
+                    TimeAxis.FramePose.pos[i + 1] = Y_Pose.Value;
+                    TimeAxis.FramePose.pos[i + 2] = Z_Pose.Value;
 
                     //控件属性赋值于滑条数据
                     pose[i] = TimeAxis.FramePose.pos[i];
