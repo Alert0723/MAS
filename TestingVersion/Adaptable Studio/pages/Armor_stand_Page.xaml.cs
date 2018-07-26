@@ -833,7 +833,7 @@ namespace Adaptable_Studio
         void LightDirectionReset()
         {
             PerspectiveCamera mark = new PerspectiveCamera();
-            CameraReset(mark, new double[] { CameraRot[0] + 45, CameraRot[1] }, new double[3], 10);
+            CameraReset(mark, new double[] { CameraRot[0] + 60, CameraRot[1] }, new double[3], 10);
 
             DirectionalLight.Direction = new Vector3D()
             {
