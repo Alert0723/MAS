@@ -80,7 +80,16 @@ namespace Adaptable_Studio
         double[] CameraRot = new double[2] { 15, 60 };//水平旋转角,竖直旋转角(相对于原点)
         double[] CameraLookAtPoint = new double[3] { 0, 10, 0 };//摄像机视点
         double[] mouse_location = new double[2];//鼠标位置
-        double[] pose = new double[19];
+        double[] _pose = new double[19];
+        public double[] pose
+        {
+            get { return _pose; }
+            set
+            {
+                _pose = value;
+                HeadRotX.Angle = -value[2];
+            }
+        }
         #endregion
 
         #region ini配置文件
@@ -755,22 +764,6 @@ namespace Adaptable_Studio
         }
         #endregion
 
-        public double[] PartRot
-        {
-            get { return pose; }
-            set
-            {
-                pose = value;
-                HeadRotX.Angle = -value[2]; HeadRotY.Angle = -value[1]; HeadRotZ.Angle = -value[0];
-                ChestRotX.Angle = -value[5]; ChestRotY.Angle = -value[4]; ChestRotZ.Angle = -value[3];
-                LeftArmRotX.Angle = -value[8]; LeftArmRotY.Angle = -value[7]; LeftArmRotZ.Angle = -value[6];
-                RightArmRotX.Angle = -value[11]; RightArmRotY.Angle = -value[10]; RightArmRotZ.Angle = -value[9];
-                LeftLegRotX.Angle = -value[14]; LeftLegRotY.Angle = -value[13]; LeftLegRotZ.Angle = -value[12];
-                RightArmRotX.Angle = -value[17]; RightArmRotY.Angle = -value[16]; RightArmRotZ.Angle = -value[15];
-                Rotation.Angle = -value[18];
-            }
-        }
-
         #region Viewport3D
         #region Buttons
         /// <summary> 预览视重置 </summary>        
@@ -801,8 +794,6 @@ namespace Adaptable_Studio
             mouse_location[0] = e.GetPosition((IInputElement)sender).X;
             mouse_location[1] = e.GetPosition((IInputElement)sender).Y;
 
-            UpDirection_Get();
-
             if (e.LeftButton == MouseButtonState.Pressed) PreviewGrid.Cursor = Cursors.SizeAll;
             else if (e.RightButton == MouseButtonState.Pressed) PreviewGrid.Cursor = Cursors.ScrollAll;
         }
@@ -812,20 +803,19 @@ namespace Adaptable_Studio
             PreviewGrid.Cursor = Cursors.Arrow;
         }
 
-        Vector3D LookDir, UpDir, MoveDir;
-        /// <summary> 平面法向量计算 </summary>
-        void UpDirection_Get()
+        /// <summary>
+        /// 平面法向量计算
+        /// </summary>
+        /// <param name="vector1">构成平面的向量1</param>
+        /// <param name="vector2">构成平面的向量2</param>
+        private Vector3D UpDirection_Get(Vector3D vector1, Vector3D vector2)
         {
-            //叉乘 a×b=(y1z2-y2z1,z1x2-z2x1,x1y2-x2y1)
-            LookDir = MainCamera.LookDirection;//Camera朝向向量            
-            UpDir = new Vector3D() { X = 0, Y = 1, Z = 0 };//Camera垂直法向量
-
-            //平面法向量
-            MoveDir = new Vector3D()
+            //叉乘 a×b=(y1z2-y2z1,z1x2-z2x1,x1y2-x2y1)            
+            return new Vector3D()
             {
-                X = LookDir.Y * UpDir.Z - UpDir.Y * LookDir.Z,
-                Y = LookDir.Z * UpDir.X - LookDir.X * UpDir.Z,
-                Z = LookDir.X * UpDir.Y - LookDir.Y * UpDir.X
+                X = vector1.Y * vector2.Z - vector2.Y * vector1.Z,
+                Y = vector1.Z * vector2.X - vector1.X * vector2.Z,
+                Z = vector1.X * vector2.Y - vector1.Y * vector2.X
             };
         }
 
@@ -858,7 +848,7 @@ namespace Adaptable_Studio
             else if (e.RightButton == MouseButtonState.Pressed)
             {
                 PreviewGrid.Cursor = Cursors.ScrollAll;
-                UpDirection_Get();
+                Vector3D MoveDir = UpDirection_Get(MainCamera.LookDirection, new Vector3D() { X = 0, Y = 1, Z = 0 });
 
                 //水平移动
                 if (e.GetPosition((IInputElement)sender).X - mouse_location[0] != 0)
@@ -926,12 +916,12 @@ namespace Adaptable_Studio
 
             if (!UI_advancedmode.IsChecked)
             {
-                PartRot[18] = Rotation_Setting.Value;
+                pose[18] = Rotation_Setting.Value;
                 if ((bool)Pose_Settings.IsChecked)
                 {
-                    PartRot[i] = X;
-                    PartRot[i + 1] = Y;
-                    PartRot[i + 2] = Z;
+                    pose[i] = X;
+                    pose[i + 1] = Y;
+                    pose[i + 2] = Z;
                 }
             }//普通模式
             else
