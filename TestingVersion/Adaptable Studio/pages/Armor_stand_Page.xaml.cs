@@ -83,12 +83,8 @@ namespace Adaptable_Studio
         double[] _pose = new double[19];
         public double[] pose
         {
-            get { return _pose; }
-            set
-            {
-                _pose = value;
-                HeadRotX.Angle = -value[2];
-            }
+            get;
+            set;
         }
         #endregion
 

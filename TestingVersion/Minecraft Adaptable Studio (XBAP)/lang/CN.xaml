@@ -1,0 +1,316 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <!--#region  Font -->
+    <FontFamily x:Key="Font">Microsoft YaHei UI</FontFamily>
+    <!--#endregion-->
+
+    <!--#region  Window -->
+    <system:String x:Key="MainOption">设置</system:String>
+    <system:String x:Key="MainAbout">关于</system:String>
+    <system:String x:Key="MainHelp">页面功能引导</system:String>
+    <!--#endregion-->
+
+    <!--#region  Version Messager -->
+    <system:String x:Key="FindNewVer">发现新版本：</system:String>
+    <system:String x:Key="UpdateNow">立即更新</system:String>
+    <!--#endregion-->
+
+    <!--#region  OutPut Window -->
+    <system:String x:Key="CopyCommands">复制指令</system:String>
+    <system:String x:Key="Generate.NBTFiles">生成.nbt文件</system:String>
+    <!--#endregion-->
+
+    <!--#region  Option Page -->
+    <system:String x:Key="Option_On">开</system:String>
+    <system:String x:Key="Option_Off">关</system:String>
+    <system:String x:Key="Option_Routine_Setting">常规</system:String>
+    <system:String x:Key="Option_Language">语言切换:</system:String>
+    <system:String x:Key="Option_Guidance">启动时启用页面引导:</system:String>
+
+    <system:String x:Key="Option_Structures_Setting">结构设置</system:String>
+    <system:String x:Key="Option_MaxLength">每层最大长度(2~99):</system:String>
+    <system:String x:Key="Option_Chain_extension_direction">链式延伸方向:</system:String>
+    <system:String x:Key="Option_Chain_Vertical">纵向延伸</system:String>
+    <system:String x:Key="Option_Chain_Horizontal">横向延伸</system:String>
+    <system:String x:Key="Option_Paved_structure">平铺结构</system:String>
+    <!--#endregion-->
+
+    <!--#region  About Page -->
+    <system:String x:Key="About_Developers">开发者：</system:String>
+    <system:String x:Key="About_User_interaction">用户交互页面：</system:String>
+    <system:String x:Key="About_Technical_participants">技术参与：</system:String>
+    <system:String x:Key="About_Acknowledgements">鸣谢：</system:String>
+
+    <system:String x:Key="About_DLL_Reference">DLL引用：</system:String>
+    <system:String x:Key="About_Program_Framework">程序框架：</system:String>
+    <system:String x:Key="About_Controls">UI控件：</system:String>
+    <system:String x:Key="About_3D_Environment">3D环境：</system:String>
+    <system:String x:Key="About_Json_Library">Json库：</system:String>
+    <system:String x:Key="About_Compressed_Library">压缩库：</system:String>
+    <system:String x:Key="About_Plugin_Library">拓展插件开发平台：</system:String>
+    <!--#endregion-->
+
+    <!--#region  3D预览 -->
+    <system:String x:Key="Viewport_Relocation">重置3D视角</system:String>
+    
+    <system:String x:Key="OpenGL_Grid">网格</system:String>
+    <system:String x:Key="OpenGL_Axis">坐标系</system:String>
+    <system:String x:Key="OpenGL_Scale">缩放</system:String>
+    <!--#endregion-->
+
+    <!--#region  MAS.C -->
+    <!--#region  页面引导 -->
+    <system:String x:Key="Guide_switch">引导功能开关</system:String>
+
+    <system:String x:Key="Guide_pose">勾选以启用动作设置</system:String>
+    <system:String x:Key="Guide_advance_mode">时间轴模式开关</system:String>
+
+    <system:String x:Key="Guide_time_axis1">右键点击黑色区域添加关键帧</system:String>
+    <system:String x:Key="Guide_time_axis2">右键点击 关键帧/过渡段 进行操作与编辑</system:String>
+    <!--#endregion-->
+
+    <!--#region  禁用提示 -->
+    <system:String x:Key="Enable_Pose">无动作设置权限，请勾选动作选项</system:String>
+    <system:String x:Key="Enable_Part">无部位设置权限，请启用部位</system:String>
+    <system:String x:Key="Enable_Attribute">无属性设置权限，请启用附加属性</system:String>
+    <system:String x:Key="Enable_Ench">无属性设置权限，请启用附魔属性</system:String>
+    <system:String x:Key="Enable_AdvancedMode">请启用高级模式选项以获取设置权限</system:String>
+    <!--#endregion-->
+
+    <!--#region  页面标题 -->
+    <system:String x:Key="Basic_Settings">基本属性设置</system:String>
+    <system:String x:Key="NBT_Settings">NBT 设置</system:String>
+    <system:String x:Key="DisabledSlots_Settings">不可编辑部位</system:String>
+    <system:String x:Key="Pose_Settings">动作设置</system:String>
+    <system:String x:Key="Item_Settings">物品设置</system:String>
+    <system:String x:Key="AdvancedMode">高级模式</system:String>
+    <!--#endregion-->
+
+    <!--#region  基础属性 -->
+    <system:String x:Key="Name">名字 :</system:String>
+    <system:String x:Key="Tag">标签 :</system:String>
+    <!--#endregion-->
+
+    <!--#region  NBT属性 -->
+    <system:String x:Key="as_NoAI">无AI</system:String>
+    <system:String x:Key="as_Invulnerable">无敌</system:String>
+    <system:String x:Key="as_Silent">无声</system:String>
+    <system:String x:Key="as_Small">小型</system:String>
+    <system:String x:Key="as_Glowing">发光</system:String>
+    <system:String x:Key="as_Invisible">隐形</system:String>
+    <system:String x:Key="as_NoGravity">失重</system:String>
+    <system:String x:Key="as_LeftHanded">左手主位</system:String>
+    <system:String x:Key="as_ShowArms">显示手臂</system:String>
+    <system:String x:Key="as_NoBasePlate">无底座</system:String>
+    <system:String x:Key="as_Marker">无碰撞箱</system:String>
+    <system:String x:Key="as_Pose">动作</system:String>
+    <!--#endregion-->
+
+    <!--#region  盔甲架部位 -->
+    <system:String x:Key="Rotation">动作朝向</system:String>
+    <system:String x:Key="Head">头部</system:String>
+    <system:String x:Key="Body">躯干</system:String>
+    <system:String x:Key="Arms">手臂</system:String>
+    <system:String x:Key="LeftArm">左臂</system:String>
+    <system:String x:Key="RightArm">右臂</system:String>
+    <system:String x:Key="MainHand">主要手臂</system:String>
+    <system:String x:Key="OffHand">副要手臂</system:String>
+    <system:String x:Key="Legs">腿部</system:String>
+    <system:String x:Key="LeftLeg">左腿</system:String>
+    <system:String x:Key="RightLeg">右腿</system:String>
+    <system:String x:Key="Boots">脚部</system:String>
+    <!--#endregion-->
+
+    <!--#region  部位物品设置 -->
+    <!--#region  启用复选框 -->
+    <system:String x:Key="Enable_Part_Check">启用物品部位</system:String>
+    <system:String x:Key="Enable_Attribute_Check">启用附加属性</system:String>
+    <system:String x:Key="Enable_Ench_Check">启用附魔属性</system:String>
+    <!--#endregion-->
+
+    <!--#region  物品基本信息 -->
+    <system:String x:Key="Lore">介绍 :</system:String>
+    <system:String x:Key="Count">数量 :</system:String>
+    <system:String x:Key="Damage">附加值 :</system:String>
+    <system:String x:Key="Unbreakable">不可破坏</system:String>
+    <system:String x:Key="HideFlags">隐藏NBT</system:String>
+    <!--#endregion-->
+
+    <!--#region  附加属性 -->
+    <system:String x:Key="AttackDamage">攻击伤害加成:</system:String>
+    <system:String x:Key="FollowRange">怪物追踪范围:</system:String>
+    <system:String x:Key="MaxHealth">最大生命:</system:String>
+    <system:String x:Key="KnockBackResistance">击退抗性:</system:String>
+    <system:String x:Key="MovementSpeed">移动速度:</system:String>
+    <system:String x:Key="Luck">幸运:</system:String>
+    <system:String x:Key="Armor">护甲值:</system:String>
+    <system:String x:Key="ArmorToughness">护甲韧性:</system:String>
+    <system:String x:Key="AttackSpeed">武器攻速:</system:String>
+    <system:String x:Key="Precent">百分比</system:String>
+    <!--#endregion-->
+
+    <!--#region  附魔属性 -->
+    <system:String x:Key="Ench0">保护:</system:String>
+    <system:String x:Key="Ench1">火焰保护:</system:String>
+    <system:String x:Key="Ench2">摔落保护:</system:String>
+    <system:String x:Key="Ench3">爆炸保护:</system:String>
+    <system:String x:Key="Ench4">弹射物保护:</system:String>
+    <system:String x:Key="Ench5">水下呼吸:</system:String>
+    <system:String x:Key="Ench6">水下速掘:</system:String>
+    <system:String x:Key="Ench7">荆棘:</system:String>
+    <system:String x:Key="Ench8">深海探索者:</system:String>
+    <system:String x:Key="Ench9">冰霜行者:</system:String>
+    <system:String x:Key="Ench10">绑定诅咒:</system:String>
+    <system:String x:Key="Ench16">锋利:</system:String>
+    <system:String x:Key="Ench17">亡灵杀手:</system:String>
+    <system:String x:Key="Ench18">节肢杀手:</system:String>
+    <system:String x:Key="Ench19">击退:</system:String>
+    <system:String x:Key="Ench20">火焰附加:</system:String>
+    <system:String x:Key="Ench21">抢夺:</system:String>
+    <system:String x:Key="Ench22">横扫之刃:</system:String>
+    <system:String x:Key="Ench32">效率:</system:String>
+    <system:String x:Key="Ench33">精准采集:</system:String>
+    <system:String x:Key="Ench34">耐久:</system:String>
+    <system:String x:Key="Ench35">时运:</system:String>
+    <system:String x:Key="Ench48">力量:</system:String>
+    <system:String x:Key="Ench49">冲击:</system:String>
+    <system:String x:Key="Ench50">火矢:</system:String>
+    <system:String x:Key="Ench51">无限:</system:String>
+    <system:String x:Key="Ench61">海之眷顾:</system:String>
+    <system:String x:Key="Ench62">饵钓:</system:String>
+    <system:String x:Key="Ench70">经验修补:</system:String>
+    <system:String x:Key="Ench71">消失诅咒:</system:String>
+    <!--#endregion-->
+    <!--#endregion-->
+
+    <!--#region  高级模式 -->
+    <!--#region  TimeAxis -->
+    <system:String x:Key="Play/Pause">播放/暂停</system:String>
+    <system:String x:Key="BackTimeHome">回到第一帧</system:String>
+    <system:String x:Key="TimeRepeat">循环播放</system:String>
+    <system:String x:Key="AddTick">增加1帧</system:String>
+    <system:String x:Key="RemoveTick">减少1帧</system:String>
+    <!--#endregion-->
+
+    <!--#region  KeyFrame ContestMenu -->
+    <system:String x:Key="CopyFrame">复制帧数据(_C)</system:String>
+    <system:String x:Key="PasteFrame">黏贴帧数据(_V)</system:String>
+    <system:String x:Key="DeleteFrame">删除关键帧(_D)</system:String>
+
+    <system:String x:Key="DeleteTip">无法删除初始帧</system:String>
+    <!--#endregion-->
+
+    <!--#region  Transition ContestMenu -->
+    <system:String x:Key="Position_Direction">反向旋转部位设置</system:String>
+    <!--#endregion-->
+    <!--#endregion-->
+
+    <!--#region  动作属性设置UI -->
+    <Thickness x:Key="RotationPadding">10,2,4,1.5</Thickness>
+    <system:Double x:Key="PoseWidth">58.875</system:Double>
+    <HorizontalAlignment x:Key="RotationAlignment">Left</HorizontalAlignment>
+    <Thickness x:Key="AdvancedModeMargin">7,125,0,0</Thickness>
+    <!--#endregion-->
+
+    <!--#region  页面布局属性设置UI -->
+    <system:Double x:Key="NameLabelLength">50</system:Double>
+    <system:Double x:Key="NameTextboxLength">200</system:Double>
+    <system:Double x:Key="TagLabelLength">50</system:Double>
+    <system:Double x:Key="TagTextboxLength">200</system:Double>
+    <system:Double x:Key="ItemNameTextboxLength">205</system:Double>
+
+    <system:Double x:Key="AttackDamgeLabelLength">80</system:Double>
+    <system:Double x:Key="AttackDamageNumberboxLength">112</system:Double>
+    <system:Double x:Key="FollowRangeLabelLength">74</system:Double>
+    <system:Double x:Key="FollowRangeNumberboxLength">118</system:Double>
+    <system:Double x:Key="MaxHealthLabelLength">58</system:Double>
+    <system:Double x:Key="MaxHealthNumberboxLength">134</system:Double>
+    <system:Double x:Key="KnockBackResistanceLabelLength">58</system:Double>
+    <system:Double x:Key="KnockBackResistanceNumberboxLength">134</system:Double>
+    <system:Double x:Key="MovementSpeedLabelLength">58</system:Double>
+    <system:Double x:Key="MovementSpeedNumberboxLength">133</system:Double>
+    <system:Double x:Key="LuckLabelLength">36</system:Double>
+    <system:Double x:Key="LuckNumberboxLength">155</system:Double>
+    <system:Double x:Key="ArmorLabelLength">47</system:Double>
+    <system:Double x:Key="ArmorNumberboxLength">144</system:Double>
+    <system:Double x:Key="ArmorToughnessLabelLength">58</system:Double>
+    <system:Double x:Key="ArmorToughnessNumberboxLength">133</system:Double>
+    <system:Double x:Key="AttackSpeedLabelLength">58</system:Double>
+    <system:Double x:Key="AttackSpeedNumberboxLength">133</system:Double>
+
+    <system:Double x:Key="Ench0LabelLength">36</system:Double>
+    <system:Double x:Key="Ench0NumberboxLength">91</system:Double>
+    <system:Double x:Key="Ench1LabelLength">58</system:Double>
+    <system:Double x:Key="Ench1NumberboxLength">197</system:Double>
+    <system:Double x:Key="Ench2LabelLength">58</system:Double>
+    <system:Double x:Key="Ench2NumberboxLength">197</system:Double>
+    <system:Double x:Key="Ench3LabelLength">58</system:Double>
+    <system:Double x:Key="Ench3NumberboxLength">197</system:Double>
+    <system:Double x:Key="Ench4LabelLength">69</system:Double>
+    <system:Double x:Key="Ench4NumberboxLength">186</system:Double>
+    <system:Double x:Key="Ench5LabelLength">58</system:Double>
+    <system:Double x:Key="Ench5NumberboxLength">60</system:Double>
+    <system:Double x:Key="Ench6LabelLength">58</system:Double>
+    <system:Double x:Key="Ench6NumberboxLength">197</system:Double>
+    <system:Double x:Key="Ench7LabelLength">36</system:Double>
+    <system:Double x:Key="Ench7NumberboxLength">82</system:Double>
+    <system:Double x:Key="Ench8LabelLength">69</system:Double>
+    <system:Double x:Key="Ench8NumberboxLength">186</system:Double>
+    <system:Double x:Key="Ench9LabelLength">58</system:Double>
+    <system:Double x:Key="Ench9NumberboxLength">197</system:Double>
+    <system:Double x:Key="Ench10LabelLength">58</system:Double>
+    <system:Double x:Key="Ench10NumberboxLength">197</system:Double>
+    <system:Double x:Key="Ench16LabelLength">36</system:Double>
+    <system:Double x:Key="Ench16NumberboxLength">91</system:Double>
+    <system:Double x:Key="Ench17LabelLength">58</system:Double>
+    <system:Double x:Key="Ench17NumberboxLength">69</system:Double>
+    <system:Double x:Key="Ench18LabelLength">58</system:Double>
+    <system:Double x:Key="Ench18NumberboxLength">197</system:Double>
+    <system:Double x:Key="Ench19LabelLength">36</system:Double>
+    <system:Double x:Key="Ench19NumberboxLength">91</system:Double>
+    <system:Double x:Key="Ench20LabelLength">58</system:Double>
+    <system:Double x:Key="Ench20NumberboxLength">69</system:Double>
+    <system:Double x:Key="Ench21LabelLength">36</system:Double>
+    <system:Double x:Key="Ench21NumberboxLength">82</system:Double>
+    <system:Double x:Key="Ench22LabelLength">58</system:Double>
+    <system:Double x:Key="Ench22NumberboxLength">197</system:Double>
+    <system:Double x:Key="Ench32LabelLength">36</system:Double>
+    <system:Double x:Key="Ench32NumberboxLength">91</system:Double>
+    <system:Double x:Key="Ench33LabelLength">58</system:Double>
+    <system:Double x:Key="Ench33NumberboxLength">69</system:Double>
+    <system:Double x:Key="Ench34LabelLength">36</system:Double>
+    <system:Double x:Key="Ench34NumberboxLength">91</system:Double>
+    <system:Double x:Key="Ench35LabelLength">36</system:Double>
+    <system:Double x:Key="Ench35NumberboxLength">91</system:Double>
+    <system:Double x:Key="Ench48LabelLength">36</system:Double>
+    <system:Double x:Key="Ench48NumberboxLength">82</system:Double>
+    <system:Double x:Key="Ench49LabelLength">36</system:Double>
+    <system:Double x:Key="Ench49NumberboxLength">82</system:Double>
+    <system:Double x:Key="Ench50LabelLength">36</system:Double>
+    <system:Double x:Key="Ench50NumberboxLength">82</system:Double>
+    <system:Double x:Key="Ench51LabelLength">36</system:Double>
+    <system:Double x:Key="Ench51NumberboxLength">82</system:Double>
+    <system:Double x:Key="Ench61LabelLength">58</system:Double>
+    <system:Double x:Key="Ench61NumberboxLength">197</system:Double>
+    <system:Double x:Key="Ench62LabelLength">36</system:Double>
+    <system:Double x:Key="Ench62NumberboxLength">82</system:Double>
+    <system:Double x:Key="Ench70LabelLength">58</system:Double>
+    <system:Double x:Key="Ench70NumberboxLength">60</system:Double>
+    <system:Double x:Key="Ench71LabelLength">58</system:Double>
+    <system:Double x:Key="Ench71NumberboxLength">197</system:Double>
+    <!--#endregion-->
+    <!--#endregion-->
+
+    <!--#region  MAS.P -->
+
+
+    <!--#endregion-->
+
+    <!--#region  Output Control -->
+    <system:String x:Key="OutPut">生成</system:String>
+    <system:String x:Key="Retrieval">检索</system:String>
+    <!--#endregion-->
+
+</ResourceDictionary>    

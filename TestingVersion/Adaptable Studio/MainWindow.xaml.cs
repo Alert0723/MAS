@@ -24,6 +24,7 @@ namespace Adaptable_Studio
         public static int PageIndex = -1;//页面读取值
         public static bool Restart = false;//重启判定
         public static bool Guidance = true;//启动引导
+        public static bool Guiding = true;
 
         public static string result = "";//指令结果
 
@@ -44,7 +45,7 @@ namespace Adaptable_Studio
 
         #endregion
 
-        #region ini配置文件
+        #region ini配置文件s
         [DllImport("kernel32")]
         private static extern long WritePrivateProfileString(string section, string key, string val, string filePath);
         //定义写入函数
@@ -239,8 +240,7 @@ namespace Adaptable_Studio
         //}
         //#endregion
 
-        #region TitleBar
-        public static bool Guiding = true;
+        #region TitleBar        
         /// <summary> 功能页面引导 </summary>
         private void Help_Click(object sender, RoutedEventArgs e)
         {
