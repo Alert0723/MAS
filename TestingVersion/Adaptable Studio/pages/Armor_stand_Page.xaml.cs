@@ -80,12 +80,8 @@ namespace Adaptable_Studio
         double[] CameraRot = new double[2] { 15, 60 };//水平旋转角,竖直旋转角(相对于原点)
         double[] CameraLookAtPoint = new double[3] { 0, 10, 0 };//摄像机视点
         double[] mouse_location = new double[2];//鼠标位置
-        double[] _pose = new double[19];
-        public double[] pose
-        {
-            get;
-            set;
-        }
+        double[] pose = new double[19];
+        public static bool poseChange;
         #endregion
 
         #region ini配置文件
@@ -896,7 +892,13 @@ namespace Adaptable_Studio
         #endregion
         #endregion
 
-        public static bool poseChange;
+        /// <summary> 3D视窗呈现 </summary>
+        void setPose()
+        {
+            HeadRotZ.Angle = -pose[2]; HeadRotY.Angle = -pose[1]; HeadRotX.Angle = -pose[0];
+
+        }
+
         private void Pose_Changed(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             double X = X_Pose.Value,
@@ -948,6 +950,7 @@ namespace Adaptable_Studio
                 }
                 poseChange = false;
             }//高级模式
+            setPose();
         }
 
         #region ini文件读写
