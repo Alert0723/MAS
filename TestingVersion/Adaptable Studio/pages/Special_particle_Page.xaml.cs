@@ -1,6 +1,5 @@
 ﻿using ArmorStand.CustomControl;
 using DotNetZip;
-using Ionic.Zip;
 using Newtonsoft.Json;
 using SharpGL;
 using SharpGL.SceneGraph;
@@ -17,6 +16,7 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Media3D;
 using System.Windows.Threading;
 
 namespace Adaptable_Studio
@@ -65,18 +65,15 @@ namespace Adaptable_Studio
         Particle[] par = new Particle[50];
         /// <summary> 预览算法预加载-预先计算所有特效算法输出结果 </summary>
         Preview[] pre = new Preview[50];
-        #region OpenGL
-        public static bool preview_rot;
-        public static double GL_Scale = 1.75/*缩放倍数*/;
-        double[] mouse_location = new double[2];//鼠标位置
-        public static double[] rot = new double[2] { 15, -60 };//X旋转角,Y旋转角        
-        #region 纹理映射
-        static Texture GLpar = new Texture();
-        #endregion
 
+        #region Viewport3D
+        double CameraRadius = 50;//摄像机半径(相对于原点)
+        double[] CameraRot = new double[2] { 15, 60 };//水平旋转角,竖直旋转角(相对于原点)
+        double[] CameraLookAtPoint = new double[3] { 0, 10, 0 };//摄像机视点
+        double[] mouse_location = new double[2];//鼠标位置
         #region 预览视角自动环绕
-        float GLmax = 2, GLnormal = 1, GLround_speed = 1.5f;
-        int GLround_status;//环绕视角状态:0-停止,1-匀速,2-加速
+        float Round_max = 2, Round_normal = 1, Round_speed = 1.5f;
+        int Round_status;//环绕视角状态:0-停止,1-匀速,2-加速
         static DispatcherTimer Pre_Timer = new DispatcherTimer();
         #endregion
         #endregion
@@ -167,21 +164,12 @@ namespace Adaptable_Studio
         {
             LogPath = AppPath + @"\log.txt";
             MainWindow.Log_Write(LogPath, "[masp]粒子生成器初始化");
-            #region OpenGL初始化
-            OpenGL gl = OpenGLControl.OpenGL;
-            gl.ClearDepth(1.0f);//设置深度缓存
-            gl.Enable(OpenGL.GL_DEPTH_TEST);//启用深度测试
-            gl.DepthFunc(OpenGL.GL_LEQUAL);
-            gl.Hint(OpenGL.GL_PERSPECTIVE_CORRECTION_HINT, OpenGL.GL_NICEST);//透视修正
-            gl.ShadeModel(OpenGL.GL_SMOOTH);//启用阴影平滑
-            gl.BlendFunc(OpenGL.GL_SRC_ALPHA, OpenGL.GL_ONE);//基于源像素alpha通道值的半透明混合函数
-            try//粒子纹理绑定
-            {
-                GLpar.Create(gl, AppPath + @"\textures\masp\particle.bmp");
-                MainWindow.Log_Write(LogPath, "[OpenGL]纹理绑定完成");
-            }
-            catch { MainWindow.Log_Write(LogPath, "[Error]纹理绑定失败"); }
-            MainWindow.Log_Write(LogPath, "[masp]OpenGL初始化完成");
+
+            #region Viewport3D
+            MainWindow.Log_Write(LogPath, "[masp]Viewport3D初始化");
+            Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);//主摄像机
+            Viewport_3D.CameraReset(ref AxisCamera, CameraRot, new double[3], 10);//坐标系摄像机
+            MainWindow.Log_Write(LogPath, "[Viewport3D]初始化完成");
             #endregion
 
             #region 队列数组初始化            
@@ -734,188 +722,249 @@ namespace Adaptable_Studio
             Application.Current.Shutdown();//关闭当前程序
         }
 
-        #region OpenGL绘制        
-        /// <summary> OpenGL绘制主体 </summary>
-        private void OpenGLControl_OpenGLDraw(object sender, OpenGLEventArgs args)
-        {
-            OpenGL gl = OpenGLControl.OpenGL;
-            gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);//深度清除缓存
-            gl.LoadIdentity();//重置当前模型观察矩阵
-            gl.Translate(0, -1, -10);//设置坐标原点
-            gl.Scale(GL_Scale, GL_Scale, GL_Scale);//缩放
-            gl.Rotate((float)rot[0], (float)rot[1], 0f);//观察角度
-            gl.ClearColor(0.5f, 0.5f, 0.5f, 0.5f);//设置清晰颜色
-            OpenGL_Draw Draw = new OpenGL_Draw();
-            exeTest = false;
-            if ((bool)Network_bool.IsChecked) Draw.Network(gl); //网格绘制
+        //#region OpenGL绘制        
+        ///// <summary> OpenGL绘制主体 </summary>
+        //private void OpenGLControl_OpenGLDraw(object sender, OpenGLEventArgs args)
+        //{
+        //    OpenGL gl = OpenGLControl.OpenGL;
+        //    gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);//深度清除缓存
+        //    gl.LoadIdentity();//重置当前模型观察矩阵
+        //    gl.Translate(0, -1, -10);//设置坐标原点
+        //    gl.Scale(GL_Scale, GL_Scale, GL_Scale);//缩放
+        //    gl.Rotate((float)rot[0], (float)rot[1], 0f);//观察角度
+        //    gl.ClearColor(0.5f, 0.5f, 0.5f, 0.5f);//设置清晰颜色
+        //    OpenGL_Draw Draw = new OpenGL_Draw();
+        //    exeTest = false;
+        //    if ((bool)Network_bool.IsChecked) Draw.Network(gl); //网格绘制
 
-            if ((bool)Axis_bool.IsChecked)
-            {
-                gl.LineWidth(1.5f);
+        //    if ((bool)Axis_bool.IsChecked)
+        //    {
+        //        gl.LineWidth(1.5f);
 
-                gl.Rotate(0F, 0F, 0F); //X坐标轴  
-                gl.Color(1.0F, 0.1F, 0.1F);
-                OpenGL_Draw.Draw_Axis(gl); OpenGL_reset(gl);
-                gl.Rotate(0F, 0F, 90.0F); //Y坐标轴
-                gl.Color(0.1F, 1.0F, 0.1F);
-                OpenGL_Draw.Draw_Axis(gl); OpenGL_reset(gl);
-                gl.Rotate(0F, -90.0F, 0F);//Z坐标轴                 
-                gl.Color(0.1F, 0.1F, 1.0F);
-                OpenGL_Draw.Draw_Axis(gl); OpenGL_reset(gl);
+        //        gl.Rotate(0F, 0F, 0F); //X坐标轴  
+        //        gl.Color(1.0F, 0.1F, 0.1F);
+        //        OpenGL_Draw.Draw_Axis(gl); OpenGL_reset(gl);
+        //        gl.Rotate(0F, 0F, 90.0F); //Y坐标轴
+        //        gl.Color(0.1F, 1.0F, 0.1F);
+        //        OpenGL_Draw.Draw_Axis(gl); OpenGL_reset(gl);
+        //        gl.Rotate(0F, -90.0F, 0F);//Z坐标轴                 
+        //        gl.Color(0.1F, 0.1F, 1.0F);
+        //        OpenGL_Draw.Draw_Axis(gl); OpenGL_reset(gl);
 
-                gl.LineWidth(1f);
-            }//坐标轴绘制
+        //        gl.LineWidth(1f);
+        //    }//坐标轴绘制
 
-            if (SelectorSwitch) Draw.Steve_framework(gl); //Steve模型框架
+        //    if (SelectorSwitch) Draw.Steve_framework(gl); //Steve模型框架
 
-            exeTest = true;
-            OpenGL_reset(gl);
-            gl.Color(1f, 1f, 1f);
+        //    exeTest = true;
+        //    OpenGL_reset(gl);
+        //    gl.Color(1f, 1f, 1f);
 
-            #region 参数重置
-            pre_count = 0;//粒子数统计清空
-            for (int i = 0; i < 3; i++) { par_distance[i] = 0; }
-            #endregion
+        //    #region 参数重置
+        //    pre_count = 0;//粒子数统计清空
+        //    for (int i = 0; i < 3; i++) { par_distance[i] = 0; }
+        //    #endregion
 
-            //粒子绘制
-            GLpar.Bind(gl);
-            gl.Enable(OpenGL.GL_TEXTURE_2D);//启用2D纹理映射
-            gl.Enable(OpenGL.GL_BLEND);//启用混色
-            foreach (var particle in par)
-            {
-                if (particle.Style == String.Empty) break;
-                else
-                {
-                    foreach (var preview in pre)
-                    {
-                        if (preview.StyleName == particle.Style)
-                        {
-                            int mark = 0;
-                            string OneData;
-                            for (int k = 0; k < particle.Coded.Length; k++)
-                            {
-                                OpenGL_reset(gl);
-                                if (particle.Coded[k].ToString() == "|")
-                                {
-                                    OneData = particle.Coded.Substring(mark, k - mark).Replace("|", "");
-                                    mark = k;
-                                    par_distance[0] = double.Parse(OneData.Substring(0, OneData.IndexOf("/")));
-                                    par_distance[1] = double.Parse(OneData.Substring(OneData.IndexOf("/") + 1, OneData.LastIndexOf("/") - OneData.IndexOf("/") - 1));
-                                    par_distance[2] = double.Parse(OneData.Substring(OneData.LastIndexOf("/") + 1, OneData.Length - OneData.LastIndexOf("/") - 1));
-                                    Draw.Par_Draw(gl, ref par_distance);
-                                    pre_count++;
-                                }
-                            }//解析编译数据                            
-                        }
+        //    //粒子绘制
+        //    GLpar.Bind(gl);
+        //    gl.Enable(OpenGL.GL_TEXTURE_2D);//启用2D纹理映射
+        //    gl.Enable(OpenGL.GL_BLEND);//启用混色
+        //    foreach (var particle in par)
+        //    {
+        //        if (particle.Style == String.Empty) break;
+        //        else
+        //        {
+        //            foreach (var preview in pre)
+        //            {
+        //                if (preview.StyleName == particle.Style)
+        //                {
+        //                    int mark = 0;
+        //                    string OneData;
+        //                    for (int k = 0; k < particle.Coded.Length; k++)
+        //                    {
+        //                        OpenGL_reset(gl);
+        //                        if (particle.Coded[k].ToString() == "|")
+        //                        {
+        //                            OneData = particle.Coded.Substring(mark, k - mark).Replace("|", "");
+        //                            mark = k;
+        //                            par_distance[0] = double.Parse(OneData.Substring(0, OneData.IndexOf("/")));
+        //                            par_distance[1] = double.Parse(OneData.Substring(OneData.IndexOf("/") + 1, OneData.LastIndexOf("/") - OneData.IndexOf("/") - 1));
+        //                            par_distance[2] = double.Parse(OneData.Substring(OneData.LastIndexOf("/") + 1, OneData.Length - OneData.LastIndexOf("/") - 1));
+        //                            Draw.Par_Draw(gl, ref par_distance);
+        //                            pre_count++;
+        //                        }
+        //                    }//解析编译数据                            
+        //                }
 
-                    }
-                }
-            }//模板坐标计算
+        //            }
+        //        }
+        //    }//模板坐标计算
 
-            gl.Disable(OpenGL.GL_TEXTURE_2D);//禁用2D纹理映射
-            gl.Disable(OpenGL.GL_BLEND);//禁用混色
-            gl.Flush();
+        //    gl.Disable(OpenGL.GL_TEXTURE_2D);//禁用2D纹理映射
+        //    gl.Disable(OpenGL.GL_BLEND);//禁用混色
+        //    gl.Flush();
 
-            paeticle_stats.Content = "粒子数:" + pre_count;
-        }
+        //    paeticle_stats.Content = "粒子数:" + pre_count;
+        //}
 
-        /// <summary> 坐标重置 </summary>
-        public static void OpenGL_reset(OpenGL gl)
-        {
-            gl.LoadIdentity();// 重置当前模型观察矩阵          
-            gl.Translate(0, -1, -10);
-            gl.Rotate(Convert.ToSingle(rot[0]), Convert.ToSingle(rot[1]), 0F);//观察角度
-            gl.Scale(GL_Scale, GL_Scale, GL_Scale);//缩放
-                                                   //if (exeTest) { if (SelectorSwitch) { gl.Translate(exe_shift[0] * 10, exe_shift[1] * 10, exe_shift[2] * 10); } }
-        }
+        ///// <summary> 坐标重置 </summary>
+        //public static void OpenGL_reset(OpenGL gl)
+        //{
+        //    gl.LoadIdentity();// 重置当前模型观察矩阵          
+        //    gl.Translate(0, -1, -10);
+        //    gl.Rotate(Convert.ToSingle(rot[0]), Convert.ToSingle(rot[1]), 0F);//观察角度
+        //    gl.Scale(GL_Scale, GL_Scale, GL_Scale);//缩放
+        //                                           //if (exeTest) { if (SelectorSwitch) { gl.Translate(exe_shift[0] * 10, exe_shift[1] * 10, exe_shift[2] * 10); } }
+        //}
 
-        /// <summary> 鼠标滚轮缩放事件 </summary>
-        private void OpenGL_Scale(object sender, MouseWheelEventArgs e)
-        {
-            if (e.Delta > 0 && GL_Scale < 3) GL_Scale += 0.05;
-            if (e.Delta < 0 && GL_Scale > 0.5) GL_Scale -= 0.05;
-            GLScale.Value = GL_Scale;
-        }
+        ///// <summary> 鼠标滚轮缩放事件 </summary>
+        //private void OpenGL_Scale(object sender, MouseWheelEventArgs e)
+        //{
+        //    if (e.Delta > 0 && GL_Scale < 3) GL_Scale += 0.05;
+        //    if (e.Delta < 0 && GL_Scale > 0.5) GL_Scale -= 0.05;
+        //    GLScale.Value = GL_Scale;
+        //}
 
         #region 视角持续旋转
         private void Round_start(object sender, MouseEventArgs e)
         {
-            GLround_status = 1;
+            e.Handled = true;
+            Round_status = 1;
             Pre_Timer.Start();
         }
 
         private void Round_end(object sender, MouseEventArgs e)
         {
-            GLround_status = 0;
+            Round_status = 0;
         }
 
         private void Round_down(object sender, MouseButtonEventArgs e)
         {
-            GLround_status = 2;
+            e.Handled = true;
+            Round_status = 2;
         }
 
         private void Round_up(object sender, MouseButtonEventArgs e)
         {
-            GLround_status = 1;
+            e.Handled = true;
+            Round_status = 1;
         }
 
         private void Round_Tick(object sender, EventArgs e)
         {
-            switch (GLround_status)
+            switch (Round_status)
             {
                 case 0:
-                    GLround_speed -= 0.05f;
+                    Round_speed -= 0.05f;
                     break;
                 case 1:
-                    if (GLround_speed < GLnormal) GLround_speed += 0.025f;
-                    if (GLround_speed > GLnormal) GLround_speed -= 0.025f;
+                    if (Round_speed < Round_normal) Round_speed += 0.025f;
+                    if (Round_speed > Round_normal) Round_speed -= 0.025f;
                     break;
                 case 2:
-                    if (GLround_speed < GLmax) GLround_speed += 0.025f;
+                    if (Round_speed < Round_max) Round_speed += 0.025f;
                     break;
             }
-            rot[1] += GLround_speed;
-            if (GLround_speed <= 0) { GLround_speed = 0; Pre_Timer.Stop(); }
+            CameraRot[0] += Round_speed;
+            if (Round_speed <= 0) { Round_speed = 0; Pre_Timer.Stop(); }
         }
         #endregion
 
-        #region 预览视角旋转事件
-        private void OpenGLControl_down(object sender, MouseButtonEventArgs e)
+        #region Viewport3D
+        #region Buttons
+        /// <summary> 预览视重置 </summary>        
+        private void Viewport_Relocation(object sender, RoutedEventArgs e)
         {
-            preview_rot = true;
+            CameraRadius = 50;
+            CameraRot = new double[2] { 15, 60 };//水平旋转角,竖直旋转角(相对于原点)
+            CameraLookAtPoint = new double[3] { 0, 10, 0 };//摄像机视点
+            Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);//主摄像机
+            Viewport_3D.CameraReset(ref AxisCamera, CameraRot, new double[3], 10);//坐标系摄像机
+        }
+        #endregion
+
+        /// <summary> 鼠标滚轮控制</summary>
+        private void Viewport_MouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if (e.Delta < 0)
+                CameraRadius += 0.5;
+            else if (e.Delta > 0)
+                CameraRadius -= 0.5;
+
+            Scale.Value = CameraRadius;
+
+            Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);//主摄像机
+        }
+
+        private void Scale_MouseMove(object sender, MouseEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void Scale_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);//主摄像机
+        }
+
+        #region 预览视角旋转-摄像机坐标计算
+        private void Viewport_MouseDown(object sender, MouseButtonEventArgs e)
+        {
             mouse_location[0] = e.GetPosition((IInputElement)sender).X;
             mouse_location[1] = e.GetPosition((IInputElement)sender).Y;
+
+            if (e.LeftButton == MouseButtonState.Pressed) PreviewGrid.Cursor = Cursors.SizeAll;
+            else if (e.RightButton == MouseButtonState.Pressed) PreviewGrid.Cursor = Cursors.ScrollAll;
         }
 
-        private void OpenGLControl_up(object sender, MouseButtonEventArgs e)
+        private void Viewport_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            preview_rot = false;
+            PreviewGrid.Cursor = Cursors.Arrow;
         }
 
-        private void OpenGLControl_leave(object sender, MouseEventArgs e)
+        /// <summary> 鼠标拖拽 </summary>
+        private void Viewport_MouseMove(object sender, MouseEventArgs e)
         {
-            preview_rot = false;
-        }
-
-        private void OpenGLControl_rot_Change(object sender, MouseEventArgs e)
-        {
-            if (preview_rot)
+            PreviewGrid.Cursor = Cursors.Arrow;
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
-                rot[1] += (e.GetPosition((IInputElement)sender).X - mouse_location[0]) * 180 / 460;
-                rot[0] += (e.GetPosition((IInputElement)sender).Y - mouse_location[1]) * 180 / 460;
-                mouse_location[0] = e.GetPosition((IInputElement)sender).X;
-                mouse_location[1] = e.GetPosition((IInputElement)sender).Y;
-            }
-            //if (rot[0] > 90) { rot[0] = 90; }
-            //if (rot[0] < -90) { rot[0] = -90; }
-        }
-        #endregion
+                PreviewGrid.Cursor = Cursors.SizeAll;
+                CameraRot[0] += (e.GetPosition((IInputElement)sender).X - mouse_location[0]) * 180 / 460;
+                CameraRot[1] += -(e.GetPosition((IInputElement)sender).Y - mouse_location[1]) * 180 / 460;
+            }//左键转向
+            else if (e.RightButton == MouseButtonState.Pressed)
+            {
+                PreviewGrid.Cursor = Cursors.ScrollAll;
+                Vector3D MoveDir = Viewport_3D.UpDirection_Get(MainCamera.LookDirection, new Vector3D() { X = 0, Y = 1, Z = 0 });
 
-        #region 预览视角缩放
-        /// <summary> 缩放滑条 </summary>
-        private void GLScale_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            GL_Scale = GLScale.Value;
+                //水平移动
+                if (e.GetPosition((IInputElement)sender).X - mouse_location[0] != 0)
+                {
+                    CameraLookAtPoint[0] -= (e.GetPosition((IInputElement)sender).X - mouse_location[0]) * MoveDir.X / 360;
+                    CameraLookAtPoint[2] -= (e.GetPosition((IInputElement)sender).X - mouse_location[0]) * MoveDir.Z / 360;
+                }
+
+                //竖直移动
+                if (e.GetPosition((IInputElement)sender).Y - mouse_location[1] != 0)
+                    CameraLookAtPoint[1] += (e.GetPosition((IInputElement)sender).Y - mouse_location[1]) * 0.08;
+
+                MainCamera.LookDirection = new Vector3D()
+                {
+                    X = CameraLookAtPoint[0] - MainCamera.Position.X,
+                    Y = CameraLookAtPoint[1] - MainCamera.Position.Y,
+                    Z = CameraLookAtPoint[2] - MainCamera.Position.Z
+                };
+            }//右键平面移动
+
+            Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);
+            Viewport_3D.CameraReset(ref AxisCamera, CameraRot, new double[3], 10);
+
+            mouse_location[0] = e.GetPosition((IInputElement)sender).X;
+            mouse_location[1] = e.GetPosition((IInputElement)sender).Y;
+
+            if (CameraRot[0] > 360) CameraRot[0] = 0;
+            else if (CameraRot[0] < 0) CameraRot[0] = 360;
+            if (CameraRot[1] > 175) CameraRot[1] = 175;
+            else if (CameraRot[1] < 5) CameraRot[1] = 5;
         }
         #endregion
         #endregion

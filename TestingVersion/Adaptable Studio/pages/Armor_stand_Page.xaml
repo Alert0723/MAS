@@ -1398,7 +1398,8 @@
         </Grid>
         <GroupBox x:Name="Preview" Header="ArmorStand Preview" Margin="279,2,0,104" Grid.RowSpan="3" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Background="#FF119EDA" BorderBrush="{x:Null}" Padding="5,8" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" Custom1:ControlsHelper.ContentCharacterCasing="Normal">
             <Grid x:Name="PreviewGrid" Background="#FFCDCDCD" MouseMove="ArmorStandView_MouseMove" MouseDown="ArmorStandView_MouseDown" MouseWheel="ArmorStandView_MouseWheel" MouseUp="ArmorStandView_MouseUp">
-                <Viewport3D x:Name="ArmorStandView">
+                <!--#region  Viewport3D -->
+                <Viewport3D x:Name="MainViewport">
                     <Viewport3D.Camera>
                         <PerspectiveCamera x:Name="MainCamera"
                                Position="40,35,10"
@@ -1408,14 +1409,12 @@
                                FarPlaneDistance="100"
                                FieldOfView="60"/>
                     </Viewport3D.Camera>
-
                     <ModelVisual3D x:Name="Light">
                         <ModelVisual3D.Content>
                             <DirectionalLight x:Name="DirectionalLight" Color="White" Direction="-5,-1,2"/>
                         </ModelVisual3D.Content>
                     </ModelVisual3D>
-
-                    <ModelVisual3D>
+                    <ModelVisual3D x:Name="Models">
                         <ModelVisual3D x:Name="armor_stand">
                             <ModelVisual3D x:Name="Head">
                                 <ModelVisual3D>
@@ -1620,7 +1619,7 @@
                                FarPlaneDistance="100"
                                FieldOfView="60"/>
                     </Viewport3D.Camera>
-                    <ModelVisual3D>
+                    <ModelVisual3D x:Name="AxisModel">
                         <!--Total Rotation-->
                         <ModelVisual3D.Transform>
                             <Transform3DGroup>
@@ -1660,6 +1659,7 @@
                         <ModelVisual3D Content="{DynamicResource AxisZ}"/>
                     </ModelVisual3D>
                 </Viewport3D>
+                <!--#endregion-->
                 <Button x:Name="Relocation" Style="{DynamicResource CustomButton}" Margin="0,0,9,5" BorderBrush="{x:Null}" Width="20" Height="20" Click="Viewport_Relocation" VerticalAlignment="Bottom" HorizontalAlignment="Right" ToolTip="{DynamicResource Viewport_Relocation}">
                     <Button.Background>
                         <ImageBrush ImageSource="/Minecraft Adaptable Studio;component/icon/Viewport3D/Relocation.png" Stretch="Uniform"/>

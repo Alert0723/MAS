@@ -139,6 +139,7 @@
     <Compile Include="class\DotNetZip.cs" />
     <Compile Include="class\Dynamic code.cs" />
     <Compile Include="class\MousePosition.cs" />
+    <Compile Include="class\Viewport_3D.cs" />
     <Compile Include="Functional form\MASC-Part Direction.xaml.cs">
       <DependentUpon>MASC-Part Direction.xaml</DependentUpon>
     </Compile>

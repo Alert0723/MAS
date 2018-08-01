@@ -133,8 +133,8 @@ namespace Adaptable_Studio
 
             #region Viewport3D 初始化
             MainWindow.Log_Write(LogPath, "[masc]Viewport3D初始化");
-            CameraReset(MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);//主摄像机
-            CameraReset(AxisCamera, CameraRot, new double[3], 10);//坐标系摄像机
+            Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);//主摄像机
+            Viewport_3D.CameraReset(ref AxisCamera, CameraRot, new double[3], 10);//坐标系摄像机
             LightDirectionReset();
             MainWindow.Log_Write(LogPath, "[Viewport3D]初始化完成");
             #endregion           
@@ -764,8 +764,8 @@ namespace Adaptable_Studio
             CameraRadius = 50;
             CameraRot = new double[2] { 15, 60 };//水平旋转角,竖直旋转角(相对于原点)
             CameraLookAtPoint = new double[3] { 0, 10, 0 };//摄像机视点
-            CameraReset(MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);//主摄像机
-            CameraReset(AxisCamera, CameraRot, new double[3], 10);//坐标系摄像机
+            Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);//主摄像机
+            Viewport_3D.CameraReset(ref AxisCamera, CameraRot, new double[3], 10);//坐标系摄像机
         }
         #endregion
 
@@ -777,7 +777,7 @@ namespace Adaptable_Studio
             else if (e.Delta > 0)
                 CameraRadius -= 0.5;
 
-            CameraReset(MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);//主摄像机            
+            Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);//主摄像机            
         }
 
         #region 预览视角旋转-摄像机坐标计算
@@ -795,27 +795,11 @@ namespace Adaptable_Studio
             PreviewGrid.Cursor = Cursors.Arrow;
         }
 
-        /// <summary>
-        /// 平面法向量计算
-        /// </summary>
-        /// <param name="vector1">构成平面的向量1</param>
-        /// <param name="vector2">构成平面的向量2</param>
-        private Vector3D UpDirection_Get(Vector3D vector1, Vector3D vector2)
-        {
-            //叉乘 a×b=(y1z2-y2z1,z1x2-z2x1,x1y2-x2y1)            
-            return new Vector3D()
-            {
-                X = vector1.Y * vector2.Z - vector2.Y * vector1.Z,
-                Y = vector1.Z * vector2.X - vector1.X * vector2.Z,
-                Z = vector1.X * vector2.Y - vector1.Y * vector2.X
-            };
-        }
-
         /// <summary> 方向光源计算 </summary>
         void LightDirectionReset()
         {
             PerspectiveCamera mark = new PerspectiveCamera();
-            CameraReset(mark, new double[] { CameraRot[0] + 60, CameraRot[1] }, new double[3], 10);
+            Viewport_3D.CameraReset(ref mark, new double[] { CameraRot[0] + 60, CameraRot[1] }, new double[3], 10);
 
             DirectionalLight.Direction = new Vector3D()
             {
@@ -840,7 +824,7 @@ namespace Adaptable_Studio
             else if (e.RightButton == MouseButtonState.Pressed)
             {
                 PreviewGrid.Cursor = Cursors.ScrollAll;
-                Vector3D MoveDir = UpDirection_Get(MainCamera.LookDirection, new Vector3D() { X = 0, Y = 1, Z = 0 });
+                Vector3D MoveDir = Viewport_3D.UpDirection_Get(MainCamera.LookDirection, new Vector3D() { X = 0, Y = 1, Z = 0 });
 
                 //水平移动
                 if (e.GetPosition((IInputElement)sender).X - mouse_location[0] != 0)
@@ -861,8 +845,8 @@ namespace Adaptable_Studio
                 };
             }//右键平面移动
 
-            CameraReset(MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);
-            CameraReset(AxisCamera, CameraRot, new double[3], 10);
+            Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);
+            Viewport_3D.CameraReset(ref AxisCamera, CameraRot, new double[3], 10);
 
             mouse_location[0] = e.GetPosition((IInputElement)sender).X;
             mouse_location[1] = e.GetPosition((IInputElement)sender).Y;
@@ -871,23 +855,6 @@ namespace Adaptable_Studio
             else if (CameraRot[0] < 0) CameraRot[0] = 360;
             if (CameraRot[1] > 175) CameraRot[1] = 175;
             else if (CameraRot[1] < 5) CameraRot[1] = 5;
-        }
-
-        /// <summary> 摄像机位置设定 </summary>
-        /// <param name="camera">摄像机</param>
-        /// <param name="rotation">摄像机角度朝向(水平,竖直)</param>
-        /// <param name="LookAtPoint">摄像机观察目标点</param>
-        /// <param name="radius">摄像机环绕半径</param>
-        void CameraReset(PerspectiveCamera camera, double[] rotation, double[] LookAtPoint, double radius)
-        {
-            Point3D Point = new Point3D()
-            {
-                X = LookAtPoint[0] + Math.Sin(rotation[1] * Math.PI / 180) * Math.Cos(rotation[0] * Math.PI / 180) * radius,
-                Y = LookAtPoint[1] + Math.Cos(rotation[1] * Math.PI / 180) * radius,
-                Z = LookAtPoint[2] + Math.Sin(rotation[1] * Math.PI / 180) * Math.Sin(rotation[0] * Math.PI / 180) * radius
-            };
-            camera.Position = Point;
-            camera.LookDirection = new Vector3D() { X = -Point.X + LookAtPoint[0], Y = -Point.Y + LookAtPoint[1], Z = -Point.Z + LookAtPoint[2] };
         }
         #endregion
         #endregion
