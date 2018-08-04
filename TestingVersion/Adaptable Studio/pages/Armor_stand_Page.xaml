@@ -1162,6 +1162,7 @@
                                         <WrapPanel.Effect>
                                             <BlurEffect Radius="10"/>
                                         </WrapPanel.Effect>
+                                        <!--#region  附加属性 -->
                                         <Label Content="{DynamicResource AttackDamage}"  FontSize="11" Width="{DynamicResource AttackDamgeLabelLength}"/>
                                         <Custom:CustomNumberBox x:Name="AttackDamage" Height="20" Width="{DynamicResource AttackDamageNumberboxLength}" TabIndex="0" Interval="0.1" Maximum="32767"/>
                                         <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="AttackDamage_precent" Content="{DynamicResource Precent}" Width="65"  FontSize="11" Padding="5,0,0,2" Margin="5,0,0,0" VerticalContentAlignment="Center" TabIndex="0"/>
@@ -1189,6 +1190,7 @@
                                         <Label Content="{DynamicResource AttackSpeed}"  FontSize="11" Width="{DynamicResource AttackSpeedLabelLength}"/>
                                         <Custom:CustomNumberBox x:Name="AttackSpeed" Height="20" Width="{DynamicResource AttackSpeedNumberboxLength}" TabIndex="8" Interval="0.1" Maximum="32767"/>
                                         <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="AttackSpeed_precent" Content="{DynamicResource Precent}" Width="65"  FontSize="11" Margin="5,0,0,0" Padding="5,0,0,2" TabIndex="8"/>
+                                        <!--#endregion-->
                                     </WrapPanel>
                                     <Label x:Name="label2" Content="{DynamicResource Enable_Attribute}" Background="{x:Null}" Foreground="White"  UseLayoutRounding="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" Margin="55,0,2,105.584" VerticalAlignment="Bottom" FontSize="10.5" Grid.ColumnSpan="2" IsHitTestVisible="False" HorizontalContentAlignment="Center"/>
                                     <Border x:Name="WaringIcon2" BorderThickness="1" Width="39.151" Height="34.583" HorizontalAlignment="Left" Margin="28.849,0,0,100.084" VerticalAlignment="Bottom" Grid.ColumnSpan="2" IsHitTestVisible="False">
@@ -1258,7 +1260,6 @@
                                         <WrapPanel.Effect>
                                             <BlurEffect Radius="10"/>
                                         </WrapPanel.Effect>
-                                        <!--#endregion-->
                                         <!--#region  附魔属性 -->
                                         <Label Content="{DynamicResource Ench16}"  FontSize="11" Width="{DynamicResource Ench16LabelLength}"/>
                                         <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench16NumberboxLength}" TabIndex="16" Interval="1" Maximum="32767" Tag="16"/>
@@ -1320,6 +1321,7 @@
                                         <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench71NumberboxLength}" TabIndex="71" Interval="1" Maximum="32767" Tag="71" Margin="0"/>
                                         <Label Content="{DynamicResource Ench10}" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" FontSize="11" Width="{DynamicResource Ench10LabelLength}"/>
                                         <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench10NumberboxLength}" TabIndex="10" Interval="1" Maximum="32767" Tag="10"/>
+                                        <!--#endregion-->
                                     </WrapPanel>
                                     <Label x:Name="label3" Content="{DynamicResource Enable_Ench}" Background="{x:Null}" Foreground="White"  UseLayoutRounding="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" HorizontalContentAlignment="Center" FontSize="10.5" Margin="60,69,0,0" HorizontalAlignment="Left" Width="182" VerticalAlignment="Top" IsHitTestVisible="False"/>
                                     <Border x:Name="WaringIcon3" BorderThickness="1" Width="39.151" Height="34.583" HorizontalAlignment="Left" Margin="28.849,62,0,0" VerticalAlignment="Top" IsHitTestVisible="False">
@@ -1350,9 +1352,9 @@
                         </Label>
                         <Label Content=". . ." VerticalAlignment="Top" Margin="47,12,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282"/>
                         <Label Content="{DynamicResource Guide_switch}" FontFamily="{DynamicResource Font}" VerticalAlignment="Top" Margin="71,17,0,0" HorizontalAlignment="Left" FontWeight="Bold" Foreground="#FFFF8282"/>
-
                         <!--#endregion-->
                         <!--#endregion-->
+                        
                         <!--#region  Pose Guidance -->
                         <Border Margin="131,328,0,0" BorderBrush="#FFFF8282" BorderThickness="1.5" HorizontalAlignment="Left" Width="90" Height="24" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
                             <Border.RenderTransform>

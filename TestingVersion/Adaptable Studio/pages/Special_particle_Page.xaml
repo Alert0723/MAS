@@ -2,12 +2,10 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"      
-      xmlns:WPF="clr-namespace:SharpGL.WPF;assembly=SharpGL.WPF"
       xmlns:Custom="http://metro.mahapps.com/winfx/xaml/controls"
       xmlns:userControl="clr-namespace:Adaptable_Studio.userControl"
       x:Class="Adaptable_Studio.Special_particle_Page"
-      mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      mc:Ignorable="d"  d:DesignHeight="300" d:DesignWidth="300"
       Title="special_particle_Page" Width="942" Height="569" Loaded="Page_Loaded">
     <Grid x:Name="Main_grid">
         <GroupBox Header="Preview" Margin="406,10,0,22" Background="#CC119EDA" BorderBrush="#CC119EDA" HorizontalAlignment="Left" Width="526" Custom:ControlsHelper.ContentCharacterCasing="Normal">

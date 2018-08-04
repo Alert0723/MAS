@@ -91,15 +91,11 @@ namespace Adaptable_Studio
         string iniPath = Environment.CurrentDirectory + @"\config.ini";//ini文件路径
         StringBuilder StrName = new StringBuilder(255);//定义字符串  
         #endregion
-        #endregion        
-
-        DispatcherTimer timer = new DispatcherTimer() { Interval = new TimeSpan(0, 0, 0, 1, 500) };//动态编译
+        #endregion
 
         public Special_particle_Page()
         {
             InitializeComponent();
-            timer.Tick += Coding;
-            timer.Start();
         }
 
         /// <summary> 动态编译Timer </summary>
@@ -722,109 +718,6 @@ namespace Adaptable_Studio
             Application.Current.Shutdown();//关闭当前程序
         }
 
-        //#region OpenGL绘制        
-        ///// <summary> OpenGL绘制主体 </summary>
-        //private void OpenGLControl_OpenGLDraw(object sender, OpenGLEventArgs args)
-        //{
-        //    OpenGL gl = OpenGLControl.OpenGL;
-        //    gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);//深度清除缓存
-        //    gl.LoadIdentity();//重置当前模型观察矩阵
-        //    gl.Translate(0, -1, -10);//设置坐标原点
-        //    gl.Scale(GL_Scale, GL_Scale, GL_Scale);//缩放
-        //    gl.Rotate((float)rot[0], (float)rot[1], 0f);//观察角度
-        //    gl.ClearColor(0.5f, 0.5f, 0.5f, 0.5f);//设置清晰颜色
-        //    OpenGL_Draw Draw = new OpenGL_Draw();
-        //    exeTest = false;
-        //    if ((bool)Network_bool.IsChecked) Draw.Network(gl); //网格绘制
-
-        //    if ((bool)Axis_bool.IsChecked)
-        //    {
-        //        gl.LineWidth(1.5f);
-
-        //        gl.Rotate(0F, 0F, 0F); //X坐标轴  
-        //        gl.Color(1.0F, 0.1F, 0.1F);
-        //        OpenGL_Draw.Draw_Axis(gl); OpenGL_reset(gl);
-        //        gl.Rotate(0F, 0F, 90.0F); //Y坐标轴
-        //        gl.Color(0.1F, 1.0F, 0.1F);
-        //        OpenGL_Draw.Draw_Axis(gl); OpenGL_reset(gl);
-        //        gl.Rotate(0F, -90.0F, 0F);//Z坐标轴                 
-        //        gl.Color(0.1F, 0.1F, 1.0F);
-        //        OpenGL_Draw.Draw_Axis(gl); OpenGL_reset(gl);
-
-        //        gl.LineWidth(1f);
-        //    }//坐标轴绘制
-
-        //    if (SelectorSwitch) Draw.Steve_framework(gl); //Steve模型框架
-
-        //    exeTest = true;
-        //    OpenGL_reset(gl);
-        //    gl.Color(1f, 1f, 1f);
-
-        //    #region 参数重置
-        //    pre_count = 0;//粒子数统计清空
-        //    for (int i = 0; i < 3; i++) { par_distance[i] = 0; }
-        //    #endregion
-
-        //    //粒子绘制
-        //    GLpar.Bind(gl);
-        //    gl.Enable(OpenGL.GL_TEXTURE_2D);//启用2D纹理映射
-        //    gl.Enable(OpenGL.GL_BLEND);//启用混色
-        //    foreach (var particle in par)
-        //    {
-        //        if (particle.Style == String.Empty) break;
-        //        else
-        //        {
-        //            foreach (var preview in pre)
-        //            {
-        //                if (preview.StyleName == particle.Style)
-        //                {
-        //                    int mark = 0;
-        //                    string OneData;
-        //                    for (int k = 0; k < particle.Coded.Length; k++)
-        //                    {
-        //                        OpenGL_reset(gl);
-        //                        if (particle.Coded[k].ToString() == "|")
-        //                        {
-        //                            OneData = particle.Coded.Substring(mark, k - mark).Replace("|", "");
-        //                            mark = k;
-        //                            par_distance[0] = double.Parse(OneData.Substring(0, OneData.IndexOf("/")));
-        //                            par_distance[1] = double.Parse(OneData.Substring(OneData.IndexOf("/") + 1, OneData.LastIndexOf("/") - OneData.IndexOf("/") - 1));
-        //                            par_distance[2] = double.Parse(OneData.Substring(OneData.LastIndexOf("/") + 1, OneData.Length - OneData.LastIndexOf("/") - 1));
-        //                            Draw.Par_Draw(gl, ref par_distance);
-        //                            pre_count++;
-        //                        }
-        //                    }//解析编译数据                            
-        //                }
-
-        //            }
-        //        }
-        //    }//模板坐标计算
-
-        //    gl.Disable(OpenGL.GL_TEXTURE_2D);//禁用2D纹理映射
-        //    gl.Disable(OpenGL.GL_BLEND);//禁用混色
-        //    gl.Flush();
-
-        //    paeticle_stats.Content = "粒子数:" + pre_count;
-        //}
-
-        ///// <summary> 坐标重置 </summary>
-        //public static void OpenGL_reset(OpenGL gl)
-        //{
-        //    gl.LoadIdentity();// 重置当前模型观察矩阵          
-        //    gl.Translate(0, -1, -10);
-        //    gl.Rotate(Convert.ToSingle(rot[0]), Convert.ToSingle(rot[1]), 0F);//观察角度
-        //    gl.Scale(GL_Scale, GL_Scale, GL_Scale);//缩放
-        //                                           //if (exeTest) { if (SelectorSwitch) { gl.Translate(exe_shift[0] * 10, exe_shift[1] * 10, exe_shift[2] * 10); } }
-        //}
-
-        ///// <summary> 鼠标滚轮缩放事件 </summary>
-        //private void OpenGL_Scale(object sender, MouseWheelEventArgs e)
-        //{
-        //    if (e.Delta > 0 && GL_Scale < 3) GL_Scale += 0.05;
-        //    if (e.Delta < 0 && GL_Scale > 0.5) GL_Scale -= 0.05;
-        //    GLScale.Value = GL_Scale;
-        //}
-
         #region 视角持续旋转
         private void Round_start(object sender, MouseEventArgs e)
         {
@@ -890,9 +783,7 @@ namespace Adaptable_Studio
                 CameraRadius += 0.5;
             else if (e.Delta > 0)
                 CameraRadius -= 0.5;
-
             Scale.Value = CameraRadius;
-
             Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);//主摄像机
         }
 
