@@ -11,7 +11,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Media3D;
-using System.Windows.Threading;
 
 namespace Adaptable_Studio
 {

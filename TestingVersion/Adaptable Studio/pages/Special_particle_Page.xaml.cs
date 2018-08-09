@@ -69,7 +69,7 @@ namespace Adaptable_Studio
         #region Viewport3D
         double CameraRadius = 50;//摄像机半径(相对于原点)
         double[] CameraRot = new double[2] { 15, 60 };//水平旋转角,竖直旋转角(相对于原点)
-        double[] CameraLookAtPoint = new double[3] { 0, 10, 0 };//摄像机视点
+        double[] CameraLookAtPoint = new double[3] { 0, 0, 0 };//摄像机视点
         double[] mouse_location = new double[2];//鼠标位置
         #region 预览视角自动环绕
         float Round_max = 2, Round_normal = 1, Round_speed = 1.5f;
@@ -140,7 +140,7 @@ namespace Adaptable_Studio
                                     }
                                 }));
                                 //动态编译输出
-                                mark[i] = Dynamic_code.Compile(str1);
+                                //mark[i] = Dynamic_code.Compile(str1);
 
                             }
                         }
@@ -693,7 +693,7 @@ namespace Adaptable_Studio
                         string str1 = sr.ReadToEnd();
                         str1 = str1.Replace("Radius = <value>", "Radius = 1");
                         str1 = str1.Replace("Angle = <value>", "Angle = 10");
-                        MainWindow.result = Dynamic_code.Compile(str1);//动态编译输出
+                        //MainWindow.result = Dynamic_code.Compile(str1);//动态编译输出
                     }
                 }
                 else break;

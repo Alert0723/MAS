@@ -256,7 +256,7 @@
             <Run/><LineBreak/>
             <Run Text="     "/><Run Text="{DynamicResource About_Program_Framework}"/><Run Text=".Net Framework"/><LineBreak/>
             <Run Text="     "/><Run Text="{DynamicResource About_Controls}"/><Run Text="Mahapps.Metro"/><LineBreak/>
-            <Run Text="     "/><Run Text="{DynamicResource About_3D_Environment}"/><Run Text="SharpGL"/><LineBreak/>
+            <Run Text="     "/><Run Text="{DynamicResource About_3D_Environment}"/><Run Text="Helix Toolkit"/><LineBreak/>
             <Run Text="     "/><Run Text="{DynamicResource About_Json_Library}"/><Run Text="Newtonsoft.Json"/><LineBreak/>
             <Run Text="     "/><Run Text="{DynamicResource About_Compressed_Library}"/><Run Text="DoNetZip"/><LineBreak/>
             <Run Text="     "/><Run Text="{DynamicResource About_Plugin_Library}"/><Run Text="SPS.Plugin"/><LineBreak/>
