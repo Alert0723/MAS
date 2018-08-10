@@ -759,13 +759,21 @@ namespace Adaptable_Studio
                     break;
             }
             CameraRot[0] += Round_speed;
+            Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);
             if (Round_speed <= 0) { Round_speed = 0; Pre_Timer.Stop(); }
         }
         #endregion
 
         #region Viewport3D
         #region Buttons
-        /// <summary> 预览视重置 </summary>        
+        /// <summary> 工具栏折叠 </summary>
+        private void ToolBarSwitch_LeftDown(object sender, MouseButtonEventArgs e)
+        {
+            if (ToolBarSwitch.Pressed) ToolBarSwitch.Margin = new Thickness() { Top = ToolBarSwitch.Margin.Top + 35 };
+            else ToolBarSwitch.Margin = new Thickness() { Top = ToolBarSwitch.Margin.Top - 35 };
+        }
+
+        /// <summary> 预览视角重置 </summary>        
         private void Viewport_Relocation(object sender, RoutedEventArgs e)
         {
             CameraRadius = 50;
@@ -780,9 +788,13 @@ namespace Adaptable_Studio
         private void Viewport_MouseWheel(object sender, MouseWheelEventArgs e)
         {
             if (e.Delta < 0)
-                CameraRadius += 0.5;
+                CameraRadius += 0.8;
             else if (e.Delta > 0)
-                CameraRadius -= 0.5;
+                CameraRadius -= 0.8;
+
+            if (CameraRadius > 80) CameraRadius = 80;
+            else if (CameraRadius < 20) CameraRadius = 20;
+
             Scale.Value = CameraRadius;
             Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);//主摄像机
         }
@@ -794,7 +806,8 @@ namespace Adaptable_Studio
 
         private void Scale_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);//主摄像机
+            CameraRadius = Scale.Value;
+            Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);
         }
 
         #region 预览视角旋转-摄像机坐标计算

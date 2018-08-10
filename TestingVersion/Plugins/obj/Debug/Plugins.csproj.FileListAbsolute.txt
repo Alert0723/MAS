@@ -10,9 +10,3 @@ E:\Visual Studio Objectives\Minecraft\MAS\TestingVersion\Plugins\obj\Debug\Plugi
 E:\Visual Studio Objectives\Minecraft\MAS\TestingVersion\Plugins\obj\Debug\Plugins.csproj.CoreCompileInputs.cache
 E:\Visual Studio Objectives\Minecraft\MAS\TestingVersion\Plugins\obj\Debug\Plugins.dll
 E:\Visual Studio Objectives\Minecraft\MAS\TestingVersion\Plugins\obj\Debug\Plugins.pdb
-D:\Visual Studio Objectives\Minecraft\MAS\TestingVersion\Plugins\bin\Debug\Plugins.dll
-D:\Visual Studio Objectives\Minecraft\MAS\TestingVersion\Plugins\bin\Debug\Plugins.pdb
-D:\Visual Studio Objectives\Minecraft\MAS\TestingVersion\Plugins\obj\Debug\Plugins.csproj.CoreCompileInputs.cache
-D:\Visual Studio Objectives\Minecraft\MAS\TestingVersion\Plugins\obj\Debug\Plugins.dll
-D:\Visual Studio Objectives\Minecraft\MAS\TestingVersion\Plugins\obj\Debug\Plugins.pdb
-D:\Visual Studio Objectives\Minecraft\MAS\TestingVersion\Plugins\obj\Debug\Plugins.csprojAssemblyReference.cache
