@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Adaptable_Studio"
              mc:Ignorable="d" 
              d:DesignHeight="25" d:DesignWidth="75" Loaded="UserControl_Loaded">
-    <Image x:Name="image" MouseDown="Image_MouseDown"/>
+    <Path x:Name="PathControl" MouseDown="Path_MouseDown" Stretch="Uniform" Fill="White"/>
 </UserControl>

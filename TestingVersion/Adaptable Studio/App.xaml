@@ -23,6 +23,8 @@
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseDark.xaml" />
 
+                <!--矢量图资源-->
+                <ResourceDictionary Source="pack://application:,,,/Icon.xaml"/>
                 <!--模型资源-->
                 <ResourceDictionary Source="pack://application:,,,/3D Model.xaml"/>
 

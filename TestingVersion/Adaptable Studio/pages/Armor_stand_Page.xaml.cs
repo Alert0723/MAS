@@ -14,7 +14,7 @@ using System.Windows.Media.Media3D;
 
 namespace Adaptable_Studio
 {
-    /// <summary> armor_stand_Page.xaml 的交互逻辑</summary>
+    /// <summary> armor_stand_Page.xaml 的交互逻辑 </summary>
     public partial class Armor_stand_Page : Page
     {
         #region Define
@@ -579,10 +579,8 @@ namespace Adaptable_Studio
 
         private void BackToMenu_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.Restart = true;
             IniWrite("System", "PageIndex", "0", iniPath);
-            Process.Start(Assembly.GetExecutingAssembly().Location);//重新开启当前程序
-            Application.Current.Shutdown();//关闭当前程序
+            NavigationService.GoBack();
         }
 
         /// <summary> 结构文件-单条存储 </summary>

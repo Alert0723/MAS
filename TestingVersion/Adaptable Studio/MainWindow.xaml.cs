@@ -9,7 +9,6 @@ using System.Text;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 
 namespace Adaptable_Studio
 {
@@ -22,7 +21,6 @@ namespace Adaptable_Studio
         const string version = "Version:0.3.9.0 Alpha";//当前版本号
         public static bool _langCN = true;//汉英切换
         public static int PageIndex = -1;//页面读取值
-        public static bool Restart = false;//重启判定
         public static bool Guidance = true;//启动引导
         public static bool Guiding = true;
 
@@ -208,37 +206,16 @@ namespace Adaptable_Studio
                 th.Start();
             }//Version Testing
 
-            switch (PageIndex)
-            {
-                default://Menu
-                    _NavigationFrame.Navigate(new menu_Page());
-                    break;
-                case 3://MAS.C
-                    _NavigationFrame.Navigate(new Armor_stand_Page());
-                    break;
-                case 16://MAS.P
-                    _NavigationFrame.Navigate(new Special_particle_Page());
-                    break;
-            }//page读取
+            _NavigationFrame.Navigate(new menu_Page());//page读取
         }
 
         /// <summary> 窗体关闭 </summary>
         private void MainClosed(object sender, EventArgs e)
         {
             Log_Write(LogPath, "[Main]正常关闭");
-
-            if (!Restart) IniWrite("System", "PageIndex", "-1", iniPath);
             Environment.Exit(0);
         }
         #endregion
-
-        //#region Shortcut Keys
-        ///// <summary> 开发者页面 </summary>        
-        //private void CommandBinding_DeveloperPage(object sender, ExecutedRoutedEventArgs e)
-        //{
-
-        //}
-        //#endregion
 
         #region TitleBar        
         /// <summary> 功能页面引导 </summary>

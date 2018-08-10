@@ -94,7 +94,7 @@
                 <Label x:Name="paeticle_stats" Content="Count:0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="116" Margin="0,0,390.8,464.4"/>
 
                 <WrapPanel x:Name="ViewportToolsBar" Margin="0,451,0,0" Background="#33AAAAAA" Height="50" VerticalAlignment="Top" Width="{Binding ActualWidth, ElementName=MainViewport, Mode=OneWay}">
-                    <adaptable_studio:KeepButton x:Name="ToolBarSwitch" Defult_Image="/Minecraft Adaptable Studio;component/icon/Up.png" Pressed_Image="/Minecraft Adaptable Studio;component/icon/Down.png" MouseLeftButtonDown="ToolBarSwitch_LeftDown" Margin="0,0,0,1.2" Height="15" Width="{Binding ActualWidth, ElementName=ViewportToolsBar, Mode=OneWay}"/>
+                    <adaptable_studio:KeepButton x:Name="ToolBarSwitch" Default_Path="{DynamicResource Icon_UpArrow}" Pressed_Path="{DynamicResource Icon_DownArrow}" MouseLeftButtonDown="ToolBarSwitch_LeftDown" Margin="0,0,0,1.2" Height="15" Width="{Binding ActualWidth, ElementName=ViewportToolsBar, Mode=OneWay}"/>
                     <Ellipse x:Name="Round" Margin="10,2,0,0" MouseEnter="Round_start" MouseLeave="Round_end" MouseDown="Round_down" MouseUp="Round_up" Width="30" Height="30" ToolTip="按住鼠标加速" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1">
                         <Ellipse.Fill>
                             <ImageBrush ImageSource="/Minecraft Adaptable Studio;component/icon/Round.png"/>
@@ -127,10 +127,10 @@
         <GroupBox x:Name="EditGroup" Header="样式编辑" HorizontalAlignment="Left" Height="537" Margin="191,10,0,0" VerticalAlignment="Top" Width="210">
             <Canvas x:Name="style_edit" Margin="0,-30,0,0" Height="{Binding ElementName=EditGroup, Path=ActualHeight}"/>
         </GroupBox>
-        <Button x:Name="BackHome" Content="" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="10,10,0,0" Foreground="{x:Null}" Width="35" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{DynamicResource CustomButton}" Click="BackToMenu_Click">
-            <Button.Background>
-                <ImageBrush ImageSource="/Minecraft Adaptable Studio;component/icon/home.png"/>
-            </Button.Background>
+        <Button x:Name="BackHome" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="10,10,0,0" Foreground="{x:Null}" Width="35" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{DynamicResource CustomButton}" Click="BackToMenu_Click" Background="#02000000">
+            <StackPanel>
+                <Path Fill="White" Stretch="Uniform" Margin="2" Data="{DynamicResource Icon_Home}"/>
+            </StackPanel>
         </Button>
         <userControl:CustomOutPutBox x:Name="OutPutBox" HorizontalAlignment="Left" Height="280" Width="290" Margin="742,129,-90,0" VerticalAlignment="Top" MouseLeftButtonDown="OutPut_MouseDown"/>
     </Grid>

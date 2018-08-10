@@ -712,10 +712,8 @@ namespace Adaptable_Studio
 
         private void BackToMenu_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.Restart = true;
             IniWrite("System", "PageIndex", "0", iniPath);
-            Process.Start(Assembly.GetExecutingAssembly().Location);//重新开启当前程序
-            Application.Current.Shutdown();//关闭当前程序
+            NavigationService.GoBack();
         }
 
         #region 视角持续旋转

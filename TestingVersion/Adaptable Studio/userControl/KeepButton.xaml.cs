@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -11,11 +12,14 @@ namespace Adaptable_Studio
         public bool pressed;
 
         #region 自定义属性
+        public static readonly DependencyProperty DefaultPath = DependencyProperty.Register("Default_Path", typeof(Geometry), typeof(KeepButton));
         [Description("UserControl"), Category("User Control")]
-        public ImageSource Defult_Image { get; set; }
+        public Geometry Default_Path { get; set; }
 
+
+        public static readonly DependencyProperty PressedPath = DependencyProperty.Register("Pressed_Path", typeof(Geometry), typeof(KeepButton));
         [Description("UserControl"), Category("User Control")]
-        public ImageSource Pressed_Image { get; set; }
+        public Geometry Pressed_Path { get; set; }
 
         [Description("UserControl"), Category("User Control")]
         public bool Pressed
@@ -24,7 +28,7 @@ namespace Adaptable_Studio
             set
             {
                 pressed = value;
-                image.Source = value ? Pressed_Image : Defult_Image;
+                PathControl.Data = value ? Pressed_Path : Default_Path;
             }
         }
         #endregion
@@ -36,10 +40,10 @@ namespace Adaptable_Studio
 
         private void UserControl_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
-            image.Source = Pressed ? Pressed_Image : Defult_Image;
+            PathControl.Data = Pressed ? Pressed_Path : Default_Path;
         }
 
-        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Path_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Pressed = !Pressed;
         }

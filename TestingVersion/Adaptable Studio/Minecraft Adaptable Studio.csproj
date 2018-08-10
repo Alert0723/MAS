@@ -192,6 +192,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Icon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="pages\Option_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -370,9 +374,6 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="icon\tags.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1</ProductName>
@@ -390,52 +391,11 @@
     <None Include="FodyWeavers.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="icon\option.png" />
     <Resource Include="icon\Round.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="icon\account.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="icon\home.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="icon\play.png" />
-    <Resource Include="icon\repeat.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="icon\pause.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="icon\inrepeat.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="icon\backhome.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="icon\option_reset.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="icon\Settings.png" />
     <Resource Include="icon\Warning.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="icon\option_reset_2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="icon\Down.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="icon\Up.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="icon\plus.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="icon\minus.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="icon\help.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="textures\masb\base.png" />

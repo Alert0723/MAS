@@ -41,29 +41,17 @@ namespace Adaptable_Studio
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                IniRead(ref StrName, "System", "PageIndex", iniPath);
-                MainWindow.PageIndex = int.Parse(StrName.ToString());
-            }
-            catch
-            {
-                IniWrite("System", "PageIndex", "0", iniPath);
-            }//Page检测
-
-            if (MainWindow.PageIndex > 0)
-            {
-                MainWindow.Restart = true;
-                Process.Start(Assembly.GetExecutingAssembly().Location); //开启新程序
-                Thread.Sleep(2000);
-                Application.Current.Shutdown();//关闭当前程序
-            }
-            else NavigationService.GoBack();
+            NavigationService.GoBack();
         }
 
         private void Feedback_Click(object sender, RoutedEventArgs e)
         {
             Process.Start("http://www.mcbbs.net/thread-580119-1-1.html");
+        }
+
+        private void Donate_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start("https://afdian.net/@MsYqgzt");
         }
 
         #region ini文件读写
@@ -80,6 +68,5 @@ namespace Adaptable_Studio
             WritePrivateProfileString(configureNode, key, keyValue, path);
         }
         #endregion
-
     }
 }

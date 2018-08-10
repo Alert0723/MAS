@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -36,24 +33,7 @@ namespace Adaptable_Studio
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                IniRead(ref StrName, "System", "PageIndex", iniPath);
-                MainWindow.PageIndex = int.Parse(StrName.ToString());
-            }
-            catch
-            {
-                IniWrite("System", "PageIndex", "0", iniPath);
-            }//Page检测
-
-            if (MainWindow.PageIndex > 0)
-            {
-                MainWindow.Restart = true;
-                Process.Start(Assembly.GetExecutingAssembly().Location); //启动新程序
-                Thread.Sleep(2000);
-                Application.Current.Shutdown();//关闭当前程序
-            }
-            else NavigationService.GoBack();
+            NavigationService.GoBack();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)

@@ -1129,7 +1129,7 @@
                                         </ei:PropertyChangedTrigger>
                                     </i:Interaction.Triggers>
                                 </CheckBox>
-                                <local:KeepButton x:Name="AttributeExpander" Height="15" Width="255" Defult_Image="/Minecraft Adaptable Studio;component/icon/Down.png" Pressed_Image="/Minecraft Adaptable Studio;component/icon/Up.png" Margin="0,1">
+                                <local:KeepButton x:Name="AttributeExpander" Height="15" Width="255" Default_Path="{DynamicResource Icon_DownArrow}" Pressed_Path="{DynamicResource Icon_UpArrow}" Margin="0,1">
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger SourceName="AttributeExpander" SourceObject="{Binding ElementName=AttributeExpander}" EventName="MouseDown">
                                             <i:Interaction.Behaviors>
@@ -1231,7 +1231,7 @@
                                         </ei:PropertyChangedTrigger>
                                     </i:Interaction.Triggers>
                                 </CheckBox>
-                                <local:KeepButton x:Name="EnchantExpander" Height="15" Width="255" Defult_Image="/Minecraft Adaptable Studio;component/icon/Down.png" Pressed_Image="/Minecraft Adaptable Studio;component/icon/Up.png" Margin="0,1">
+                                <local:KeepButton x:Name="EnchantExpander" Height="15" Width="255" Default_Path="{DynamicResource Icon_DownArrow}" Pressed_Path="{DynamicResource Icon_UpArrow}" Margin="0,1">
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger SourceName="EnchantExpander" SourceObject="{Binding ElementName=EnchantExpander}" EventName="MouseDown">
                                             <i:Interaction.Behaviors>
@@ -1354,7 +1354,7 @@
                         <Label Content="{DynamicResource Guide_switch}" FontFamily="{DynamicResource Font}" VerticalAlignment="Top" Margin="71,17,0,0" HorizontalAlignment="Left" FontWeight="Bold" Foreground="#FFFF8282"/>
                         <!--#endregion-->
                         <!--#endregion-->
-                        
+
                         <!--#region  Pose Guidance -->
                         <Border Margin="131,328,0,0" BorderBrush="#FFFF8282" BorderThickness="1.5" HorizontalAlignment="Left" Width="90" Height="24" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
                             <Border.RenderTransform>
