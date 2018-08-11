@@ -1,9 +1,7 @@
 ﻿using ArmorStand.CustomControl;
 using Newtonsoft.Json;
 using System;
-using System.Diagnostics;
 using System.IO;
-using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
@@ -580,7 +578,7 @@ namespace Adaptable_Studio
         private void BackToMenu_Click(object sender, RoutedEventArgs e)
         {
             IniWrite("System", "PageIndex", "0", iniPath);
-            NavigationService.GoBack();
+            NavigationService.Navigate(new menu_Page());
         }
 
         /// <summary> 结构文件-单条存储 </summary>
@@ -767,7 +765,7 @@ namespace Adaptable_Studio
         #endregion
 
         /// <summary> 鼠标滚轮控制</summary>
-        private void ArmorStandView_MouseWheel(object sender, MouseWheelEventArgs e)
+        private void Viewport_MouseWheel(object sender, MouseWheelEventArgs e)
         {
             if (e.Delta < 0)
                 CameraRadius += 0.5;
@@ -778,7 +776,7 @@ namespace Adaptable_Studio
         }
 
         #region 预览视角旋转-摄像机坐标计算
-        private void ArmorStandView_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Viewport_MouseDown(object sender, MouseButtonEventArgs e)
         {
             mouse_location[0] = e.GetPosition((IInputElement)sender).X;
             mouse_location[1] = e.GetPosition((IInputElement)sender).Y;
@@ -787,29 +785,19 @@ namespace Adaptable_Studio
             else if (e.RightButton == MouseButtonState.Pressed) PreviewGrid.Cursor = Cursors.ScrollAll;
         }
 
-        private void ArmorStandView_MouseUp(object sender, MouseButtonEventArgs e)
+        private void Viewport_MouseUp(object sender, MouseButtonEventArgs e)
         {
             PreviewGrid.Cursor = Cursors.Arrow;
         }
 
-        /// <summary> 方向光源计算 </summary>
-        void LightDirectionReset()
+        private void Viewport_MouseLeave(object sender, MouseEventArgs e)
         {
-            PerspectiveCamera mark = new PerspectiveCamera();
-            Viewport_3D.CameraReset(ref mark, new double[] { CameraRot[0] + 60, CameraRot[1] }, new double[3], 10);
-
-            DirectionalLight.Direction = new Vector3D()
-            {
-                X = mark.LookDirection.Z,
-                Y = -2,
-                Z = -mark.LookDirection.X
-            };
+            PreviewGrid.Cursor = Cursors.Arrow;
         }
 
         /// <summary> 鼠标拖拽 </summary>
-        private void ArmorStandView_MouseMove(object sender, MouseEventArgs e)
+        private void Viewport_MouseMove(object sender, MouseEventArgs e)
         {
-            PreviewGrid.Cursor = Cursors.Arrow;
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 PreviewGrid.Cursor = Cursors.SizeAll;
@@ -852,6 +840,20 @@ namespace Adaptable_Studio
             else if (CameraRot[0] < 0) CameraRot[0] = 360;
             if (CameraRot[1] > 175) CameraRot[1] = 175;
             else if (CameraRot[1] < 5) CameraRot[1] = 5;
+        }
+
+        /// <summary> 方向光源计算 </summary>
+        void LightDirectionReset()
+        {
+            PerspectiveCamera mark = new PerspectiveCamera();
+            Viewport_3D.CameraReset(ref mark, new double[] { CameraRot[0] + 60, CameraRot[1] }, new double[3], 10);
+
+            DirectionalLight.Direction = new Vector3D()
+            {
+                X = mark.LookDirection.Z,
+                Y = -2,
+                Z = -mark.LookDirection.X
+            };
         }
         #endregion
         #endregion

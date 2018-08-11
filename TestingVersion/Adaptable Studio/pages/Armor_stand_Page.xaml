@@ -576,10 +576,8 @@
                 <ColumnDefinition Width="5*"/>
                 <ColumnDefinition Width="303*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="BackHome" Content="" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0.181,6.385,0,0" Foreground="{x:Null}" Grid.Column="1" Width="35" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{DynamicResource CustomButton}" Click="BackToMenu_Click" IsHitTestVisible="False" Background="{x:Null}">
-                <!--<Button.Background>
-                    <ImageBrush ImageSource="/Minecraft Adaptable Studio;component/icon/home.png"/>
-                </Button.Background>-->
+            <Button x:Name="BackHome" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0.181,6.385,0,0" Foreground="{x:Null}" Grid.Column="1" Width="35" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{DynamicResource CustomButton}" Click="BackToMenu_Click" Background="#02000000">
+                <Path Fill="White" Stretch="Uniform" Margin="4" Data="{DynamicResource Icon_Home}"/>
             </Button>
 
             <Rectangle x:Name="SelectBar" Fill="#FF119EDA" Margin="0.005,47,0.005,0" Height="37" VerticalAlignment="Top" Width="5">
@@ -1399,7 +1397,7 @@
             </ScrollViewer>
         </Grid>
         <GroupBox x:Name="Preview" Header="ArmorStand Preview" Margin="279,2,0,104" Grid.RowSpan="3" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Background="#FF119EDA" BorderBrush="{x:Null}" Padding="5,8" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" Custom1:ControlsHelper.ContentCharacterCasing="Normal">
-            <Grid x:Name="PreviewGrid" Background="#FFCDCDCD" MouseMove="ArmorStandView_MouseMove" MouseDown="ArmorStandView_MouseDown" MouseWheel="ArmorStandView_MouseWheel" MouseUp="ArmorStandView_MouseUp">
+            <Grid x:Name="PreviewGrid" Background="#FFCDCDCD" MouseMove="Viewport_MouseMove" MouseDown="Viewport_MouseDown" MouseWheel="Viewport_MouseWheel" MouseUp="Viewport_MouseUp" MouseLeave="Viewport_MouseLeave">
                 <!--#region  Viewport3D -->
                 <Viewport3D x:Name="MainViewport">
                     <Viewport3D.Camera>

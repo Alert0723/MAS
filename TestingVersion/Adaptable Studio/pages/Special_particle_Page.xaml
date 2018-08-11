@@ -11,7 +11,7 @@
       Title="special_particle_Page" Width="942" Height="569" Loaded="Page_Loaded">
     <Grid x:Name="Main_grid">
         <GroupBox Header="Preview" Margin="406,10,0,22" Background="#CC119EDA" BorderBrush="#CC119EDA" HorizontalAlignment="Left" Width="526" Custom:ControlsHelper.ContentCharacterCasing="Normal">
-            <Grid x:Name="PreviewGrid" Background="#FFA0A0A0" MouseDown="Viewport_MouseDown" MouseMove="Viewport_MouseMove" MouseUp="Viewport_MouseUp" MouseWheel="Viewport_MouseWheel" Margin="0,0,0,2">
+            <Grid x:Name="PreviewGrid" Background="#FFA0A0A0" MouseDown="Viewport_MouseDown" MouseMove="Viewport_MouseMove" MouseUp="Viewport_MouseUp" MouseWheel="Viewport_MouseWheel" Margin="0,0,0,2" MouseLeave="Viewport_MouseLeave">
                 <!--#region  ViewPort3D -->
                 <Viewport3D x:Name="MainViewport">
                     <Viewport3D.Camera>
@@ -93,7 +93,7 @@
                 <!--#endregion-->
                 <Label x:Name="paeticle_stats" Content="Count:0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="116" Margin="0,0,390.8,464.4"/>
 
-                <WrapPanel x:Name="ViewportToolsBar" Margin="0,451,0,0" Background="#33AAAAAA" Height="50" VerticalAlignment="Top" Width="{Binding ActualWidth, ElementName=MainViewport, Mode=OneWay}">
+                <WrapPanel x:Name="ViewportToolsBar" Margin="0,451,0,0" Background="#33AAAAAA" Height="50" VerticalAlignment="Top" Width="{Binding ActualWidth, ElementName=MainViewport, Mode=OneWay}" MouseMove="ViewportToolsBar_MouseMove" MouseDown="ViewportToolsBar_MouseDown">
                     <adaptable_studio:KeepButton x:Name="ToolBarSwitch" Default_Path="{DynamicResource Icon_UpArrow}" Pressed_Path="{DynamicResource Icon_DownArrow}" MouseLeftButtonDown="ToolBarSwitch_LeftDown" Margin="0,0,0,1.2" Height="15" Width="{Binding ActualWidth, ElementName=ViewportToolsBar, Mode=OneWay}"/>
                     <Ellipse x:Name="Round" Margin="10,2,0,0" MouseEnter="Round_start" MouseLeave="Round_end" MouseDown="Round_down" MouseUp="Round_up" Width="30" Height="30" ToolTip="按住鼠标加速" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1">
                         <Ellipse.Fill>

@@ -713,7 +713,7 @@ namespace Adaptable_Studio
         private void BackToMenu_Click(object sender, RoutedEventArgs e)
         {
             IniWrite("System", "PageIndex", "0", iniPath);
-            NavigationService.GoBack();
+            NavigationService.Navigate(new menu_Page());
         }
 
         #region 视角持续旋转
@@ -758,11 +758,21 @@ namespace Adaptable_Studio
             }
             CameraRot[0] += Round_speed;
             Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);
+            Viewport_3D.CameraReset(ref AxisCamera, CameraRot, new double[3], 10);
             if (Round_speed <= 0) { Round_speed = 0; Pre_Timer.Stop(); }
         }
         #endregion
 
         #region Viewport3D
+        private void ViewportToolsBar_MouseMove(object sender, MouseEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void ViewportToolsBar_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            e.Handled = true;
+        }
         #region Buttons
         /// <summary> 工具栏折叠 </summary>
         private void ToolBarSwitch_LeftDown(object sender, MouseButtonEventArgs e)
@@ -823,10 +833,14 @@ namespace Adaptable_Studio
             PreviewGrid.Cursor = Cursors.Arrow;
         }
 
+        private void Viewport_MouseLeave(object sender, MouseEventArgs e)
+        {
+            PreviewGrid.Cursor = Cursors.Arrow;
+        }
+
         /// <summary> 鼠标拖拽 </summary>
         private void Viewport_MouseMove(object sender, MouseEventArgs e)
         {
-            PreviewGrid.Cursor = Cursors.Arrow;
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 PreviewGrid.Cursor = Cursors.SizeAll;

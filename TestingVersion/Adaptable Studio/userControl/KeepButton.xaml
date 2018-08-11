@@ -5,5 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="25" d:DesignWidth="75" Loaded="UserControl_Loaded">
-    <Path x:Name="PathControl" MouseDown="Path_MouseDown" Stretch="Uniform" Fill="White" Margin="2"/>
+    <Grid Background="#02000000" MouseDown="Path_MouseDown">
+        <Path x:Name="PathControl" Stretch="Uniform" Fill="White" Margin="2"/>
+    </Grid>
 </UserControl>
