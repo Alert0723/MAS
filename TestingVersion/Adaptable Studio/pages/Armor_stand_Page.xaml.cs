@@ -761,6 +761,7 @@ namespace Adaptable_Studio
             CameraLookAtPoint = new double[3] { 0, 10, 0 };//摄像机视点
             Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);//主摄像机
             Viewport_3D.CameraReset(ref AxisCamera, CameraRot, new double[3], 10);//坐标系摄像机
+            LightDirectionReset();
         }
         #endregion
 

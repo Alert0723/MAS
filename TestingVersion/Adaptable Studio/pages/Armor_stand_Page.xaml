@@ -577,7 +577,7 @@
                 <ColumnDefinition Width="303*"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="BackHome" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0.181,6.385,0,0" Foreground="{x:Null}" Grid.Column="1" Width="35" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{DynamicResource CustomButton}" Click="BackToMenu_Click" Background="#02000000">
-                <Path Fill="White" Stretch="Uniform" Margin="4" Data="{DynamicResource Icon_Home}"/>
+                <Path Fill="White" Stretch="Uniform" Margin="5" Data="{DynamicResource Icon_Home}"/>
             </Button>
 
             <Rectangle x:Name="SelectBar" Fill="#FF119EDA" Margin="0.005,47,0.005,0" Height="37" VerticalAlignment="Top" Width="5">
