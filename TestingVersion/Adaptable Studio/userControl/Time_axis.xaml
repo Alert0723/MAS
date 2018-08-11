@@ -560,16 +560,8 @@
                 </PathGeometry>
             </Path.Data>
         </Path>
-        <local:KeepButton x:Name="add_tick" HorizontalAlignment="Left" Margin="-50.667,30,0,0" Width="20" ToolTip="{DynamicResource AddTick}" Background="#00000000" Style="{DynamicResource KeepButtonStyle1}" Height="20" Grid.Row="1" VerticalAlignment="Top" MouseDown="AddTick_MouseDown">
-            <StackPanel>
-                <Path Stretch="Uniform" Fill="White" Margin="2" Data="{DynamicResource Icon_Plus}"/>
-            </StackPanel>
-        </local:KeepButton>
-        <local:KeepButton x:Name="remove_tick" HorizontalAlignment="Left" Margin="-100.667,30,0,0" Width="20" ToolTip="{DynamicResource RemoveTick}" Background="#00000000" Style="{DynamicResource KeepButtonStyle1}" Height="20" Grid.Row="1" VerticalAlignment="Top" MouseDown="RemoveTick_MouseDown">
-            <StackPanel>
-                <Path Stretch="Uniform" Fill="White" Margin="2" Data="{DynamicResource Icon_Minus}"/>
-            </StackPanel>
-        </local:KeepButton>
+        <local:KeepButton x:Name="add_tick" HorizontalAlignment="Left" Margin="-50.667,30,0,0" Width="20" Default_Path="{DynamicResource Icon_Plus}" Pressed_Path="{DynamicResource Icon_Plus}" ToolTip="{DynamicResource AddTick}" Background="#00000000" Style="{DynamicResource KeepButtonStyle1}" Height="20" Grid.Row="1" VerticalAlignment="Top" MouseDown="AddTick_MouseDown"/>
+        <local:KeepButton x:Name="remove_tick" HorizontalAlignment="Left" Margin="-100.667,30,0,0" Width="20" Default_Path="{DynamicResource Icon_Minus}" Pressed_Path="{DynamicResource Icon_Minus}" ToolTip="{DynamicResource RemoveTick}" Background="#00000000" Style="{DynamicResource KeepButtonStyle1}" Height="20" Grid.Row="1" VerticalAlignment="Top" MouseDown="RemoveTick_MouseDown"/>
         <local:KeepButton x:Name="repeat_button" HorizontalAlignment="Left" Margin="-50.667,5,0,0" Width="20" Default_Path="{DynamicResource Icon_MediaRepeat}" Pressed_Path="{DynamicResource Icon_MediaNotRepeat}" ToolTip="{DynamicResource TimeRepeat}" Background="#00000000" Style="{DynamicResource KeepButtonStyle1}" Height="20" Grid.Row="1" VerticalAlignment="Top"/>
         <local:KeepButton x:Name="play_pause_button" HorizontalAlignment="Left" Margin="-75.667,5,0,0" Width="20" Default_Path="{DynamicResource Icon_MediaPlay}" Pressed_Path="{DynamicResource Icon_MediaPause}" MouseDown="Play_Mousedown" ToolTip="{DynamicResource Play/Pause}" Style="{DynamicResource KeepButtonStyle1}" Background="#00000000" Height="20" Grid.Row="1" VerticalAlignment="Top"/>
         <local:KeepButton x:Name="home_button" HorizontalAlignment="Left" Margin="-100.667,5,0,0" Width="20" Default_Path="{DynamicResource Icon_MediaRewind}" Pressed_Path="{DynamicResource Icon_MediaRewind}" MouseDown="BackHome_MouseDown" ToolTip="{DynamicResource BackTimeHome}" Style="{DynamicResource KeepButtonStyle1}" Background="#00000000" Height="20" Grid.Row="1" VerticalAlignment="Top"/>
