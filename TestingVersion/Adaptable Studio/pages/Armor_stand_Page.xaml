@@ -680,7 +680,7 @@
                     <Label x:Name="PoseSettings" Content="{DynamicResource Pose_Settings}" Foreground="White" Background="{x:Null}" FontSize="25"  IsHitTestVisible="False" BorderThickness="0,15" Margin="5,0,0,0"/>
                     <Grid x:Name="PosePannel" Height="150" Width="250" Margin="10,0,0,0" Background="#00000000" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                         <Label Content="{DynamicResource Rotation}" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" FontSize="10" Width="60" VerticalContentAlignment="Center" Height="20" HorizontalContentAlignment="{DynamicResource RotationAlignment}" Padding="5"/>
-                        <Slider Style="{DynamicResource CustomSlider}" x:Name="Rotation_Setting" Width="190" Margin="55,0,5,130" FontSize="9" Maximum="180" Minimum="-180" AutoToolTipPlacement="TopLeft"/>
+                        <Slider Style="{DynamicResource CustomSlider}" x:Name="Rotation_Setting" Width="190" Margin="55,0,5,130" FontSize="9" Maximum="180" Minimum="-180" AutoToolTipPlacement="TopLeft" ValueChanged="Pose_Changed"/>
                         <Grid x:Name="grid" Margin="0,20,0,0" IsHitTestVisible="False" Height="105" VerticalAlignment="Top" d:IsEffectDisabled="True">
                             <Grid.Effect>
                                 <BlurEffect/>
@@ -1683,9 +1683,9 @@
         <Grid x:Name="Timeaxis_guide" IsHitTestVisible="False" Grid.ColumnSpan="3" Margin="284,0,0,0" Grid.RowSpan="4" Grid.Column="2">
             <!--#region  全局 -->
             <Border Margin="0,0,14,9" BorderBrush="#FFFF8282" BorderThickness="1.5" HorizontalAlignment="Right" Width="475" Height="66" VerticalAlignment="Bottom"/>
-            <TextBlock Text="{DynamicResource Guide_time_axis1}" Foreground="#FFFF8282" FontWeight="Bold" VerticalAlignment="Bottom" Margin="127,0,0,109" HorizontalAlignment="Left" Width="491" FontSize="14"/>
+            <TextBlock Text="{DynamicResource Guide_time_axis1}" Foreground="#FFFF8282" FontWeight="Bold" VerticalAlignment="Bottom" Margin="127,0,-0.4,112" HorizontalAlignment="Left" Width="491" FontSize="14"/>
             <Label FontFamily="Microsoft YaHei UI" Content=". ." VerticalAlignment="Top" Margin="108,504,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282"/>
-            <Label FontFamily="Microsoft YaHei UI" Content="." VerticalAlignment="Top" Margin="116,431,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282"/>
+            <Label FontFamily="Microsoft YaHei UI" Content="." VerticalAlignment="Top" Margin="116,429,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282"/>
             <Label FontFamily="Microsoft YaHei UI" Content=". . . . . . . . ." VerticalAlignment="Top" Margin="80,468,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282" RenderTransformOrigin="0.5,0.5">
                 <Label.RenderTransform>
                     <TransformGroup>

@@ -16,8 +16,8 @@
                 <Viewport3D x:Name="MainViewport">
                     <Viewport3D.Camera>
                         <PerspectiveCamera x:Name="MainCamera"
-                               Position="40,25,10"
-                               LookDirection="-40,-25,-10"
+                               Position="3.2,2,0.8"
+                               LookDirection="-3.2,-2,-0.8"
                                UpDirection="0,1,0"
                                NearPlaneDistance="0"
                                FarPlaneDistance="100"
@@ -28,7 +28,7 @@
                             <AmbientLight Color="White"/>
                         </ModelVisual3D.Content>
                     </ModelVisual3D>
-                    <HelixToolkit:GridLinesVisual3D Center="0,0,0" Width="512" Length="512" MinorDistance="8" MajorDistance="32" Thickness="0.15">
+                    <HelixToolkit:GridLinesVisual3D Center="0,0,0" Width="512" Length="512" MinorDistance="1" MajorDistance="16" Thickness="0.03">
                         <HelixToolkit:GridLinesVisual3D.Transform>
                             <RotateTransform3D>
                                 <RotateTransform3D.Rotation>
@@ -100,7 +100,7 @@
                             <ImageBrush ImageSource="/Minecraft Adaptable Studio;component/icon/Round.png"/>
                         </Ellipse.Fill>
                     </Ellipse>
-                    <Slider x:Name="Scale" Style="{DynamicResource CustomSlider}" Margin="5,2,0,0" Height="30" Width="160" SmallChange="0.5" Value="50" Maximum="80" Minimum="20" LargeChange="1" ScrollViewer.HorizontalScrollBarVisibility="Auto" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top" ToolTip="{DynamicResource OpenGL_Scale}" ValueChanged="Scale_ValueChanged" MouseMove="Scale_MouseMove"/>
+                    <Slider x:Name="Scale" Style="{DynamicResource CustomSlider}" Margin="5,2,0,0" Height="30" Width="160" SmallChange="0.5" Value="4" Maximum="15" Minimum="1" LargeChange="1" ScrollViewer.HorizontalScrollBarVisibility="Auto" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top" ToolTip="{DynamicResource OpenGL_Scale}" ValueChanged="Scale_ValueChanged" MouseMove="Scale_MouseMove"/>
                 </WrapPanel>
 
             </Grid>

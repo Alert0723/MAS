@@ -67,7 +67,7 @@ namespace Adaptable_Studio
         Preview[] pre = new Preview[50];
 
         #region Viewport3D
-        double CameraRadius = 50;//摄像机半径(相对于原点)
+        double CameraRadius = 4;//摄像机半径(相对于原点)
         double[] CameraRot = new double[2] { 15, 60 };//水平旋转角,竖直旋转角(相对于原点)
         double[] CameraLookAtPoint = new double[3] { 0, 0, 0 };//摄像机视点
         double[] mouse_location = new double[2];//鼠标位置
@@ -353,9 +353,6 @@ namespace Adaptable_Studio
                     Width = style_edit.ActualWidth - 10,
                     Margin = new Thickness(2, 30, Margin.Right, Margin.Bottom)
                 };
-                //par_style.Items.Add(new TextBlock() { Text = "直线" });
-                //par_style.Items.Add(new TextBlock() { Text = "圆圈" });
-                //par_style.Items.Add(new TextBlock() { Text = "球体" });
 
                 foreach (var item in StyleName)
                 {
@@ -784,7 +781,7 @@ namespace Adaptable_Studio
         /// <summary> 预览视角重置 </summary>        
         private void Viewport_Relocation(object sender, RoutedEventArgs e)
         {
-            CameraRadius = 50;
+            CameraRadius = 4;
             CameraRot = new double[2] { 15, 60 };//水平旋转角,竖直旋转角(相对于原点)
             CameraLookAtPoint = new double[3] { 0, 10, 0 };//摄像机视点
             Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);//主摄像机
@@ -796,12 +793,14 @@ namespace Adaptable_Studio
         private void Viewport_MouseWheel(object sender, MouseWheelEventArgs e)
         {
             if (e.Delta < 0)
-                CameraRadius += 0.8;
+                CameraRadius += 0.1;
             else if (e.Delta > 0)
-                CameraRadius -= 0.8;
+                CameraRadius -= 0.1;
 
-            if (CameraRadius > 80) CameraRadius = 80;
-            else if (CameraRadius < 20) CameraRadius = 20;
+            double max = 15, min = 1;
+
+            if (CameraRadius > max) CameraRadius = max;
+            else if (CameraRadius < min) CameraRadius = min;
 
             Scale.Value = CameraRadius;
             Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);//主摄像机

@@ -282,6 +282,7 @@ namespace Adaptable_Studio
                 Y_Pose.Value = 0;
                 Z_Pose.Value = 0;
                 Pose_Reset.IsConfirmRest = false;
+                Rotation_Setting.Value = 0;
             }
         }
 
@@ -864,6 +865,7 @@ namespace Adaptable_Studio
         {
             HeadRotZ.Angle = -pose[2]; HeadRotY.Angle = -pose[1]; HeadRotX.Angle = -pose[0];
 
+            Rotation.Angle = -pose[18];
         }
 
         private void Pose_Changed(object sender, RoutedPropertyChangedEventArgs<double> e)
