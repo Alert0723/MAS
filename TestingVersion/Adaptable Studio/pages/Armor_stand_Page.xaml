@@ -1409,11 +1409,17 @@
                                FarPlaneDistance="100"
                                FieldOfView="60"/>
                     </Viewport3D.Camera>
-                    <ModelVisual3D x:Name="Light">
+                    <ModelVisual3D>
                         <ModelVisual3D.Content>
-                            <DirectionalLight x:Name="DirectionalLight" Color="White" Direction="-5,-1,2"/>
+                            <DirectionalLight x:Name="DirectionalLight" Color="#ffcc8d" Direction="-5,-2,2"/>
                         </ModelVisual3D.Content>
                     </ModelVisual3D>
+                    <ModelVisual3D >
+                        <ModelVisual3D.Content>
+                            <AmbientLight Color="#424d5d"/>
+                        </ModelVisual3D.Content>
+                    </ModelVisual3D>
+
                     <ModelVisual3D x:Name="Models">
                         <ModelVisual3D x:Name="armor_stand">
                             <ModelVisual3D x:Name="Head">
