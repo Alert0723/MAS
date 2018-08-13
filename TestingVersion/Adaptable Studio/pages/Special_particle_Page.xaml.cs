@@ -163,8 +163,7 @@ namespace Adaptable_Studio
 
             #region Viewport3D
             MainWindow.Log_Write(LogPath, "[masp]Viewport3D初始化");
-            Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);//主摄像机
-            Viewport_3D.CameraReset(ref AxisCamera, CameraRot, new double[3], 10);//坐标系摄像机
+            Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);
             MainWindow.Log_Write(LogPath, "[Viewport3D]初始化完成");
             #endregion
 
@@ -755,7 +754,6 @@ namespace Adaptable_Studio
             }
             CameraRot[0] += Round_speed;
             Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);
-            Viewport_3D.CameraReset(ref AxisCamera, CameraRot, new double[3], 10);
             if (Round_speed <= 0) { Round_speed = 0; Pre_Timer.Stop(); }
         }
         #endregion
@@ -784,8 +782,7 @@ namespace Adaptable_Studio
             CameraRadius = 4;
             CameraRot = new double[2] { 15, 60 };//水平旋转角,竖直旋转角(相对于原点)
             CameraLookAtPoint = new double[3] { 0, 10, 0 };//摄像机视点
-            Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);//主摄像机
-            Viewport_3D.CameraReset(ref AxisCamera, CameraRot, new double[3], 10);//坐标系摄像机
+            Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);
         }
         #endregion
 
@@ -860,7 +857,7 @@ namespace Adaptable_Studio
 
                 //竖直移动
                 if (e.GetPosition((IInputElement)sender).Y - mouse_location[1] != 0)
-                    CameraLookAtPoint[1] += (e.GetPosition((IInputElement)sender).Y - mouse_location[1]) * 0.08;
+                    CameraLookAtPoint[1] += (e.GetPosition((IInputElement)sender).Y - mouse_location[1]) * 0.01;
 
                 MainCamera.LookDirection = new Vector3D()
                 {
@@ -871,7 +868,6 @@ namespace Adaptable_Studio
             }//右键平面移动
 
             Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);
-            Viewport_3D.CameraReset(ref AxisCamera, CameraRot, new double[3], 10);
 
             mouse_location[0] = e.GetPosition((IInputElement)sender).X;
             mouse_location[1] = e.GetPosition((IInputElement)sender).Y;

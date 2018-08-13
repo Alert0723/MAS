@@ -11,10 +11,16 @@
       Title="special_particle_Page" Width="942" Height="569" Loaded="Page_Loaded">
     <Grid x:Name="Main_grid">
         <GroupBox Header="Preview" Margin="406,10,0,22" Background="#CC119EDA" BorderBrush="#CC119EDA" HorizontalAlignment="Left" Width="526" Custom:ControlsHelper.ContentCharacterCasing="Normal">
-            <Grid x:Name="PreviewGrid" Background="#FFA0A0A0" MouseDown="Viewport_MouseDown" MouseMove="Viewport_MouseMove" MouseUp="Viewport_MouseUp" MouseWheel="Viewport_MouseWheel" Margin="0,0,0,2" MouseLeave="Viewport_MouseLeave">
+            <Grid x:Name="PreviewGrid" Background="#FFB7B7B7" MouseDown="Viewport_MouseDown" MouseMove="Viewport_MouseMove" MouseUp="Viewport_MouseUp" MouseWheel="Viewport_MouseWheel" Margin="0,0,0,2" MouseLeave="Viewport_MouseLeave">
                 <!--#region  ViewPort3D -->
-                <Viewport3D x:Name="MainViewport">
-                    <Viewport3D.Camera>
+                <HelixToolkit:HelixViewport3D x:Name="MainViewport" 
+                                              ShowCoordinateSystem="True" 
+                                              CoordinateSystemHorizontalPosition="Right"
+                                              CoordinateSystemVerticalPosition="Top"
+                                              ShowViewCube="False"
+                                              IsRotationEnabled="False"
+                                              IsZoomEnabled="False">
+                    <HelixToolkit:HelixViewport3D.Camera>
                         <PerspectiveCamera x:Name="MainCamera"
                                Position="3.2,2,0.8"
                                LookDirection="-3.2,-2,-0.8"
@@ -22,7 +28,7 @@
                                NearPlaneDistance="0"
                                FarPlaneDistance="100"
                                FieldOfView="60"/>
-                    </Viewport3D.Camera>
+                    </HelixToolkit:HelixViewport3D.Camera>
                     <ModelVisual3D x:Name="Light">
                         <ModelVisual3D.Content>
                             <AmbientLight Color="White"/>
@@ -39,57 +45,7 @@
                             </RotateTransform3D>
                         </HelixToolkit:GridLinesVisual3D.Transform>
                     </HelixToolkit:GridLinesVisual3D>
-                </Viewport3D>
-
-                <Viewport3D x:Name="AxisView" Width="80" Height="80" HorizontalAlignment="Right" VerticalAlignment="Top">
-                    <Viewport3D.Camera>
-                        <PerspectiveCamera x:Name="AxisCamera"
-                               Position="0,5,-10"
-                               LookDirection="0,-0.5,1"
-                               UpDirection="0,1,0"
-                               NearPlaneDistance="0"
-                               FarPlaneDistance="100"
-                               FieldOfView="60"/>
-                    </Viewport3D.Camera>
-                    <ModelVisual3D x:Name="AxisModel">
-                        <!--Total Rotation-->
-                        <ModelVisual3D.Transform>
-                            <Transform3DGroup>
-                                <RotateTransform3D>
-                                    <RotateTransform3D.Rotation>
-                                        <AxisAngleRotation3D 
-                                                 Axis="1,0,0"
-                                                 Angle="{Binding ElementName=MainRotX, Path=Angle}"/>
-                                    </RotateTransform3D.Rotation>
-                                </RotateTransform3D>
-                                <RotateTransform3D>
-                                    <RotateTransform3D.Rotation>
-                                        <AxisAngleRotation3D 
-                                                 Axis="0,1,0"
-                                                 Angle="{Binding ElementName=MainRotY, Path=Angle}"/>
-                                    </RotateTransform3D.Rotation>
-                                </RotateTransform3D>
-                                <RotateTransform3D>
-                                    <RotateTransform3D.Rotation>
-                                        <AxisAngleRotation3D 
-                                                 Axis="0,0,1"
-                                                 Angle="{Binding ElementName=MainRotZ, Path=Angle}"/>
-                                    </RotateTransform3D.Rotation>
-                                </RotateTransform3D>
-                            </Transform3DGroup>
-                        </ModelVisual3D.Transform>
-                        <!--Light-->
-                        <ModelVisual3D>
-                            <ModelVisual3D.Content>
-                                <AmbientLight x:Name="AxisLight" Color="White"/>
-                            </ModelVisual3D.Content>
-                        </ModelVisual3D>
-                        <!--Model-->
-                        <ModelVisual3D Content="{DynamicResource AxisX}"/>
-                        <ModelVisual3D Content="{DynamicResource AxisY}"/>
-                        <ModelVisual3D Content="{DynamicResource AxisZ}"/>
-                    </ModelVisual3D>
-                </Viewport3D>
+                </HelixToolkit:HelixViewport3D>
                 <!--#endregion-->
                 <Label x:Name="paeticle_stats" Content="Count:0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="116" Margin="0,0,390.8,464.4"/>
 

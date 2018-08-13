@@ -404,7 +404,6 @@
     <Resource Include="textures\masb\mojang.png" />
     <Resource Include="textures\masb\stripe_downleft.png" />
     <Resource Include="textures\masb\stripe_downright.png" />
-    <Resource Include="textures\masc\wood.bmp" />
     <Resource Include="textures\masc\wood.png" />
     <Resource Include="textures\masp\particle.bmp" />
   </ItemGroup>

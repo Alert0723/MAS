@@ -7,8 +7,9 @@
       xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
       xmlns:Custom="clr-namespace:ArmorStand.CustomControl"
       xmlns:userControl="clr-namespace:Adaptable_Studio.userControl"
-      xmlns:Custom1="http://metro.mahapps.com/winfx/xaml/controls"      
-      xmlns:System="clr-namespace:System;assembly=mscorlib"      
+      xmlns:Custom1="http://metro.mahapps.com/winfx/xaml/controls"
+      xmlns:System="clr-namespace:System;assembly=mscorlib"
+      xmlns:HelixToolkit="http://helix-toolkit.org/wpf"
       x:Class="Adaptable_Studio.Armor_stand_Page"
       mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300"
       FontFamily="{DynamicResource Font}"
@@ -1399,8 +1400,14 @@
         <GroupBox x:Name="Preview" Header="ArmorStand Preview" Margin="279,2,0,104" Grid.RowSpan="3" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Background="#FF119EDA" BorderBrush="{x:Null}" Padding="5,8" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" Custom1:ControlsHelper.ContentCharacterCasing="Normal">
             <Grid x:Name="PreviewGrid" Background="#FFCDCDCD" MouseMove="Viewport_MouseMove" MouseDown="Viewport_MouseDown" MouseWheel="Viewport_MouseWheel" MouseUp="Viewport_MouseUp" MouseLeave="Viewport_MouseLeave">
                 <!--#region  Viewport3D -->
-                <Viewport3D x:Name="MainViewport">
-                    <Viewport3D.Camera>
+                <HelixToolkit:HelixViewport3D x:Name="MainViewport"
+                                              ShowCoordinateSystem="True" 
+                                              CoordinateSystemHorizontalPosition="Right"
+                                              CoordinateSystemVerticalPosition="Top"
+                                              ShowViewCube="False"
+                                              IsRotationEnabled="False"
+                                              IsZoomEnabled="False">
+                    <HelixToolkit:HelixViewport3D.Camera>
                         <PerspectiveCamera x:Name="MainCamera"
                                Position="40,35,10"
                                LookDirection="-42,-25,-11"
@@ -1408,15 +1415,15 @@
                                NearPlaneDistance="0"
                                FarPlaneDistance="100"
                                FieldOfView="60"/>
-                    </Viewport3D.Camera>
-                    <ModelVisual3D>
+                    </HelixToolkit:HelixViewport3D.Camera>
+                    <ModelVisual3D x:Name="Directional_Light">
                         <ModelVisual3D.Content>
-                            <DirectionalLight x:Name="DirectionalLight" Color="#ffcc8d" Direction="-5,-2,2"/>
+                            <DirectionalLight x:Name="DirectionalLight" Color="#e0c4a2" Direction="-5,-3,2"/>
                         </ModelVisual3D.Content>
                     </ModelVisual3D>
-                    <ModelVisual3D >
+                    <ModelVisual3D x:Name="Ambient_Light">
                         <ModelVisual3D.Content>
-                            <AmbientLight Color="#424d5d"/>
+                            <AmbientLight Color="#2a374a"/>
                         </ModelVisual3D.Content>
                     </ModelVisual3D>
 
@@ -1614,57 +1621,7 @@
 
                         <ModelVisual3D Content="{DynamicResource AS_BasePlate}"/>
                     </ModelVisual3D>
-                </Viewport3D>
-                <Viewport3D x:Name="AxisView" Width="80" Height="80" HorizontalAlignment="Right" VerticalAlignment="Top">
-                    <Viewport3D.Camera>
-                        <PerspectiveCamera x:Name="AxisCamera"
-                               Position="0,5,-10"
-                               LookDirection="0,-0.5,1"
-                               UpDirection="0,1,0"
-                               NearPlaneDistance="0"
-                               FarPlaneDistance="100"
-                               FieldOfView="60"/>
-                    </Viewport3D.Camera>
-                    <ModelVisual3D x:Name="AxisModel">
-                        <!--Total Rotation-->
-                        <ModelVisual3D.Transform>
-                            <Transform3DGroup>
-                                <RotateTransform3D>
-                                    <RotateTransform3D.Rotation>
-                                        <AxisAngleRotation3D 
-                                                 Axis="1,0,0"
-                                                 Angle="{Binding ElementName=MainRotX, Path=Angle}"/>
-                                    </RotateTransform3D.Rotation>
-                                </RotateTransform3D>
-                                <RotateTransform3D>
-                                    <RotateTransform3D.Rotation>
-                                        <AxisAngleRotation3D 
-                                                 Axis="0,1,0"
-                                                 Angle="{Binding ElementName=MainRotY, Path=Angle}"/>
-                                    </RotateTransform3D.Rotation>
-                                </RotateTransform3D>
-                                <RotateTransform3D>
-                                    <RotateTransform3D.Rotation>
-                                        <AxisAngleRotation3D 
-                                                 Axis="0,0,1"
-                                                 Angle="{Binding ElementName=MainRotZ, Path=Angle}"/>
-                                    </RotateTransform3D.Rotation>
-                                </RotateTransform3D>
-                            </Transform3DGroup>
-                        </ModelVisual3D.Transform>
-                        <!--Light-->
-                        <ModelVisual3D>
-                            <ModelVisual3D.Content>
-                                <AmbientLight x:Name="AxisLight" Color="White"/>
-                            </ModelVisual3D.Content>
-                        </ModelVisual3D>
-
-                        <!--Model-->
-                        <ModelVisual3D Content="{DynamicResource AxisX}"/>
-                        <ModelVisual3D Content="{DynamicResource AxisY}"/>
-                        <ModelVisual3D Content="{DynamicResource AxisZ}"/>
-                    </ModelVisual3D>
-                </Viewport3D>
+                </HelixToolkit:HelixViewport3D>
                 <!--#endregion-->
                 <Button x:Name="Relocation" Style="{DynamicResource CustomButton}" Margin="0,0,9,5" BorderBrush="{x:Null}" Width="20" Height="20" Click="Viewport_Relocation" VerticalAlignment="Bottom" HorizontalAlignment="Right" ToolTip="{DynamicResource Viewport_Relocation}">
                     <Button.Background>
@@ -1732,3 +1689,4 @@
         <userControl:CustomOutPutBox x:Name="OutPutBox" Height="280" Margin="-191.957,72.96,-97.958,162.96" Grid.Column="3" Grid.Row="3" Width="300" Grid.ColumnSpan="2" MouseDown="OutPut_MouseDown"/>
     </Grid>
 </Page>
+    

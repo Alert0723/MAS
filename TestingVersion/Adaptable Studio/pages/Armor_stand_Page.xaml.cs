@@ -130,8 +130,7 @@ namespace Adaptable_Studio
 
             #region Viewport3D 初始化
             MainWindow.Log_Write(LogPath, "[masc]Viewport3D初始化");
-            Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);//主摄像机
-            Viewport_3D.CameraReset(ref AxisCamera, CameraRot, new double[3], 10);//坐标系摄像机
+            Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);
             LightDirectionReset();
             MainWindow.Log_Write(LogPath, "[Viewport3D]初始化完成");
             #endregion           
@@ -760,8 +759,7 @@ namespace Adaptable_Studio
             CameraRadius = 50;
             CameraRot = new double[2] { 15, 60 };//水平旋转角,竖直旋转角(相对于原点)
             CameraLookAtPoint = new double[3] { 0, 10, 0 };//摄像机视点
-            Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);//主摄像机
-            Viewport_3D.CameraReset(ref AxisCamera, CameraRot, new double[3], 10);//坐标系摄像机
+            Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);
             LightDirectionReset();
         }
         #endregion
@@ -833,7 +831,6 @@ namespace Adaptable_Studio
             }//右键平面移动
 
             Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);
-            Viewport_3D.CameraReset(ref AxisCamera, CameraRot, new double[3], 10);
 
             mouse_location[0] = e.GetPosition((IInputElement)sender).X;
             mouse_location[1] = e.GetPosition((IInputElement)sender).Y;
@@ -848,12 +845,12 @@ namespace Adaptable_Studio
         void LightDirectionReset()
         {
             PerspectiveCamera mark = new PerspectiveCamera();
-            Viewport_3D.CameraReset(ref mark, new double[] { CameraRot[0] + 60, CameraRot[1] }, new double[3], 10);
+            Viewport_3D.CameraReset(ref mark, new double[] { CameraRot[0] + 45, CameraRot[1] }, new double[3], 10);
 
             DirectionalLight.Direction = new Vector3D()
             {
                 X = mark.LookDirection.Z,
-                Y = -2,
+                Y = -3,
                 Z = -mark.LookDirection.X
             };
         }
