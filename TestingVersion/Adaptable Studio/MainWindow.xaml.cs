@@ -213,6 +213,7 @@ namespace Adaptable_Studio
         private void MainClosed(object sender, EventArgs e)
         {
             Log_Write(LogPath, "[Main]正常关闭");
+            IniWrite("System", "PageIndex", "-1", iniPath);
             Environment.Exit(0);
         }
         #endregion

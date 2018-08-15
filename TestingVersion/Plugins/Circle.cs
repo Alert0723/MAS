@@ -1,12 +1,10 @@
 ﻿using ArmorStand.CustomControl;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing.Printing;
+using System.Windows;
 using System.Windows.Controls;
 
-namespace Circle
+namespace Plugins
 {
     public class Class
     {
@@ -15,7 +13,6 @@ namespace Circle
 
         public Class()
         {
-
         }
 
         public string StyleName()
@@ -23,13 +20,49 @@ namespace Circle
             return _StyleName;
         }
 
-        public void AddControls(Canvas canvas)
+        public void AddControls(ref Canvas canvas)
         {
-            canvas.Children.Add(new TextBlock() { Text = "Angle" });
-            canvas.Children.Add(new CustomNumberBox() { Name = "Angle", Value = 5, Maximum = 90, Minimum = 2 });
+            canvas.Children.Add(new TextBlock()
+            {
+                Text = "Angle",
+                Margin = new Thickness() { Top = 30, Left = 2 }
+            });
+            canvas.Children.Add(new CustomNumberBox()
+            {
+                Name = "Angle",
+                Value = 5,
+                Minimum = 2,
+                Maximum = 90,
+                Margin = new Thickness() { Top = 30, Left = 2 }
+            });
 
-            canvas.Children.Add(new TextBlock() { Text = "Radius" });
-            canvas.Children.Add(new CustomNumberBox() { Name = "Radius", Value = 1, Maximum = 32767, Minimum = 0.1 });
+            canvas.Children.Add(new TextBlock()
+            {
+                Text = "Radius",
+                Margin = new Thickness() { Top = 30, Left = 2 }
+            });
+            canvas.Children.Add(new CustomNumberBox()
+            {
+                Name = "Radius",
+                Value = 1,
+                Minimum = 0.1,
+                Maximum = 32767,
+                Margin = new Thickness() { Top = 30, Left = 2 }
+            });
+
+            canvas.Children.Add(new TextBlock()
+            {
+                Text = "Increasing height",
+                Margin = new Thickness() { Top = 30, Left = 2 }
+            });
+            canvas.Children.Add(new CustomNumberBox()
+            {
+                Name = "Increasing height",
+                Value = 0,
+                Minimum = -32767,
+                Maximum = 32767,
+                Margin = new Thickness() { Top = 30, Left = 2 }
+            });
         }
 
         public void Generate(ref string result, ref double[] point, ref double Angle)

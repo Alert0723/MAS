@@ -1,5 +1,5 @@
 ﻿{
-	"EN": ["<particle>",
+	"EN": ["< particle >",
 	"angryVillager",
 	"barrier",
 	"bubble",
@@ -44,8 +44,8 @@
 	"townaura",
 	"wake",
 	"witchMagic"],
-	"CN": ["< 选 择 粒 子 种 类 >",
-	"在村庄攻击一个村民",
+	"CN": ["< 选择粒子种类 >",
+	"村庄攻击一个村民",
 	"屏障",
 	"实体浸入水中，守卫者射出激光束，钓鱼竿的浮标抖动",
 	"白色烟雾",
