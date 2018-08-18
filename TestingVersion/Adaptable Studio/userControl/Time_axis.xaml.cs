@@ -559,7 +559,7 @@ namespace Adaptable_Studio
         }
 
         /// <summary> 重置时间轴 </summary>
-        private void Reset_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Reset_Click(object sender, RoutedEventArgs e)
         {
             Armor_stand_Page.poseChange = true;
 
@@ -572,9 +572,8 @@ namespace Adaptable_Studio
 
             Tick = 0;
             play_pause_button.Pressed = false;
-            reset_button.Pressed = false;
 
-            Play_Mousedown(sender, e);
+            Play_Mousedown(sender, e as MouseButtonEventArgs);
             Control_Loaded(sender, e);
             TimeGridRedraw(sender, e);
         }

@@ -106,7 +106,7 @@ namespace Adaptable_Studio
             line.Close();
             #endregion
 
-            StyleFiles_Load();
+            StyleFiles_Load("Class", "StyleName", true);
 
             #region 预览视角旋转Timer
             Pre_Timer.Tick += Round_Tick;
@@ -115,7 +115,7 @@ namespace Adaptable_Studio
         }
 
         /// <summary> 样式模板列表构建 </summary>
-        private void StyleFiles_Load()
+        private void StyleFiles_Load(string ClassName, string MethodName, bool AddToList = false, string Mode = "", Canvas canvas = null)
         {
             DirectoryInfo DllFolder = new DirectoryInfo(AppPath + @"\appfile\temp\masp");
 
@@ -130,19 +130,23 @@ namespace Adaptable_Studio
 
                     foreach (Type ty in tys)//获取类名
                     {
-                        if (ty.Name == "Class")
+                        if (ty.Name == ClassName)
                         {
-                            ConstructorInfo magicConstructor = ty.GetConstructor(Type.EmptyTypes);//获取不带参数的构造函数
-                            object magicClassObject = magicConstructor.Invoke(new object[] { });//获取类的实例
+                            ConstructorInfo Constructor = ty.GetConstructor(Type.EmptyTypes);//获取不带参数的构造函数
+                            object ClassObject = Constructor.Invoke(new object[] { });//获取类的实例
 
                             //执行类class的方法
-                            MethodInfo mi = ty.GetMethod("StyleName");
-                            object method_result = mi.Invoke(magicClassObject, null);
+                            MethodInfo mi = ty.GetMethod("");
+                            switch (Mode)
+                            {
+                                default: mi = ty.GetMethod(MethodName); break;
+                                case "AddControl": mi = ty.GetMethod(MethodName); break;
+                            }
 
-                            StyleList.Add((string)method_result);
+                            object method_result = mi.Invoke(ClassObject, null);
+                            if (AddToList) StyleList.Add((string)method_result);
                         }
                     }
-
                 }
                 catch { }
 
@@ -319,6 +323,7 @@ namespace Adaptable_Studio
                 if (style_edit.Children[i] is ComboBox) continue;
                 else style_edit.Children.Remove(style_edit.Children[i]);
             }//删除旧控件
+
 
 
         }

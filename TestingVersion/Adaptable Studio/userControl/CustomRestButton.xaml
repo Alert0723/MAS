@@ -378,7 +378,7 @@
         </Label>
         <Border x:Name="border" BorderThickness="0" RenderTransformOrigin="0.5,0.5" Width="17" Height="17" Margin="93,1.666,10,1.333">
             <StackPanel>
-                <Path Fill="White" Stretch="Uniform" Margin="2" Data="{DynamicResource Icon_Settings}"/>
+                <Path Fill="White" Stretch="Uniform" Margin="1" Data="{DynamicResource Icon_Reset}"/>
             </StackPanel>
             <Border.RenderTransform>
                 <TransformGroup>

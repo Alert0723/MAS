@@ -565,7 +565,9 @@
         <local:KeepButton x:Name="repeat_button" HorizontalAlignment="Left" Margin="-50.667,5,0,0" Width="20" Default_Path="{DynamicResource Icon_MediaRepeat}" Pressed_Path="{DynamicResource Icon_MediaNotRepeat}" ToolTip="{DynamicResource TimeRepeat}" Background="#00000000" Style="{DynamicResource KeepButtonStyle1}" Height="20" Grid.Row="1" VerticalAlignment="Top"/>
         <local:KeepButton x:Name="play_pause_button" HorizontalAlignment="Left" Margin="-75.667,5,0,0" Width="20" Default_Path="{DynamicResource Icon_MediaPlay}" Pressed_Path="{DynamicResource Icon_MediaPause}" MouseDown="Play_Mousedown" ToolTip="{DynamicResource Play/Pause}" Style="{DynamicResource KeepButtonStyle1}" Background="#00000000" Height="20" Grid.Row="1" VerticalAlignment="Top"/>
         <local:KeepButton x:Name="home_button" HorizontalAlignment="Left" Margin="-100.667,5,0,0" Width="20" Default_Path="{DynamicResource Icon_MediaRewind}" Pressed_Path="{DynamicResource Icon_MediaRewind}" MouseDown="BackHome_MouseDown" ToolTip="{DynamicResource BackTimeHome}" Style="{DynamicResource KeepButtonStyle1}" Background="#00000000" Height="20" Grid.Row="1" VerticalAlignment="Top"/>
-        <local:KeepButton x:Name="reset_button" Margin="0,0,10,0" MouseDown="Reset_MouseDown" ToolTip="重置时间轴" Default_Path="{DynamicResource Icon_Reset}" Pressed_Path="{DynamicResource Icon_Reset}" HorizontalAlignment="Right" Width="20" Background="#00000000" Style="{DynamicResource KeepButtonStyle1}"/>
+        <Button x:Name="reset_button" Margin="0,0,10,0" Click="Reset_Click" ToolTip="重置时间轴" HorizontalAlignment="Right" Width="20" Background="#02000000" BorderBrush="{x:Null}" Style="{DynamicResource CustomButton}">
+            <Path Margin="1" Stretch="Uniform" Fill="White" Data="{DynamicResource Icon_Reset}"/>
+        </Button>
         <Label Content="TimeAxis Settings" Foreground="White" FontFamily="Comfortaa" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-132.813,-1.991,0,-0.75" Height="22.741" Width="132.813" HorizontalContentAlignment="Center"/>
     </Grid>
 </UserControl>

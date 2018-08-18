@@ -577,7 +577,7 @@
                 <ColumnDefinition Width="5*"/>
                 <ColumnDefinition Width="303*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="BackHome" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0.181,6.385,0,0" Foreground="{x:Null}" Grid.Column="1" Width="35" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{DynamicResource CustomButton}" Click="BackToMenu_Click" Background="#02000000">
+            <Button x:Name="BackHome" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0.181,6.385,0,0" Foreground="{x:Null}" Grid.Column="1" Width="35" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{DynamicResource CustomButton}" Click="BackToMenu_Click" Background="#02828282">
                 <Path Fill="White" Stretch="Uniform" Margin="5" Data="{DynamicResource Icon_Home}"/>
             </Button>
 
@@ -590,23 +590,12 @@
                     </ei:FluidMoveBehavior>
                 </i:Interaction.Behaviors>
             </Rectangle>
-            <Button x:Name="Main" Content="M" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="-0.261,48,0,0" Height="35" VerticalAlignment="Top" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" Width="35" Foreground="{x:Null}" Click="Main_Settings" d:LayoutOverrides="HorizontalAlignment" Grid.Column="1">
-                <Button.Background>
-                    <ImageBrush ImageSource="/Minecraft Adaptable Studio;component/icon/Settings.png">
-                        <ImageBrush.RelativeTransform>
-                            <TransformGroup>
-                                <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.7" ScaleY="0.7"/>
-                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                <RotateTransform CenterY="0.5" CenterX="0.5"/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </ImageBrush.RelativeTransform>
-                    </ImageBrush>
-                </Button.Background>
+            <Button x:Name="Main" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="-0.261,48,0,0" Height="35" VerticalAlignment="Top" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" Width="35" Foreground="{x:Null}" Click="Main_Settings" d:LayoutOverrides="HorizontalAlignment" Grid.Column="1" Background="#02000000">
+                <Path Margin="5" Stretch="Uniform" Fill="White" Data="{DynamicResource Icon_Settings}"/>
             </Button>
-            <Button x:Name="Nbt" Content="N" Background="#00000000" BorderBrush="{x:Null}" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="-0.261,88,0,0" Height="35" VerticalAlignment="Top" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" Width="35" FontFamily="Comfortaa" Click="Nbt_Settings" d:LayoutOverrides="HorizontalAlignment" Grid.Column="1"/>
-            <Button x:Name="Pose" Background="#00000000" BorderBrush="{x:Null}" Foreground="White" Margin="-0.172,128,0,0" Height="35" VerticalAlignment="Top" Content="P" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" Width="35" FontFamily="Comfortaa" Click="Rotation_Settings" d:LayoutOverrides="HorizontalAlignment" Grid.Column="1"/>
-            <Button x:Name="Item" Background="#00000000" BorderBrush="{x:Null}" Foreground="White" Margin="-0.172,168,0,0" Content="I" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" Width="35" FontFamily="Comfortaa" Click="Item_Settings" d:LayoutOverrides="HorizontalAlignment" Grid.Column="1" Height="35" VerticalAlignment="Top"/>
+            <Button x:Name="Nbt" Content="N" Background="#02000000" BorderBrush="{x:Null}" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="-0.261,88,0,0" Height="35" VerticalAlignment="Top" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" Width="35" FontFamily="Comfortaa" Click="Nbt_Settings" d:LayoutOverrides="HorizontalAlignment" Grid.Column="1"/>
+            <Button x:Name="Pose" Background="#02000000" BorderBrush="{x:Null}" Foreground="White" Margin="-0.172,128,0,0" Height="35" VerticalAlignment="Top" Content="P" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" Width="35" FontFamily="Comfortaa" Click="Rotation_Settings" d:LayoutOverrides="HorizontalAlignment" Grid.Column="1"/>
+            <Button x:Name="Item" Background="#02000000" BorderBrush="{x:Null}" Foreground="White" Margin="-0.172,168,0,0" Content="I" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" Width="35" FontFamily="Comfortaa" Click="Item_Settings" d:LayoutOverrides="HorizontalAlignment" Grid.Column="1" Height="35" VerticalAlignment="Top"/>
             <ScrollViewer x:Name="Settings" BorderThickness="0" Padding="0" VerticalScrollBarVisibility="Hidden" CanContentScroll="True" Width="268" Grid.Column="1" MinWidth="268.343" Margin="35.166,0,0.167,0" ScrollChanged="SelectBar_Move">
                 <WrapPanel x:Name="wrapPanel" ScrollViewer.VerticalScrollBarVisibility="{Binding VerticalScrollBarVisibility, ElementName=Settings}" ScrollViewer.CanContentScroll="{Binding CanContentScroll, ElementName=Settings}" UseLayoutRounding="False" Width="268.343" MinWidth="{Binding MinWidth, ElementName=Settings}" Height="1799.18">
                     <i:Interaction.Behaviors>
@@ -681,7 +670,7 @@
                     <Label x:Name="PoseSettings" Content="{DynamicResource Pose_Settings}" Foreground="White" Background="{x:Null}" FontSize="25"  IsHitTestVisible="False" BorderThickness="0,15" Margin="5,0,0,0"/>
                     <Grid x:Name="PosePannel" Height="150" Width="250" Margin="10,0,0,0" Background="#00000000" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                         <Label Content="{DynamicResource Rotation}" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" FontSize="10" Width="60" VerticalContentAlignment="Center" Height="20" HorizontalContentAlignment="{DynamicResource RotationAlignment}" Padding="5"/>
-                        <Slider Style="{DynamicResource CustomSlider}" x:Name="Rotation_Setting" Width="190" Margin="55,0,5,130" FontSize="9" Maximum="180" Minimum="-180" AutoToolTipPlacement="TopLeft" ValueChanged="Pose_Changed"/>
+                        <Slider Style="{DynamicResource CustomSlider}" x:Name="Rotation_Setting" Width="190" Margin="55,0,5,130" FontSize="9" Maximum="180" Minimum="-180" AutoToolTipPlacement="TopLeft" ValueChanged="Pose_Changed" Foreground="{x:Null}" BorderBrush="White"/>
                         <Grid x:Name="grid" Margin="0,20,0,0" IsHitTestVisible="False" Height="105" VerticalAlignment="Top" d:IsEffectDisabled="True">
                             <Grid.Effect>
                                 <BlurEffect/>

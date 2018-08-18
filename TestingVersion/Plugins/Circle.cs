@@ -1,6 +1,6 @@
 ﻿using ArmorStand.CustomControl;
 using System;
-using System.Drawing.Printing;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -65,12 +65,12 @@ namespace Plugins
             });
         }
 
-        public void Generate(ref string result, ref double[] point, ref double Angle)
+        public void Generate(IDictionary<int, object> test)
         {
-            for (double pitch = 0; pitch <= 360; pitch += Angle)
-            {
-                //ClassMath(ref point, ref ControlValue[1], ref pitch, ref ControlValue[2]);
-            }
+            //for (double pitch = 0; pitch <= 360; pitch += Angle)
+            //{
+            //    //ClassMath(ref point, ref ControlValue[1], ref pitch, ref ControlValue[2]);
+            //}
         }
 
         public void Preview()

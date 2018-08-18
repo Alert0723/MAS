@@ -15,7 +15,8 @@
                 <ResourceDictionary Source="pack://application:,,,/lang/CN.xaml"/>
                 <!--控件样式-->
                 <ResourceDictionary Source="pack://application:,,,/ResourceDictionary/ControlStyles.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/ResourceDictionary/Theme/Dark.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ResourceDictionary/Theme/BaseDark.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ResourceDictionary/Theme/Blue.xaml" />
 
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />

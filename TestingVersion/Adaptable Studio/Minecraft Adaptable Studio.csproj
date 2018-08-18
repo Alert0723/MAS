@@ -221,6 +221,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="ResourceDictionary\ComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ResourceDictionary\ControlStyles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -237,11 +241,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ResourceDictionary\Theme\Dark.xaml">
+    <Page Include="ResourceDictionary\Theme\Blue.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ResourceDictionary\Theme\Light.xaml">
+    <Page Include="ResourceDictionary\Theme\BaseDark.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResourceDictionary\Theme\BaseLight.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -394,7 +402,6 @@
     <Resource Include="icon\Round.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="icon\Settings.png" />
     <Resource Include="icon\Warning.png" />
   </ItemGroup>
   <ItemGroup>
