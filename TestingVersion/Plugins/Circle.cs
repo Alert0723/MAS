@@ -6,90 +6,97 @@ using System.Windows.Controls;
 
 namespace Plugins
 {
-    public class Class
+    /// <summary> 主程序接口 </summary>
+    interface IProcessControl
     {
+        /// <summary> 添加控件 </summary>
+        void AddControls(ref WrapPanel canvas, ref IDictionary<int, object> dic);
 
-        public string _StyleName = "Circle";
+        /// <summary> 生成指令 </summary>
+        /// <param name="point">输出坐标变量</param>
+        /// <param name="Controls">0-Angle, 1-Radius, 2-IncreasingHeight</param>
+        void Generate(ref string result, IDictionary<int, object> Control);
 
-        public Class()
-        {
-        }
+        /// <summary> 3D预览部分 </summary>
+        void Preview();
+    }
 
+    public class Class : IProcessControl
+    {
         public string StyleName()
         {
-            return _StyleName;
+            return "Circle";
         }
 
-        public void AddControls(ref Canvas canvas)
+        public void AddControls(ref WrapPanel canvas, ref IDictionary<int, object> dic)
         {
+            dic.Clear();
             canvas.Children.Add(new TextBlock()
             {
                 Text = "Angle",
-                Margin = new Thickness() { Top = 30, Left = 2 }
+                Margin = new Thickness() { Top = 15, Left = 10 }
             });
-            canvas.Children.Add(new CustomNumberBox()
+            CustomNumberBox cnb = new CustomNumberBox()
             {
-                Name = "Angle",
                 Value = 5,
                 Minimum = 2,
                 Maximum = 90,
-                Margin = new Thickness() { Top = 30, Left = 2 }
-            });
+                Height = 20,
+                Margin = new Thickness() { Top = 10, Left = 10 }
+            };
+            dic.Add(0, cnb);
+            canvas.Children.Add(cnb);
 
             canvas.Children.Add(new TextBlock()
             {
                 Text = "Radius",
-                Margin = new Thickness() { Top = 30, Left = 2 }
+                Margin = new Thickness() { Top = 15, Left = 10 }
             });
-            canvas.Children.Add(new CustomNumberBox()
+            cnb = new CustomNumberBox()
             {
-                Name = "Radius",
                 Value = 1,
                 Minimum = 0.1,
                 Maximum = 32767,
-                Margin = new Thickness() { Top = 30, Left = 2 }
-            });
+                Height = 25,
+                Margin = new Thickness() { Top = 10, Left = 10 }
+            };
+            dic.Add(1, cnb);
+            canvas.Children.Add(cnb);
 
             canvas.Children.Add(new TextBlock()
             {
-                Text = "Increasing height",
-                Margin = new Thickness() { Top = 30, Left = 2 }
+                Text = "Increasing Height",
+                Margin = new Thickness() { Top = 15, Left = 10 }
             });
-            canvas.Children.Add(new CustomNumberBox()
+            cnb = new CustomNumberBox()
             {
-                Name = "Increasing height",
                 Value = 0,
                 Minimum = -32767,
                 Maximum = 32767,
-                Margin = new Thickness() { Top = 30, Left = 2 }
-            });
+                Height = 25,
+                Margin = new Thickness() { Top = 10, Left = 10 }
+            };
+            dic.Add(2, cnb);
+            canvas.Children.Add(cnb);
         }
 
-        public void Generate(IDictionary<int, object> test)
+        /// <summary> 生成指令 </summary>
+        /// <param name="point">输出坐标变量</param>
+        /// <param name="Controls">0-Angle, 1-Radius, 2-IncreasingHeight</param>
+        public void Generate(ref string result, IDictionary<int, object> Control)
         {
-            //for (double pitch = 0; pitch <= 360; pitch += Angle)
-            //{
-            //    //ClassMath(ref point, ref ControlValue[1], ref pitch, ref ControlValue[2]);
-            //}
+            double[] point = new double[3];
+            for (double pitch = 0; pitch <= 360; pitch += ((CustomNumberBox)Control[0]).Value)
+            {
+                point[0] = (Math.Sin(pitch * Math.PI / 180) * ((CustomNumberBox)Control[1]).Value);
+                point[1] += ((CustomNumberBox)Control[2]).Value;
+                point[2] = (Math.Cos(pitch * Math.PI / 180) * ((CustomNumberBox)Control[1]).Value);
+            }
         }
 
         public void Preview()
         {
 
-        }
-
-        /// <summary>
-        /// 运算
-        /// </summary>
-        /// <param name="point">输出坐标点</param>
-        /// <param name="radius">半径</param>
-        /// <param name="pitch">角度</param>
-        /// <param name="AddHeight">递增高度</param>
-        public static void ClassMath(ref double[] point, ref double radius, ref double pitch, ref double AddHeight)
-        {
-            point[0] = (Math.Sin(pitch * Math.PI / 180) * radius);
-            point[1] += AddHeight;
-            point[2] = (Math.Cos(pitch * Math.PI / 180) * radius);
         }
 
         private static void Add_ones(ref double[] point, ref string particle, ref string result, ref string Selector)

@@ -77,11 +77,11 @@
                 <Button x:Name="List_add" Content="添加" FontSize="18" Click="Item_add" Grid.Row="2" Margin="0,4,2,45"/>
                 <Button x:Name="List_delete" Content="删除" FontSize="18" Click="Item_delete" Margin="2,4,2,45" Grid.Column="1" Grid.Row="2"/>
                 <Button x:Name="List_clear" Content="清空" FontSize="18" Click="Item_clear" Margin="2,4,0,45" Grid.Column="2" Grid.Row="2"/>
-                <Button x:Name="List_rename" Content="重命名" FontSize="18" Click="Item_rename" Height="40" Grid.Row="2" Margin="0,0,0,0" VerticalAlignment="Bottom" Grid.ColumnSpan="3"/>
+                <Button x:Name="List_rename" Content="重命名" FontSize="18" Click="Item_rename_Click" Height="40" Grid.Row="2" Margin="0,0,0,0" VerticalAlignment="Bottom" Grid.ColumnSpan="3"/>
             </Grid>
         </Canvas>
         <GroupBox x:Name="EditGroup" Header="样式编辑" HorizontalAlignment="Left" Height="537" Margin="191,10,0,0" VerticalAlignment="Top" Width="210">
-            <Canvas x:Name="style_edit" Margin="0,-30,0,0" Height="{Binding ElementName=EditGroup, Path=ActualHeight}"/>
+            <WrapPanel x:Name="style_edit" Margin="0,-30,0,0" Height="{Binding ElementName=EditGroup, Path=ActualHeight}"/>
         </GroupBox>
         <Button x:Name="BackHome" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="10,10,0,0" Foreground="{x:Null}" Width="35" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{DynamicResource CustomButton}" Click="BackToMenu_Click" Background="#02000000">
             <StackPanel>

@@ -393,9 +393,6 @@
     <Resource Include="image\WeChat.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="icon\Create.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="FodyWeavers.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -416,9 +413,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="textures\masc\stone.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="icon\Viewport3D\Relocation.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Costura.Fody.3.1.0\build\Costura.Fody.targets" Condition="Exists('..\packages\Costura.Fody.3.1.0\build\Costura.Fody.targets')" />

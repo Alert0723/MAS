@@ -1612,10 +1612,8 @@
                     </ModelVisual3D>
                 </HelixToolkit:HelixViewport3D>
                 <!--#endregion-->
-                <Button x:Name="Relocation" Style="{DynamicResource CustomButton}" Margin="0,0,9,5" BorderBrush="{x:Null}" Width="20" Height="20" Click="Viewport_Relocation" VerticalAlignment="Bottom" HorizontalAlignment="Right" ToolTip="{DynamicResource Viewport_Relocation}">
-                    <Button.Background>
-                        <ImageBrush ImageSource="/Minecraft Adaptable Studio;component/icon/Viewport3D/Relocation.png" Stretch="Uniform"/>
-                    </Button.Background>
+                <Button x:Name="Relocation" Style="{DynamicResource CustomButton}" Margin="0,0,9,5" BorderBrush="{x:Null}" Width="20" Height="20" Click="Viewport_Relocation" VerticalAlignment="Bottom" HorizontalAlignment="Right" ToolTip="{DynamicResource Viewport_Relocation}" Background="#02252525">
+                    <Path Margin="0" Stretch="Uniform" Fill="White" Data="{DynamicResource Icon_Crosshair}"/>
                 </Button>
             </Grid>
         </GroupBox>

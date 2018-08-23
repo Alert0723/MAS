@@ -101,7 +101,7 @@ namespace ArmorStand.CustomControl
         {
             Value = double.Parse(NumberBox.Text);
             if (Value > Maximum) Value = Maximum;
-            if (Value > Maximum) Value = Maximum;
+            if (Value < Minimum) Value = Minimum;
             NumberBox.Text = Value.ToString();
         }
 
@@ -109,7 +109,7 @@ namespace ArmorStand.CustomControl
         {
             Value = double.Parse(NumberBox.Text);
             if (Value > Maximum) Value = Maximum;
-            if (Value > Maximum) Value = Maximum;
+            if (Value < Minimum) Value = Minimum;
             NumberBox.Text = Value.ToString();
         }
 
@@ -119,7 +119,7 @@ namespace ArmorStand.CustomControl
             {
                 Value = double.Parse(NumberBox.Text);
                 if (Value > Maximum) Value = Maximum;
-                if (Value > Maximum) Value = Maximum;
+                if (Value < Minimum) Value = Minimum;
                 NumberBox.Text = Value.ToString();
                 NumberBox.MoveFocus(new TraversalRequest(new FocusNavigationDirection()));
             }

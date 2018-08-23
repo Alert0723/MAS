@@ -1,17 +1,14 @@
-﻿using ArmorStand.CustomControl;
-using DotNetZip;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Net;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Media3D;
 using System.Windows.Threading;
 
@@ -43,9 +40,15 @@ namespace Adaptable_Studio
 
         public double[] ParticlePosition = new double[3];//粒子坐标
 
-        public List<string> StyleList = new List<string>();//dll列表
-        public List<int> StyleType = new List<int>(),//样式种类
-                         StyleParticle = new List<int>();//样式绑定粒子
+        /// <summary> dll列表 </summary>
+        public List<string> StyleList = new List<string>();
+        /// <summary> 特效样式 </summary>
+        public List<int> StyleType = new List<int>();
+        /// <summary> 样式对应粒子 </summary>
+        public List<int> StyleParticle = new List<int>();
+
+        /// <summary> 列队控件uid,dll控件缓存 </summary>
+        public List<IDictionary<int, object>> ControlValue = new List<IDictionary<int, object>>();
 
         #region Viewport3D
         double CameraRadius = 4;//摄像机半径(相对于原点)
@@ -115,14 +118,12 @@ namespace Adaptable_Studio
         }
 
         /// <summary> 样式模板列表构建 </summary>
-        private void StyleFiles_Load(string ClassName, string MethodName, bool AddToList = false, string Mode = "", Canvas canvas = null)
+        private void StyleFiles_Load(string ClassName, string MethodName, bool AddToList = false)
         {
-            DirectoryInfo DllFolder = new DirectoryInfo(AppPath + @"\appfile\temp\masp");
-
-            //获取dll列表
-            foreach (FileInfo file in DllFolder.GetFiles("*.dll"))
+            try
             {
-                try
+                //获取dll列表
+                foreach (FileInfo file in new DirectoryInfo(AppPath + @"\appfile\temp\masp").GetFiles("*.dll"))
                 {
                     string DllPath = file.FullName;
                     Assembly assem = Assembly.LoadFile(DllPath);
@@ -137,20 +138,15 @@ namespace Adaptable_Studio
 
                             //执行类class的方法
                             MethodInfo mi = ty.GetMethod("");
-                            switch (Mode)
-                            {
-                                default: mi = ty.GetMethod(MethodName); break;
-                                case "AddControl": mi = ty.GetMethod(MethodName); break;
-                            }
+                            mi = ty.GetMethod(MethodName);
 
                             object method_result = mi.Invoke(ClassObject, null);
                             if (AddToList) StyleList.Add((string)method_result);
                         }
                     }
                 }
-                catch { }
-
             }
+            catch { }
         }
 
         /// <summary> 输出控件 </summary>
@@ -178,31 +174,57 @@ namespace Adaptable_Studio
         /// <summary> 添加样式 </summary>
         private void Item_add(object sender, RoutedEventArgs e)
         {
-            CheckBox NewItem = new CheckBox()
+            //主面板
+            WrapPanel NewItem = new WrapPanel()
             {
-                Style = (Style)(FindResource("CustomCheckBox")),
-                IsChecked = true,
-                Content = "<显示>  " + "新样式",
+                Background = new SolidColorBrush(Color.FromArgb(1, 0, 0, 0)),
+                Height = 20,
+                Tag = "true"
+            };
+
+            //显示/隐藏
+            System.Windows.Shapes.Path path = new System.Windows.Shapes.Path()
+            {
+                Name = "path",
+                Width = 16,
+                Height = 16,
+                Margin = new Thickness(2),
+                Stretch = Stretch.Uniform,
+                Fill = new SolidColorBrush(Color.FromRgb(255, 255, 255)),
+                Data = (Geometry)FindResource("Icon_EyeOn"),
+            };
+            path.MouseLeftButtonDown += Item_SH;//显示/隐藏 切换事件
+            NewItem.Children.Add(path);
+
+            //命名
+            TextBlock tb = new TextBlock()
+            {
+                Margin = new Thickness(10, 2, 0, 0),
+                Text = "新样式",
                 Height = 20
             };
-            NewItem.Click += Item_SH;//单击事件
-            NewItem.KeyDown += Item_KeyDown;
+            NewItem.Children.Add(tb);
             Style_list.Items.Add(NewItem);
 
             StyleType.Add(new int());
             StyleParticle.Add(new int());
+            ControlValue.Add(new Dictionary<int, object>());
         }
 
         /// <summary> 移除样式 </summary>
-        private void Item_rename(object sender, RoutedEventArgs e)
+        private void Item_rename_Click(object sender, RoutedEventArgs e)
         {
             Thickness margin = new Thickness();
             try
             {
+                string text = string.Empty;
+                foreach (var item in ((WrapPanel)Style_list.SelectedItem).Children)
+                {
+                    if (item is TextBlock) text = ((TextBlock)item).Text;
+                }
+
                 //动态新建控件+设置属性
-                TextBox t = new TextBox();
-                string text = ((CheckBox)Style_list.SelectedItem).Content.ToString();
-                t.Text = text.Remove(0, 6);
+                TextBox t = new TextBox() { Text = text };
                 Canvas.SetTop(t, 0);
                 //控件显示
                 style_board.Children.Add(t);
@@ -233,7 +255,7 @@ namespace Adaptable_Studio
                 {
                     Height = 25,
                     Width = style_edit.ActualWidth - 10,
-                    Margin = new Thickness(2, 30, Margin.Right, Margin.Bottom),
+                    Margin = new Thickness() { Top = 35, Left = 5 },
                     SelectedIndex = StyleType[index]
                 };
 
@@ -249,7 +271,7 @@ namespace Adaptable_Studio
                 {
                     Height = 25,
                     Width = style_edit.ActualWidth - 10,
-                    Margin = new Thickness(2, 60, Margin.Right, Margin.Bottom),
+                    Margin = new Thickness() { Top = 10, Left = 5 },
                     SelectedIndex = StyleParticle[index]
                 };
                 par_id.SelectionChanged += Par_id_Changed;//id更改事件
@@ -269,12 +291,6 @@ namespace Adaptable_Studio
                 style_edit.Children.Add(par_style); Canvas.SetTop(par_style, 0);
                 style_edit.Children.Add(par_id); Canvas.SetTop(par_id, 0);
             }
-        }
-
-        //样式键盘编辑
-        private void Item_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Delete) Item_delete(sender, e); //删除样式
         }
 
         #region 数组响应事件
@@ -322,10 +338,39 @@ namespace Adaptable_Studio
             {
                 if (style_edit.Children[i] is ComboBox) continue;
                 else style_edit.Children.Remove(style_edit.Children[i]);
-            }//删除旧控件
+            }//删除旧控件 (两个ComboBox除外)
 
+            try
+            {
+                //获取dll列表
+                foreach (FileInfo file in new DirectoryInfo(AppPath + @"\appfile\temp\masp").GetFiles("*.dll"))
+                {
+                    string DllPath = file.FullName;
+                    Assembly assem = Assembly.LoadFile(DllPath);
+                    Type[] tys = assem.GetTypes();//得到所有的类型名，然后遍历，通过类型名字来区别
 
+                    foreach (Type ty in tys)//获取类名
+                    {
+                        if (ty.Name == "Class")
+                        {
+                            ConstructorInfo Constructor = ty.GetConstructor(Type.EmptyTypes);//获取不带参数的构造函数
+                            object ClassObject = Constructor.Invoke(new object[] { });//获取类的实例
 
+                            //执行类class的方法
+                            MethodInfo mi = ty.GetMethod("");
+
+                            if (ty.GetMethod("StyleName").Invoke(ClassObject, null).ToString() == ((TextBlock)c.SelectedItem).Text)
+                            {
+                                mi = ty.GetMethod("AddControls");
+                                mi.Invoke(ClassObject, new object[] { style_edit, ControlValue[Style_list.SelectedIndex] });
+                            }
+                            else continue;
+
+                        }
+                    }
+                }
+            }
+            catch (Exception e) { MessageBox.Show(e.ToString()); }
         }
 
         private void Par_id_Changed(object sender, SelectionChangedEventArgs e)
@@ -339,10 +384,10 @@ namespace Adaptable_Studio
         private void ItemName_Changed(object sender, RoutedEventArgs e)
         {
             TextBox t = (TextBox)sender;
-            string tag = null;
-            if ((bool)((CheckBox)Style_list.SelectedItem).IsChecked) { tag = "<显示>  "; }
-            else { tag = "<隐藏>  "; }
-            ((CheckBox)Style_list.SelectedItem).Content = tag + t.Text;
+            foreach (var item in ((WrapPanel)Style_list.SelectedItem).Children)
+            {
+                if (item is TextBlock) ((TextBlock)item).Text = t.Text;
+            }
             style_board.Children.Remove(t);
         }
         private void ItemName_Changed(object sender, KeyEventArgs e)
@@ -350,10 +395,10 @@ namespace Adaptable_Studio
             if (e.Key == Key.Enter)
             {
                 TextBox t = (TextBox)sender;
-                string tag = null;
-                if ((bool)((CheckBox)Style_list.SelectedItem).IsChecked) { tag = "<显示>  "; }
-                else { tag = "<隐藏>  "; }
-                ((CheckBox)Style_list.SelectedItem).Content = tag + t.Text;
+                foreach (var item in ((WrapPanel)Style_list.SelectedItem).Children)
+                {
+                    if (item is TextBlock) ((TextBlock)item).Text = t.Text;
+                }
                 style_board.Children.Remove(t);
             }
         }
@@ -362,11 +407,17 @@ namespace Adaptable_Studio
         /// <summary> 样式 显示/隐藏 </summary>
         private void Item_SH(object sender, RoutedEventArgs e)
         {
-            CheckBox c1 = (CheckBox)sender;
-            string h = "隐藏", s = "显示", content = c1.Content.ToString();
-            if ((bool)c1.IsChecked) content = content.Replace(h, s);
-            else content = content.Replace(s, h);
-            c1.Content = content;
+            e.Handled = true;
+            if (((((System.Windows.Shapes.Path)sender).Parent) as WrapPanel).Tag.ToString() == "true")
+            {
+                ((((System.Windows.Shapes.Path)sender).Parent) as WrapPanel).Tag = "false";
+                ((System.Windows.Shapes.Path)sender).Data = (Geometry)FindResource("Icon_EyeOff");
+            }
+            else
+            {
+                ((((System.Windows.Shapes.Path)sender).Parent) as WrapPanel).Tag = "true";
+                ((System.Windows.Shapes.Path)sender).Data = (Geometry)FindResource("Icon_EyeOn");
+            }
         }
 
         /// <summary> 样式删除 </summary>
@@ -375,8 +426,12 @@ namespace Adaptable_Studio
             int index = Style_list.SelectedIndex;
             if (index != -1)
             {
+                //List删除
                 StyleType.RemoveAt(index);
                 StyleParticle.RemoveAt(index);
+                ControlValue.RemoveAt(index);
+
+                //控件删除
                 style_edit.Children.Clear();
                 Style_list.Items.Remove(Style_list.SelectedItem);
                 Style_list.SelectedIndex = -1;
@@ -389,18 +444,55 @@ namespace Adaptable_Studio
             style_edit.Children.Clear();
             Style_list.Items.Clear();
 
-            StyleType.Clear();
             StyleParticle.Clear();
+            StyleType.Clear();
+            ControlValue.Clear();
         }
         #endregion
 
         /// <summary> 生成指令并弹出检索窗体 </summary>
         private void Generate_Click(object sender, RoutedEventArgs e)
         {
-            #region  参数初始化
-            int score_ = 0/*计分板参数*/, count = 0/*指令生成次数*/;
-            MainWindow.result = String.Empty;//指令输出
-            #endregion
+
+            MainWindow.result = string.Empty;//指令输出
+            int index = 0;
+
+            try
+            {
+                foreach (var StyleTypeItem in StyleType)
+                {
+                    //获取dll列表
+                    foreach (FileInfo file in new DirectoryInfo(AppPath + @"\appfile\temp\masp").GetFiles("*.dll"))
+                    {
+                        string DllPath = file.FullName;
+                        Assembly assem = Assembly.LoadFile(DllPath);
+                        Type[] tys = assem.GetTypes();//得到所有的类型名，然后遍历，通过类型名字来区别
+
+                        foreach (Type ty in tys)//获取类名
+                        {
+                            if (ty.Name == "Class")
+                            {
+                                ConstructorInfo Constructor = ty.GetConstructor(Type.EmptyTypes);//获取不带参数的构造函数
+                                object ClassObject = Constructor.Invoke(new object[] { });//获取类的实例
+
+                                //执行类class的方法
+                                MethodInfo mi = ty.GetMethod("");
+
+                                if (ty.GetMethod("StyleName").Invoke(ClassObject, null).ToString() == StyleTypeItem.ToString())
+                                {
+                                    mi = ty.GetMethod("Generate");
+                                    mi.Invoke(ClassObject, new object[] { MainWindow.result, ControlValue[index] });
+                                }
+                                else continue;
+
+                            }
+                        }
+                    }
+
+                    index++;
+                }
+            }
+            catch { }
 
             #region fNBT
             MainWindow.k = 0;

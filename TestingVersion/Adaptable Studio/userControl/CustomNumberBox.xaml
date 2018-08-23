@@ -89,25 +89,13 @@
         </Grid.ColumnDefinitions>
         <TextBox TextWrapping="Wrap" Text="0" Background="#FF2F2F2F" BorderBrush="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Padding="5,0,0,0" FontSize="10" TextChanged="CheckNumber" BorderThickness="1" x:Name="NumberBox" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" MinHeight="20" Height="{Binding Height, ElementName=userControl}"/>
         <Border MouseDown="Increase_Value" Padding="0" BorderThickness="0,1" Background="#00000000" MinHeight="20" MinWidth="16" Margin="0,0,16,0" Width="16" HorizontalAlignment="Right" x:Name="Increase_Button" MouseEnter="IncreaseMouseOverEvent" MouseLeave="IncreaseNormalEvent" MouseLeftButtonUp="IncreaseOverPressedEvent">
-            <Path x:Name="path" Data="M3.8750001,0 L7.7500001,5.1669999 6.7859909,5.1669999 3.8696645,2.4844424 0.97162113,5.1669999 -9.3270701E-09,5.1669999 z" Fill="White" MaxWidth="9" MaxHeight="6" Margin="7.011,6.673,1,6" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
-                <Path.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Path.RenderTransform>
-            </Path>
+            <Path x:Name="path" Data="M3.8750001,0 L7.7500001,5.1669999 6.7859909,5.1669999 3.8696645,2.4844424 0.97162113,5.1669999 -9.3270701E-09,5.1669999 z" Fill="White" MaxWidth="9" MaxHeight="6" Margin="7.011,6.673,1,6" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
         </Border>
         <Border MouseDown="Decrease_Value" BorderThickness="0,1" Background="#00000000" MinWidth="16" MinHeight="20" Width="16" HorizontalAlignment="Right" x:Name="Decrease_Button" MouseEnter="DecreaseMouseOverEvent" MouseLeave="DecreaseNormalEvent" MouseLeftButtonUp="DecreaseOverPressedEvent">
             <Path x:Name="path1" Data="M3.8750001,0 L7.7500001,5.1669999 6.7859909,5.1669999 3.8696645,2.4844424 0.97162113,5.1669999 -9.3270701E-09,5.1669999 z" Fill="White" MaxWidth="9" MaxHeight="6" Stretch="Fill" HorizontalAlignment="Left" Width="7.989" Margin="0,6.673,0,6" RenderTransformOrigin="0.5,0.5">
                 <Path.RenderTransform>
                     <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
                         <RotateTransform Angle="180"/>
-                        <TranslateTransform/>
                     </TransformGroup>
                 </Path.RenderTransform>
             </Path>
