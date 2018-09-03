@@ -256,7 +256,9 @@
         <Button x:Name="Donate" Content="捐助作者" HorizontalAlignment="Left" Margin="145,525,0,0" VerticalAlignment="Top" Width="130" FontSize="15" ToolTipService.ShowDuration="10000" ToolTipService.InitialShowDelay="0" Style="{DynamicResource CustomButton}" BorderBrush="{x:Null}" Background="{x:Null}" Height="33.999" FontFamily="Microsoft YaHei UI" Click="Donate_Click">
             <Button.ToolTip>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock FontSize="15"><Run Text="支 "/><LineBreak/><Run Text="付 "/><LineBreak/><Run Text="宝 "/></TextBlock>
+                    <TextBlock FontSize="15"><Run Text="爱 "/><LineBreak/><Run Text="发 "/><LineBreak/><Run Text="电 "/></TextBlock>
+                    <Image Width="100" Height="100" Source="/Minecraft Adaptable Studio;component/image/afdian.png"/>
+                    <TextBlock FontSize="15"><Run Text="  支 "/><LineBreak/><Run Text="  付 "/><LineBreak/><Run Text="  宝 "/></TextBlock>
                     <Image Width="100" Height="100" Source="/Minecraft Adaptable Studio;component/image/Alipay.png"/>
                     <TextBlock FontSize="15"><Run Text="  微 "/><LineBreak/><Run Text="  信 "/></TextBlock>
                     <Image Width="100" Height="100" Source="/Minecraft Adaptable Studio;component/image/WeChat.png"/>
