@@ -300,7 +300,7 @@ namespace Adaptable_Studio
                     else if (item is CheckBox)
                         ((CheckBox)item).IsChecked = false;
                     else if (item is TextBox)
-                        ((TextBox)item).Text = String.Empty;
+                        ((TextBox)item).Text = string.Empty;
                 }
 
                 foreach (var item in grid2.Children)
@@ -359,15 +359,15 @@ namespace Adaptable_Studio
             for (int i = 0; i < 10000; i++) { MainWindow.commands[i] = ""; }//NBT框架搭建数据              
             MainWindow.StructureNbt.Clear();
 
-            string result = String.Empty;
-            MainWindow.result = String.Empty;
+            string result = string.Empty;
+            MainWindow.result = string.Empty;
             if (!UI_advancedmode.IsChecked)
             {
                 result = "summon armor_stand ~ ~1 ~ {";
 
                 #region  基础NBT输出判定
-                if (UI_name.Text != String.Empty) result += "CustomName:\"{\\\"text\\\":\\\"" + UI_name.Text + "\\\"}\",";
-                if (UI_tags.Text != String.Empty) result += "Tags:[\"" + UI_tags.Text + "\"],";
+                if (UI_name.Text != string.Empty) result += "CustomName:\"{\\\"text\\\":\\\"" + UI_name.Text + "\\\"}\",";
+                if (UI_tags.Text != string.Empty) result += "Tags:[\"" + UI_tags.Text + "\"],";
                 if ((bool)disabled_hand.IsChecked | (bool)disabled_head.IsChecked | (bool)disabled_chest.IsChecked | (bool)disabled_legs.IsChecked | (bool)disabled_boots.IsChecked)
                 {
                     double a = 0; int b;
@@ -479,7 +479,7 @@ namespace Adaptable_Studio
                                 Item_PartData[r] += OutPutItem[r, index];
 
                             else if (index == 7 || index == 8)
-                            { if (Item_Data[r].Content[i] != String.Empty) Item_PartData[r] += OutPutItem[r, index]; }
+                            { if (Item_Data[r].Content[i] != string.Empty) Item_PartData[r] += OutPutItem[r, index]; }
 
                             else if (index == 3 || index == 4)
                             { if (Item_Data[r].Bool[j]) Item_PartData[r] += OutPutItem[r, index]; }
@@ -530,14 +530,14 @@ namespace Adaptable_Studio
             }//常规模式
             else
             {
-                string tag = String.Empty;
+                string tag = string.Empty;
 
                 tag = UI_tags.Text;
 
                 for (int i = 0; i < TimeAxis.TotalTick; i++)
                 {
                     result = "data merge entity @e[type=armor_stand,limit=1";
-                    if (UI_tags.Text != String.Empty) result += ",tag=" + tag;
+                    if (UI_tags.Text != string.Empty) result += ",tag=" + tag;
                     result += ",scores={" + "ScoreName=" + i.ToString() + "}"
                      + "] {";
 
@@ -569,7 +569,7 @@ namespace Adaptable_Studio
 
                 //加分
                 result = "scoreboard players add @e";
-                if (UI_tags.Text != String.Empty) result += "[tag=" + tag + "]";
+                if (UI_tags.Text != string.Empty) result += "[tag=" + tag + "]";
                 result += " ScoreName 1";
                 Add_ones(result, true);
             }//高级模式            
@@ -768,9 +768,9 @@ namespace Adaptable_Studio
         private void Viewport_MouseWheel(object sender, MouseWheelEventArgs e)
         {
             if (e.Delta < 0)
-                CameraRadius += 0.5;
+                CameraRadius += 2;
             else if (e.Delta > 0)
-                CameraRadius -= 0.5;
+                CameraRadius -= 2;
 
             Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);//主摄像机            
         }
@@ -850,7 +850,7 @@ namespace Adaptable_Studio
             DirectionalLight.Direction = new Vector3D()
             {
                 X = mark.LookDirection.Z,
-                Y = -3,
+                Y = -5,
                 Z = -mark.LookDirection.X
             };
         }

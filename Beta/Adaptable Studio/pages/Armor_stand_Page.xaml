@@ -1407,12 +1407,12 @@
                     </HelixToolkit:HelixViewport3D.Camera>
                     <ModelVisual3D x:Name="Directional_Light">
                         <ModelVisual3D.Content>
-                            <DirectionalLight x:Name="DirectionalLight" Color="#e0c4a2" Direction="-5,-3,2"/>
+                            <DirectionalLight x:Name="DirectionalLight" Color="#88847c" Direction="-5,3,-2"/>
                         </ModelVisual3D.Content>
                     </ModelVisual3D>
                     <ModelVisual3D x:Name="Ambient_Light">
                         <ModelVisual3D.Content>
-                            <AmbientLight Color="#2a374a"/>
+                            <AmbientLight Color="#606060"/>
                         </ModelVisual3D.Content>
                     </ModelVisual3D>
 
