@@ -24,20 +24,6 @@ namespace Adaptable_Studio
         Json particleName;
         public static int pre_count/*预览粒子数量统计*/;
 
-        public struct Particle
-        {
-            public int Id;
-            public string Style;
-            public string Coded;
-        }
-        public struct Preview
-        {
-            public string StyleName;
-            public string[] Controls;
-            public string[] ControlType;
-            public string Code;
-        }
-
         public double[] ParticlePosition = new double[3];//粒子坐标
 
         /// <summary> dll列表 </summary>

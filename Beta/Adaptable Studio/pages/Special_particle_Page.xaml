@@ -11,10 +11,10 @@
       Title="special_particle_Page" Width="942" Height="569" Loaded="Page_Loaded">
     <Grid x:Name="Main_grid">
         <GroupBox Header="Preview" Margin="406,10,0,22" Background="#CC119EDA" BorderBrush="#CC119EDA" HorizontalAlignment="Left" Width="526" Custom:ControlsHelper.ContentCharacterCasing="Normal">
-            <Grid x:Name="PreviewGrid" Background="#FFB7B7B7" MouseDown="Viewport_MouseDown" MouseMove="Viewport_MouseMove" MouseUp="Viewport_MouseUp" MouseWheel="Viewport_MouseWheel" Margin="0,0,0,2" MouseLeave="Viewport_MouseLeave">
+            <Grid x:Name="PreviewGrid" Background="#FFCDCDCD" MouseDown="Viewport_MouseDown" MouseMove="Viewport_MouseMove" MouseUp="Viewport_MouseUp" MouseWheel="Viewport_MouseWheel" Margin="0,0,0,2" MouseLeave="Viewport_MouseLeave">
                 <!--#region  ViewPort3D -->
                 <HelixToolkit:HelixViewport3D x:Name="MainViewport" 
-                                              ShowCoordinateSystem="True" 
+                                              ShowCoordinateSystem="True"
                                               CoordinateSystemHorizontalPosition="Right"
                                               CoordinateSystemVerticalPosition="Top"
                                               ShowViewCube="False"
@@ -47,7 +47,7 @@
                     </HelixToolkit:GridLinesVisual3D>
                 </HelixToolkit:HelixViewport3D>
                 <!--#endregion-->
-                <Label x:Name="paeticle_stats" Content="Count:0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="116" Margin="0,0,390.8,464.4"/>
+                <Label x:Name="paeticle_stats" Content="Count:0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="116" Margin="0,0,390.8,464.4" Foreground="#FF646464"/>
 
                 <WrapPanel x:Name="ViewportToolsBar" Margin="0,451,0,0" Background="#33AAAAAA" Height="50" VerticalAlignment="Top" Width="{Binding ActualWidth, ElementName=MainViewport, Mode=OneWay}" MouseMove="ViewportToolsBar_MouseMove" MouseDown="ViewportToolsBar_MouseDown">
                     <adaptable_studio:KeepButton x:Name="ToolBarSwitch" Default_Path="{DynamicResource Icon_UpArrow}" Pressed_Path="{DynamicResource Icon_DownArrow}" MouseLeftButtonDown="ToolBarSwitch_LeftDown" Margin="0,0,0,1.2" Height="15" Width="{Binding ActualWidth, ElementName=ViewportToolsBar, Mode=OneWay}"/>

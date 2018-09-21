@@ -18,7 +18,7 @@ namespace Plugins
         void Generate(ref string result, IDictionary<int, object> Control);
 
         /// <summary> 3D预览部分 </summary>
-        void Preview();
+        void Preview(ref Viewport3D viewport, IDictionary<int, object> Control);
     }
 
     public class Class : IProcessControl
@@ -94,9 +94,15 @@ namespace Plugins
             }
         }
 
-        public void Preview()
+        public void Preview(ref Viewport3D viewport, IDictionary<int, object> Control)
         {
-
+            double[] point = new double[3];
+            for (double pitch = 0; pitch <= 360; pitch += ((CustomNumberBox)Control[0]).Value)
+            {
+                point[0] = (Math.Sin(pitch * Math.PI / 180) * ((CustomNumberBox)Control[1]).Value);
+                point[1] += ((CustomNumberBox)Control[2]).Value;
+                point[2] = (Math.Cos(pitch * Math.PI / 180) * ((CustomNumberBox)Control[1]).Value);
+            }
         }
 
         private static void Add_ones(ref double[] point, ref string particle, ref string result, ref string Selector)
