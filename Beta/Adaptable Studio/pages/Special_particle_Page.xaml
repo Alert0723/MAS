@@ -44,6 +44,8 @@
                                 </RotateTransform3D.Rotation>
                             </RotateTransform3D>
                         </HelixToolkit:GridLinesVisual3D.Transform>
+
+                        <ModelVisual3D Content="{DynamicResource Particle}"/>
                     </HelixToolkit:GridLinesVisual3D>
                 </HelixToolkit:HelixViewport3D>
                 <!--#endregion-->

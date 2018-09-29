@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Media3D;
 
 namespace Plugins
 {
@@ -102,7 +104,31 @@ namespace Plugins
                 point[0] = (Math.Sin(pitch * Math.PI / 180) * ((CustomNumberBox)Control[1]).Value);
                 point[1] += ((CustomNumberBox)Control[2]).Value;
                 point[2] = (Math.Cos(pitch * Math.PI / 180) * ((CustomNumberBox)Control[1]).Value);
+
+                Point3DCollection pointcollect = new Point3DCollection();//模型坐标集合
+                PointCollection texturepoints = new PointCollection();//纹理坐标集合
+                AddPoints(ref pointcollect, ref texturepoints, point);
+
+                MeshGeometry3D meshGeometry = new MeshGeometry3D()
+                { Positions = pointcollect, TextureCoordinates = texturepoints };
             }
+        }
+
+        public void AddPoints(ref Point3DCollection points, ref PointCollection texturepoints, double[] point)
+        {
+            points.Add(new Point3D(0.2, 0.2, 0)); points.Add(new Point3D(0.2, -0.2, 0)); points.Add(new Point3D(-0.2, 0.2, 0)); points.Add(new Point3D(-0.2, -0.2, 0)); points.Add(new Point3D(-0.2, 0.2, 0)); points.Add(new Point3D(0.2, -0.2, 0));
+            points.Add(new Point3D(0, 0.2, 0.2)); points.Add(new Point3D(0, -0.2, 0.2)); points.Add(new Point3D(0, 0.2, -0.2)); points.Add(new Point3D(0, -0.2, -0.2)); points.Add(new Point3D(0, 0.2, -0.2)); points.Add(new Point3D(0, -0.2, 0.2));
+            points.Add(new Point3D(0.2, 0, 0.2)); points.Add(new Point3D(-0.2, 0, 0.2)); points.Add(new Point3D(0.2, 0, -0.2)); points.Add(new Point3D(-0.2, 0, -0.2)); points.Add(new Point3D(0.2, 0, -0.2)); points.Add(new Point3D(-0.2, 0, 0.2));
+            points.Add(new Point3D(0.2, -0.2, 0)); points.Add(new Point3D(-0.2, 0.2, 0)); points.Add(new Point3D(-0.2, -0.2, 0)); points.Add(new Point3D(-0.2, 0.2, 0)); points.Add(new Point3D(0.2, -0.2, 0)); points.Add(new Point3D(0.2, 0.2, 0));
+            points.Add(new Point3D(0, -0.2, 0.2)); points.Add(new Point3D(0, 0.2, -0.2)); points.Add(new Point3D(0, -0.2, -0.2)); points.Add(new Point3D(0, 0.2, -0.2)); points.Add(new Point3D(0, -0.2, 0.2)); points.Add(new Point3D(0, 0.2, 0.2));
+            points.Add(new Point3D(-0.2, 0, 0.2)); points.Add(new Point3D(0.2, 0, -0.2)); points.Add(new Point3D(-0.2, 0, -0.2)); points.Add(new Point3D(0.2, 0, -0.2)); points.Add(new Point3D(-0.2, 0, 0.2)); points.Add(new Point3D(0.2, 0, 0.2));
+
+            texturepoints.Add(new Point(0, 0)); texturepoints.Add(new Point(0, 1)); texturepoints.Add(new Point(1, 0)); texturepoints.Add(new Point(1, 1)); texturepoints.Add(new Point(1, 0)); texturepoints.Add(new Point(0, 1));
+            texturepoints.Add(new Point(0, 0)); texturepoints.Add(new Point(0, 1)); texturepoints.Add(new Point(1, 0)); texturepoints.Add(new Point(1, 1)); texturepoints.Add(new Point(1, 0)); texturepoints.Add(new Point(0, 1));
+            texturepoints.Add(new Point(0, 0)); texturepoints.Add(new Point(0, 1)); texturepoints.Add(new Point(1, 0)); texturepoints.Add(new Point(1, 1)); texturepoints.Add(new Point(1, 0)); texturepoints.Add(new Point(0, 1));
+            texturepoints.Add(new Point(0, 1)); texturepoints.Add(new Point(1, 0)); texturepoints.Add(new Point(1, 1)); texturepoints.Add(new Point(1, 0)); texturepoints.Add(new Point(0, 1)); texturepoints.Add(new Point(0, 0));
+            texturepoints.Add(new Point(0, 1)); texturepoints.Add(new Point(1, 0)); texturepoints.Add(new Point(1, 1)); texturepoints.Add(new Point(1, 0)); texturepoints.Add(new Point(0, 1)); texturepoints.Add(new Point(0, 0));
+            texturepoints.Add(new Point(0, 1)); texturepoints.Add(new Point(1, 0)); texturepoints.Add(new Point(1, 1)); texturepoints.Add(new Point(1, 0)); texturepoints.Add(new Point(0, 1)); texturepoints.Add(new Point(0, 0));
         }
 
         private static void Add_ones(ref double[] point, ref string particle, ref string result, ref string Selector)

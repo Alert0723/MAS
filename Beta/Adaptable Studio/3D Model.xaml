@@ -309,4 +309,31 @@
     </GeometryModel3D>
     <!--#endregion-->
 
+    <!--#region MAS.P -->
+    <GeometryModel3D x:Key="Particle">
+        <GeometryModel3D.Geometry>
+            <MeshGeometry3D
+                Positions=" 0.2 0.2 0, 0.2 -0.2 0, -0.2 0.2 0, -0.2 -0.2 0, -0.2 0.2 0, 0.2 -0.2 0,
+                            0 0.2 0.2, 0 -0.2 0.2, 0 0.2 -0.2, 0 -0.2 -0.2, 0 0.2 -0.2, 0 -0.2 0.2,
+                            0.2 0 0.2, -0.2 0 0.2, 0.2 0 -0.2, -0.2 0 -0.2, 0.2 0 -0.2, -0.2 0 0.2,
+                            0.2 -0.2 0, -0.2 0.2 0, -0.2 -0.2 0, -0.2 0.2 0, 0.2 -0.2 0, 0.2 0.2 0,
+                            0 -0.2 0.2, 0 0.2 -0.2, 0 -0.2 -0.2, 0 0.2 -0.2, 0 -0.2 0.2, 0 0.2 0.2,
+                            -0.2 0 0.2, 0.2 0 -0.2, -0.2 0 -0.2, 0.2 0 -0.2, -0.2 0 0.2, 0.2 0 0.2"
+                TextureCoordinates="0 0, 0 1, 1 0, 1 1, 1 0, 0 1,
+                                    0 0, 0 1, 1 0, 1 1, 1 0, 0 1,
+                                    0 0, 0 1, 1 0, 1 1, 1 0, 0 1,
+                                    0 1, 1 0, 1 1, 1 0, 0 1, 0 0,
+                                    0 1, 1 0, 1 1, 1 0, 0 1, 0 0,
+                                    0 1, 1 0, 1 1, 1 0, 0 1, 0 0"/>
+        </GeometryModel3D.Geometry>
+        <GeometryModel3D.Material>
+            <DiffuseMaterial>
+                <DiffuseMaterial.Brush>
+                    <ImageBrush ImageSource="pack://application:,,,/textures/masp/particle.png"/>
+                </DiffuseMaterial.Brush>
+            </DiffuseMaterial>
+        </GeometryModel3D.Material>
+    </GeometryModel3D>
+    <!--#endregion-->
+
 </ResourceDictionary>

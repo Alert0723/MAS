@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("image/afdian.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("textures/masp/particle.png")]
 
 

@@ -409,13 +409,15 @@
     <Resource Include="textures\masb\stripe_downleft.png" />
     <Resource Include="textures\masb\stripe_downright.png" />
     <Resource Include="textures\masc\wood.png" />
-    <Resource Include="textures\masp\particle.bmp" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="textures\masc\stone.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="image\afdian.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="textures\masp\particle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Costura.Fody.3.1.0\build\Costura.Fody.targets" Condition="Exists('..\packages\Costura.Fody.3.1.0\build\Costura.Fody.targets')" />

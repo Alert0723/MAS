@@ -1,20 +1,20 @@
-﻿Version:0.5.0.0 Alpha
+﻿Version:0.5.1.0 Alpha
 Updater version:1.8.5
-更新时间:2018/8/11
+更新时间:2018/9/29
 
 「更新内容」
 ●更新器
+    无
 
 ●常规
-    删除SharpGL3D库
+    删除SharpGL 3D库
     删除PNG资源
     使用WPF-3D框架，新增Helix3D拓展库
     新增矢量图资源 重构UI图标
     修复UI动画不播放问题
     
-
 ●MAS.C
-    重建3D视图，加入左右键功能，加入柔和固定光照
+    修复贴图坐标错误及其导致的光照错误
     pose预览存在错误，暂未修复
 
 ●MAS.P
