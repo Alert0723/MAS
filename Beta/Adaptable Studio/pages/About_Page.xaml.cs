@@ -17,12 +17,12 @@ namespace Adaptable_Studio
 
         #region ini配置文件
         [DllImport("kernel32")]
-        private static extern long WritePrivateProfileString(string section, string key, string val, string filePath);
+        static extern long WritePrivateProfileString(string section, string key, string val, string filePath);
         //定义写入函数
         //用途：若存在给定路径下的ini文件，就在其中写入给定节和键的值（若已存在此键就覆盖之前的值），若不存在ini文件，就创建该ini文件并写入。
 
         [DllImport("kernel32")]
-        private static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retVal, int size, string filePath);
+        static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retVal, int size, string filePath);
         //定义读入函数
 
         string iniPath = Environment.CurrentDirectory + @"\config.ini";//ini文件路径
@@ -34,22 +34,22 @@ namespace Adaptable_Studio
             InitializeComponent();
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
+        void Page_Loaded(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void Back_Click(object sender, RoutedEventArgs e)
+        void Back_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
         }
 
-        private void Feedback_Click(object sender, RoutedEventArgs e)
+        void Feedback_Click(object sender, RoutedEventArgs e)
         {
             Process.Start("http://www.mcbbs.net/thread-580119-1-1.html");
         }
 
-        private void Donate_Click(object sender, RoutedEventArgs e)
+        void Donate_Click(object sender, RoutedEventArgs e)
         {
             Process.Start("https://afdian.net/@MsYqgzt");
         }

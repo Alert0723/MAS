@@ -14,12 +14,12 @@ namespace Adaptable_Studio
 
         #region ini配置文件
         [DllImport("kernel32")]
-        private static extern long WritePrivateProfileString(string section, string key, string val, string filePath);
+        static extern long WritePrivateProfileString(string section, string key, string val, string filePath);
         //定义写入函数
         //用途：若存在给定路径下的ini文件，就在其中写入给定节和键的值（若已存在此键就覆盖之前的值），若不存在ini文件，就创建该ini文件并写入。
 
         [DllImport("kernel32")]
-        private static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retVal, int size, string filePath);
+        static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retVal, int size, string filePath);
         //定义读入函数
 
         string iniPath = Environment.CurrentDirectory + @"\config.ini";//ini文件路径
@@ -31,17 +31,17 @@ namespace Adaptable_Studio
             InitializeComponent();
         }
 
-        private void Back_Click(object sender, RoutedEventArgs e)
+        void Back_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
+        void Page_Loaded(object sender, RoutedEventArgs e)
         {
             Option_load();
         }
 
-        private void Lang_Save(object sender, RoutedEventArgs e)
+        void Lang_Save(object sender, RoutedEventArgs e)
         {
             MainWindow._langCN = (bool)Lang_CN.IsChecked;//语言
             //语言文件初始化
@@ -55,17 +55,17 @@ namespace Adaptable_Studio
             MainWindow.IniWrite("System", "Lang", MainWindow._langCN.ToString(), iniPath);
         }
 
-        private void Option_Save(object sender, MouseEventArgs e)
+        void Option_Save(object sender, MouseEventArgs e)
         {
             Option_save();
         }
 
-        private void Option_Save(object sender, MouseButtonEventArgs e)
+        void Option_Save(object sender, MouseButtonEventArgs e)
         {
             Option_save();
         }
 
-        private void Option_load()
+        void Option_load()
         {
             //语言
             if (MainWindow._langCN) Lang_CN.IsChecked = true;
@@ -80,7 +80,7 @@ namespace Adaptable_Studio
             Flat_structure.IsChecked = MainWindow.Flat;//是否平铺
         }
 
-        private void Option_save()
+        void Option_save()
         {
             MainWindow.Guidance = (bool)Guidance_on.IsChecked;//引导开关
 

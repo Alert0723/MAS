@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using System.Windows.Media.Media3D;
 
 namespace Plugins
@@ -105,12 +106,33 @@ namespace Plugins
                 point[1] += ((CustomNumberBox)Control[2]).Value;
                 point[2] = (Math.Cos(pitch * Math.PI / 180) * ((CustomNumberBox)Control[1]).Value);
 
+                ModelVisual3D ModelVisual3D = new ModelVisual3D();
+                Model3DGroup Model3DGroup = new Model3DGroup();
+
                 Point3DCollection pointcollect = new Point3DCollection();//模型坐标集合
                 PointCollection texturepoints = new PointCollection();//纹理坐标集合
                 AddPoints(ref pointcollect, ref texturepoints, point);
 
+                DiffuseMaterial Material = new DiffuseMaterial()//纹理变量
+                {
+                    Brush = new ImageBrush()
+                    {
+                        ImageSource = new BitmapImage(new Uri("pack://application:,,,/textures/masp/particle.png", UriKind.Relative))
+                    }
+                };
+
                 MeshGeometry3D meshGeometry = new MeshGeometry3D()
-                { Positions = pointcollect, TextureCoordinates = texturepoints };
+                {
+                    Positions = pointcollect,
+                    TextureCoordinates = texturepoints
+                };
+
+                GeometryModel3D GeometryModel = new GeometryModel3D() { Geometry = meshGeometry };//模型实例
+
+                Model3DGroup.Children.Add(GeometryModel);
+                ModelVisual3D.Content = Model3DGroup;
+
+                viewport.Children.Add(ModelVisual3D);
             }
         }
 
@@ -131,7 +153,7 @@ namespace Plugins
             texturepoints.Add(new Point(0, 1)); texturepoints.Add(new Point(1, 0)); texturepoints.Add(new Point(1, 1)); texturepoints.Add(new Point(1, 0)); texturepoints.Add(new Point(0, 1)); texturepoints.Add(new Point(0, 0));
         }
 
-        private static void Add_ones(ref double[] point, ref string particle, ref string result, ref string Selector)
+        static void Add_ones(ref double[] point, ref string particle, ref string result, ref string Selector)
         {
             string Ones = null;
             //if (SelectorSwitch) { Ones = "execute as " + Selector + " at @s run ~" + exe_shift[0] + " ~" + exe_shift[1] + " ~" + exe_shift[2] + " "; }

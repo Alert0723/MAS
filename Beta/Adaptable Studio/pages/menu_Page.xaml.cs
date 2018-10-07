@@ -14,12 +14,12 @@ namespace Adaptable_Studio
 
         #region ini配置文件
         [DllImport("kernel32")]
-        private static extern long WritePrivateProfileString(string section, string key, string val, string filePath);
+        static extern long WritePrivateProfileString(string section, string key, string val, string filePath);
         //定义写入函数
         //用途：若存在给定路径下的ini文件，就在其中写入给定节和键的值（若已存在此键就覆盖之前的值），若不存在ini文件，就创建该ini文件并写入。
 
         [DllImport("kernel32")]
-        private static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retVal, int size, string filePath);
+        static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retVal, int size, string filePath);
         //定义读入函数
 
         string iniPath = Environment.CurrentDirectory + @"\config.ini";//ini文件路径
@@ -31,26 +31,26 @@ namespace Adaptable_Studio
             InitializeComponent();
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
+        void Page_Loaded(object sender, RoutedEventArgs e)
         {
             NavigationService.RemoveBackEntry();
         }
 
-        private void MASB(object sender, RoutedEventArgs e)
+        void MASB(object sender, RoutedEventArgs e)
         {
             IniWrite("System", "PageIndex", "2", iniPath);
             MainWindow.PageIndex = 2;
             NavigationService.Navigate(new Uri("pages/Super_banner_Page.xaml", UriKind.Relative));
         }
 
-        private void MASC(object sender, RoutedEventArgs e)
+        void MASC(object sender, RoutedEventArgs e)
         {
             IniWrite("System", "PageIndex", "3", iniPath);
             MainWindow.PageIndex = 3;
             NavigationService.Navigate(new Uri("pages/armor_stand_Page.xaml", UriKind.Relative));
         }
 
-        private void MASP(object sender, RoutedEventArgs e)
+        void MASP(object sender, RoutedEventArgs e)
         {
             IniWrite("System", "PageIndex", "16", iniPath);
             MainWindow.PageIndex = 16;

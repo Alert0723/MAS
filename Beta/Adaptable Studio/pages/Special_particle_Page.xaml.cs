@@ -28,9 +28,9 @@ namespace Adaptable_Studio
 
         /// <summary> dll列表 </summary>
         public List<string> StyleList = new List<string>();
-        /// <summary> 特效样式 </summary>
+        /// <summary> 列表项对应特效样式 </summary>
         public List<int> StyleType = new List<int>();
-        /// <summary> 样式对应粒子 </summary>
+        /// <summary> 特效样式对应粒子 </summary>
         public List<int> StyleParticle = new List<int>();
 
         /// <summary> 列队控件uid,dll控件缓存 </summary>
@@ -50,12 +50,12 @@ namespace Adaptable_Studio
 
         #region ini配置文件
         [DllImport("kernel32")]
-        private static extern long WritePrivateProfileString(string section, string key, string val, string filePath);
+        static extern long WritePrivateProfileString(string section, string key, string val, string filePath);
         //定义写入函数
         //用途：若存在给定路径下的ini文件，就在其中写入给定节和键的值（若已存在此键就覆盖之前的值），若不存在ini文件，就创建该ini文件并写入。
 
         [DllImport("kernel32")]
-        private static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retVal, int size, string filePath);
+        static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retVal, int size, string filePath);
         //定义读入函数
 
         string iniPath = Environment.CurrentDirectory + @"\config.ini";//ini文件路径
@@ -68,7 +68,7 @@ namespace Adaptable_Studio
             InitializeComponent();
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
+        void Page_Loaded(object sender, RoutedEventArgs e)
         {
             LogPath = AppPath + @"\log.txt";
             MainWindow.Log_Write(LogPath, "[masp]粒子生成器初始化");
@@ -104,7 +104,7 @@ namespace Adaptable_Studio
         }
 
         /// <summary> 样式模板列表构建 </summary>
-        private void StyleFiles_Load(string ClassName, string MethodName, bool AddToList = false)
+        void StyleFiles_Load(string ClassName, string MethodName, bool AddToList = false)
         {
             try
             {
@@ -136,7 +136,7 @@ namespace Adaptable_Studio
         }
 
         /// <summary> 输出控件 </summary>
-        private void OutPut_MouseDown(object sender, MouseButtonEventArgs e)
+        void OutPut_MouseDown(object sender, MouseButtonEventArgs e)
         {
             e.Handled = true;
             if (OutPutBox.OutPut)
@@ -158,7 +158,7 @@ namespace Adaptable_Studio
 
         #region 列队事件
         /// <summary> 添加样式 </summary>
-        private void Item_add(object sender, RoutedEventArgs e)
+        void Item_add(object sender, RoutedEventArgs e)
         {
             //主面板
             WrapPanel NewItem = new WrapPanel()
@@ -198,7 +198,7 @@ namespace Adaptable_Studio
         }
 
         /// <summary> 移除样式 </summary>
-        private void Item_rename_Click(object sender, RoutedEventArgs e)
+        void Item_rename_Click(object sender, RoutedEventArgs e)
         {
             Thickness margin = new Thickness();
             try
@@ -230,7 +230,7 @@ namespace Adaptable_Studio
 
         #region 动态事件
         /// <summary> 编辑样式事件 </summary>
-        private void Style_edit(object sender, SelectionChangedEventArgs e)
+        void Style_edit(object sender, SelectionChangedEventArgs e)
         {
             style_edit.Children.Clear();//清除所有控件
             int index = Style_list.SelectedIndex;
@@ -282,7 +282,7 @@ namespace Adaptable_Studio
         #region 数组响应事件
         #region"动态Grid行列数"
         /// <summary> 在grid中创建rowCount个height高度的分行 </summary>
-        private void InitRows(int rowCount, Grid g, double height)
+        void InitRows(int rowCount, Grid g, double height)
         {
             for (int i = 0; i < rowCount; i++)
             {
@@ -292,7 +292,7 @@ namespace Adaptable_Studio
             }
         }
         /// <summary> 在grid中创建colCount个width宽度的分列 </summary>
-        private void InitColumns(int colCount, Grid g, double width)
+        void InitColumns(int colCount, Grid g, double width)
         {
             for (int i = 0; i < colCount; i++)
             {
@@ -303,17 +303,17 @@ namespace Adaptable_Studio
         }
         #endregion
 
-        private void Par_style_Changed(object sender, SelectionChangedEventArgs e)
+        void Par_style_Changed(object sender, SelectionChangedEventArgs e)
         {
             Par_style_Return(sender);
         }
-        private void Par_style_Loaded(object sender, RoutedEventArgs e)
+        void Par_style_Loaded(object sender, RoutedEventArgs e)
         {
             Par_style_Return(sender);
         }
 
         /// <summary> 特效更改事件 </summary>
-        private void Par_style_Return(object sender)
+        void Par_style_Return(object sender)
         {
             ComboBox c = (ComboBox)sender;
             StyleType[Style_list.SelectedIndex] = c.SelectedIndex;
@@ -359,7 +359,7 @@ namespace Adaptable_Studio
             catch (Exception e) { MessageBox.Show(e.ToString()); }
         }
 
-        private void Par_id_Changed(object sender, SelectionChangedEventArgs e)
+        void Par_id_Changed(object sender, SelectionChangedEventArgs e)
         {
             ComboBox c = (ComboBox)sender;
             StyleParticle[Style_list.SelectedIndex] = c.SelectedIndex;
@@ -367,7 +367,7 @@ namespace Adaptable_Studio
         #endregion
 
         //重命名事件
-        private void ItemName_Changed(object sender, RoutedEventArgs e)
+        void ItemName_Changed(object sender, RoutedEventArgs e)
         {
             TextBox t = (TextBox)sender;
             foreach (var item in ((WrapPanel)Style_list.SelectedItem).Children)
@@ -376,7 +376,7 @@ namespace Adaptable_Studio
             }
             style_board.Children.Remove(t);
         }
-        private void ItemName_Changed(object sender, KeyEventArgs e)
+        void ItemName_Changed(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
@@ -391,7 +391,7 @@ namespace Adaptable_Studio
         #endregion
 
         /// <summary> 样式 显示/隐藏 </summary>
-        private void Item_SH(object sender, RoutedEventArgs e)
+        void Item_SH(object sender, RoutedEventArgs e)
         {
             e.Handled = true;
             if (((((System.Windows.Shapes.Path)sender).Parent) as WrapPanel).Tag.ToString() == "true")
@@ -407,7 +407,7 @@ namespace Adaptable_Studio
         }
 
         /// <summary> 样式删除 </summary>
-        private void Item_delete(object sender, RoutedEventArgs e)
+        void Item_delete(object sender, RoutedEventArgs e)
         {
             int index = Style_list.SelectedIndex;
             if (index != -1)
@@ -425,7 +425,7 @@ namespace Adaptable_Studio
         }
 
         /// <summary> 样式清空 </summary>
-        private void Item_clear(object sender, RoutedEventArgs e)
+        void Item_clear(object sender, RoutedEventArgs e)
         {
             style_edit.Children.Clear();
             Style_list.Items.Clear();
@@ -437,7 +437,7 @@ namespace Adaptable_Studio
         #endregion
 
         /// <summary> 生成指令并弹出检索窗体 </summary>
-        private void Generate_Click(object sender, RoutedEventArgs e)
+        void Generate_Click(object sender, RoutedEventArgs e)
         {
 
             MainWindow.result = string.Empty;//指令输出
@@ -488,38 +488,38 @@ namespace Adaptable_Studio
 
         }
 
-        private void BackToMenu_Click(object sender, RoutedEventArgs e)
+        void BackToMenu_Click(object sender, RoutedEventArgs e)
         {
             IniWrite("System", "PageIndex", "0", iniPath);
             NavigationService.Navigate(new menu_Page());
         }
 
         #region 视角持续旋转
-        private void Round_start(object sender, MouseEventArgs e)
+        void Round_start(object sender, MouseEventArgs e)
         {
             e.Handled = true;
             Round_status = 1;
             Pre_Timer.Start();
         }
 
-        private void Round_end(object sender, MouseEventArgs e)
+        void Round_end(object sender, MouseEventArgs e)
         {
             Round_status = 0;
         }
 
-        private void Round_down(object sender, MouseButtonEventArgs e)
+        void Round_down(object sender, MouseButtonEventArgs e)
         {
             e.Handled = true;
             Round_status = 2;
         }
 
-        private void Round_up(object sender, MouseButtonEventArgs e)
+        void Round_up(object sender, MouseButtonEventArgs e)
         {
             e.Handled = true;
             Round_status = 1;
         }
 
-        private void Round_Tick(object sender, EventArgs e)
+        void Round_Tick(object sender, EventArgs e)
         {
             switch (Round_status)
             {
@@ -541,25 +541,25 @@ namespace Adaptable_Studio
         #endregion
 
         #region Viewport3D
-        private void ViewportToolsBar_MouseMove(object sender, MouseEventArgs e)
+        void ViewportToolsBar_MouseMove(object sender, MouseEventArgs e)
         {
             e.Handled = true;
         }
 
-        private void ViewportToolsBar_MouseDown(object sender, MouseButtonEventArgs e)
+        void ViewportToolsBar_MouseDown(object sender, MouseButtonEventArgs e)
         {
             e.Handled = true;
         }
         #region Buttons
         /// <summary> 工具栏折叠 </summary>
-        private void ToolBarSwitch_LeftDown(object sender, MouseButtonEventArgs e)
+        void ToolBarSwitch_LeftDown(object sender, MouseButtonEventArgs e)
         {
             if (ToolBarSwitch.Pressed) ToolBarSwitch.Margin = new Thickness() { Top = ToolBarSwitch.Margin.Top + 35 };
             else ToolBarSwitch.Margin = new Thickness() { Top = ToolBarSwitch.Margin.Top - 35 };
         }
 
         /// <summary> 预览视角重置 </summary>        
-        private void Viewport_Relocation(object sender, RoutedEventArgs e)
+        void Viewport_Relocation(object sender, RoutedEventArgs e)
         {
             CameraRadius = 4;
             CameraRot = new double[2] { 15, 60 };//水平旋转角,竖直旋转角(相对于原点)
@@ -569,7 +569,7 @@ namespace Adaptable_Studio
         #endregion
 
         /// <summary> 鼠标滚轮控制</summary>
-        private void Viewport_MouseWheel(object sender, MouseWheelEventArgs e)
+        void Viewport_MouseWheel(object sender, MouseWheelEventArgs e)
         {
             if (e.Delta < 0)
                 CameraRadius += 0.1;
@@ -585,19 +585,19 @@ namespace Adaptable_Studio
             Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);//主摄像机
         }
 
-        private void Scale_MouseMove(object sender, MouseEventArgs e)
+        void Scale_MouseMove(object sender, MouseEventArgs e)
         {
             e.Handled = true;
         }
 
-        private void Scale_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        void Scale_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             CameraRadius = Scale.Value;
             Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);
         }
 
         #region 预览视角旋转-摄像机坐标计算
-        private void Viewport_MouseDown(object sender, MouseButtonEventArgs e)
+        void Viewport_MouseDown(object sender, MouseButtonEventArgs e)
         {
             mouse_location[0] = e.GetPosition((IInputElement)sender).X;
             mouse_location[1] = e.GetPosition((IInputElement)sender).Y;
@@ -606,18 +606,18 @@ namespace Adaptable_Studio
             else if (e.RightButton == MouseButtonState.Pressed) PreviewGrid.Cursor = Cursors.ScrollAll;
         }
 
-        private void Viewport_MouseUp(object sender, MouseButtonEventArgs e)
+        void Viewport_MouseUp(object sender, MouseButtonEventArgs e)
         {
             PreviewGrid.Cursor = Cursors.Arrow;
         }
 
-        private void Viewport_MouseLeave(object sender, MouseEventArgs e)
+        void Viewport_MouseLeave(object sender, MouseEventArgs e)
         {
             PreviewGrid.Cursor = Cursors.Arrow;
         }
 
         /// <summary> 鼠标拖拽 </summary>
-        private void Viewport_MouseMove(object sender, MouseEventArgs e)
+        void Viewport_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
@@ -813,7 +813,7 @@ namespace Adaptable_Studio
 
         #region 共用模块
         /// <summary> 写入NBT文件缓存 </summary>
-        private static void Add_ones(/*ref float R, ref float G, ref float B,*/ref string particle, ref string result, ref string Selector)
+        static void Add_ones(/*ref float R, ref float G, ref float B,*/ref string particle, ref string result, ref string Selector)
         {
             //string Ones = null;
             //if (SelectorSwitch) { Ones = "execute as " + Selector + " at @s run ~" + exe_shift[0] + " ~" + exe_shift[1] + " ~" + exe_shift[2] + " "; }

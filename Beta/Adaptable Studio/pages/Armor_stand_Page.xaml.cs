@@ -83,12 +83,12 @@ namespace Adaptable_Studio
 
         #region ini配置文件
         [DllImport("kernel32")]
-        private static extern long WritePrivateProfileString(string section, string key, string val, string filePath);
+        static extern long WritePrivateProfileString(string section, string key, string val, string filePath);
         //定义写入函数
         //用途：若存在给定路径下的ini文件，就在其中写入给定节和键的值（若已存在此键就覆盖之前的值），若不存在ini文件，就创建该ini文件并写入。
 
         [DllImport("kernel32")]
-        private static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retVal, int size, string filePath);
+        static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retVal, int size, string filePath);
         //定义读入函数
 
         string iniPath = Environment.CurrentDirectory + @"\config.ini";//ini文件路径
@@ -110,7 +110,7 @@ namespace Adaptable_Studio
             }//物品部位-结构参数初始化
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
+        void Page_Loaded(object sender, RoutedEventArgs e)
         {
             NavigationService.RemoveBackEntry();
 
@@ -174,7 +174,7 @@ namespace Adaptable_Studio
 
         #region 页面交互
         Thickness thick = new Thickness();
-        private void Main_Settings(object sender, RoutedEventArgs e)
+        void Main_Settings(object sender, RoutedEventArgs e)
         {
             Settings.ScrollChanged -= SelectBar_Move;
             e.Handled = true;
@@ -190,7 +190,7 @@ namespace Adaptable_Studio
             th.Start();
         }
 
-        private void Nbt_Settings(object sender, RoutedEventArgs e)
+        void Nbt_Settings(object sender, RoutedEventArgs e)
         {
             Settings.ScrollChanged -= SelectBar_Move;
             e.Handled = true;
@@ -206,7 +206,7 @@ namespace Adaptable_Studio
             th.Start();
         }
 
-        private void Rotation_Settings(object sender, RoutedEventArgs e)
+        void Rotation_Settings(object sender, RoutedEventArgs e)
         {
             Settings.ScrollChanged -= SelectBar_Move;
             e.Handled = true;
@@ -222,7 +222,7 @@ namespace Adaptable_Studio
             th.Start();
         }
 
-        private void Item_Settings(object sender, RoutedEventArgs e)
+        void Item_Settings(object sender, RoutedEventArgs e)
         {
             Settings.ScrollChanged -= SelectBar_Move;
             e.Handled = true;
@@ -238,7 +238,7 @@ namespace Adaptable_Studio
             th.Start();
         }
 
-        private void SelectBar_Move(object sender, ScrollChangedEventArgs e)
+        void SelectBar_Move(object sender, ScrollChangedEventArgs e)
         {
             if (Settings.VerticalOffset <= 90)
                 thick = new Thickness(0, 47, 0, 0);
@@ -251,7 +251,7 @@ namespace Adaptable_Studio
             SelectBar.Margin = thick;
         }
 
-        private void PostTabChanged(object sender, SelectionChangedEventArgs e)
+        void PostTabChanged(object sender, SelectionChangedEventArgs e)
         {
             double X = 0, Y = 0, Z = 0;
             int index = Pose_Slector.SelectedIndex;
@@ -272,7 +272,7 @@ namespace Adaptable_Studio
 
         #region Reset Button
         /// <summary> 动作UI重置 </summary>        
-        private void PoseReset_LeftButtonDown(object sender, MouseButtonEventArgs e)
+        void PoseReset_LeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (Pose_Reset.IsConfirmRest)
             {
@@ -286,7 +286,7 @@ namespace Adaptable_Studio
         }
 
         /// <summary> 装备UI重置 </summary>        
-        private void ItemReset_LeftButtonDown(object sender, MouseButtonEventArgs e)
+        void ItemReset_LeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (Item_Reset.IsConfirmRest)
             {
@@ -331,7 +331,7 @@ namespace Adaptable_Studio
         }
 
         /// <summary> 输出控件 </summary>
-        private void OutPut_MouseDown(object sender, MouseButtonEventArgs e)
+        void OutPut_MouseDown(object sender, MouseButtonEventArgs e)
         {
             e.Handled = true;
             if (OutPutBox.OutPut)
@@ -352,7 +352,7 @@ namespace Adaptable_Studio
         }
 
         /// <summary> 指令输出</summary>
-        private void Generate_Click(object sender, RoutedEventArgs e)
+        void Generate_Click(object sender, RoutedEventArgs e)
         {
             //结构初始化
             MainWindow.k = 0;
@@ -575,7 +575,7 @@ namespace Adaptable_Studio
             }//高级模式            
         }
 
-        private void BackToMenu_Click(object sender, RoutedEventArgs e)
+        void BackToMenu_Click(object sender, RoutedEventArgs e)
         {
             IniWrite("System", "PageIndex", "0", iniPath);
             NavigationService.Navigate(new menu_Page());
@@ -584,7 +584,7 @@ namespace Adaptable_Studio
         /// <summary> 结构文件-单条存储 </summary>
         /// <param name="Ones">添加的字符</param>
         /// <param name="Add">是否为添加模式（否则直接替换结果）</param>
-        private static void Add_ones(string Ones, bool Add = false)
+        static void Add_ones(string Ones, bool Add = false)
         {
             Ones = Ones.Replace("False", "0");
             Ones = Ones.Replace("True", "1");
@@ -599,8 +599,8 @@ namespace Adaptable_Studio
 
         #region 装备页面
         int[] ComboBox_Index = new int[6];//部位物品索引值
-        /// <summary> 物品部位切换/读取参数 </summary>
-        private void Item_TabChanged(object sender, SelectionChangedEventArgs e)
+                                          /// <summary> 物品部位切换/读取参数 </summary>
+        void Item_TabChanged(object sender, SelectionChangedEventArgs e)
         {
             part = Part_Slector.SelectedIndex;
             EnablePart_Settings.IsChecked = Item_Data[part].IsEnabled;
@@ -666,7 +666,7 @@ namespace Adaptable_Studio
         }
 
         /// <summary> 物品数据存储 </summary>
-        private void ItemGrid_update(object sender, MouseEventArgs e)
+        void ItemGrid_update(object sender, MouseEventArgs e)
         {
             part = Part_Slector.SelectedIndex;
             Item_Data[part].IsEnabled = (bool)EnablePart_Settings.IsChecked;
@@ -737,7 +737,7 @@ namespace Adaptable_Studio
             #endregion
         }
 
-        private void Equipment_check(object sender, RoutedEventArgs e)
+        void Equipment_check(object sender, RoutedEventArgs e)
         {
             OutPut output = new OutPut();
             output.ToNBT.IsEnabled = false;
@@ -754,7 +754,7 @@ namespace Adaptable_Studio
         #region Viewport3D
         #region Buttons
         /// <summary> 预览视重置 </summary>        
-        private void Viewport_Relocation(object sender, RoutedEventArgs e)
+        void Viewport_Relocation(object sender, RoutedEventArgs e)
         {
             CameraRadius = 50;
             CameraRot = new double[2] { 15, 60 };//水平旋转角,竖直旋转角(相对于原点)
@@ -765,18 +765,23 @@ namespace Adaptable_Studio
         #endregion
 
         /// <summary> 鼠标滚轮控制</summary>
-        private void Viewport_MouseWheel(object sender, MouseWheelEventArgs e)
+        void Viewport_MouseWheel(object sender, MouseWheelEventArgs e)
         {
             if (e.Delta < 0)
                 CameraRadius += 2;
             else if (e.Delta > 0)
                 CameraRadius -= 2;
 
+            if (CameraRadius >= 80)
+                CameraRadius = 80;
+            else if (CameraRadius <= 10)
+                CameraRadius = 10;
+
             Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);//主摄像机            
         }
 
         #region 预览视角旋转-摄像机坐标计算
-        private void Viewport_MouseDown(object sender, MouseButtonEventArgs e)
+        void Viewport_MouseDown(object sender, MouseButtonEventArgs e)
         {
             mouse_location[0] = e.GetPosition((IInputElement)sender).X;
             mouse_location[1] = e.GetPosition((IInputElement)sender).Y;
@@ -785,18 +790,18 @@ namespace Adaptable_Studio
             else if (e.RightButton == MouseButtonState.Pressed) PreviewGrid.Cursor = Cursors.ScrollAll;
         }
 
-        private void Viewport_MouseUp(object sender, MouseButtonEventArgs e)
+        void Viewport_MouseUp(object sender, MouseButtonEventArgs e)
         {
             PreviewGrid.Cursor = Cursors.Arrow;
         }
 
-        private void Viewport_MouseLeave(object sender, MouseEventArgs e)
+        void Viewport_MouseLeave(object sender, MouseEventArgs e)
         {
             PreviewGrid.Cursor = Cursors.Arrow;
         }
 
         /// <summary> 鼠标拖拽 </summary>
-        private void Viewport_MouseMove(object sender, MouseEventArgs e)
+        void Viewport_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
@@ -865,7 +870,7 @@ namespace Adaptable_Studio
             Rotation.Angle = -pose[18];
         }
 
-        private void Pose_Changed(object sender, RoutedPropertyChangedEventArgs<double> e)
+        void Pose_Changed(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             double X = X_Pose.Value,
                    Y = Y_Pose.Value,
