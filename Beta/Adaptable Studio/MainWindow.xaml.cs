@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
+using System.Configuration;
 
 namespace Adaptable_Studio
 {
@@ -18,7 +19,8 @@ namespace Adaptable_Studio
         string AppPath = Environment.CurrentDirectory,//应用程序根目录
                LogPath;//日志文件路径
 
-        const string version = "Version:0.3.9.0 Alpha";//当前版本号
+        string version = "Version:" + ConfigurationManager.AppSettings["MainVersion"];//当前版本号
+
         public static bool _langCN = true;//汉英切换
         public static int PageIndex = -1;//页面读取值
         public static bool Guidance = true;//启动引导
@@ -26,8 +28,8 @@ namespace Adaptable_Studio
 
         public static string result = "";//指令结果
 
-        //在线更新日志链接
-        const string updatelog = "http://minecraft-adaptable-studio-1254149191.coscd.myqcloud.com/update.log";
+        //更新日志链接
+        string updatelog = ConfigurationManager.AppSettings["UpdateLog"];
 
         #region fNBT
         public static NbtCompound StructureNbt = new NbtCompound("");//文件主框架        

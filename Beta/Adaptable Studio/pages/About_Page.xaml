@@ -242,7 +242,7 @@
             <LineBreak/><Run Text="{DynamicResource About_Technical_participants}"/><Run Text="skeleton小白      pca006132       bobby825        龙腾猫跃"/><LineBreak/>
             <LineBreak/><Run Text="{DynamicResource About_Acknowledgements}"/><Run Text="chengzi_SC        乙烯_中国       chyx"/><LineBreak/>
         </TextBlock>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="807.333,547.826,0,0" TextWrapping="Wrap" Text="The Command's Power 2018" VerticalAlignment="Top" FontSize="10" Foreground="White" Width="124.667"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="807.333,547.826,0,0" TextWrapping="Wrap" Text="The Command's Power 2019" VerticalAlignment="Top" FontSize="10" Foreground="White" Width="124.667"/>
         <TextBlock x:Name="DllUsed" FontSize="14" Foreground="White" Margin="300,275,0,119">
             <Run Text="{DynamicResource About_DLL_Reference}"/><LineBreak/>
             <Run/><LineBreak/>

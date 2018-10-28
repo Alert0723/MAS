@@ -5,7 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        Title="Minecraft Armor Stand Creater"
+        Title="Minecraft Adaptable Studio - Alpha"
         Height="600" Width="950" mc:Ignorable="d"
         Closed="MainClosed" Loaded="Main_Loaded"
         WindowStartupLocation="CenterScreen"

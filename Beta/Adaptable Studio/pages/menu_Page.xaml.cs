@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows;
@@ -11,6 +12,8 @@ namespace Adaptable_Studio
     {
         string AppPath = Environment.CurrentDirectory,//应用程序根目录
                LogPath;//日志文件路径
+
+        static object ArmorStandPage, ParticlePage;//页面缓存
 
         #region ini配置文件
         [DllImport("kernel32")]
@@ -33,7 +36,30 @@ namespace Adaptable_Studio
 
         void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            NavigationService.RemoveBackEntry();
+            //NavigationService.RemoveBackEntry();
+            NavigationService.LoadCompleted += NavigationService_LoadCompleted;
+        }
+
+        private void NavigationService_LoadCompleted(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+            if (e.ExtraData != null || ArmorStandPage != null || ParticlePage != null)
+            {
+                string a = e.ExtraData.ToString();
+                switch (e.ExtraData.ToString())
+                {
+                    case "Adaptable_Studio.Armor_stand_Page":
+                        ArmorStandPage = e.ExtraData;
+                        break;
+                    case "Adaptable_Studio.Special_particle_Page":
+                        ParticlePage = e.ExtraData;
+                        break;
+                }
+            }
+            else
+            {
+                ArmorStandPage = null;
+                ParticlePage = null;
+            }
         }
 
         void MASB(object sender, RoutedEventArgs e)
@@ -47,14 +73,22 @@ namespace Adaptable_Studio
         {
             IniWrite("System", "PageIndex", "3", iniPath);
             MainWindow.PageIndex = 3;
-            NavigationService.Navigate(new Uri("pages/armor_stand_Page.xaml", UriKind.Relative));
+
+            if (ArmorStandPage != null)
+                NavigationService.Navigate(ArmorStandPage);
+            else
+                NavigationService.Navigate(new Uri("pages/Armor_stand_Page.xaml", UriKind.Relative));
         }
 
         void MASP(object sender, RoutedEventArgs e)
         {
             IniWrite("System", "PageIndex", "16", iniPath);
             MainWindow.PageIndex = 16;
-            this.NavigationService.Navigate(new Uri("pages/special_particle_Page.xaml", UriKind.Relative));
+
+            if (ParticlePage != null)
+                NavigationService.Navigate(ParticlePage);
+            else
+                NavigationService.Navigate(new Uri("pages/special_particle_Page.xaml", UriKind.Relative));
         }
 
         #region ini文件读写

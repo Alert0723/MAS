@@ -112,8 +112,6 @@ namespace Adaptable_Studio
 
         void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            NavigationService.RemoveBackEntry();
-
             LogPath = AppPath + @"\log.txt";
 
             //引导页面
@@ -578,7 +576,7 @@ namespace Adaptable_Studio
         void BackToMenu_Click(object sender, RoutedEventArgs e)
         {
             IniWrite("System", "PageIndex", "0", iniPath);
-            NavigationService.Navigate(new menu_Page());
+            NavigationService.Navigate(new menu_Page(), this);
         }
 
         /// <summary> 结构文件-单条存储 </summary>

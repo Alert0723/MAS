@@ -45,6 +45,7 @@ namespace Plugins
                 Minimum = 2,
                 Maximum = 90,
                 Height = 20,
+                Interval = 0.1,
                 Margin = new Thickness() { Top = 10, Left = 10 }
             };
             dic.Add(0, cnb);
@@ -61,6 +62,7 @@ namespace Plugins
                 Minimum = 0.1,
                 Maximum = 32767,
                 Height = 25,
+                Interval = 0.1,
                 Margin = new Thickness() { Top = 10, Left = 10 }
             };
             dic.Add(1, cnb);
@@ -77,6 +79,7 @@ namespace Plugins
                 Minimum = -32767,
                 Maximum = 32767,
                 Height = 25,
+                Interval = 0.1,
                 Margin = new Thickness() { Top = 10, Left = 10 }
             };
             dic.Add(2, cnb);

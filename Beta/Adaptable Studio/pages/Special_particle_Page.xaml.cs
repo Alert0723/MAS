@@ -104,6 +104,9 @@ namespace Adaptable_Studio
         }
 
         /// <summary> 样式模板列表构建 </summary>
+        /// <param name="ClassName">获取的类名</param>
+        /// <param name="MethodName">获取方法名</param>
+        /// <param name="AddToList">是否将返回结果加入dll索引列表</param>
         void StyleFiles_Load(string ClassName, string MethodName, bool AddToList = false)
         {
             try
