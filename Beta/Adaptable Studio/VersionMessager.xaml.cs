@@ -75,11 +75,13 @@ namespace Adaptable_Studio
                     responseStream.Close();
 
                     updated = true;
+                    Close();
                 }
             }
             catch
             {
                 Log_Write(LogPath, "[VersionMessager]更新器下载失败");
+                MessageBox.Show("更新下载异常，请检查网络配置");
             }
         }
 
