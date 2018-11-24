@@ -4,6 +4,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using static Adaptable_Studio.PublicControl;
 
 namespace Adaptable_Studio
 {
@@ -36,29 +37,29 @@ namespace Adaptable_Studio
 
         void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            //NavigationService.RemoveBackEntry();
             NavigationService.LoadCompleted += NavigationService_LoadCompleted;
         }
 
         private void NavigationService_LoadCompleted(object sender, System.Windows.Navigation.NavigationEventArgs e)
         {
-            if (e.ExtraData != null || ArmorStandPage != null || ParticlePage != null)
+            if (e.ExtraData != null || ArmorStandPage != null)
             {
-                string a = e.ExtraData.ToString();
-                switch (e.ExtraData.ToString())
-                {
-                    case "Adaptable_Studio.Armor_stand_Page":
-                        ArmorStandPage = e.ExtraData;
-                        break;
-                    case "Adaptable_Studio.Special_particle_Page":
-                        ParticlePage = e.ExtraData;
-                        break;
-                }
+                ArmorStandPage = e.ExtraData;
             }
             else
             {
                 ArmorStandPage = null;
-                ParticlePage = null;
+            }
+
+            if (MainWindow.PageIndex == 0)
+            {
+                (Main as MainWindow).VersionIcon.Visibility = Visibility.Visible;
+                (Main as MainWindow).VersionText.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                (Main as MainWindow).VersionIcon.Visibility = Visibility.Hidden;
+                (Main as MainWindow).VersionText.Visibility = Visibility.Hidden;
             }
         }
 

@@ -13,8 +13,11 @@
     <!--#endregion-->
 
     <!--#region  Version Messager -->
-    <system:String x:Key="FindNewVer">发现新版本：</system:String>
+    <system:String x:Key="SearchNewVer">正在检测新版本...</system:String>
+    <system:String x:Key="LatestVer">当前为最新版本</system:String>
+    <system:String x:Key="FindNewVer" xml:space="preserve">发现新版本  </system:String>
     <system:String x:Key="UpdateNow">立即更新</system:String>
+    <system:String x:Key="SearchNewVerErr">版本检测失败</system:String>
     <!--#endregion-->
 
     <!--#region  OutPut Window -->
@@ -54,7 +57,7 @@
 
     <!--#region  3D预览 -->
     <system:String x:Key="Viewport_Relocation">重置3D视角</system:String>
-    
+
     <system:String x:Key="OpenGL_Grid">网格</system:String>
     <system:String x:Key="OpenGL_Axis">坐标系</system:String>
     <system:String x:Key="OpenGL_Scale">缩放</system:String>

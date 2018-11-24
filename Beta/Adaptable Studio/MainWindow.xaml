@@ -53,8 +53,12 @@
             </Button>
         </controls:WindowCommands>
     </controls:MetroWindow.RightWindowCommands>
-    <Grid>
+    <Grid HorizontalAlignment="Right" Margin="0,0,0,0.2" Width="944" Height="595" VerticalAlignment="Bottom">
+        <Button x:Name="VersionIcon" Background="{x:Null}" Style="{DynamicResource CustomButton}" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="22" Height="22" VerticalAlignment="Bottom">
+            <Path x:Name="VerPath" Stretch="Uniform" Fill="White" Data="{DynamicResource Icon_QuestionMark.Round}" Height="11.7" Width="11.7"/>
+        </Button>
+        <Label x:Name="VersionText" Content="{DynamicResource SearchNewVer}" Margin="22,0,0,0" HorizontalAlignment="Left" Width="220" Height="22" VerticalAlignment="Bottom"/>
         <WebBrowser x:Name="WebView" HorizontalAlignment="Left" Height="44" Margin="10,10,0,0" VerticalAlignment="Top" Width="208" Visibility="Hidden"/>
-        <Frame x:Name="_NavigationFrame" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="_NavigationFrame" NavigationUIVisibility="Hidden" Height="570" VerticalAlignment="Top" Margin="0,25,0,0"/>
     </Grid>
 </controls:MetroWindow>

@@ -10,6 +10,8 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Configuration;
+using System.Windows.Media;
+using static Adaptable_Studio.PublicControl;
 
 namespace Adaptable_Studio
 {
@@ -61,6 +63,7 @@ namespace Adaptable_Studio
 
         public MainWindow()
         {
+            Main = this;
             InitializeComponent();
         }
 
@@ -196,14 +199,33 @@ namespace Adaptable_Studio
                         {
                             if (version != NewVerStr)
                             {
+                                //主页检测提示
+                                VersionText.Content = FindResource("FindNewVer");
+                                VerPath.Data = FindResource("Icon_Warning") as Geometry;
+                                VerPath.Fill = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+
+                                //弹窗提示
                                 VersionMessager vm = new VersionMessager();
                                 vm.VersionText.Text += NewVer;
                                 vm.UpdateLog.Text = Infor;
                                 vm.Show();
                             }
+                            else
+                            {
+                                VersionText.Content = FindResource("LatestVer");
+                                VerPath.Data = FindResource("Icon_Check.Round") as Geometry;
+                                VerPath.Fill = new SolidColorBrush(Color.FromRgb(0, 200, 0));
+                            }
                         }));//Version Messager
                     }
-                    catch { Log_Write(LogPath, "[Main]获取新版本信息失败"); }
+                    catch
+                    {
+                        Dispatcher.Invoke(new ThreadStart(delegate
+                        {
+                            VersionText.Content = FindResource("SearchNewVerErr");
+                        }));
+                        Log_Write(LogPath, "[Main]获取新版本信息失败");
+                    }
                 }));
                 th.Start();
             }//Version Testing

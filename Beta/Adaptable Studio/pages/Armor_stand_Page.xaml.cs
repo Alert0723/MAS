@@ -576,6 +576,7 @@ namespace Adaptable_Studio
         void BackToMenu_Click(object sender, RoutedEventArgs e)
         {
             IniWrite("System", "PageIndex", "0", iniPath);
+            MainWindow.PageIndex = 0;
             NavigationService.Navigate(new menu_Page(), this);
         }
 
@@ -863,9 +864,31 @@ namespace Adaptable_Studio
         /// <summary> 3D视窗呈现 </summary>
         void setPose()
         {
+            double[][] LocalCoordinatesMatrix = NewMatrix();
+
+
             HeadRotZ.Angle = -pose[2]; HeadRotY.Angle = -pose[1]; HeadRotX.Angle = -pose[0];
 
             Rotation.Angle = -pose[18];
+        }
+
+        /// <summary> 新建旋转角矩阵 </summary>
+        /// <returns>返回本地坐标矩阵</returns>
+        double[][] NewMatrix()
+        {
+            double[][] Matrix = new double[3][];
+            for (int i = 0; i < 3; i++)
+            {
+                Matrix[i] = new double[3];
+            }
+
+            Matrix[1][1] = 1;
+            Matrix[2][2] = Math.Cos(-pose[0]);
+            Matrix[2][3] = -Math.Sin(-pose[0]);
+            Matrix[3][2] = Math.Sin(-pose[0]);
+            Matrix[3][3] = Math.Cos(-pose[0]);
+
+            return Matrix;
         }
 
         void Pose_Changed(object sender, RoutedPropertyChangedEventArgs<double> e)

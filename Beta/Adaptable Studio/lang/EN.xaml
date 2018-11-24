@@ -13,8 +13,11 @@
     <!--#endregion-->
 
     <!--#region  Version Messager -->
-    <system:String x:Key="FindNewVer">New Version：</system:String>
+    <system:String x:Key="SearchNewVer">Detecting new version...</system:String>
+    <system:String x:Key="LatestVer">Latest</system:String>
+    <system:String x:Key="FindNewVer" xml:space="preserve">Find new Version  </system:String>
     <system:String x:Key="UpdateNow">Update Now</system:String>
+    <system:String x:Key="SearchNewVerErr">Detect error</system:String>
     <!--#endregion-->
 
     <!--#region  OutPut Window -->

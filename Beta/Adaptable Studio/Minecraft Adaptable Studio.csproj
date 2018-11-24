@@ -147,6 +147,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="class\DotNetZip.cs" />
+    <Compile Include="class\MathOperation.cs" />
     <Compile Include="class\MousePosition.cs" />
     <Compile Include="class\Viewport_3D.cs" />
     <Compile Include="Functional form\MASC-Part Direction.xaml.cs">
@@ -164,6 +165,7 @@
     <Compile Include="pages\Specific_model_Page.xaml.cs">
       <DependentUpon>Specific_model_Page.xaml</DependentUpon>
     </Compile>
+    <Compile Include="class\PublicControl.cs" />
     <Compile Include="userControl\CustomNumberBox.xaml.cs">
       <DependentUpon>CustomNumberBox.xaml</DependentUpon>
     </Compile>
