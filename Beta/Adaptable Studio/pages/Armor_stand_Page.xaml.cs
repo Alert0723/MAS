@@ -898,11 +898,7 @@ namespace Adaptable_Studio
             Rotation.Angle = -pose[18];
         }
 
-        /// <summary>
-        /// 预览-模式衔接 动作结果反馈
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <summary> 预览-模式衔接 动作结果反馈 </summary>
         public void ChangePose(object sender, RoutedEventArgs e)
         {
             double X = X_Pose.Value,
