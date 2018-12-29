@@ -1,6 +1,7 @@
 ﻿using fNbt;
 using MahApps.Metro.Controls;
 using System;
+using System.Configuration;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
@@ -9,7 +10,6 @@ using System.Text;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
-using System.Configuration;
 using System.Windows.Media;
 using static Adaptable_Studio.PublicControl;
 
@@ -63,7 +63,12 @@ namespace Adaptable_Studio
 
         public MainWindow()
         {
+            //静态资源初始化
             Main = this;
+            Page_menu = new menu_Page();
+            Page_masp = new Special_particle_Page();
+            Page_masc = new Armor_stand_Page();
+
             InitializeComponent();
         }
 
@@ -230,7 +235,7 @@ namespace Adaptable_Studio
                 th.Start();
             }//Version Testing
 
-            _NavigationFrame.Navigate(new menu_Page());//page读取
+            _NavigationFrame.Navigate(Page_menu);//page读取
         }
 
         /// <summary> 窗体关闭 </summary>

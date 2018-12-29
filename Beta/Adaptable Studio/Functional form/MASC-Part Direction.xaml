@@ -9,7 +9,7 @@
         Title="{DynamicResource Position_Direction}" FontFamily="{DynamicResource Font}"
         Height="165" Width="155" TitleCharacterCasing="Normal" IsMinButtonEnabled="False" IsMaxRestoreButtonEnabled="False" ShowMaxRestoreButton="False" ShowMinButton="False" Loaded="Window_Loaded" ResizeMode="NoResize" Deactivated="Window_Deactivated" IsCloseButtonEnabled="False" IsWindowDraggable="False" ShowCloseButton="False" ShowDialogsOverTitleBar="False" ShowIconOnTitleBar="False" ShowTitleBar="False" ShowSystemMenuOnRightClick="False" ShowActivated="False" ResizeBorderThickness="0" NonActiveBorderBrush="{x:Null}">
     <Grid>
-        <TabControl Style="{DynamicResource CustomTabControl_Vertical}" TabStripPlacement="Left" Margin="10" UseLayoutRounding="False" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
+        <TabControl Style="{DynamicResource CustomTabControl_Vertical}" TabStripPlacement="Left" Margin="10,19,10,1" UseLayoutRounding="False" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
             <TabItem Header="{DynamicResource Head}" Style="{DynamicResource CustomTabItem_Vertical}" mah:ControlsHelper.HeaderFontSize="20" Width="65">
                 <Grid>
                     <CheckBox x:Name="Check0" Tag="0" Style="{DynamicResource ResourceKey=CustomCheckBox}" Content="X" Margin="10,10,10,0" VerticalAlignment="Top" TabIndex="0" Click="Check_Click"/>
@@ -53,6 +53,6 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        <CheckBox x:Name="Check18" Tag="18" Style="{DynamicResource CustomCheckBox}" Content="{DynamicResource Rotation}" Margin="10,-14,10,0" VerticalAlignment="Top" TabIndex="18" Click="Check_Click"/>
+        <CheckBox x:Name="Check18" Tag="18" Style="{DynamicResource CustomCheckBox}" Content="{DynamicResource Rotation}" Margin="10,-5,9.8,0" VerticalAlignment="Top" TabIndex="18" Click="Check_Click"/>
     </Grid>
 </mah:MetroWindow>

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
 using System.Windows.Threading;
+using static Adaptable_Studio.PublicControl;
 
 namespace Adaptable_Studio
 {
@@ -494,7 +495,9 @@ namespace Adaptable_Studio
         void BackToMenu_Click(object sender, RoutedEventArgs e)
         {
             IniWrite("System", "PageIndex", "0", iniPath);
-            NavigationService.Navigate(new menu_Page());
+            MainWindow.PageIndex = 0;
+            Page_masp = this;
+            NavigationService.Navigate(Page_menu);
         }
 
         #region 视角持续旋转

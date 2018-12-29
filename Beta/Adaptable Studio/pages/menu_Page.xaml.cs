@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows;
@@ -42,14 +41,14 @@ namespace Adaptable_Studio
 
         private void NavigationService_LoadCompleted(object sender, System.Windows.Navigation.NavigationEventArgs e)
         {
-            if (e.ExtraData != null || ArmorStandPage != null)
-            {
-                ArmorStandPage = e.ExtraData;
-            }
-            else
-            {
-                ArmorStandPage = null;
-            }
+            //if (e.ExtraData != null || ArmorStandPage != null)
+            //{
+            //    ArmorStandPage = e.ExtraData;
+            //}
+            //else
+            //{
+            //    ArmorStandPage = null;
+            //}
 
             if (MainWindow.PageIndex == 0)
             {
@@ -74,22 +73,14 @@ namespace Adaptable_Studio
         {
             IniWrite("System", "PageIndex", "3", iniPath);
             MainWindow.PageIndex = 3;
-
-            if (ArmorStandPage != null)
-                NavigationService.Navigate(ArmorStandPage);
-            else
-                NavigationService.Navigate(new Uri("pages/Armor_stand_Page.xaml", UriKind.Relative));
+            NavigationService.Navigate(Page_masc);
         }
 
         void MASP(object sender, RoutedEventArgs e)
         {
             IniWrite("System", "PageIndex", "16", iniPath);
             MainWindow.PageIndex = 16;
-
-            if (ParticlePage != null)
-                NavigationService.Navigate(ParticlePage);
-            else
-                NavigationService.Navigate(new Uri("pages/special_particle_Page.xaml", UriKind.Relative));
+            NavigationService.Navigate(Page_masp);
         }
 
         #region ini文件读写

@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Media3D;
+using static Adaptable_Studio.PublicControl;
 
 namespace Adaptable_Studio
 {
@@ -77,8 +78,8 @@ namespace Adaptable_Studio
         double[] CameraRot = new double[2] { 15, 60 };//水平旋转角,竖直旋转角(相对于原点)
         double[] CameraLookAtPoint = new double[3] { 0, 10, 0 };//摄像机视点
         double[] mouse_location = new double[2];//鼠标位置
-        double[] pose = new double[19];
-        public static bool poseChange;
+        public static double[] pose = new double[19];
+        public static bool poseChange;//时间轴控件衔接变量
         #endregion
 
         #region ini配置文件
@@ -113,7 +114,6 @@ namespace Adaptable_Studio
         void Page_Loaded(object sender, RoutedEventArgs e)
         {
             LogPath = AppPath + @"\log.txt";
-
             //引导页面
             if (MainWindow.Guiding)
             {
@@ -577,7 +577,8 @@ namespace Adaptable_Studio
         {
             IniWrite("System", "PageIndex", "0", iniPath);
             MainWindow.PageIndex = 0;
-            NavigationService.Navigate(new menu_Page(), this);
+            Page_masc = this;
+            NavigationService.Navigate(Page_menu);
         }
 
         /// <summary> 结构文件-单条存储 </summary>
@@ -598,7 +599,7 @@ namespace Adaptable_Studio
 
         #region 装备页面
         int[] ComboBox_Index = new int[6];//部位物品索引值
-                                          /// <summary> 物品部位切换/读取参数 </summary>
+        /// <summary> 物品部位切换/读取参数 </summary>
         void Item_TabChanged(object sender, SelectionChangedEventArgs e)
         {
             part = Part_Slector.SelectedIndex;
@@ -861,37 +862,48 @@ namespace Adaptable_Studio
         #endregion
         #endregion
 
+        void Pose_Changed(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            ChangePose(sender, e);
+            setPose();
+        }
+
         /// <summary> 3D视窗呈现 </summary>
         void setPose()
         {
-            double[][] LocalCoordinatesMatrix = NewMatrix();
+            HeadRotX.Angle = -pose[0];
+            HeadRotY.Angle = -pose[1];
+            HeadRotZ.Angle = -pose[2];
 
+            ChestRotX.Angle = -pose[3];
+            ChestRotY.Angle = -pose[4];
+            ChestRotZ.Angle = -pose[5];
 
-            HeadRotZ.Angle = -pose[2]; HeadRotY.Angle = -pose[1]; HeadRotX.Angle = -pose[0];
+            LeftArmRotX.Angle = -pose[6];
+            LeftArmRotY.Angle = -pose[7];
+            LeftArmRotZ.Angle = -pose[8];
+
+            RightArmRotX.Angle = -pose[9];
+            RightArmRotY.Angle = -pose[10];
+            RightArmRotZ.Angle = -pose[11];
+
+            LeftLegRotX.Angle = -pose[12];
+            LeftLegRotY.Angle = -pose[13];
+            LeftLegRotZ.Angle = -pose[14];
+
+            RightLegRotX.Angle = -pose[15];
+            RightLegRotY.Angle = -pose[16];
+            RightLegRotZ.Angle = -pose[17];
 
             Rotation.Angle = -pose[18];
         }
 
-        /// <summary> 新建旋转角矩阵 </summary>
-        /// <returns>返回本地坐标矩阵</returns>
-        double[][] NewMatrix()
-        {
-            double[][] Matrix = new double[3][];
-            for (int i = 0; i < 3; i++)
-            {
-                Matrix[i] = new double[3];
-            }
-
-            Matrix[1][1] = 1;
-            Matrix[2][2] = Math.Cos(-pose[0]);
-            Matrix[2][3] = -Math.Sin(-pose[0]);
-            Matrix[3][2] = Math.Sin(-pose[0]);
-            Matrix[3][3] = Math.Cos(-pose[0]);
-
-            return Matrix;
-        }
-
-        void Pose_Changed(object sender, RoutedPropertyChangedEventArgs<double> e)
+        /// <summary>
+        /// 预览-模式衔接 动作结果反馈
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void ChangePose(object sender, RoutedEventArgs e)
         {
             double X = X_Pose.Value,
                    Y = Y_Pose.Value,
@@ -938,11 +950,11 @@ namespace Adaptable_Studio
                     pose[i + 1] = TimeAxis.FramePose.pos[i + 1];
                     pose[i + 2] = TimeAxis.FramePose.pos[i + 2];
 
-                    for (int j = 0; j < 19; j++) pose[j] = TimeAxis.FramePose.pos[j];//控件属性赋值于实时变量
+                    for (int j = 0; j < 19; j++)
+                        pose[j] = TimeAxis.FramePose.pos[j];//控件属性赋值于实时变量
                 }
                 poseChange = false;
             }//高级模式
-            setPose();
         }
 
         #region ini文件读写

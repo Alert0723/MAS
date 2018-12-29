@@ -6,6 +6,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using static Adaptable_Studio.PublicControl;
 
 namespace Adaptable_Studio
 {
@@ -128,7 +129,7 @@ namespace Adaptable_Studio
 
         private void Control_Focus(object sender, RoutedEventArgs e)
         {
-            KeyChanged();
+            KeyChanged(sender, e);
         }
 
         private void Scroll_Changed(object sender, ScrollChangedEventArgs e)
@@ -150,7 +151,7 @@ namespace Adaptable_Studio
         }
 
         /// <summary> 关键帧补间数据运算 </summary>
-        private void KeyChanged()
+        private void KeyChanged(object sender, RoutedEventArgs e)
         {
             int start, end = 0,//补间始末数据
                 mark = 0,//运算标记
@@ -179,8 +180,16 @@ namespace Adaptable_Studio
                             if (IsReversed[TransitionIndex][q])
                             {
                                 double Alpha, Beta;
-                                if (pose[start].pos[q] >= pose[end].pos[q]) { Alpha = pose[start].pos[q]; Beta = pose[end].pos[q]; }
-                                else { Beta = pose[start].pos[q]; Alpha = pose[end].pos[q]; }
+                                if (pose[start].pos[q] >= pose[end].pos[q])
+                                {
+                                    Alpha = pose[start].pos[q];
+                                    Beta = pose[end].pos[q];
+                                }
+                                else
+                                {
+                                    Beta = pose[start].pos[q];
+                                    Alpha = pose[end].pos[q];
+                                }
 
                                 double DeltaAngel = (360 - Math.Abs(Alpha - Beta)) / TickDelay;
 
@@ -210,6 +219,8 @@ namespace Adaptable_Studio
                 for (int j = 0; j < 19; j++)
                     pose[TimeIndex].pos[j] = pose[end].pos[j];
             }
+
+            Page_masc.ChangePose(sender, e);
         }
 
         #region UI绘制模板     
@@ -248,7 +259,7 @@ namespace Adaptable_Studio
         private void TimeGridRedraw(object sender, EventArgs e)
         {
             #region Clear
-            //倒序索引删除刻度+标识
+            //倒序索引删除 刻度+标识
             int index = Canvas.Children.Count;
             for (int i = index - 1; i >= 0; i--)
             {
@@ -384,7 +395,7 @@ namespace Adaptable_Studio
             }//鼠标右键按下
 
             TimeGridRedraw(sender, e);
-            KeyChanged();
+            KeyChanged(sender, e);
         }
 
         private void TimeGridMouseMove(object sender, MouseEventArgs e)
@@ -399,6 +410,7 @@ namespace Adaptable_Studio
                 }
                 TimeLine(Tick);
             }
+            Page_masc.ChangePose(sender, e);
         }
 
         private void TimeGridMouseUp(object sender, MouseButtonEventArgs e)
@@ -433,7 +445,7 @@ namespace Adaptable_Studio
                 e.Handled = true;
                 ClickMark = long.Parse(((Line)sender).Tag.ToString());
             }//鼠标右键按下            
-            KeyChanged();
+            KeyChanged(sender, e);
         }
 
         /// <summary> 过渡段 右键菜单 </summary>
@@ -476,7 +488,7 @@ namespace Adaptable_Studio
         private void FramePaste_Click(object sender, RoutedEventArgs e)
         {
             pose[ClickMark] = MarkPose;
-            KeyChanged();
+            KeyChanged(sender, e);
         }
 
         /// <summary> 关键帧删除 </summary>
@@ -486,7 +498,7 @@ namespace Adaptable_Studio
             {
                 pose[ClickMark].key = false;
                 TimeGridRedraw(sender, e);
-                KeyChanged();
+                KeyChanged(sender, e);
             }
         }
         #endregion
@@ -510,6 +522,8 @@ namespace Adaptable_Studio
             TimeGrid.Children.Remove(timePoint);
             TimeLine(Tick);
             TimeGrid.Children.Add(timePoint);
+
+            Page_masc.ChangePose(sender, e as RoutedEventArgs);
 
             //判断时间线是否超出视野，是则视野向后滚动
             double p = Scroll.HorizontalOffset;
@@ -539,7 +553,7 @@ namespace Adaptable_Studio
 
         private void Play_Mousedown(object sender, MouseButtonEventArgs e)
         {
-            KeyChanged();
+            KeyChanged(sender, e);
             if (play_pause_button.Pressed) timer.Start();
             else timer.Stop();
         }
@@ -576,6 +590,7 @@ namespace Adaptable_Studio
             Play_Mousedown(sender, e as MouseButtonEventArgs);
             Control_Loaded(sender, e);
             TimeGridRedraw(sender, e);
+            Page_masc.ChangePose(sender, e);
         }
         #endregion
     }

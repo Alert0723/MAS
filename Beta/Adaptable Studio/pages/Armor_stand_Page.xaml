@@ -1427,10 +1427,11 @@
                                     <ModelVisual3D Content="{DynamicResource AS_Head}"/>
                                     <ModelVisual3D.Transform>
                                         <Transform3DGroup>
+
                                             <RotateTransform3D x:Name="HeadX" CenterX="0" CenterY="20.7" CenterZ="0">
                                                 <RotateTransform3D.Rotation>
                                                     <AxisAngleRotation3D x:Name="HeadRotX"
-                                                         Axis="1,0,0"
+                                                         Axis="0,0,1"
                                                          Angle="0"/>
                                                 </RotateTransform3D.Rotation>
                                             </RotateTransform3D>
@@ -1444,7 +1445,7 @@
                                             <RotateTransform3D x:Name="HeadZ" CenterX="0" CenterY="20.7" CenterZ="0">
                                                 <RotateTransform3D.Rotation>
                                                     <AxisAngleRotation3D x:Name="HeadRotZ"
-                                                         Axis="0,0,1"
+                                                         Axis="1,0,0"
                                                          Angle="0"/>
                                                 </RotateTransform3D.Rotation>
                                             </RotateTransform3D>
@@ -1463,7 +1464,7 @@
                                         <RotateTransform3D CenterX="0" CenterY="19.8" CenterZ="0">
                                             <RotateTransform3D.Rotation>
                                                 <AxisAngleRotation3D x:Name="ChestRotX"
-                                                         Axis="1,0,0"
+                                                         Axis="0,0,1"
                                                          Angle="0"/>
                                             </RotateTransform3D.Rotation>
                                         </RotateTransform3D>
@@ -1477,7 +1478,7 @@
                                         <RotateTransform3D CenterX="0" CenterY="19.8" CenterZ="0">
                                             <RotateTransform3D.Rotation>
                                                 <AxisAngleRotation3D x:Name="ChestRotZ"
-                                                         Axis="0,0,1"
+                                                         Axis="1,0,0"
                                                          Angle="0"/>
                                             </RotateTransform3D.Rotation>
                                         </RotateTransform3D>
@@ -1492,7 +1493,7 @@
                                         <RotateTransform3D CenterX="0" CenterY="19.8" CenterZ="-5.4">
                                             <RotateTransform3D.Rotation>
                                                 <AxisAngleRotation3D x:Name="LeftArmRotX"
-                                                         Axis="1,0,0"
+                                                         Axis="0,0,1"
                                                          Angle="0"/>
                                             </RotateTransform3D.Rotation>
                                         </RotateTransform3D>
@@ -1506,7 +1507,7 @@
                                         <RotateTransform3D CenterX="0" CenterY="19.8" CenterZ="-5.4">
                                             <RotateTransform3D.Rotation>
                                                 <AxisAngleRotation3D x:Name="LeftArmRotZ"
-                                                         Axis="0,0,1"
+                                                         Axis="1,0,0"
                                                          Angle="0"/>
                                             </RotateTransform3D.Rotation>
                                         </RotateTransform3D>
@@ -1521,7 +1522,7 @@
                                         <RotateTransform3D CenterX="0" CenterY="19.8" CenterZ="5.4">
                                             <RotateTransform3D.Rotation>
                                                 <AxisAngleRotation3D x:Name="RightArmRotX"
-                                                         Axis="1,0,0"
+                                                         Axis="0,0,1"
                                                          Angle="0"/>
                                             </RotateTransform3D.Rotation>
                                         </RotateTransform3D>
@@ -1535,7 +1536,7 @@
                                         <RotateTransform3D CenterX="0" CenterY="19.8" CenterZ="5.4">
                                             <RotateTransform3D.Rotation>
                                                 <AxisAngleRotation3D x:Name="RightArmRotZ"
-                                                         Axis="0,0,1"
+                                                         Axis="1,0,0"
                                                          Angle="0"/>
                                             </RotateTransform3D.Rotation>
                                         </RotateTransform3D>
@@ -1550,7 +1551,7 @@
                                         <RotateTransform3D CenterX="0" CenterY="9.9" CenterZ="-1.8">
                                             <RotateTransform3D.Rotation>
                                                 <AxisAngleRotation3D x:Name="LeftLegRotX"
-                                                         Axis="1,0,0"
+                                                         Axis="0,0,1"
                                                          Angle="0"/>
                                             </RotateTransform3D.Rotation>
                                         </RotateTransform3D>
@@ -1564,7 +1565,7 @@
                                         <RotateTransform3D CenterX="0" CenterY="9.9" CenterZ="-1.8">
                                             <RotateTransform3D.Rotation>
                                                 <AxisAngleRotation3D x:Name="LeftLegRotZ"
-                                                         Axis="0,0,1"
+                                                         Axis="1,0,0"
                                                          Angle="0"/>
                                             </RotateTransform3D.Rotation>
                                         </RotateTransform3D>
@@ -1579,7 +1580,7 @@
                                         <RotateTransform3D CenterX="0" CenterY="9.9" CenterZ="1.8">
                                             <RotateTransform3D.Rotation>
                                                 <AxisAngleRotation3D x:Name="RightLegRotX"
-                                                         Axis="1,0,0"
+                                                         Axis="0,0,1"
                                                          Angle="0"/>
                                             </RotateTransform3D.Rotation>
                                         </RotateTransform3D>
@@ -1593,7 +1594,7 @@
                                         <RotateTransform3D CenterX="0" CenterY="9.9" CenterZ="1.8">
                                             <RotateTransform3D.Rotation>
                                                 <AxisAngleRotation3D x:Name="RightLegRotZ"
-                                                         Axis="0,0,1"
+                                                         Axis="1,0,0"
                                                          Angle="0"/>
                                             </RotateTransform3D.Rotation>
                                         </RotateTransform3D>
