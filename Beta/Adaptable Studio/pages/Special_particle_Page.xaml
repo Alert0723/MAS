@@ -45,14 +45,14 @@
                             </RotateTransform3D>
                         </HelixToolkit:GridLinesVisual3D.Transform>
 
-                        <ModelVisual3D Content="{DynamicResource Particle}"/>
+                        <!--<ModelVisual3D Content="{DynamicResource Particle}"/>-->
                     </HelixToolkit:GridLinesVisual3D>
                 </HelixToolkit:HelixViewport3D>
                 <!--#endregion-->
                 <Label x:Name="paeticle_stats" Content="Count:0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="116" Margin="0,0,390.8,464.4" Foreground="#FF646464"/>
 
                 <WrapPanel x:Name="ViewportToolsBar" Margin="0,451,0,0" Background="#33AAAAAA" Height="50" VerticalAlignment="Top" Width="{Binding ActualWidth, ElementName=MainViewport, Mode=OneWay}" MouseMove="ViewportToolsBar_MouseMove" MouseDown="ViewportToolsBar_MouseDown">
-                    <adaptable_studio:KeepButton x:Name="ToolBarSwitch" Default_Path="{DynamicResource Icon_UpArrow}" Pressed_Path="{DynamicResource Icon_DownArrow}" MouseLeftButtonDown="ToolBarSwitch_LeftDown" Margin="0,0,0,1.2" Height="15" Width="{Binding ActualWidth, ElementName=ViewportToolsBar, Mode=OneWay}"/>
+                    <adaptable_studio:KeepButton x:Name="ToolBarSwitch" Default_Path="{DynamicResource Icon.UpArrow}" Pressed_Path="{DynamicResource Icon.DownArrow}" MouseLeftButtonDown="ToolBarSwitch_LeftDown" Margin="0,0,0,1.2" Height="15" Width="{Binding ActualWidth, ElementName=ViewportToolsBar, Mode=OneWay}"/>
                     <Ellipse x:Name="Round" Margin="10,2,0,0" MouseEnter="Round_start" MouseLeave="Round_end" MouseDown="Round_down" MouseUp="Round_up" Width="30" Height="30" ToolTip="按住鼠标加速" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1">
                         <Ellipse.Fill>
                             <ImageBrush ImageSource="/Minecraft Adaptable Studio;component/icon/Round.png"/>
@@ -87,7 +87,7 @@
         </GroupBox>
         <Button x:Name="BackHome" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="10,10,0,0" Foreground="{x:Null}" Width="35" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{DynamicResource CustomButton}" Click="BackToMenu_Click" Background="#02000000">
             <StackPanel>
-                <Path Fill="White" Stretch="Uniform" Margin="2" Data="{DynamicResource Icon_Home}"/>
+                <Path Fill="White" Stretch="Uniform" Margin="2" Data="{DynamicResource Icon.Home}"/>
             </StackPanel>
         </Button>
         <userControl:CustomOutPutBox x:Name="OutPutBox" HorizontalAlignment="Left" Height="280" Width="290" Margin="742,129,-90,0" VerticalAlignment="Top" MouseLeftButtonDown="OutPut_MouseDown"/>

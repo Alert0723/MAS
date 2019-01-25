@@ -206,7 +206,7 @@ namespace Adaptable_Studio
                             {
                                 //主页检测提示
                                 VersionText.Content = FindResource("FindNewVer");
-                                VerPath.Data = FindResource("Icon_Warning") as Geometry;
+                                VerPath.Data = FindResource("Icon.Warning") as Geometry;
                                 VerPath.Fill = new SolidColorBrush(Color.FromRgb(255, 0, 0));
 
                                 //弹窗提示
@@ -218,7 +218,7 @@ namespace Adaptable_Studio
                             else
                             {
                                 VersionText.Content = FindResource("LatestVer");
-                                VerPath.Data = FindResource("Icon_Check.Round") as Geometry;
+                                VerPath.Data = FindResource("Icon.Check.Round") as Geometry;
                                 VerPath.Fill = new SolidColorBrush(Color.FromRgb(0, 200, 0));
                             }
                         }));//Version Messager

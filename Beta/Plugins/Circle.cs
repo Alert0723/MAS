@@ -139,21 +139,95 @@ namespace Plugins
             }
         }
 
+        /// <summary> 动态绘制模型 </summary>
+        /// <param name="points">3d顶点集合</param>
+        /// <param name="texturepoints">贴图顶点集合</param>
+        /// <param name="point">中心坐标点</param>
         public void AddPoints(ref Point3DCollection points, ref PointCollection texturepoints, double[] point)
         {
-            points.Add(new Point3D(0.2, 0.2, 0)); points.Add(new Point3D(0.2, -0.2, 0)); points.Add(new Point3D(-0.2, 0.2, 0)); points.Add(new Point3D(-0.2, -0.2, 0)); points.Add(new Point3D(-0.2, 0.2, 0)); points.Add(new Point3D(0.2, -0.2, 0));
-            points.Add(new Point3D(0, 0.2, 0.2)); points.Add(new Point3D(0, -0.2, 0.2)); points.Add(new Point3D(0, 0.2, -0.2)); points.Add(new Point3D(0, -0.2, -0.2)); points.Add(new Point3D(0, 0.2, -0.2)); points.Add(new Point3D(0, -0.2, 0.2));
-            points.Add(new Point3D(0.2, 0, 0.2)); points.Add(new Point3D(-0.2, 0, 0.2)); points.Add(new Point3D(0.2, 0, -0.2)); points.Add(new Point3D(-0.2, 0, -0.2)); points.Add(new Point3D(0.2, 0, -0.2)); points.Add(new Point3D(-0.2, 0, 0.2));
-            points.Add(new Point3D(0.2, -0.2, 0)); points.Add(new Point3D(-0.2, 0.2, 0)); points.Add(new Point3D(-0.2, -0.2, 0)); points.Add(new Point3D(-0.2, 0.2, 0)); points.Add(new Point3D(0.2, -0.2, 0)); points.Add(new Point3D(0.2, 0.2, 0));
-            points.Add(new Point3D(0, -0.2, 0.2)); points.Add(new Point3D(0, 0.2, -0.2)); points.Add(new Point3D(0, -0.2, -0.2)); points.Add(new Point3D(0, 0.2, -0.2)); points.Add(new Point3D(0, -0.2, 0.2)); points.Add(new Point3D(0, 0.2, 0.2));
-            points.Add(new Point3D(-0.2, 0, 0.2)); points.Add(new Point3D(0.2, 0, -0.2)); points.Add(new Point3D(-0.2, 0, -0.2)); points.Add(new Point3D(0.2, 0, -0.2)); points.Add(new Point3D(-0.2, 0, 0.2)); points.Add(new Point3D(0.2, 0, 0.2));
+            points.Add(new Point3D(point[0] + 0.2, point[1] + 0.2, point[2] + 0));
+            points.Add(new Point3D(point[0] + 0.2, point[1] + -0.2, point[2] + 0));
+            points.Add(new Point3D(point[0] + -0.2, point[1] + 0.2, point[2] + 0));
+            points.Add(new Point3D(point[0] + -0.2, point[1] + -0.2, point[2] + 0));
+            points.Add(new Point3D(point[0] + -0.2, point[1] + 0.2, point[2] + 0));
+            points.Add(new Point3D(point[0] + 0.2, point[1] + -0.2, point[2] + 0));
 
-            texturepoints.Add(new Point(0, 0)); texturepoints.Add(new Point(0, 1)); texturepoints.Add(new Point(1, 0)); texturepoints.Add(new Point(1, 1)); texturepoints.Add(new Point(1, 0)); texturepoints.Add(new Point(0, 1));
-            texturepoints.Add(new Point(0, 0)); texturepoints.Add(new Point(0, 1)); texturepoints.Add(new Point(1, 0)); texturepoints.Add(new Point(1, 1)); texturepoints.Add(new Point(1, 0)); texturepoints.Add(new Point(0, 1));
-            texturepoints.Add(new Point(0, 0)); texturepoints.Add(new Point(0, 1)); texturepoints.Add(new Point(1, 0)); texturepoints.Add(new Point(1, 1)); texturepoints.Add(new Point(1, 0)); texturepoints.Add(new Point(0, 1));
-            texturepoints.Add(new Point(0, 1)); texturepoints.Add(new Point(1, 0)); texturepoints.Add(new Point(1, 1)); texturepoints.Add(new Point(1, 0)); texturepoints.Add(new Point(0, 1)); texturepoints.Add(new Point(0, 0));
-            texturepoints.Add(new Point(0, 1)); texturepoints.Add(new Point(1, 0)); texturepoints.Add(new Point(1, 1)); texturepoints.Add(new Point(1, 0)); texturepoints.Add(new Point(0, 1)); texturepoints.Add(new Point(0, 0));
-            texturepoints.Add(new Point(0, 1)); texturepoints.Add(new Point(1, 0)); texturepoints.Add(new Point(1, 1)); texturepoints.Add(new Point(1, 0)); texturepoints.Add(new Point(0, 1)); texturepoints.Add(new Point(0, 0));
+            points.Add(new Point3D(point[0] + 0, point[1] + 0.2, point[2] + 0.2));
+            points.Add(new Point3D(point[0] + 0, point[1] + -0.2, point[2] + 0.2));
+            points.Add(new Point3D(point[0] + 0, point[1] + 0.2, point[2] + -0.2));
+            points.Add(new Point3D(point[0] + 0, point[1] + -0.2, point[2] + -0.2));
+            points.Add(new Point3D(point[0] + 0, point[1] + 0.2, point[2] + -0.2));
+            points.Add(new Point3D(point[0] + 0, point[1] + -0.2, point[2] + 0.2));
+
+            points.Add(new Point3D(point[0] + 0.2, point[1] + 0, point[2] + 0.2));
+            points.Add(new Point3D(point[0] + -0.2, point[1] + 0, point[2] + 0.2));
+            points.Add(new Point3D(point[0] + 0.2, point[1] + 0, point[2] + -0.2));
+            points.Add(new Point3D(point[0] + -0.2, point[1] + 0, point[2] + -0.2));
+            points.Add(new Point3D(point[0] + 0.2, point[1] + 0, point[2] + -0.2));
+            points.Add(new Point3D(point[0] + -0.2, point[1] + 0, point[2] + 0.2));
+
+            points.Add(new Point3D(point[0] + 0.2, point[1] + -0.2, point[2] + 0));
+            points.Add(new Point3D(point[0] + -0.2, point[1] + 0.2, point[2] + 0));
+            points.Add(new Point3D(point[0] + -0.2, point[1] + -0.2, point[2] + 0));
+            points.Add(new Point3D(point[0] + -0.2, point[1] + 0.2, point[2] + 0));
+            points.Add(new Point3D(point[0] + 0.2, point[1] + -0.2, point[2] + 0));
+            points.Add(new Point3D(point[0] + 0.2, point[1] + 0.2, point[2] + 0));
+
+            points.Add(new Point3D(point[0] + 0, point[1] + -0.2, point[2] + 0.2));
+            points.Add(new Point3D(point[0] + 0, point[1] + 0.2, point[2] + -0.2));
+            points.Add(new Point3D(point[0] + 0, point[1] + -0.2, point[2] + -0.2));
+            points.Add(new Point3D(point[0] + 0, point[1] + 0.2, point[2] + -0.2));
+            points.Add(new Point3D(point[0] + 0, point[1] + -0.2, point[2] + 0.2));
+            points.Add(new Point3D(point[0] + 0, point[1] + 0.2, point[2] + 0.2));
+
+            points.Add(new Point3D(point[0] + -0.2, point[1] + 0, point[2] + 0.2));
+            points.Add(new Point3D(point[0] + 0.2, point[1] + 0, point[2] + -0.2));
+            points.Add(new Point3D(point[0] + -0.2, point[1] + 0, point[2] + -0.2));
+            points.Add(new Point3D(point[0] + 0.2, point[1] + 0, point[2] + -0.2));
+            points.Add(new Point3D(point[0] + -0.2, point[1] + 0, point[2] + 0.2));
+            points.Add(new Point3D(point[0] + 0.2, point[1] + 0, point[2] + 0.2));
+
+            texturepoints.Add(new Point(0, 0));
+            texturepoints.Add(new Point(0, 1));
+            texturepoints.Add(new Point(1, 0));
+            texturepoints.Add(new Point(1, 1));
+            texturepoints.Add(new Point(1, 0));
+            texturepoints.Add(new Point(0, 1));
+
+            texturepoints.Add(new Point(0, 0));
+            texturepoints.Add(new Point(0, 1));
+            texturepoints.Add(new Point(1, 0));
+            texturepoints.Add(new Point(1, 1));
+            texturepoints.Add(new Point(1, 0));
+            texturepoints.Add(new Point(0, 1));
+
+            texturepoints.Add(new Point(0, 0));
+            texturepoints.Add(new Point(0, 1));
+            texturepoints.Add(new Point(1, 0));
+            texturepoints.Add(new Point(1, 1));
+            texturepoints.Add(new Point(1, 0));
+            texturepoints.Add(new Point(0, 1));
+
+            texturepoints.Add(new Point(0, 1));
+            texturepoints.Add(new Point(1, 0));
+            texturepoints.Add(new Point(1, 1));
+            texturepoints.Add(new Point(1, 0));
+            texturepoints.Add(new Point(0, 1));
+            texturepoints.Add(new Point(0, 0));
+
+            texturepoints.Add(new Point(0, 1));
+            texturepoints.Add(new Point(1, 0));
+            texturepoints.Add(new Point(1, 1));
+            texturepoints.Add(new Point(1, 0));
+            texturepoints.Add(new Point(0, 1));
+            texturepoints.Add(new Point(0, 0));
+
+            texturepoints.Add(new Point(0, 1));
+            texturepoints.Add(new Point(1, 0));
+            texturepoints.Add(new Point(1, 1));
+            texturepoints.Add(new Point(1, 0));
+            texturepoints.Add(new Point(0, 1));
+            texturepoints.Add(new Point(0, 0));
         }
 
         static void Add_ones(ref double[] point, ref string particle, ref string result, ref string Selector)

@@ -232,7 +232,7 @@
         </i:Interaction.Triggers>
         <Button x:Name="home" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="35" Height="35" Click="Back_Click" Margin="25,25,0,0" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" Background="#02DDDDDD">
             <StackPanel>
-                <Path Fill="White" Stretch="Uniform" Margin="5" Data="{DynamicResource Icon_LeftArrow}"/>
+                <Path Fill="White" Stretch="Uniform" Margin="5" Data="{DynamicResource Icon.LeftArrow}"/>
             </StackPanel>
         </Button>
         <TextBlock x:Name="Developers" HorizontalAlignment="Left" FontSize="14" TextWrapping="Wrap" VerticalAlignment="Top" Height="215" Width="642" Foreground="White" Margin="300,10,0,0">

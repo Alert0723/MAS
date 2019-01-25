@@ -578,7 +578,7 @@
                 <ColumnDefinition Width="303*"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="BackHome" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0.181,6.385,0,0" Foreground="{x:Null}" Grid.Column="1" Width="35" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{DynamicResource CustomButton}" Click="BackToMenu_Click" Background="#02828282">
-                <Path Fill="White" Stretch="Uniform" Margin="5" Data="{DynamicResource Icon_Home}"/>
+                <Path Fill="White" Stretch="Uniform" Margin="5" Data="{DynamicResource Icon.Home}"/>
             </Button>
 
             <Rectangle x:Name="SelectBar" Fill="#FF119EDA" Margin="0.005,47,0.005,0" Height="37" VerticalAlignment="Top" Width="5">
@@ -591,7 +591,7 @@
                 </i:Interaction.Behaviors>
             </Rectangle>
             <Button x:Name="Main" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="-0.261,48,0,0" Height="35" VerticalAlignment="Top" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" Width="35" Foreground="{x:Null}" Click="Main_Settings" d:LayoutOverrides="HorizontalAlignment" Grid.Column="1" Background="#02000000">
-                <Path Margin="5" Stretch="Uniform" Fill="White" Data="{DynamicResource Icon_Settings}"/>
+                <Path Margin="5" Stretch="Uniform" Fill="White" Data="{DynamicResource Icon.Settings}"/>
             </Button>
             <Button x:Name="Nbt" Content="N" Background="#02000000" BorderBrush="{x:Null}" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="-0.261,88,0,0" Height="35" VerticalAlignment="Top" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" Width="35" FontFamily="Comfortaa" Click="Nbt_Settings" d:LayoutOverrides="HorizontalAlignment" Grid.Column="1"/>
             <Button x:Name="Pose" Background="#02000000" BorderBrush="{x:Null}" Foreground="White" Margin="-0.172,128,0,0" Height="35" VerticalAlignment="Top" Content="P" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" Width="35" FontFamily="Comfortaa" Click="Rotation_Settings" d:LayoutOverrides="HorizontalAlignment" Grid.Column="1"/>
@@ -1117,7 +1117,7 @@
                                         </ei:PropertyChangedTrigger>
                                     </i:Interaction.Triggers>
                                 </CheckBox>
-                                <local:KeepButton x:Name="AttributeExpander" Height="15" Width="255" Default_Path="{DynamicResource Icon_DownArrow}" Pressed_Path="{DynamicResource Icon_UpArrow}" Margin="0,1">
+                                <local:KeepButton x:Name="AttributeExpander" Height="15" Width="255" Default_Path="{DynamicResource Icon.DownArrow}" Pressed_Path="{DynamicResource Icon.UpArrow}" Margin="0,1">
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger SourceName="AttributeExpander" SourceObject="{Binding ElementName=AttributeExpander}" EventName="MouseDown">
                                             <i:Interaction.Behaviors>
@@ -1219,7 +1219,7 @@
                                         </ei:PropertyChangedTrigger>
                                     </i:Interaction.Triggers>
                                 </CheckBox>
-                                <local:KeepButton x:Name="EnchantExpander" Height="15" Width="255" Default_Path="{DynamicResource Icon_DownArrow}" Pressed_Path="{DynamicResource Icon_UpArrow}" Margin="0,1">
+                                <local:KeepButton x:Name="EnchantExpander" Height="15" Width="255" Default_Path="{DynamicResource Icon.DownArrow}" Pressed_Path="{DynamicResource Icon.UpArrow}" Margin="0,1">
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger SourceName="EnchantExpander" SourceObject="{Binding ElementName=EnchantExpander}" EventName="MouseDown">
                                             <i:Interaction.Behaviors>
@@ -1618,7 +1618,7 @@
                 </HelixToolkit:HelixViewport3D>
                 <!--#endregion-->
                 <Button x:Name="Relocation" Style="{DynamicResource CustomButton}" Margin="0,0,9,5" BorderBrush="{x:Null}" Width="20" Height="20" Click="Viewport_Relocation" VerticalAlignment="Bottom" HorizontalAlignment="Right" ToolTip="{DynamicResource Viewport_Relocation}" Background="#02252525">
-                    <Path Margin="0" Stretch="Uniform" Fill="White" Data="{DynamicResource Icon_Crosshair}"/>
+                    <Path Margin="0" Stretch="Uniform" Fill="White" Data="{DynamicResource Icon.Crosshair}"/>
                 </Button>
             </Grid>
         </GroupBox>

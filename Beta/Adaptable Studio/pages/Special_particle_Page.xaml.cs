@@ -181,7 +181,7 @@ namespace Adaptable_Studio
                 Margin = new Thickness(2),
                 Stretch = Stretch.Uniform,
                 Fill = new SolidColorBrush(Color.FromRgb(255, 255, 255)),
-                Data = (Geometry)FindResource("Icon_EyeOn"),
+                Data = (Geometry)FindResource("Icon.EyeOn"),
             };
             path.MouseLeftButtonDown += Item_SH;//显示/隐藏 切换事件
             NewItem.Children.Add(path);
@@ -264,15 +264,16 @@ namespace Adaptable_Studio
                     Margin = new Thickness() { Top = 10, Left = 5 },
                     SelectedIndex = StyleParticle[index]
                 };
-                par_id.SelectionChanged += Par_id_Changed;//id更改事件
+                par_id.PreviewMouseDown += Par_id_DrawID;
+                par_id.SelectionChanged += Par_id_Changed;
 
-                int i = 0;
+                int i = 0;//json列表 索引值
                 foreach (var item in particleName.CN)
                 {
-                    //导入json列表
-                    if (i == 0) par_id.Items.Add(new TextBlock() { Text = particleName.EN[i], ToolTip = item });
-                    else par_id.Items.Add(new TextBlock() { Text = particleName.EN[i] + "     (" + item + ")" });
-
+                    //导入json列表 英文
+                    WrapPanel wp = new WrapPanel() { MaxWidth = 750 };
+                    wp.Children.Add(new TextBlock() { Text = particleName.EN[i] });
+                    par_id.Items.Add(wp);
                     i++;
                 }
                 #endregion
@@ -280,6 +281,50 @@ namespace Adaptable_Studio
                 //Add
                 style_edit.Children.Add(par_style); Canvas.SetTop(par_style, 0);
                 style_edit.Children.Add(par_id); Canvas.SetTop(par_id, 0);
+            }
+        }
+
+        /// <summary> 下拉列表-重写内容为包含id+中文注释 </summary>
+        void Par_id_DrawID(object sender, MouseEventArgs e)
+        {
+            ComboBox c = (ComboBox)sender;
+            int i = 0;//json列表 索引值
+            foreach (var item in c.Items)
+            {
+                //导入json列表
+                //英文名 + 中文注释
+                if (i > 0 && item is WrapPanel)
+                {
+                    ((WrapPanel)item).Children.Clear();
+                    ((WrapPanel)item).Children.Add(new TextBlock() { Text = particleName.EN[i] });
+                    ((WrapPanel)item).Children.Add(new TextBlock()
+                    {
+                        Text = "  (" + particleName.CN[i] + ")",
+                        Foreground = new SolidColorBrush(Color.FromArgb(100, 220, 220, 220))
+                    });//粒子介绍
+                }
+                i++;
+            }
+        }
+
+        /// <summary> 粒子ID更改事件 </summary>
+        void Par_id_Changed(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox c = (ComboBox)sender;
+            int index = c.SelectedIndex;//列表选项索引缓存
+            if (index == -1) index = 0;
+            StyleParticle[Style_list.SelectedIndex] = index;//全局粒子列表 索引记录
+
+            //导入json列表 英文
+            int i = 0;//json列表 索引值
+            foreach (var item in c.Items)
+            {
+                if (item is WrapPanel)
+                {
+                    ((WrapPanel)item).Children.Clear();
+                    ((WrapPanel)item).Children.Add(new TextBlock() { Text = particleName.EN[i] });
+                }
+                i++;
             }
         }
 
@@ -326,8 +371,10 @@ namespace Adaptable_Studio
             foreach (var item in style_edit.Children) index++;
             for (int i = index; i >= 0; i--)
             {
-                if (style_edit.Children[i] is ComboBox) continue;
-                else style_edit.Children.Remove(style_edit.Children[i]);
+                if (style_edit.Children[i] is ComboBox)
+                    continue;
+                else
+                    style_edit.Children.Remove(style_edit.Children[i]);
             }//删除旧控件 (两个ComboBox除外)
 
             try
@@ -337,7 +384,8 @@ namespace Adaptable_Studio
                 {
                     string DllPath = file.FullName;
                     Assembly assem = Assembly.LoadFile(DllPath);
-                    Type[] tys = assem.GetTypes();//得到所有的类型名，然后遍历，通过类型名字来区别
+                    Type[] tys = assem.GetTypes();
+                    //得到所有的类型名，然后遍历，通过类型名字来区别
 
                     foreach (Type ty in tys)//获取类名
                     {
@@ -362,15 +410,9 @@ namespace Adaptable_Studio
             }
             catch (Exception e) { MessageBox.Show(e.ToString()); }
         }
-
-        void Par_id_Changed(object sender, SelectionChangedEventArgs e)
-        {
-            ComboBox c = (ComboBox)sender;
-            StyleParticle[Style_list.SelectedIndex] = c.SelectedIndex;
-        }
         #endregion
 
-        //重命名事件
+        /// <summary> 重命名事件 </summary>
         void ItemName_Changed(object sender, RoutedEventArgs e)
         {
             TextBox t = (TextBox)sender;
@@ -401,12 +443,12 @@ namespace Adaptable_Studio
             if (((((System.Windows.Shapes.Path)sender).Parent) as WrapPanel).Tag.ToString() == "true")
             {
                 ((((System.Windows.Shapes.Path)sender).Parent) as WrapPanel).Tag = "false";
-                ((System.Windows.Shapes.Path)sender).Data = (Geometry)FindResource("Icon_EyeOff");
+                ((System.Windows.Shapes.Path)sender).Data = (Geometry)FindResource("Icon.EyeOff");
             }
             else
             {
                 ((((System.Windows.Shapes.Path)sender).Parent) as WrapPanel).Tag = "true";
-                ((System.Windows.Shapes.Path)sender).Data = (Geometry)FindResource("Icon_EyeOn");
+                ((System.Windows.Shapes.Path)sender).Data = (Geometry)FindResource("Icon.EyeOn");
             }
         }
 

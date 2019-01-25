@@ -12,7 +12,7 @@
     <Grid>
         <Button x:Name="home" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="35" Height="35" Margin="10,10,0,0" BorderBrush="{x:Null}" Click="Back_Click" RenderTransformOrigin="0.5,0.5" Background="#02DCDCDC">
             <StackPanel>
-                <Path Fill="White" Stretch="Uniform" Margin="5" Data="{DynamicResource Icon_LeftArrow}"/>
+                <Path Fill="White" Stretch="Uniform" Margin="5" Data="{DynamicResource Icon.LeftArrow}"/>
             </StackPanel>
         </Button>
         <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="80,0,0,0" FontFamily="{DynamicResource Font}">
