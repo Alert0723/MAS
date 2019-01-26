@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows.Media.Media3D;
 
 namespace Adaptable_Studio
@@ -26,9 +23,7 @@ namespace Adaptable_Studio
             camera.LookDirection = new Vector3D() { X = -Point.X + LookAtPoint[0], Y = -Point.Y + LookAtPoint[1], Z = -Point.Z + LookAtPoint[2] };
         }
 
-        /// <summary>
-        /// 平面法向量计算
-        /// </summary>
+        /// <summary> 平面法向量计算 </summary>
         /// <param name="vector1">构成平面的向量1</param>
         /// <param name="vector2">构成平面的向量2</param>
         public static Vector3D UpDirection_Get(Vector3D vector1, Vector3D vector2)

@@ -34,7 +34,7 @@ namespace Adaptable_Studio
         /// <summary> 特效样式对应粒子 </summary>
         public List<int> StyleParticle = new List<int>();
 
-        /// <summary> 列队控件uid,dll控件缓存 </summary>
+        /// <summary> 列队控件uid,dll控件集缓存 </summary>
         public List<IDictionary<int, object>> ControlValue = new List<IDictionary<int, object>>();
 
         #region Viewport3D
@@ -164,7 +164,7 @@ namespace Adaptable_Studio
         /// <summary> 添加样式 </summary>
         void Item_add(object sender, RoutedEventArgs e)
         {
-            //主面板
+            //承载显示选项与命名的主面板
             WrapPanel NewItem = new WrapPanel()
             {
                 Background = new SolidColorBrush(Color.FromArgb(1, 0, 0, 0)),
@@ -210,7 +210,8 @@ namespace Adaptable_Studio
                 string text = string.Empty;
                 foreach (var item in ((WrapPanel)Style_list.SelectedItem).Children)
                 {
-                    if (item is TextBlock) text = ((TextBlock)item).Text;
+                    if (item is TextBlock)
+                        text = ((TextBlock)item).Text;
                 }
 
                 //动态新建控件+设置属性
@@ -264,8 +265,8 @@ namespace Adaptable_Studio
                     Margin = new Thickness() { Top = 10, Left = 5 },
                     SelectedIndex = StyleParticle[index]
                 };
-                par_id.PreviewMouseDown += Par_id_DrawID;
-                par_id.SelectionChanged += Par_id_Changed;
+                par_id.DropDownOpened += Par_id_DropDownOpened;
+                par_id.DropDownClosed += Par_id_DropDownClosed;
 
                 int i = 0;//json列表 索引值
                 foreach (var item in particleName.CN)
@@ -284,8 +285,8 @@ namespace Adaptable_Studio
             }
         }
 
-        /// <summary> 下拉列表-重写内容为包含id+中文注释 </summary>
-        void Par_id_DrawID(object sender, MouseEventArgs e)
+        /// <summary> 下拉列表-重写内容为id+中文注释 </summary>
+        void Par_id_DrawENCN(object sender, EventArgs e)
         {
             ComboBox c = (ComboBox)sender;
             int i = 0;//json列表 索引值
@@ -307,8 +308,8 @@ namespace Adaptable_Studio
             }
         }
 
-        /// <summary> 粒子ID更改事件 </summary>
-        void Par_id_Changed(object sender, SelectionChangedEventArgs e)
+        /// <summary> 下拉列表-重写内容为纯id </summary>
+        void Par_id_DrawEN(object sender, EventArgs e)
         {
             ComboBox c = (ComboBox)sender;
             int index = c.SelectedIndex;//列表选项索引缓存
@@ -326,6 +327,17 @@ namespace Adaptable_Studio
                 }
                 i++;
             }
+        }
+
+        /// <summary> 粒子ID菜单打开事件 </summary>
+        void Par_id_DropDownOpened(object sender, EventArgs e)
+        {
+            Par_id_DrawENCN(sender, e);
+        }
+        /// <summary> 粒子ID菜单关闭事件 </summary>
+        void Par_id_DropDownClosed(object sender, EventArgs e)
+        {
+            Par_id_DrawEN(sender, e);
         }
 
         #region 数组响应事件
@@ -360,7 +372,7 @@ namespace Adaptable_Studio
         {
             Par_style_Return(sender);
         }
-
+        //↓
         /// <summary> 特效更改事件 </summary>
         void Par_style_Return(object sender)
         {
@@ -602,8 +614,10 @@ namespace Adaptable_Studio
         /// <summary> 工具栏折叠 </summary>
         void ToolBarSwitch_LeftDown(object sender, MouseButtonEventArgs e)
         {
-            if (ToolBarSwitch.Pressed) ToolBarSwitch.Margin = new Thickness() { Top = ToolBarSwitch.Margin.Top + 35 };
-            else ToolBarSwitch.Margin = new Thickness() { Top = ToolBarSwitch.Margin.Top - 35 };
+            if (ToolBarSwitch.Pressed)
+                ToolBarSwitch.Margin = new Thickness() { Top = ToolBarSwitch.Margin.Top + 35 };
+            else
+                ToolBarSwitch.Margin = new Thickness() { Top = ToolBarSwitch.Margin.Top - 35 };
         }
 
         /// <summary> 预览视角重置 </summary>        

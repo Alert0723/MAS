@@ -1427,7 +1427,6 @@
                                     <ModelVisual3D Content="{DynamicResource AS_Head}"/>
                                     <ModelVisual3D.Transform>
                                         <Transform3DGroup>
-
                                             <RotateTransform3D x:Name="HeadX" CenterX="0" CenterY="20.7" CenterZ="0">
                                                 <RotateTransform3D.Rotation>
                                                     <AxisAngleRotation3D x:Name="HeadRotX"

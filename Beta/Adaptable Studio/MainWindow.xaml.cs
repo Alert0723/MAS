@@ -47,7 +47,7 @@ namespace Adaptable_Studio
 
         #endregion
 
-        #region ini配置文件s
+        #region ini配置文件
         [DllImport("kernel32")]
         private static extern long WritePrivateProfileString(string section, string key, string val, string filePath);
         //定义写入函数
@@ -80,7 +80,7 @@ namespace Adaptable_Studio
         }
 
         /// <summary> 终止外部进程 </summary>
-        private void KillProcess(string processName, bool output)
+        void KillProcess(string processName, bool output)
         {
             try
             {
@@ -100,7 +100,7 @@ namespace Adaptable_Studio
 
         #region Main
         /// <summary> 窗体加载 </summary>
-        private void Main_Loaded(object sender, RoutedEventArgs e)
+        void Main_Loaded(object sender, RoutedEventArgs e)
         {
             LogPath = AppPath + @"\log.txt";
             File.Delete(LogPath);//清除日志文件
@@ -183,6 +183,22 @@ namespace Adaptable_Studio
 
             Log_Write(LogPath, "[Main]配置文件初始化完成");
 
+            NewVerTest();//Version Testing
+
+            _NavigationFrame.Navigate(Page_menu);//page读取
+        }
+
+        /// <summary> 窗体关闭 </summary>
+        void MainClosed(object sender, EventArgs e)
+        {
+            Log_Write(LogPath, "[Main]正常关闭");
+            IniWrite("System", "PageIndex", "-1", iniPath);
+            Environment.Exit(0);
+        }
+
+        /// <summary> 最新版本信息检测 </summary>
+        void NewVerTest()
+        {
             if (PageIndex == -1)
             {
                 Thread th = new Thread(new ThreadStart(delegate
@@ -233,17 +249,7 @@ namespace Adaptable_Studio
                     }
                 }));
                 th.Start();
-            }//Version Testing
-
-            _NavigationFrame.Navigate(Page_menu);//page读取
-        }
-
-        /// <summary> 窗体关闭 </summary>
-        private void MainClosed(object sender, EventArgs e)
-        {
-            Log_Write(LogPath, "[Main]正常关闭");
-            IniWrite("System", "PageIndex", "-1", iniPath);
-            Environment.Exit(0);
+            }
         }
         #endregion
 

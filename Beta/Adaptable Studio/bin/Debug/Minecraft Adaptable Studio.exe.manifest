@@ -413,14 +413,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Minecraft Adaptable Studio.exe" size="3781632">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Minecraft Adaptable Studio.exe" size="3782144">
       <assemblyIdentity name="Minecraft Adaptable Studio" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>WcuH7NqwbhAWBtgMAqz4sYh3hMqr/wLYl/XMPaoEmsA=</dsig:DigestValue>
+        <dsig:DigestValue>Pz64rrSQTIyEEIbWYpYEaVqXy/Gdm+ODXdqWwlRpxA0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

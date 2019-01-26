@@ -100,9 +100,18 @@ namespace Plugins
             }
         }
 
+        //ViewPoer3D
+        //- ModelVisual3D
+        //-- ModelVisual3D.Content
+        //-- ModelVisual3D.Transform
+        //GeometryModel3D
+        //- GeometryModel3D.Geometry
+        //-- MeshGeometry3D
+        //--- Positions/TextureCoordinates
+        //
         public void Preview(ref Viewport3D viewport, IDictionary<int, object> Control)
         {
-            double[] point = new double[3];
+            double[] point = new double[3];//坐标点缓存
             for (double pitch = 0; pitch <= 360; pitch += ((CustomNumberBox)Control[0]).Value)
             {
                 point[0] = (Math.Sin(pitch * Math.PI / 180) * ((CustomNumberBox)Control[1]).Value);
@@ -111,11 +120,11 @@ namespace Plugins
 
                 ModelVisual3D ModelVisual3D = new ModelVisual3D();
                 Model3DGroup Model3DGroup = new Model3DGroup();
-
+                //
                 Point3DCollection pointcollect = new Point3DCollection();//模型坐标集合
                 PointCollection texturepoints = new PointCollection();//纹理坐标集合
                 AddPoints(ref pointcollect, ref texturepoints, point);
-
+                //
                 DiffuseMaterial Material = new DiffuseMaterial()//纹理变量
                 {
                     Brush = new ImageBrush()
@@ -123,7 +132,7 @@ namespace Plugins
                         ImageSource = new BitmapImage(new Uri("pack://application:,,,/textures/masp/particle.png", UriKind.Relative))
                     }
                 };
-
+                //
                 MeshGeometry3D meshGeometry = new MeshGeometry3D()
                 {
                     Positions = pointcollect,
@@ -131,7 +140,7 @@ namespace Plugins
                 };
 
                 GeometryModel3D GeometryModel = new GeometryModel3D() { Geometry = meshGeometry };//模型实例
-
+                //
                 Model3DGroup.Children.Add(GeometryModel);
                 ModelVisual3D.Content = Model3DGroup;
 
