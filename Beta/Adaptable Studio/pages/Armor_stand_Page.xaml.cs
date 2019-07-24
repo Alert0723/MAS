@@ -17,8 +17,6 @@ namespace Adaptable_Studio
     public partial class Armor_stand_Page : Page
     {
         #region Define
-        string AppPath = Environment.CurrentDirectory,//应用程序根目录
-               LogPath;//日志文件路径
         #region EquipItem
         Json ItemName;
         int part = 0;//当前编辑部位
@@ -113,7 +111,6 @@ namespace Adaptable_Studio
 
         void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            LogPath = AppPath + @"\log.txt";
             //引导页面
             if (MainWindow.Guiding)
             {
@@ -127,30 +124,23 @@ namespace Adaptable_Studio
             }
 
             #region Viewport3D 初始化
-            MainWindow.Log_Write(LogPath, "[masc]Viewport3D初始化");
+            MainWindow.Log_Write(MainWindow.LogPath, "[masc]Viewport3D初始化");
             Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);
             LightDirectionReset();
-            MainWindow.Log_Write(LogPath, "[Viewport3D]初始化完成");
+            MainWindow.Log_Write(MainWindow.LogPath, "[Viewport3D]初始化完成");
             #endregion           
 
             #region json列表获取
             try
             {
-                StreamReader line = null;
                 //判断版本读取对应json
                 switch (true)
                 {
                     default:
-                        try
-                        {
-                            line = new StreamReader(AppPath + @"\json\masc\1_12.json");
-                            string JSONcontent = line.ReadToEnd();
-                            ItemName = JsonConvert.DeserializeObject<Json>(JSONcontent);
-                        }
-                        catch { MainWindow.Log_Write(LogPath, "json文件读取异常，文件丢失或损坏"); }
-                        break;//1.12
+                        Json.Deserialize(MainWindow.AppPath + @"\json\masc\1_12.json", ref ItemName);//1.12
+                        break;
                 }
-                line.Close();
+
 
                 //导入物品列表
                 if (MainWindow._langCN)
@@ -164,9 +154,9 @@ namespace Adaptable_Studio
                     }
                 }
                 ItemList.SelectedIndex = 0;
-                MainWindow.Log_Write(LogPath, "[masc]物品列表json读取完成");
+                MainWindow.Log_Write(MainWindow.LogPath, "[masc]物品列表json读取完成");
             }
-            catch { MainWindow.Log_Write(LogPath, "[masc]json读取失败"); }
+            catch { MainWindow.Log_Write(MainWindow.LogPath, "[masc]json读取失败"); }
             #endregion
         }
 

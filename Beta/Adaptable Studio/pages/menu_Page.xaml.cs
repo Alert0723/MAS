@@ -10,11 +10,6 @@ namespace Adaptable_Studio
     /// <summary> menu_Page.xaml 的交互逻辑 </summary>
     public partial class menu_Page : Page
     {
-        string AppPath = Environment.CurrentDirectory,//应用程序根目录
-               LogPath;//日志文件路径
-
-        static object ArmorStandPage, ParticlePage;//页面缓存
-
         #region ini配置文件
         [DllImport("kernel32")]
         static extern long WritePrivateProfileString(string section, string key, string val, string filePath);
@@ -29,6 +24,21 @@ namespace Adaptable_Studio
         StringBuilder StrName = new StringBuilder(255);//定义字符串  
         #endregion
 
+        #region ini文件读写
+        /// <summary> 读取配置文件(字符串, "节名", "键名", 文件路径) </summary>
+        public static void IniRead(ref StringBuilder StrName, string configureNode, string key, string path)
+        {
+            //获取节中 键的值，存在字符串中
+            //格式：GetPrivateProfileString("节名", "键名", "", 字符串, 255, 文件路径)
+            GetPrivateProfileString(configureNode, key, "", StrName, 255, path);
+        }
+        /// <summary> 写入配置文件("节名", "键名", 键值, 文件路径) </summary>
+        public static void IniWrite(string configureNode, string key, string keyValue, string path)
+        {
+            WritePrivateProfileString(configureNode, key, keyValue, path);
+        }
+        #endregion
+
         public menu_Page()
         {
             InitializeComponent();
@@ -41,15 +51,6 @@ namespace Adaptable_Studio
 
         private void NavigationService_LoadCompleted(object sender, System.Windows.Navigation.NavigationEventArgs e)
         {
-            //if (e.ExtraData != null || ArmorStandPage != null)
-            //{
-            //    ArmorStandPage = e.ExtraData;
-            //}
-            //else
-            //{
-            //    ArmorStandPage = null;
-            //}
-
             if (MainWindow.PageIndex == 0)
             {
                 (Main as MainWindow).VersionIcon.Visibility = Visibility.Visible;
@@ -66,7 +67,7 @@ namespace Adaptable_Studio
         {
             IniWrite("System", "PageIndex", "2", iniPath);
             MainWindow.PageIndex = 2;
-            NavigationService.Navigate(new Uri("pages/Super_banner_Page.xaml", UriKind.Relative));
+            NavigationService.Navigate(Page_masb);
         }
 
         void MASC(object sender, RoutedEventArgs e)
@@ -83,19 +84,6 @@ namespace Adaptable_Studio
             NavigationService.Navigate(Page_masp);
         }
 
-        #region ini文件读写
-        /// <summary> 读取配置文件(字符串, "节名", "键名", 文件路径) </summary>
-        public static void IniRead(ref StringBuilder StrName, string configureNode, string key, string path)
-        {
-            //获取节中 键的值，存在字符串中
-            //格式：GetPrivateProfileString("节名", "键名", "", 字符串, 255, 文件路径)
-            GetPrivateProfileString(configureNode, key, "", StrName, 255, path);
-        }
-        /// <summary> 写入配置文件("节名", "键名", 键值, 文件路径) </summary>
-        public static void IniWrite(string configureNode, string key, string keyValue, string path)
-        {
-            WritePrivateProfileString(configureNode, key, keyValue, path);
-        }
-        #endregion
+
     }
 }

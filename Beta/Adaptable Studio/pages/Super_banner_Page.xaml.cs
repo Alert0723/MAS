@@ -12,9 +12,6 @@ namespace Adaptable_Studio
     /// <summary> super_banner_Page.xaml 的交互逻辑 </summary>
     public partial class Super_banner_Page : Page
     {
-        string AppPath = Environment.CurrentDirectory,//应用程序根目录
-               LogPath;//日志文件路径
-
         //底层+6层样式纹理
         Texture Base = new Texture();
         Texture F1 = new Texture();
@@ -52,8 +49,6 @@ namespace Adaptable_Studio
 
         void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            LogPath = AppPath + @"\log.txt";
-
             for (int i = 0; i < 7; i++) { Color[i] = 15; }
             #region OpenGL初始化
             OpenGL gl = OpenGLControl.OpenGL;
@@ -65,18 +60,18 @@ namespace Adaptable_Studio
             gl.BlendFunc(OpenGL.GL_SRC_ALPHA, OpenGL.GL_ONE);//基于源像素alpha通道值的半透明混合函数
             try
             {
-                Base.Create(gl, AppPath + @"\textures\masb\base.png");//底板纹理
-                F1.Create(gl, AppPath + @"\textures\masb\flower.png");
-                F2.Create(gl, AppPath + @"\textures\masb\stripe_downleft.png");
-                F3.Create(gl, AppPath + @"\textures\masb\mojang.png");
-                F4.Create(gl, AppPath + @"\textures\masb\mojang.png");
-                F5.Create(gl, AppPath + @"\textures\masb\mojang.png");
-                F6.Create(gl, AppPath + @"\textures\masb\mojang.png");
+                Base.Create(gl, MainWindow.AppPath + @"\textures\masb\base.png");//底板纹理
+                F1.Create(gl, MainWindow.AppPath + @"\textures\masb\flower.png");
+                F2.Create(gl, MainWindow.AppPath + @"\textures\masb\stripe_downleft.png");
+                F3.Create(gl, MainWindow.AppPath + @"\textures\masb\mojang.png");
+                F4.Create(gl, MainWindow.AppPath + @"\textures\masb\mojang.png");
+                F5.Create(gl, MainWindow.AppPath + @"\textures\masb\mojang.png");
+                F6.Create(gl, MainWindow.AppPath + @"\textures\masb\mojang.png");
 
-                MainWindow.Log_Write(LogPath, "[OpenGL]纹理绑定完成");
+                MainWindow.Log_Write(MainWindow.LogPath, "[OpenGL]纹理绑定完成");
             }
-            catch { MainWindow.Log_Write(LogPath, "[Error]纹理绑定失败"); }//纹理绑定
-            MainWindow.Log_Write(LogPath, "[masb]OpenGL初始化完成");
+            catch { MainWindow.Log_Write(MainWindow.LogPath, "[Error]纹理绑定失败"); }//纹理绑定
+            MainWindow.Log_Write(MainWindow.LogPath, "[masb]OpenGL初始化完成");
             #endregion
         }
 

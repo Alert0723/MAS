@@ -18,10 +18,7 @@ namespace Adaptable_Studio
     /// <summary> special_particle_Page.xaml 的交互逻辑 </summary>
     public partial class Special_particle_Page : Page
     {
-        #region Define     
-        string AppPath = Environment.CurrentDirectory,//应用程序根目录
-               LogPath;//日志文件路径
-
+        #region Define
         Json particleName;
         public static int pre_count/*预览粒子数量统计*/;
 
@@ -71,30 +68,15 @@ namespace Adaptable_Studio
 
         void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            LogPath = AppPath + @"\log.txt";
-            MainWindow.Log_Write(LogPath, "[masp]粒子生成器初始化");
+            MainWindow.Log_Write(MainWindow.LogPath, "[masp]粒子生成器初始化");
 
             #region Viewport3D
-            MainWindow.Log_Write(LogPath, "[masp]Viewport3D初始化");
+            MainWindow.Log_Write(MainWindow.LogPath, "[masp]Viewport3D初始化");
             Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);
-            MainWindow.Log_Write(LogPath, "[Viewport3D]初始化完成");
             #endregion
 
-            #region Json预读取
-            StreamReader line = null;
-            try
-            {
-                line = new StreamReader(AppPath + @"\json\masp\particle.json");
-                string JSONcontent = line.ReadToEnd();
-                particleName = JsonConvert.DeserializeObject<Json>(JSONcontent);
-                MainWindow.Log_Write(LogPath, "[masp]json读取完成");
-            }
-            catch
-            {
-                MainWindow.Log_Write(LogPath, "[Error]json文件读取异常，文件丢失或数据已损坏");
-            }//判断版本读取对应json
-            line.Close();
-            #endregion
+            //Json预读取
+            Json.Deserialize(MainWindow.AppPath + @"\json\masp\particle.json", ref particleName);
 
             StyleFiles_Load("Class", "StyleName", true);
 
@@ -113,7 +95,7 @@ namespace Adaptable_Studio
             try
             {
                 //获取dll列表
-                foreach (FileInfo file in new DirectoryInfo(AppPath + @"\appfile\temp\masp").GetFiles("*.dll"))
+                foreach (FileInfo file in new DirectoryInfo(MainWindow.AppPath + @"\appfile\temp\masp").GetFiles("*.dll"))
                 {
                     string DllPath = file.FullName;
                     Assembly assem = Assembly.LoadFile(DllPath);
@@ -392,7 +374,7 @@ namespace Adaptable_Studio
             try
             {
                 //获取dll列表
-                foreach (FileInfo file in new DirectoryInfo(AppPath + @"\appfile\temp\masp").GetFiles("*.dll"))
+                foreach (FileInfo file in new DirectoryInfo(MainWindow.AppPath + @"\appfile\temp\masp").GetFiles("*.dll"))
                 {
                     string DllPath = file.FullName;
                     Assembly assem = Assembly.LoadFile(DllPath);
@@ -506,7 +488,7 @@ namespace Adaptable_Studio
                 foreach (var StyleTypeItem in StyleType)
                 {
                     //获取dll列表
-                    foreach (FileInfo file in new DirectoryInfo(AppPath + @"\appfile\temp\masp").GetFiles("*.dll"))
+                    foreach (FileInfo file in new DirectoryInfo(MainWindow.AppPath + @"\appfile\temp\masp").GetFiles("*.dll"))
                     {
                         string DllPath = file.FullName;
                         Assembly assem = Assembly.LoadFile(DllPath);

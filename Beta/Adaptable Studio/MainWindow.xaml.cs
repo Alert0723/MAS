@@ -18,15 +18,15 @@ namespace Adaptable_Studio
     /// <summary> MainWindow.xaml 的交互逻辑 </summary>
     public partial class MainWindow : MetroWindow
     {
-        string AppPath = Environment.CurrentDirectory,//应用程序根目录
-               LogPath;//日志文件路径
+        public static string AppPath = Environment.CurrentDirectory,//应用程序根目录
+                       LogPath = Environment.CurrentDirectory + @"\log.txt";//日志文件路径
 
         string version = "Version:" + ConfigurationManager.AppSettings["MainVersion"];//当前版本号
 
         public static bool _langCN = true;//汉英切换
         public static int PageIndex = -1;//页面读取值
         public static bool Guidance = true;//启动引导
-        public static bool Guiding = true;
+        public static bool Guiding = true;//引导状态
 
         public static string result = "";//指令结果
 
@@ -59,6 +59,21 @@ namespace Adaptable_Studio
 
         string iniPath = Environment.CurrentDirectory + @"\config.ini";//ini文件路径
         StringBuilder StrName = new StringBuilder(255);//定义字符串  
+        #endregion
+
+        #region ini Read & Write
+        /// <summary> 读取配置文件(字符串, "节名", "键名", 文件路径) </summary>
+        public static void IniRead(ref StringBuilder StrName, string configureNode, string key, string path)
+        {
+            //获取节中 键的值，存在字符串中
+            //格式：GetPrivateProfileString("节名", "键名", "", 字符串, 255, 文件路径)
+            GetPrivateProfileString(configureNode, key, "", StrName, 255, path);
+        }
+        /// <summary> 写入配置文件("节名", "键名", 键值, 文件路径) </summary>
+        public static void IniWrite(string configureNode, string key, string keyValue, string path)
+        {
+            WritePrivateProfileString(configureNode, key, keyValue, path);
+        }
         #endregion
 
         public MainWindow()
@@ -245,7 +260,7 @@ namespace Adaptable_Studio
                         {
                             VersionText.Content = FindResource("SearchNewVerErr");
                         }));
-                        Log_Write(LogPath, "[Main]获取新版本信息失败");
+                        Log_Write(LogPath, "[Main]获取版本信息失败");
                     }
                 }));
                 th.Start();
@@ -297,19 +312,5 @@ namespace Adaptable_Studio
         }
         #endregion
 
-        #region ini Read & Write
-        /// <summary> 读取配置文件(字符串, "节名", "键名", 文件路径) </summary>
-        public static void IniRead(ref StringBuilder StrName, string configureNode, string key, string path)
-        {
-            //获取节中 键的值，存在字符串中
-            //格式：GetPrivateProfileString("节名", "键名", "", 字符串, 255, 文件路径)
-            GetPrivateProfileString(configureNode, key, "", StrName, 255, path);
-        }
-        /// <summary> 写入配置文件("节名", "键名", 键值, 文件路径) </summary>
-        public static void IniWrite(string configureNode, string key, string keyValue, string path)
-        {
-            WritePrivateProfileString(configureNode, key, keyValue, path);
-        }
-        #endregion
     }
 }

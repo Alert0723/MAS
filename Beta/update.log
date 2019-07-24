@@ -1,4 +1,4 @@
-﻿Version:0.5.7.5 Alpha
+﻿Version:0.5.8.0 Alpha
 Updater version:1.8.6
 更新时间:2019/1/25
 
@@ -7,7 +7,7 @@ Updater version:1.8.6
     优化代码结构
 
 ●常规
-    添加主页面版本更新检测提示
+    
     
 ●MAS.C
     修复贴图错误
@@ -15,3 +15,5 @@ Updater version:1.8.6
 ●MAS.P
     粒子下拉框 支持下拉显示中文注释
     *Rebuilding
+
+●MAS.B
