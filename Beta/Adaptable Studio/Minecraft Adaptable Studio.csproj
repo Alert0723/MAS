@@ -154,9 +154,6 @@
     <Compile Include="class\MousePosition.cs" />
     <Compile Include="class\Viewport_3D.cs" />
     <Compile Include="class\FileProcess.cs" />
-    <Compile Include="Functional form\MASC-Part Direction.xaml.cs">
-      <DependentUpon>MASC-Part Direction.xaml</DependentUpon>
-    </Compile>
     <Compile Include="pages\Option_Page.xaml.cs">
       <DependentUpon>Option_Page.xaml</DependentUpon>
     </Compile>
@@ -170,6 +167,7 @@
       <DependentUpon>Specific_model_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="class\PublicControl.cs" />
+    <Compile Include="Functional form\mas.c\TimeAxis_ContextMenu.cs" />
     <Compile Include="userControl\CustomNumberBox.xaml.cs">
       <DependentUpon>CustomNumberBox.xaml</DependentUpon>
     </Compile>
@@ -191,10 +189,6 @@
     <Compile Include="VersionMessager.xaml.cs">
       <DependentUpon>VersionMessager.xaml</DependentUpon>
     </Compile>
-    <Page Include="Functional form\MASC-Part Direction.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="3D Model.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -229,6 +223,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="ResourceDictionary\ComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResourceDictionary\ContextMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

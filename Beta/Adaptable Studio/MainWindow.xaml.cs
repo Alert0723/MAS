@@ -18,10 +18,10 @@ namespace Adaptable_Studio
     /// <summary> MainWindow.xaml 的交互逻辑 </summary>
     public partial class MainWindow : MetroWindow
     {
-        public static string AppPath = Environment.CurrentDirectory,//应用程序根目录
-                       LogPath = Environment.CurrentDirectory + @"\log.txt";//日志文件路径
+        public static string LogPath = @".\log.txt";//程序根目录 日志文件路径
 
         string version = "Version:" + ConfigurationManager.AppSettings["MainVersion"];//当前版本号
+        string updatelog = ConfigurationManager.AppSettings["UpdateLog"]; //更新日志链接
 
         public static bool _langCN = true;//汉英切换
         public static int PageIndex = -1;//页面读取值
@@ -29,9 +29,6 @@ namespace Adaptable_Studio
         public static bool Guiding = true;//引导状态
 
         public static string result = "";//指令结果
-
-        //更新日志链接
-        string updatelog = ConfigurationManager.AppSettings["UpdateLog"];
 
         #region fNBT
         public static NbtCompound StructureNbt = new NbtCompound("");//文件主框架        
@@ -91,7 +88,14 @@ namespace Adaptable_Studio
         public static void Log_Write(string path, string information)
         {
             using (StreamWriter file = new StreamWriter(path, true))
-            { file.WriteLine("[" + DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second + "." + DateTime.Now.Millisecond + "] " + information); }
+            {
+                file.WriteLine("["
+                    + DateTime.Now.Hour
+                    + ":" + DateTime.Now.Minute
+                    + ":" + DateTime.Now.Second
+                    + "." + DateTime.Now.Millisecond
+                    + "] " + information);
+            }
         }
 
         /// <summary> 终止外部进程 </summary>
@@ -117,13 +121,12 @@ namespace Adaptable_Studio
         /// <summary> 窗体加载 </summary>
         void Main_Loaded(object sender, RoutedEventArgs e)
         {
-            LogPath = AppPath + @"\log.txt";
             File.Delete(LogPath);//清除日志文件
             Log_Write(LogPath, "[Main]全局初始化");
 
             //删除更新文件
             KillProcess("MAS Updater", false);
-            File.Delete(AppPath + @"\MAS Updater.exe");
+            File.Delete(@".\MAS Updater.exe");
 
             try
             {

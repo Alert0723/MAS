@@ -60,13 +60,13 @@ namespace Adaptable_Studio
             gl.BlendFunc(OpenGL.GL_SRC_ALPHA, OpenGL.GL_ONE);//基于源像素alpha通道值的半透明混合函数
             try
             {
-                Base.Create(gl, MainWindow.AppPath + @"\textures\masb\base.png");//底板纹理
-                F1.Create(gl, MainWindow.AppPath + @"\textures\masb\flower.png");
-                F2.Create(gl, MainWindow.AppPath + @"\textures\masb\stripe_downleft.png");
-                F3.Create(gl, MainWindow.AppPath + @"\textures\masb\mojang.png");
-                F4.Create(gl, MainWindow.AppPath + @"\textures\masb\mojang.png");
-                F5.Create(gl, MainWindow.AppPath + @"\textures\masb\mojang.png");
-                F6.Create(gl, MainWindow.AppPath + @"\textures\masb\mojang.png");
+                Base.Create(gl, @".\textures\masb\base.png");//底板纹理
+                F1.Create(gl, @".\textures\masb\flower.png");
+                F2.Create(gl, @".\textures\masb\stripe_downleft.png");
+                F3.Create(gl, @".\textures\masb\mojang.png");
+                F4.Create(gl, @".\textures\masb\mojang.png");
+                F5.Create(gl, @".\textures\masb\mojang.png");
+                F6.Create(gl, @".\textures\masb\mojang.png");
 
                 MainWindow.Log_Write(MainWindow.LogPath, "[OpenGL]纹理绑定完成");
             }

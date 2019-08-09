@@ -6,6 +6,7 @@
         <ResourceDictionary Source="pack://application:,,,/ResourceDictionary/Slider.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/ResourceDictionary/TabControl.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/ResourceDictionary/TabItem.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/ResourceDictionary/ContextMenu.xaml"/>
     </ResourceDictionary.MergedDictionaries>
     
 </ResourceDictionary>

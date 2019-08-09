@@ -1,19 +1,18 @@
-﻿Version:0.5.8.0 Alpha
-Updater version:1.8.6
-更新时间:2019/1/25
+﻿Version:0.5.9.0 Alpha
+Updater version:1.8.7
+更新时间:2019/8/10
 
 「更新内容」
 ●更新器
-    优化代码结构
+    修复更新逻辑错误
 
 ●常规
     
     
 ●MAS.C
-    修复贴图错误
+    修复3D时间轴复制粘贴数据出错的bug
 
 ●MAS.P
-    粒子下拉框 支持下拉显示中文注释
     *Rebuilding
 
 ●MAS.B

@@ -12,12 +12,10 @@
         <ContextMenu x:Key="KeyFrameMenu">
             <MenuItem Name="CopyData" FontSize="11" Header="{DynamicResource CopyFrame}" Click="FrameCopy_Click"/>
             <MenuItem Name="PasteData" FontSize="11" Header="{DynamicResource PasteFrame}" Click="FramePaste_Click"/>
-            <Separator></Separator>
+            <Separator/>
             <MenuItem Name="DeleteFrame" FontSize="11" Header="{DynamicResource DeleteFrame}" ToolTip="{DynamicResource DeleteTip}" Click="DeleteFrame_Click"/>
         </ContextMenu>
-        <ContextMenu x:Key="TransitionMenu">
-            <MenuItem Name="PartDirection" FontSize="11" Header="{DynamicResource Position_Direction}" Click="PartDirection_Click"/>
-        </ContextMenu>
+
         <ControlTemplate x:Key="ScrollViewerControlTemplate1" TargetType="{x:Type ScrollViewer}">
             <Grid x:Name="Grid" Background="{TemplateBinding Background}">
                 <Grid.ColumnDefinitions>

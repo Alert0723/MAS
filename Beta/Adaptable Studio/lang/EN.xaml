@@ -206,7 +206,7 @@
     <!--#endregion-->
 
     <!--#region  Transition ContextMenu -->
-    <system:String x:Key="Position_Direction">Reverse rotation Setting</system:String>
+    <system:String x:Key="Direction_ReserveAll">Reserve all</system:String>
     <!--#endregion-->
     <!--#endregion-->
 

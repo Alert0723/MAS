@@ -72,12 +72,18 @@ namespace Adaptable_Studio
         #endregion
 
         #region Viewport3D
-        double CameraRadius = 50;//摄像机半径(相对于原点)
-        double[] CameraRot = new double[2] { 15, 60 };//水平旋转角,竖直旋转角(相对于原点)
-        double[] CameraLookAtPoint = new double[3] { 0, 10, 0 };//摄像机视点
-        double[] mouse_location = new double[2];//鼠标位置
+        /// <summary> 摄像机半径(相对于原点) </summary>
+        double CameraRadius = 50;
+        /// <summary> 水平旋转角,竖直旋转角(相对于原点) </summary>
+        double[] CameraRot = new double[2] { 15, 60 };
+        /// <summary> 摄像机视点 </summary>
+        double[] CameraLookAtPoint = new double[3] { 0, 10, 0 };
+        /// <summary> 获取鼠标位置 </summary>
+        double[] mouse_location = new double[2];
+        /// <summary> 与模型动作关联的角度参数 </summary>
         public static double[] pose = new double[19];
-        public static bool poseChange;//时间轴控件衔接变量
+        /// <summary> 高级模式下，控制模型是否随当前帧变化而改变 </summary>
+        public static bool poseChange;
         #endregion
 
         #region ini配置文件
@@ -137,7 +143,7 @@ namespace Adaptable_Studio
                 switch (true)
                 {
                     default:
-                        Json.Deserialize(MainWindow.AppPath + @"\json\masc\1_12.json", ref ItemName);//1.12
+                        Json.Deserialize(@".\json\masc\1_12.json", ref ItemName);//1.12
                         break;
                 }
 
@@ -239,7 +245,8 @@ namespace Adaptable_Studio
             SelectBar.Margin = thick;
         }
 
-        void PostTabChanged(object sender, SelectionChangedEventArgs e)
+        /// <summary> 切换选项卡时，动作数据实时反馈给Slider </summary>
+        void PoseTabChanged(object sender, SelectionChangedEventArgs e)
         {
             double X = 0, Y = 0, Z = 0;
             int index = Pose_Slector.SelectedIndex;
@@ -858,7 +865,7 @@ namespace Adaptable_Studio
             setPose();
         }
 
-        /// <summary> 3D视窗呈现 </summary>
+        /// <summary> 3D视窗反馈 </summary>
         void setPose()
         {
             HeadRotX.Angle = -pose[0];
@@ -891,9 +898,7 @@ namespace Adaptable_Studio
         /// <summary> 预览-模式衔接 动作结果反馈 </summary>
         public void ChangePose(object sender, RoutedEventArgs e)
         {
-            double X = X_Pose.Value,
-                   Y = Y_Pose.Value,
-                   Z = Z_Pose.Value;
+            //判断动作选项卡的索引值
             int i = 0;
             if (PoseHead.IsSelected) i = 0;
             else if (PoseBody.IsSelected) i = 3;
@@ -904,6 +909,11 @@ namespace Adaptable_Studio
 
             if (!UI_advancedmode.IsChecked)
             {
+                //将控件值存储到变量
+                double X = X_Pose.Value,
+                       Y = Y_Pose.Value,
+                       Z = Z_Pose.Value;
+
                 pose[18] = Rotation_Setting.Value;
                 if ((bool)Pose_Settings.IsChecked)
                 {
@@ -914,30 +924,39 @@ namespace Adaptable_Studio
             }//普通模式
             else
             {
-                if (poseChange && !TimeAxis.IsPlaying) Rotation_Setting.Value = TimeAxis.FramePose.pos[18];
+                //若模型需要改变动作，且时间轴不在播放状态
+                if (poseChange && !TimeAxis.IsPlaying)
+                    Rotation_Setting.Value = TimeAxis.FramePose.pos[18];//从控件中获取当前朝向
+
+                //无论动作是否改变，动作的存储值必须与控件同步
                 TimeAxis.FramePose.pos[18] = Rotation_Setting.Value;
+
+                //将改变后的模型参数，赋值给与显示动作关联的变量
                 pose[18] = TimeAxis.FramePose.pos[18];
 
-                if ((bool)Pose_Settings.IsChecked)
+
+                //将控件选中的帧数据 赋值给与显示动作关联的变量
+                for (int j = 0; j < 19; j++)
+                    pose[j] = TimeAxis.FramePose.pos[j];
+
+
+                if ((bool)Pose_Settings.IsChecked)//若动作选项已启用
                 {
+                    //若模型需要改变动作，且时间轴不在播放状态
                     if (poseChange && !TimeAxis.IsPlaying)
                     {
+                        //将控件中的属性赋值给 <需要显示> 的控件
                         X_Pose.Value = TimeAxis.FramePose.pos[i];
                         Y_Pose.Value = TimeAxis.FramePose.pos[i + 1];
                         Z_Pose.Value = TimeAxis.FramePose.pos[i + 2];
                     }
 
+                    //无论动作是否改变，动作的存储值必须与控件同步
                     TimeAxis.FramePose.pos[i] = X_Pose.Value;
                     TimeAxis.FramePose.pos[i + 1] = Y_Pose.Value;
                     TimeAxis.FramePose.pos[i + 2] = Z_Pose.Value;
 
-                    //控件属性赋值于滑条数据
-                    pose[i] = TimeAxis.FramePose.pos[i];
-                    pose[i + 1] = TimeAxis.FramePose.pos[i + 1];
-                    pose[i + 2] = TimeAxis.FramePose.pos[i + 2];
-
-                    for (int j = 0; j < 19; j++)
-                        pose[j] = TimeAxis.FramePose.pos[j];//控件属性赋值于实时变量
+                    setPose();
                 }
                 poseChange = false;
             }//高级模式

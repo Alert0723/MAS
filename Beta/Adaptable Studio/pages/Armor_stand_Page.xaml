@@ -675,7 +675,7 @@
                             <Grid.Effect>
                                 <BlurEffect/>
                             </Grid.Effect>
-                            <TabControl x:Name="Pose_Slector" Width="{DynamicResource PoseWidth}" Background="{x:Null}" BorderBrush="{x:Null}" IsSynchronizedWithCurrentItem="False" UseLayoutRounding="False" TabStripPlacement="Left" Style="{DynamicResource CustomTabControl_Vertical}" HorizontalAlignment="Left" IsHitTestVisible="True" SelectionChanged="PostTabChanged" Margin="0,0,0,2.5">
+                            <TabControl x:Name="Pose_Slector" Width="{DynamicResource PoseWidth}" Background="{x:Null}" BorderBrush="{x:Null}" IsSynchronizedWithCurrentItem="False" UseLayoutRounding="False" TabStripPlacement="Left" Style="{DynamicResource CustomTabControl_Vertical}" HorizontalAlignment="Left" IsHitTestVisible="True" SelectionChanged="PoseTabChanged" Margin="0,0,0,2.5">
                                 <TabControl.ItemsPanel>
                                     <ItemsPanelTemplate>
                                         <StackPanel IsItemsHost="True"/>

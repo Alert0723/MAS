@@ -76,7 +76,7 @@ namespace Adaptable_Studio
             #endregion
 
             //Json预读取
-            Json.Deserialize(MainWindow.AppPath + @"\json\masp\particle.json", ref particleName);
+            Json.Deserialize(@".\json\masp\particle.json", ref particleName);
 
             StyleFiles_Load("Class", "StyleName", true);
 
@@ -95,7 +95,7 @@ namespace Adaptable_Studio
             try
             {
                 //获取dll列表
-                foreach (FileInfo file in new DirectoryInfo(MainWindow.AppPath + @"\appfile\temp\masp").GetFiles("*.dll"))
+                foreach (FileInfo file in new DirectoryInfo(@".\appfile\temp\masp").GetFiles("*.dll"))
                 {
                     string DllPath = file.FullName;
                     Assembly assem = Assembly.LoadFile(DllPath);
@@ -374,7 +374,7 @@ namespace Adaptable_Studio
             try
             {
                 //获取dll列表
-                foreach (FileInfo file in new DirectoryInfo(MainWindow.AppPath + @"\appfile\temp\masp").GetFiles("*.dll"))
+                foreach (FileInfo file in new DirectoryInfo(@".\appfile\temp\masp").GetFiles("*.dll"))
                 {
                     string DllPath = file.FullName;
                     Assembly assem = Assembly.LoadFile(DllPath);
@@ -488,7 +488,7 @@ namespace Adaptable_Studio
                 foreach (var StyleTypeItem in StyleType)
                 {
                     //获取dll列表
-                    foreach (FileInfo file in new DirectoryInfo(MainWindow.AppPath + @"\appfile\temp\masp").GetFiles("*.dll"))
+                    foreach (FileInfo file in new DirectoryInfo(@".\appfile\temp\masp").GetFiles("*.dll"))
                     {
                         string DllPath = file.FullName;
                         Assembly assem = Assembly.LoadFile(DllPath);

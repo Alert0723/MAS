@@ -14,7 +14,7 @@
                 <!--英汉互译资源-->
                 <ResourceDictionary Source="pack://application:,,,/lang/CN.xaml"/>
                 <!--控件样式-->
-                <ResourceDictionary Source="pack://application:,,,/ResourceDictionary/ControlStyles.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ResourceDictionary/ControlStyles.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/ResourceDictionary/Theme/BaseDark.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/ResourceDictionary/Theme/Blue.xaml" />
 
