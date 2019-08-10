@@ -266,18 +266,26 @@ namespace Adaptable_Studio
         #endregion
 
         #region Reset Button
-        /// <summary> 动作UI重置 </summary>        
+        /// <summary> 动作UI重置 </summary>
         void PoseReset_LeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (Pose_Reset.IsConfirmRest)
             {
-                for (int i = 0; i < 19; i++) pose[i] = 0;
+                for (int i = 0; i < 19; i++)
+                {
+                    pose[i] = 0;
+                    if (UI_advancedmode.IsChecked && TimeAxis.FramePose.key)
+                        TimeAxis.FramePose.pos[i] = 0;
+                }
+
+                poseChange = true;
                 X_Pose.Value = 0;
                 Y_Pose.Value = 0;
                 Z_Pose.Value = 0;
                 Pose_Reset.IsConfirmRest = false;
                 Rotation_Setting.Value = 0;
             }
+
         }
 
         /// <summary> 装备UI重置 </summary>        
@@ -862,7 +870,6 @@ namespace Adaptable_Studio
         void Pose_Changed(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             ChangePose(sender, e);
-            setPose();
         }
 
         /// <summary> 3D视窗反馈 </summary>
@@ -924,6 +931,7 @@ namespace Adaptable_Studio
             }//普通模式
             else
             {
+                TimeAxis.Tick = TimeAxis.Tick;
                 //若模型需要改变动作，且时间轴不在播放状态
                 if (poseChange && !TimeAxis.IsPlaying)
                     Rotation_Setting.Value = TimeAxis.FramePose.pos[18];//从控件中获取当前朝向
@@ -934,13 +942,12 @@ namespace Adaptable_Studio
                 //将改变后的模型参数，赋值给与显示动作关联的变量
                 pose[18] = TimeAxis.FramePose.pos[18];
 
-
                 //将控件选中的帧数据 赋值给与显示动作关联的变量
                 for (int j = 0; j < 19; j++)
                     pose[j] = TimeAxis.FramePose.pos[j];
 
-
-                if ((bool)Pose_Settings.IsChecked)//若动作选项已启用
+                //若动作选项已启用
+                if ((bool)Pose_Settings.IsChecked)
                 {
                     //若模型需要改变动作，且时间轴不在播放状态
                     if (poseChange && !TimeAxis.IsPlaying)
@@ -955,11 +962,10 @@ namespace Adaptable_Studio
                     TimeAxis.FramePose.pos[i] = X_Pose.Value;
                     TimeAxis.FramePose.pos[i + 1] = Y_Pose.Value;
                     TimeAxis.FramePose.pos[i + 2] = Z_Pose.Value;
-
-                    setPose();
                 }
                 poseChange = false;
             }//高级模式
+            setPose();
         }
 
         #region ini文件读写

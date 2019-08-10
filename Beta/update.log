@@ -1,5 +1,5 @@
-﻿Version:0.5.9.0 Alpha
-Updater version:1.8.7
+﻿Version:0.5.9.3 Alpha
+Updater version:1.8.8
 更新时间:2019/8/10
 
 「更新内容」
@@ -7,10 +7,10 @@ Updater version:1.8.7
     修复更新逻辑错误
 
 ●常规
-    
+    优化冗余代码
     
 ●MAS.C
-    修复3D时间轴复制粘贴数据出错的bug
+    修复重置动作后预览没有及时反馈的问题
 
 ●MAS.P
     *Rebuilding

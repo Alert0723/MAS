@@ -160,14 +160,16 @@ namespace Adaptable_Studio
         /// <summary> 关键帧补间数据运算 </summary>
         private void KeyChanged(object sender, RoutedEventArgs e)
         {
-            int start, end = 0,//补间始末数据
+            int start, end = 0,//补间始末位置
                 mark = 0,//运算标记
-                TimeIndex = 0,//时间轴起点                              
-                TransitionIndex = 0;//过渡段索引
+                TimeIndex = 0,//时间轴运算起点  
+                TransitionIndex = 0;//过渡段顺序索引
 
+            //大循环，循环遍历所有帧
             while (TimeIndex < TotalTick)
             {
-                start = mark;
+                start = mark;//标记起点
+                //从标记点开始，搜索相邻关键帧位置，并获得头尾的参数
                 for (TimeIndex = mark + 1; TimeIndex < TotalTick; TimeIndex++)
                 {
                     if (pose[TimeIndex].key)
@@ -178,38 +180,49 @@ namespace Adaptable_Studio
                     }
                 }//提取两个相邻关键帧数据↓
 
-                int TickDelay = end - start + 1;//tick间隔
+                int TickDelay = end - start + 1;//计算相邻帧的间隔
+                //间隔>0
                 if (TickDelay > 0)
                 {
-                    //p:独立补间区间
+                    //p:两个相邻帧的补间区间
                     //q:pos[0~18]
-                    for (int p = start; p < end; p++)
+                    for (int p = start; p < end; p++)//外循环：遍历区间内的所有帧
                     {
-                        for (int q = 0; q < 19; q++)
+                        for (int q = 0; q < 19; q++)//内循环：遍历当前帧的所有动作参数
                         {
                             pose[p].pos[q] = pose[start].pos[q];
-                            //判断反向旋转
+                            //若当前帧当前部位需要反向计算
                             if (IsReversed[TransitionIndex][q])
                             {
+                                //定义存储始末状态的角度参数
                                 double Alpha, Beta;
+                                //比较始末角度大小
                                 if (pose[start].pos[q] >= pose[end].pos[q])
                                 {
                                     Alpha = pose[start].pos[q];
                                     Beta = pose[end].pos[q];
                                 }
-                                else
+                                else//否则交换赋值对象
                                 {
                                     Beta = pose[start].pos[q];
                                     Alpha = pose[end].pos[q];
                                 }
 
+                                //计算每帧角度偏移值
                                 double DeltaAngel = (360 - Math.Abs(Alpha - Beta)) / TickDelay;
 
-                                if (pose[start].pos[q] < pose[end].pos[q]) DeltaAngel = -DeltaAngel;
+                                //若初角小于末角，运算结果取相反数
+                                if (pose[start].pos[q] < pose[end].pos[q])
+                                    DeltaAngel = -DeltaAngel;
 
+                                //计算结果存储
                                 pose[p].pos[q] = (p - start + 1) * DeltaAngel;
-                                while (pose[p].pos[q] < -180) pose[p].pos[q] += 360;
-                                while (pose[p].pos[q] > 180) pose[p].pos[q] -= 360;
+
+                                //将任意角度转换到[-180,180]区间
+                                while (pose[p].pos[q] < -180)
+                                    pose[p].pos[q] += 360;
+                                while (pose[p].pos[q] > 180)
+                                    pose[p].pos[q] -= 360;
                             }
                             else
                             {
@@ -220,7 +233,6 @@ namespace Adaptable_Studio
                             }
                         }
                     }
-
                 }
                 TransitionIndex++;
             }
@@ -385,11 +397,6 @@ namespace Adaptable_Studio
             Armor_stand_Page.poseChange = true;
         }
 
-        private void TimeGrid_PreviewMouseMove(object sender, MouseEventArgs e)
-        {
-            Armor_stand_Page.poseChange = true;
-        }
-
         private void TimeGridMouseDown(object sender, MouseButtonEventArgs e)
         {
             //时间轴暂停
@@ -400,22 +407,23 @@ namespace Adaptable_Studio
             {
                 if (e.GetPosition(TimeGrid).X >= i * KeyWidth && e.GetPosition(TimeGrid).X <= i * KeyWidth + KeyWidth)
                     Position = (long)(i * KeyWidth + KeyWidth / 2);
-            }//计算鼠标对应帧位置
+            }//计算鼠标当前位置 对应帧位置
 
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 mousedown = true;
                 Tick = (long)(Position / KeyWidth);
-            }//鼠标左键按下
+            }//鼠标左键按下,定位当前位置对应帧
             else if (e.RightButton == MouseButtonState.Pressed)
             {
                 pose[(int)(Position / KeyWidth - 0.5)].key = true;//关键帧位置
-            }//鼠标右键按下
+            }//鼠标右键按下,在当前位置产生关键帧
 
             TimeGridRedraw(sender, e);
             KeyChanged(sender, e);
         }
 
+        /// <summary> 光标在时间轴移动时，实时反馈动作过渡效果 </summary>
         private void TimeGridMouseMove(object sender, MouseEventArgs e)
         {
             //重绘时间线
@@ -428,6 +436,7 @@ namespace Adaptable_Studio
                 }
                 TimeLine(Tick);
             }
+            Armor_stand_Page.poseChange = true;
             Page_masc.ChangePose(sender, e);
         }
 
@@ -439,8 +448,10 @@ namespace Adaptable_Studio
             for (int i = 0; i < TotalTick; i++)
             {
                 foreach (Line item in TimeGrid.Children)
+                {
                     if (item.Tag != null && item.Tag.ToString() == i.ToString())
                         item.IsHitTestVisible = true;
+                }
             }
         }
 
@@ -475,7 +486,7 @@ namespace Adaptable_Studio
         }
         #endregion
 
-        #region KeyFrame ContestMenu        
+        #region KeyFrame ContestMenu
         /// <summary> 复制关键帧数据 </summary>
         private void FrameCopy_Click(object sender, RoutedEventArgs e)
         {
