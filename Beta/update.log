@@ -1,6 +1,6 @@
-﻿Version:0.5.9.3 Alpha
+﻿Version:0.5.9.9 Alpha
 Updater version:1.8.8
-更新时间:2019/8/10
+更新时间:2019/8/14
 
 「更新内容」
 ●更新器
@@ -10,9 +10,10 @@ Updater version:1.8.8
     优化冗余代码
     
 ●MAS.C
-    修复重置动作后预览没有及时反馈的问题
+    删除冗余代码
+    修复光标显示问题
 
 ●MAS.P
-    *Rebuilding
+
 
 ●MAS.B

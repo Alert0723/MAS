@@ -2,18 +2,18 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:local="clr-namespace:Adaptable_Studio"      
-      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:local="clr-namespace:Adaptable_Studio"
       xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       xmlns:Custom="clr-namespace:ArmorStand.CustomControl"
       xmlns:userControl="clr-namespace:Adaptable_Studio.userControl"
       xmlns:Custom1="http://metro.mahapps.com/winfx/xaml/controls"
       xmlns:System="clr-namespace:System;assembly=mscorlib"
-      xmlns:HelixToolkit="http://helix-toolkit.org/wpf"
+      xmlns:Helix="http://helix-toolkit.org/wpf"
       x:Class="Adaptable_Studio.Armor_stand_Page"
       mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300"
       FontFamily="{DynamicResource Font}"
-      Title="armor_stand_Page" Width="942" Height="569" Loaded="Page_Loaded">
+      Title="armor_stand_Page" Width="942" Height="569">
     <!--Height="569"-->
     <!--Height="1800"-->
     <Grid x:Name="ALL">
@@ -577,7 +577,7 @@
                 <ColumnDefinition Width="5*"/>
                 <ColumnDefinition Width="303*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="BackHome" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0.181,6.385,0,0" Foreground="{x:Null}" Grid.Column="1" Width="35" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{DynamicResource CustomButton}" Click="BackToMenu_Click" Background="#02828282">
+            <Button x:Name="BackHome" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0.181,6.385,0,0" Foreground="{x:Null}" Grid.Column="1" Width="35" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{DynamicResource CustomButton}" Background="#02828282">
                 <Path Fill="White" Stretch="Uniform" Margin="5" Data="{DynamicResource Icon.Home}"/>
             </Button>
 
@@ -590,13 +590,13 @@
                     </ei:FluidMoveBehavior>
                 </i:Interaction.Behaviors>
             </Rectangle>
-            <Button x:Name="Main" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="-0.261,48,0,0" Height="35" VerticalAlignment="Top" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" Width="35" Foreground="{x:Null}" Click="Main_Settings" d:LayoutOverrides="HorizontalAlignment" Grid.Column="1" Background="#02000000">
+            <Button x:Name="Main" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="-0.261,48,0,0" Height="35" VerticalAlignment="Top" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" Width="35" Foreground="{x:Null}" d:LayoutOverrides="HorizontalAlignment" Grid.Column="1" Background="#02000000">
                 <Path Margin="5" Stretch="Uniform" Fill="White" Data="{DynamicResource Icon.Settings}"/>
             </Button>
-            <Button x:Name="Nbt" Content="N" Background="#02000000" BorderBrush="{x:Null}" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="-0.261,88,0,0" Height="35" VerticalAlignment="Top" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" Width="35" FontFamily="Comfortaa" Click="Nbt_Settings" d:LayoutOverrides="HorizontalAlignment" Grid.Column="1"/>
-            <Button x:Name="Pose" Background="#02000000" BorderBrush="{x:Null}" Foreground="White" Margin="-0.172,128,0,0" Height="35" VerticalAlignment="Top" Content="P" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" Width="35" FontFamily="Comfortaa" Click="Rotation_Settings" d:LayoutOverrides="HorizontalAlignment" Grid.Column="1"/>
-            <Button x:Name="Item" Background="#02000000" BorderBrush="{x:Null}" Foreground="White" Margin="-0.172,168,0,0" Content="I" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" Width="35" FontFamily="Comfortaa" Click="Item_Settings" d:LayoutOverrides="HorizontalAlignment" Grid.Column="1" Height="35" VerticalAlignment="Top"/>
-            <ScrollViewer x:Name="Settings" BorderThickness="0" Padding="0" VerticalScrollBarVisibility="Hidden" CanContentScroll="True" Width="268" Grid.Column="1" MinWidth="268.343" Margin="35.166,0,0.167,0" ScrollChanged="SelectBar_Move">
+            <Button x:Name="Nbt" Content="N" Background="#02000000" BorderBrush="{x:Null}" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="-0.261,88,0,0" Height="35" VerticalAlignment="Top" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" Width="35" FontFamily="Comfortaa" d:LayoutOverrides="HorizontalAlignment" Grid.Column="1"/>
+            <Button x:Name="Pose" Background="#02000000" BorderBrush="{x:Null}" Foreground="White" Margin="-0.172,128,0,0" Height="35" VerticalAlignment="Top" Content="P" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" Width="35" FontFamily="Comfortaa" d:LayoutOverrides="HorizontalAlignment" Grid.Column="1"/>
+            <Button x:Name="Item" Background="#02000000" BorderBrush="{x:Null}" Foreground="White" Margin="-0.172,168,0,0" Content="I" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" Width="35" FontFamily="Comfortaa" d:LayoutOverrides="HorizontalAlignment" Grid.Column="1" Height="35" VerticalAlignment="Top"/>
+            <ScrollViewer x:Name="Settings" BorderThickness="0" Padding="0" VerticalScrollBarVisibility="Hidden" CanContentScroll="True" Width="268" Grid.Column="1" MinWidth="268.343" Margin="35.166,0,0.167,0">
                 <WrapPanel x:Name="wrapPanel" ScrollViewer.VerticalScrollBarVisibility="{Binding VerticalScrollBarVisibility, ElementName=Settings}" ScrollViewer.CanContentScroll="{Binding CanContentScroll, ElementName=Settings}" UseLayoutRounding="False" Width="268.343" MinWidth="{Binding MinWidth, ElementName=Settings}" Height="1799.18">
                     <i:Interaction.Behaviors>
                         <ei:FluidMoveBehavior Duration="0:0:0.2">
@@ -610,9 +610,9 @@
                     </i:Interaction.Behaviors>
                     <Label x:Name="BasicSettings" Content="{DynamicResource Basic_Settings}" Foreground="White" Background="{x:Null}" FontSize="25"  IsHitTestVisible="False" Margin="5,32,0,0" Height="67.93" VerticalContentAlignment="Center"/>
                     <WrapPanel x:Name="BasicPannel" Height="60" Width="250" Margin="10,0,0,0">
-                        <Label Content="{DynamicResource Name}" Width="{DynamicResource NameLabelLength}"  FontSize="14" Margin="0,0,0,5"/>
+                        <Label Content="{DynamicResource Name}" Width="{DynamicResource NameLabelLength}" FontSize="14" Margin="0,0,0,5"/>
                         <TextBox x:Name="UI_name" BorderBrush="{x:Null}" Foreground="White" Background="#FF2F2F2F" VerticalContentAlignment="Center" FontSize="13" Height="24" VerticalAlignment="Top" HorizontalScrollBarVisibility="Disabled" Width="{DynamicResource NameTextboxLength}" Margin="0,0,0,5"/>
-                        <Label Content="{DynamicResource Tag}" Width="{DynamicResource TagLabelLength}"  FontSize="14"/>
+                        <Label Content="{DynamicResource Tag}" Width="{DynamicResource TagLabelLength}" FontSize="14"/>
                         <TextBox x:Name="UI_tags" BorderBrush="{x:Null}" Foreground="White" Background="#FF2F2F2F" VerticalContentAlignment="Center" FontSize="13" Height="24" VerticalAlignment="Top" HorizontalScrollBarVisibility="Disabled" Width="{DynamicResource TagTextboxLength}"/>
                     </WrapPanel>
                     <Label x:Name="NbtSettings" Content="{DynamicResource NBT_Settings}" Foreground="White" Background="{x:Null}" FontSize="25"  IsHitTestVisible="False" BorderThickness="0,15" Margin="5,0,0,0" Padding="5"/>
@@ -660,263 +660,71 @@
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                         </CheckBox>
-                        <Label Content="{DynamicResource DisabledSlots_Settings}" Width="230" Height="30"  FontSize="16" Margin="0,5"/>
+                        <Label Content="{DynamicResource DisabledSlots_Settings}" Width="230" Height="30" FontSize="16" Margin="0,5"/>
                         <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="disabled_head" Height="20" Width="105" Content="{DynamicResource Head}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" />
                         <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="disabled_chest" Height="20" Width="105" Content="{DynamicResource Body}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,0,0,0" />
                         <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="disabled_hand" Height="20" Width="105" Content="{DynamicResource Arms}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" />
                         <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="disabled_legs" Height="20" Width="105" Content="{DynamicResource Legs}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,0,0,0" />
                         <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="disabled_boots" Height="20" Width="105" Content="{DynamicResource Boots}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" />
                     </WrapPanel>
-                    <Label x:Name="PoseSettings" Content="{DynamicResource Pose_Settings}" Foreground="White" Background="{x:Null}" FontSize="25"  IsHitTestVisible="False" BorderThickness="0,15" Margin="5,0,0,0"/>
+                    <Label x:Name="PoseSettings" Content="{DynamicResource Pose_Settings}" Foreground="White" Background="{x:Null}" FontSize="25" IsHitTestVisible="False" BorderThickness="0,15" Margin="5,0,0,0"/>
                     <Grid x:Name="PosePannel" Height="150" Width="250" Margin="10,0,0,0" Background="#00000000" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                         <Label Content="{DynamicResource Rotation}" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" FontSize="10" Width="60" VerticalContentAlignment="Center" Height="20" HorizontalContentAlignment="{DynamicResource RotationAlignment}" Padding="5"/>
-                        <Slider Style="{DynamicResource CustomSlider}" x:Name="Rotation_Setting" Width="190" Margin="55,0,5,130" FontSize="9" Maximum="180" Minimum="-180" AutoToolTipPlacement="TopLeft" ValueChanged="Pose_Changed" Foreground="{x:Null}" BorderBrush="White"/>
+                        <Slider Style="{DynamicResource CustomSlider}" x:Name="Rotation_Setting" Width="190" Margin="55,0,5,130" FontSize="9" Maximum="180" Minimum="-180" AutoToolTipPlacement="TopLeft" Foreground="{x:Null}" BorderBrush="White"/>
                         <Grid x:Name="grid" Margin="0,20,0,0" IsHitTestVisible="False" Height="105" VerticalAlignment="Top" d:IsEffectDisabled="True">
                             <Grid.Effect>
                                 <BlurEffect/>
                             </Grid.Effect>
-                            <TabControl x:Name="Pose_Slector" Width="{DynamicResource PoseWidth}" Background="{x:Null}" BorderBrush="{x:Null}" IsSynchronizedWithCurrentItem="False" UseLayoutRounding="False" TabStripPlacement="Left" Style="{DynamicResource CustomTabControl_Vertical}" HorizontalAlignment="Left" IsHitTestVisible="True" SelectionChanged="PoseTabChanged" Margin="0,0,0,2.5">
+                            <TabControl x:Name="Pose_Selector" Width="{DynamicResource PoseWidth}" Background="{x:Null}" BorderBrush="{x:Null}" IsSynchronizedWithCurrentItem="False" UseLayoutRounding="False" TabStripPlacement="Left" Style="{DynamicResource CustomTabControl_Vertical}" HorizontalAlignment="Left" IsHitTestVisible="True" Margin="0,0,0,2.5">
                                 <TabControl.ItemsPanel>
                                     <ItemsPanelTemplate>
                                         <StackPanel IsItemsHost="True"/>
                                     </ItemsPanelTemplate>
-
                                 </TabControl.ItemsPanel>
-                                <TabControl.ItemContainerStyle>
-                                    <Style TargetType="{x:Type TabItem}">
-                                        <Setter Property="FocusVisualStyle">
-                                            <Setter.Value>
-                                                <Style>
-                                                    <Setter Property="Control.Template">
-                                                        <Setter.Value>
-                                                            <ControlTemplate>
-                                                                <Rectangle Margin="2" SnapsToDevicePixels="True" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
-                                                            </ControlTemplate>
-                                                        </Setter.Value>
-                                                    </Setter>
-                                                </Style>
-                                            </Setter.Value>
-                                        </Setter>
-                                        <Setter Property="Foreground" Value="Black"/>
-                                        <Setter Property="Background" Value="{x:Null}"/>
-                                        <Setter Property="BorderBrush" Value="{x:Null}"/>
-                                        <Setter Property="Margin" Value="0"/>
-                                        <Setter Property="Padding" Value="6,2"/>
-                                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                                        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
-                                        <Setter Property="Template">
-                                            <Setter.Value>
-                                                <ControlTemplate TargetType="{x:Type TabItem}">
-                                                    <Grid x:Name="templateRoot" SnapsToDevicePixels="True">
-                                                        <VisualStateManager.VisualStateGroups>
-                                                            <VisualStateGroup x:Name="CommonStates">
-                                                                <VisualStateGroup.Transitions>
-                                                                    <VisualTransition GeneratedDuration="0:0:0.2">
-                                                                        <VisualTransition.GeneratedEasingFunction>
-                                                                            <QuarticEase EasingMode="EaseOut"/>
-                                                                        </VisualTransition.GeneratedEasingFunction>
-                                                                    </VisualTransition>
-                                                                </VisualStateGroup.Transitions>
-                                                                <VisualState x:Name="Normal"/>
-                                                                <VisualState x:Name="MouseOver"/>
-                                                                <VisualState x:Name="Disabled"/>
-                                                            </VisualStateGroup>
-                                                        </VisualStateManager.VisualStateGroups>
-                                                        <Border x:Name="mainBorder" BorderThickness="1,1,1,0" Margin="0">
-                                                            <Border x:Name="innerBorder" BorderBrush="{x:Null}" BorderThickness="1,1,1,0" Background="#FF119EDA" Margin="-2,0,-1,-2" Opacity="0"/>
-                                                        </Border>
-                                                        <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding HeaderTemplate}" Content="{TemplateBinding Header}" ContentStringFormat="{TemplateBinding HeaderStringFormat}" ContentSource="Header" Focusable="False" HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type ItemsControl}}}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type ItemsControl}}}" RenderTransformOrigin="0.5,0.5">
-                                                            <ContentPresenter.RenderTransform>
-                                                                <TransformGroup>
-                                                                    <ScaleTransform/>
-                                                                    <SkewTransform/>
-                                                                    <RotateTransform/>
-                                                                    <TranslateTransform/>
-                                                                </TransformGroup>
-                                                            </ContentPresenter.RenderTransform>
-                                                        </ContentPresenter>
-                                                    </Grid>
-                                                    <ControlTemplate.Triggers>
-                                                        <MultiDataTrigger>
-                                                            <MultiDataTrigger.Conditions>
-                                                                <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
-                                                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Left"/>
-                                                            </MultiDataTrigger.Conditions>
-                                                            <Setter Property="Background" TargetName="mainBorder" Value="{x:Null}"/>
-                                                            <Setter Property="BorderBrush" TargetName="mainBorder" Value="{x:Null}"/>
-                                                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="0"/>
-                                                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="0"/>
-                                                        </MultiDataTrigger>
-                                                        <MultiDataTrigger>
-                                                            <MultiDataTrigger.Conditions>
-                                                                <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
-                                                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Bottom"/>
-                                                            </MultiDataTrigger.Conditions>
-                                                            <Setter Property="Background" TargetName="mainBorder" Value="{x:Null}"/>
-                                                            <Setter Property="BorderBrush" TargetName="mainBorder" Value="{x:Null}"/>
-                                                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="0"/>
-                                                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="0"/>
-                                                        </MultiDataTrigger>
-                                                        <MultiDataTrigger>
-                                                            <MultiDataTrigger.Conditions>
-                                                                <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
-                                                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Right"/>
-                                                            </MultiDataTrigger.Conditions>
-                                                            <Setter Property="Background" TargetName="mainBorder" Value="{x:Null}"/>
-                                                            <Setter Property="BorderBrush" TargetName="mainBorder" Value="{x:Null}"/>
-                                                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="0"/>
-                                                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="0"/>
-                                                        </MultiDataTrigger>
-                                                        <MultiDataTrigger>
-                                                            <MultiDataTrigger.Conditions>
-                                                                <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
-                                                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Top"/>
-                                                            </MultiDataTrigger.Conditions>
-                                                            <Setter Property="Background" TargetName="mainBorder" Value="{x:Null}"/>
-                                                            <Setter Property="BorderBrush" TargetName="mainBorder" Value="{x:Null}"/>
-                                                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="0"/>
-                                                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="0"/>
-                                                        </MultiDataTrigger>
-                                                        <MultiDataTrigger>
-                                                            <MultiDataTrigger.Conditions>
-                                                                <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
-                                                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Left"/>
-                                                            </MultiDataTrigger.Conditions>
-                                                            <Setter Property="Opacity" TargetName="contentPresenter" Value="0.56"/>
-                                                            <Setter Property="Background" TargetName="mainBorder" Value="#FFF0F0F0"/>
-                                                            <Setter Property="BorderBrush" TargetName="mainBorder" Value="#FFD9D9D9"/>
-                                                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,0,1"/>
-                                                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,0,1"/>
-                                                        </MultiDataTrigger>
-                                                        <MultiDataTrigger>
-                                                            <MultiDataTrigger.Conditions>
-                                                                <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
-                                                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Bottom"/>
-                                                            </MultiDataTrigger.Conditions>
-                                                            <Setter Property="Opacity" TargetName="contentPresenter" Value="0.56"/>
-                                                            <Setter Property="Background" TargetName="mainBorder" Value="#FFF0F0F0"/>
-                                                            <Setter Property="BorderBrush" TargetName="mainBorder" Value="#FFD9D9D9"/>
-                                                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,0,1,1"/>
-                                                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,0,1,1"/>
-                                                        </MultiDataTrigger>
-                                                        <MultiDataTrigger>
-                                                            <MultiDataTrigger.Conditions>
-                                                                <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
-                                                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Right"/>
-                                                            </MultiDataTrigger.Conditions>
-                                                            <Setter Property="Opacity" TargetName="contentPresenter" Value="0.56"/>
-                                                            <Setter Property="Background" TargetName="mainBorder" Value="#FFF0F0F0"/>
-                                                            <Setter Property="BorderBrush" TargetName="mainBorder" Value="#FFD9D9D9"/>
-                                                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="0,1,1,1"/>
-                                                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,1,1,1"/>
-                                                        </MultiDataTrigger>
-                                                        <MultiDataTrigger>
-                                                            <MultiDataTrigger.Conditions>
-                                                                <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
-                                                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Top"/>
-                                                            </MultiDataTrigger.Conditions>
-                                                            <Setter Property="Opacity" TargetName="contentPresenter" Value="0.56"/>
-                                                            <Setter Property="Background" TargetName="mainBorder" Value="#FFF0F0F0"/>
-                                                            <Setter Property="BorderBrush" TargetName="mainBorder" Value="#FFD9D9D9"/>
-                                                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,1,0"/>
-                                                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,1,0"/>
-                                                        </MultiDataTrigger>
-                                                        <MultiDataTrigger>
-                                                            <MultiDataTrigger.Conditions>
-                                                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="false"/>
-                                                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Left"/>
-                                                            </MultiDataTrigger.Conditions>
-                                                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,0,1"/>
-                                                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,0,1"/>
-                                                        </MultiDataTrigger>
-                                                        <MultiDataTrigger>
-                                                            <MultiDataTrigger.Conditions>
-                                                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
-                                                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Left"/>
-                                                            </MultiDataTrigger.Conditions>
-                                                            <Setter Property="Panel.ZIndex" Value="1"/>
-                                                            <Setter Property="Margin" Value="-2,-2,0,-2"/>
-                                                            <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
-                                                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,0,1"/>
-                                                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,0,1"/>
-                                                        </MultiDataTrigger>
-                                                        <MultiDataTrigger>
-                                                            <MultiDataTrigger.Conditions>
-                                                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="false"/>
-                                                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Bottom"/>
-                                                            </MultiDataTrigger.Conditions>
-                                                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,0,1,1"/>
-                                                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,0,1,1"/>
-                                                        </MultiDataTrigger>
-                                                        <MultiDataTrigger>
-                                                            <MultiDataTrigger.Conditions>
-                                                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
-                                                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Bottom"/>
-                                                            </MultiDataTrigger.Conditions>
-                                                            <Setter Property="Panel.ZIndex" Value="1"/>
-                                                            <Setter Property="Margin" Value="-2,0,-2,-2"/>
-                                                            <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
-                                                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,0,1,1"/>
-                                                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,0,1,1"/>
-                                                        </MultiDataTrigger>
-                                                        <MultiDataTrigger>
-                                                            <MultiDataTrigger.Conditions>
-                                                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="false"/>
-                                                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Right"/>
-                                                            </MultiDataTrigger.Conditions>
-                                                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="0,1,1,1"/>
-                                                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,1,1,1"/>
-                                                        </MultiDataTrigger>
-                                                        <MultiDataTrigger>
-                                                            <MultiDataTrigger.Conditions>
-                                                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
-                                                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Right"/>
-                                                            </MultiDataTrigger.Conditions>
-                                                            <Setter Property="Panel.ZIndex" Value="1"/>
-                                                            <Setter Property="Margin" Value="0,-2,-2,-2"/>
-                                                            <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
-                                                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="0,1,1,1"/>
-                                                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,1,1,1"/>
-                                                        </MultiDataTrigger>
-                                                        <MultiDataTrigger>
-                                                            <MultiDataTrigger.Conditions>
-                                                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="false"/>
-                                                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Top"/>
-                                                            </MultiDataTrigger.Conditions>
-                                                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,1,0"/>
-                                                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,1,0"/>
-                                                        </MultiDataTrigger>
-                                                        <MultiDataTrigger>
-                                                            <MultiDataTrigger.Conditions>
-                                                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
-                                                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Top"/>
-                                                            </MultiDataTrigger.Conditions>
-                                                            <Setter Property="Panel.ZIndex" Value="1"/>
-                                                            <Setter Property="Margin" Value="-2,-2,-2,0"/>
-                                                            <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
-                                                            <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,1,0"/>
-                                                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,1,0"/>
-                                                        </MultiDataTrigger>
-                                                    </ControlTemplate.Triggers>
-                                                </ControlTemplate>
-                                            </Setter.Value>
-                                        </Setter>
-                                    </Style>
-                                </TabControl.ItemContainerStyle>
-                                <TabItem x:Name="PoseHead" Header="{DynamicResource Head}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="-2,0,-10,0" UseLayoutRounding="False" Style="{DynamicResource CustomTabItem_Vertical}" HorizontalContentAlignment="Stretch" Padding="{DynamicResource RotationPadding}" ScrollViewer.CanContentScroll="True"/>
-                                <TabItem x:Name="PoseBody" Header="{DynamicResource Body}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="-2,0,-10,0" Style="{DynamicResource CustomTabItem_Vertical}" Padding="{DynamicResource RotationPadding}"/>
-                                <TabItem x:Name="PoseLeftArm" Header="{DynamicResource LeftArm}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="-2,0,-10,0" Style="{DynamicResource CustomTabItem_Vertical}" Padding="{DynamicResource RotationPadding}"/>
-                                <TabItem x:Name="PoseRightArm" Header="{DynamicResource RightArm}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="-2,0,-10,0" Style="{DynamicResource CustomTabItem_Vertical}" Padding="{DynamicResource RotationPadding}"/>
-                                <TabItem x:Name="PoseLeftLeg" Header="{DynamicResource LeftLeg}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="-2,0,-10,0" Style="{DynamicResource CustomTabItem_Vertical}" Padding="{DynamicResource RotationPadding}"/>
-                                <TabItem x:Name="PoseRightLeg" Header="{DynamicResource RightLeg}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="-2,0,-10,0" Style="{DynamicResource CustomTabItem_Vertical}" Padding="{DynamicResource RotationPadding}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
+                                <TabItem x:Name="PoseHead"
+                                         Header="{DynamicResource Head}"
+                                         Background="{x:Null}" BorderBrush="{x:Null}"
+                                         Style="{DynamicResource CustomTabItem_Vertical}"
+                                         Padding="{DynamicResource RotationPadding}"
+                                         Foreground="White" FontSize="10" Margin="-2,0,-10,0" UseLayoutRounding="False" HorizontalContentAlignment="Stretch" ScrollViewer.CanContentScroll="True"/>
+                                <TabItem x:Name="PoseBody"
+                                         Header="{DynamicResource Body}"
+                                         Background="{x:Null}" BorderBrush="{x:Null}"
+                                         Style="{DynamicResource CustomTabItem_Vertical}"
+                                         Padding="{DynamicResource RotationPadding}"
+                                         Foreground="White" FontSize="10" Margin="-2,0,-10,0"/>
+                                <TabItem x:Name="PoseLeftArm"
+                                         Header="{DynamicResource LeftArm}"
+                                         Background="{x:Null}" BorderBrush="{x:Null}"
+                                         Style="{DynamicResource CustomTabItem_Vertical}"
+                                         Padding="{DynamicResource RotationPadding}"
+                                         Foreground="White" FontSize="10" Margin="-2,0,-10,0"/>
+                                <TabItem x:Name="PoseRightArm"
+                                         Header="{DynamicResource RightArm}"
+                                         Background="{x:Null}" BorderBrush="{x:Null}"
+                                         Style="{DynamicResource CustomTabItem_Vertical}"
+                                         Padding="{DynamicResource RotationPadding}"
+                                         Foreground="White" FontSize="10" Margin="-2,0,-10,0"/>
+                                <TabItem x:Name="PoseLeftLeg"
+                                         Header="{DynamicResource LeftLeg}"
+                                         Background="{x:Null}" BorderBrush="{x:Null}"
+                                         Style="{DynamicResource CustomTabItem_Vertical}"
+                                         Padding="{DynamicResource RotationPadding}"
+                                         Foreground="White" FontSize="10" Margin="-2,0,-10,0"/>
+                                <TabItem x:Name="PoseRightLeg"
+                                         Header="{DynamicResource RightLeg}"
+                                         Background="{x:Null}" BorderBrush="{x:Null}"
+                                         Style="{DynamicResource CustomTabItem_Vertical}"
+                                         Padding="{DynamicResource RotationPadding}"
+                                         Foreground="White" FontSize="10" Margin="-2,0,-10,0" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
                             </TabControl>
                             <Grid x:Name="Grid_Pose_Settings" Margin="60,12.5,0,12.5">
                                 <Label Content="X" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" FontSize="10" Width="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="20" Margin="0,10,0,0"/>
-                                <Slider Style="{DynamicResource CustomSlider}" x:Name="X_Pose" Width="Auto" Margin="30,10,0,50" FontSize="9" Maximum="180" Minimum="-180" AutoToolTipPlacement="TopLeft" ValueChanged="Pose_Changed"/>
+                                <Slider Style="{DynamicResource CustomSlider}" x:Name="X_Pose" Width="Auto" Margin="30,10,0,50" FontSize="9" Maximum="180" Minimum="-180" AutoToolTipPlacement="TopLeft"/>
                                 <Label Content="Y" HorizontalAlignment="Left" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" FontSize="10" Width="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,30"/>
-                                <Slider Style="{DynamicResource CustomSlider}" x:Name="Y_Pose" Width="Auto" Margin="30,30,0,30" FontSize="9" Maximum="180" Minimum="-180" AutoToolTipPlacement="TopLeft" ValueChanged="Pose_Changed"/>
+                                <Slider Style="{DynamicResource CustomSlider}" x:Name="Y_Pose" Width="Auto" Margin="30,30,0,30" FontSize="9" Maximum="180" Minimum="-180" AutoToolTipPlacement="TopLeft"/>
                                 <Label Content="Z" HorizontalAlignment="Left" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" FontSize="10" Width="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,0,10" Height="20" VerticalAlignment="Bottom"/>
-                                <Slider Style="{DynamicResource CustomSlider}" x:Name="Z_Pose" Width="Auto" Margin="30,50,0,10" FontSize="9" Maximum="180" Minimum="-180" AutoToolTipPlacement="TopLeft" ValueChanged="Pose_Changed"/>
+                                <Slider Style="{DynamicResource CustomSlider}" x:Name="Z_Pose" Width="Auto" Margin="30,50,0,10" FontSize="9" Maximum="180" Minimum="-180" AutoToolTipPlacement="TopLeft"/>
                             </Grid>
                         </Grid>
                         <Label x:Name="label" Content="{DynamicResource Enable_Pose}" Background="{x:Null}" Foreground="White" Margin="58,57,-1,0"  UseLayoutRounding="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalAlignment="Top" IsHitTestVisible="False" HorizontalContentAlignment="Center"/>
@@ -958,7 +766,7 @@
                             </i:Interaction.Triggers>
                         </userControl:CustomToggleButton>
                         <Label Content="{DynamicResource AdvancedMode}" Margin="45,125,85,0" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa"/>
-                        <userControl:CustomRestButton x:Name="Pose_Reset" Height="20" Width="120" Margin="0,125,5,0" Padding="0" HorizontalAlignment="Right" RestContent="Reset?" MouseLeftButtonDown="PoseReset_LeftButtonDown"/>
+                        <userControl:CustomRestButton x:Name="Pose_Reset" Height="20" Width="120" Margin="0,125,5,0" Padding="0" HorizontalAlignment="Right" RestContent="Reset?"/>
                     </Grid>
                     <Label x:Name="ItemSettings" Content="{DynamicResource Item_Settings}" Foreground="White" Background="{x:Null}" FontSize="25"  IsHitTestVisible="False" BorderThickness="0,15" Margin="5,0,0,0" Padding="5"/>
                     <WrapPanel x:Name="PartSlectorPanel" Width="305" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Margin="0,0,0,10">
@@ -985,9 +793,12 @@
                                 <ItemsPanelTemplate>
                                     <StackPanel IsItemsHost="True"/>
                                 </ItemsPanelTemplate>
-
                             </TabControl.ItemsPanel>
-                            <TabItem Header="{DynamicResource Head}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="-2,0,-2,-2" Padding="6,2" UseLayoutRounding="False" Style="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" Width="44" VerticalContentAlignment="Bottom">
+                            <TabItem Header="{DynamicResource Head}"
+                                     Background="{x:Null}" BorderBrush="{x:Null}"
+                                     Style="{DynamicResource CustomTabItem_Horizontal}"
+                                     Foreground="White" FontSize="10" Margin="-2,0,-2,-2" Padding="6,2" UseLayoutRounding="False"
+                                     ScrollViewer.CanContentScroll="True" Width="44" VerticalContentAlignment="Bottom">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="PreviewMouseDown">
                                         <ei:ChangePropertyAction TargetName="Part_Slector_wrapPanel" TargetObject="{Binding ElementName=PartSlectorPanel}" PropertyName="Margin">
@@ -998,7 +809,7 @@
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </TabItem>
-                            <TabItem Header="{DynamicResource Body}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="1,0,-2,-2" Style="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" Width="44" VerticalContentAlignment="Bottom">
+                            <TabItem Header="{DynamicResource Body}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontSize="10" Margin="1,0,-2,-2" Style="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" Width="44" VerticalContentAlignment="Bottom">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="PreviewMouseDown">
                                         <ei:ChangePropertyAction TargetName="Part_Slector_wrapPanel" TargetObject="{Binding ElementName=PartSlectorPanel}" PropertyName="Margin">
@@ -1009,9 +820,9 @@
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </TabItem>
-                            <TabItem Header="{DynamicResource MainHand}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="1,0,-2,-2" Style="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" Width="61" VerticalContentAlignment="Bottom"/>
-                            <TabItem Header="{DynamicResource OffHand}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="1,0,-2,-2" Style="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" Width="60" VerticalContentAlignment="Bottom"/>
-                            <TabItem Header="{DynamicResource Legs}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="1,0,-2,-2" Style="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" Width="44" VerticalContentAlignment="Bottom">
+                            <TabItem Header="{DynamicResource MainHand}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontSize="10" Margin="1,0,-2,-2" Style="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" Width="61" VerticalContentAlignment="Bottom"/>
+                            <TabItem Header="{DynamicResource OffHand}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontSize="10" Margin="1,0,-2,-2" Style="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" Width="60" VerticalContentAlignment="Bottom"/>
+                            <TabItem Header="{DynamicResource Legs}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontSize="10" Margin="1,0,-2,-2" Style="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" Width="44" VerticalContentAlignment="Bottom">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="PreviewMouseDown">
                                         <ei:ChangePropertyAction TargetName="Part_Slector_wrapPanel" TargetObject="{Binding ElementName=PartSlectorPanel}" PropertyName="Margin">
@@ -1022,7 +833,7 @@
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </TabItem>
-                            <TabItem Header="{DynamicResource Boots}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"  FontSize="10" Margin="1,0,-2,-2" Style="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" Width="44" VerticalContentAlignment="Bottom">
+                            <TabItem Header="{DynamicResource Boots}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontSize="10" Margin="1,0,-2,-2" Style="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" Width="44" VerticalContentAlignment="Bottom">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="PreviewMouseDown">
                                         <ei:ChangePropertyAction TargetName="Part_Slector_wrapPanel" TargetObject="{Binding ElementName=PartSlectorPanel}" PropertyName="Margin">
@@ -1035,7 +846,7 @@
                             </TabItem>
                         </TabControl>
                     </WrapPanel>
-                    <WrapPanel x:Name="ItemPanel" MouseEnter="ItemGrid_update" MouseLeave="ItemGrid_update" Height="1020">
+                    <WrapPanel x:Name="ItemPanel" Height="1020">
                         <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="EnablePart_Settings" Height="20" Width="100" Content="{DynamicResource Enable_Part_Check}" Margin="5,0,0,5" >
                             <i:Interaction.Triggers>
                                 <ei:PropertyChangedTrigger Binding="{Binding IsChecked, ElementName=EnablePart_Settings}">
@@ -1068,22 +879,22 @@
                                 </ei:PropertyChangedTrigger>
                             </i:Interaction.Triggers>
                         </CheckBox>
-                        <userControl:CustomRestButton x:Name="Item_Reset" Height="20" Width="120" Margin="31,0,0,5" Padding="0" RestContent="Reset?" MouseLeftButtonDown="ItemReset_LeftButtonDown"/>
+                        <userControl:CustomRestButton x:Name="Item_Reset" Height="20" Width="120" Margin="31,0,0,5" Padding="0" RestContent="Reset?"/>
                         <Grid x:Name="Item_grid" Height="995" Width="255" Margin="5,0,0,0">
                             <WrapPanel x:Name="grid1" IsHitTestVisible="False" d:IsEffectDisabled="True">
                                 <WrapPanel.Effect>
                                     <BlurEffect/>
                                 </WrapPanel.Effect>
                                 <ComboBox x:Name="ItemList" Width="252" Margin="3,2,0,3" IsReadOnly="True" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" IsTextSearchCaseSensitive="True" BorderBrush="{x:Null}" Custom1:ControlsHelper.MouseOverBorderBrush="{x:Null}" Custom1:ControlsHelper.FocusBorderBrush="{x:Null}"/>
-                                <Label Content="{DynamicResource Name}" Width="{DynamicResource NameLabelLength}"  FontSize="14" Margin="0,0,0,2"/>
+                                <Label Content="{DynamicResource Name}" Width="{DynamicResource NameLabelLength}" FontSize="14" Margin="0,0,0,2"/>
                                 <TextBox x:Name="UI_itemname" BorderBrush="{x:Null}" Foreground="White" Background="#FF2F2F2F" VerticalContentAlignment="Center" FontSize="13" Height="24" VerticalAlignment="Top" HorizontalScrollBarVisibility="Disabled" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" Width="{DynamicResource ItemNameTextboxLength}" Margin="0,0,0,2" TabIndex="5"/>
-                                <Label Content="{DynamicResource Lore}" Width="{DynamicResource TagLabelLength}"  FontSize="14" Margin="0,0,0,2"/>
+                                <Label Content="{DynamicResource Lore}" Width="{DynamicResource TagLabelLength}" FontSize="14" Margin="0,0,0,2"/>
                                 <TextBox x:Name="UI_itemlore" BorderBrush="{x:Null}" Foreground="White" Background="#FF2F2F2F" VerticalContentAlignment="Center" FontSize="13" Height="24" VerticalAlignment="Top" HorizontalScrollBarVisibility="Disabled" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" Width="205" Margin="0,0,0,2" TabIndex="6"/>
                                 <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="Item_Unbreakable" Height="20" Width="120" Content="{DynamicResource Unbreakable}" FontSize="11" TabIndex="3" />
-                                <Label Content="{DynamicResource Count}"  FontSize="10" Width="45"/>
+                                <Label Content="{DynamicResource Count}" FontSize="10" Width="45"/>
                                 <Custom:CustomNumberBox x:Name="Item_Count" Height="20" Width="89" TabIndex="1" Interval="1" Maximum="64" Minimum="1" Value="1"/>
-                                <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="Item_HideFlags" Height="20" Width="120" Content="{DynamicResource HideFlags}" FontSize="11" Margin="0" TabIndex="4" />
-                                <Label Content="{DynamicResource Damage}"  FontSize="10" Width="54"/>
+                                <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="Item_HideFlags" Height="20" Width="120" Content="{DynamicResource HideFlags}" FontSize="11" Margin="0" TabIndex="4"/>
+                                <Label Content="{DynamicResource Damage}" FontSize="10" Width="54"/>
                                 <Custom:CustomNumberBox x:Name="Item_Damage" Height="20" Width="80" TabIndex="0" Interval="1" Maximum="32767"/>
                                 <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="Enable_Attribute_Settings" Height="20" Width="120" Content="{DynamicResource Enable_Attribute_Check}" HorizontalAlignment="Left" Margin="0,15,0,2" TabIndex="7" >
                                     <i:Interaction.Triggers>
@@ -1151,36 +962,36 @@
                                             <BlurEffect Radius="10"/>
                                         </WrapPanel.Effect>
                                         <!--#region  附加属性 -->
-                                        <Label Content="{DynamicResource AttackDamage}"  FontSize="11" Width="{DynamicResource AttackDamgeLabelLength}"/>
+                                        <Label Content="{DynamicResource AttackDamage}" FontSize="11" Width="{DynamicResource AttackDamgeLabelLength}"/>
                                         <Custom:CustomNumberBox x:Name="AttackDamage" Height="20" Width="{DynamicResource AttackDamageNumberboxLength}" TabIndex="0" Interval="0.1" Maximum="32767"/>
-                                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="AttackDamage_precent" Content="{DynamicResource Precent}" Width="65"  FontSize="11" Padding="5,0,0,2" Margin="5,0,0,0" VerticalContentAlignment="Center" TabIndex="0"/>
-                                        <Label Content="{DynamicResource FollowRange}"  FontSize="10" Width="{DynamicResource FollowRangeLabelLength}"/>
+                                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="AttackDamage_precent" Content="{DynamicResource Precent}" Width="65" FontSize="11" Padding="5,0,0,2" Margin="5,0,0,0" VerticalContentAlignment="Center" TabIndex="0"/>
+                                        <Label Content="{DynamicResource FollowRange}" FontSize="10" Width="{DynamicResource FollowRangeLabelLength}"/>
                                         <Custom:CustomNumberBox x:Name="FollowRange" Height="20" Width="{DynamicResource FollowRangeNumberboxLength}" TabIndex="1" Interval="0.1" Maximum="32767"/>
-                                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="FollowRange_precent" Content="{DynamicResource Precent}" Width="65"  FontSize="11" Margin="5,0,0,0" Padding="5,0,0,2" TabIndex="1"/>
-                                        <Label Content="{DynamicResource MaxHealth}"  FontSize="11" Width="{DynamicResource MaxHealthLabelLength}"/>
+                                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="FollowRange_precent" Content="{DynamicResource Precent}" Width="65" FontSize="11" Margin="5,0,0,0" Padding="5,0,0,2" TabIndex="1"/>
+                                        <Label Content="{DynamicResource MaxHealth}" FontSize="11" Width="{DynamicResource MaxHealthLabelLength}"/>
                                         <Custom:CustomNumberBox x:Name="MaxHealth" Height="20" Width="{DynamicResource MaxHealthNumberboxLength}" TabIndex="2" Interval="0.1" Maximum="32767"/>
-                                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="MaxHealth_precent" Content="{DynamicResource Precent}" Width="65"  FontSize="11" Margin="5,0,0,0" Padding="5,0,0,2" TabIndex="2"/>
-                                        <Label Content="{DynamicResource KnockBackResistance}"  FontSize="11" Width="{DynamicResource KnockBackResistanceLabelLength}"/>
+                                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="MaxHealth_precent" Content="{DynamicResource Precent}" Width="65" FontSize="11" Margin="5,0,0,0" Padding="5,0,0,2" TabIndex="2"/>
+                                        <Label Content="{DynamicResource KnockBackResistance}" FontSize="11" Width="{DynamicResource KnockBackResistanceLabelLength}"/>
                                         <Custom:CustomNumberBox x:Name="KnockBackResistance" Height="20" Width="{DynamicResource KnockBackResistanceNumberboxLength}" TabIndex="3" Interval="0.1" Maximum="32767"/>
-                                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="KnockBackResistance_precent" Content="{DynamicResource Precent}" Width="65"  FontSize="11" Margin="5,0,0,0" Padding="5,0,0,2" TabIndex="3"/>
-                                        <Label Content="{DynamicResource MovementSpeed}"  FontSize="11" Width="{DynamicResource MovementSpeedLabelLength}"/>
+                                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="KnockBackResistance_precent" Content="{DynamicResource Precent}" Width="65" FontSize="11" Margin="5,0,0,0" Padding="5,0,0,2" TabIndex="3"/>
+                                        <Label Content="{DynamicResource MovementSpeed}" FontSize="11" Width="{DynamicResource MovementSpeedLabelLength}"/>
                                         <Custom:CustomNumberBox x:Name="MovementSpeed" Height="20" Width="{DynamicResource MovementSpeedNumberboxLength}" TabIndex="4" Interval="0.1" Maximum="32767"/>
-                                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="MovementSpeed_precent" Content="{DynamicResource Precent}" Width="65"  FontSize="11" Margin="5,0,0,0" Padding="5,0,0,2" TabIndex="4"/>
-                                        <Label Content="{DynamicResource Luck}"  FontSize="11" Width="{DynamicResource LuckLabelLength}"/>
+                                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="MovementSpeed_precent" Content="{DynamicResource Precent}" Width="65" FontSize="11" Margin="5,0,0,0" Padding="5,0,0,2" TabIndex="4"/>
+                                        <Label Content="{DynamicResource Luck}" FontSize="11" Width="{DynamicResource LuckLabelLength}"/>
                                         <Custom:CustomNumberBox x:Name="Luck" Height="20" Width="{DynamicResource LuckNumberboxLength}" TabIndex="5" Interval="0.1" Maximum="32767"/>
-                                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="Luck_precent" Content="{DynamicResource Precent}" Width="65"  FontSize="11" Margin="5,0,0,0" Padding="5,0,0,2" TabIndex="5"/>
-                                        <Label Content="{DynamicResource Armor}"  FontSize="11" Width="{DynamicResource ArmorLabelLength}"/>
+                                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="Luck_precent" Content="{DynamicResource Precent}" Width="65" FontSize="11" Margin="5,0,0,0" Padding="5,0,0,2" TabIndex="5"/>
+                                        <Label Content="{DynamicResource Armor}" FontSize="11" Width="{DynamicResource ArmorLabelLength}"/>
                                         <Custom:CustomNumberBox x:Name="Armor" Height="20" Width="{DynamicResource ArmorNumberboxLength}" TabIndex="6" Interval="0.1" Maximum="32767"/>
-                                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="Armor_precent" Content="{DynamicResource Precent}" Width="65"  FontSize="11" Margin="5,0,0,0" Padding="5,0,0,2" TabIndex="6"/>
-                                        <Label Content="{DynamicResource ArmorToughness}"  FontSize="11" Width="{DynamicResource ArmorToughnessLabelLength}"/>
+                                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="Armor_precent" Content="{DynamicResource Precent}" Width="65" FontSize="11" Margin="5,0,0,0" Padding="5,0,0,2" TabIndex="6"/>
+                                        <Label Content="{DynamicResource ArmorToughness}" FontSize="11" Width="{DynamicResource ArmorToughnessLabelLength}"/>
                                         <Custom:CustomNumberBox x:Name="ArmorToughness" Height="20" Width="{DynamicResource ArmorToughnessNumberboxLength}" TabIndex="7" Interval="0.1" Maximum="32767"/>
-                                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="ArmorToughness_precent" Content="{DynamicResource Precent}" Width="65"  FontSize="11" Margin="5,0,0,0" Padding="5,0,0,2" TabIndex="7"/>
-                                        <Label Content="{DynamicResource AttackSpeed}"  FontSize="11" Width="{DynamicResource AttackSpeedLabelLength}"/>
+                                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="ArmorToughness_precent" Content="{DynamicResource Precent}" Width="65" FontSize="11" Margin="5,0,0,0" Padding="5,0,0,2" TabIndex="7"/>
+                                        <Label Content="{DynamicResource AttackSpeed}" FontSize="11" Width="{DynamicResource AttackSpeedLabelLength}"/>
                                         <Custom:CustomNumberBox x:Name="AttackSpeed" Height="20" Width="{DynamicResource AttackSpeedNumberboxLength}" TabIndex="8" Interval="0.1" Maximum="32767"/>
-                                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="AttackSpeed_precent" Content="{DynamicResource Precent}" Width="65"  FontSize="11" Margin="5,0,0,0" Padding="5,0,0,2" TabIndex="8"/>
+                                        <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="AttackSpeed_precent" Content="{DynamicResource Precent}" Width="65" FontSize="11" Margin="5,0,0,0" Padding="5,0,0,2" TabIndex="8"/>
                                         <!--#endregion-->
                                     </WrapPanel>
-                                    <Label x:Name="label2" Content="{DynamicResource Enable_Attribute}" Background="{x:Null}" Foreground="White"  UseLayoutRounding="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" Margin="55,0,2,105.584" VerticalAlignment="Bottom" FontSize="10.5" Grid.ColumnSpan="2" IsHitTestVisible="False" HorizontalContentAlignment="Center"/>
+                                    <Label x:Name="label2" Content="{DynamicResource Enable_Attribute}" Background="{x:Null}" Foreground="White" UseLayoutRounding="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" Margin="55,0,2,105.584" VerticalAlignment="Bottom" FontSize="10.5" Grid.ColumnSpan="2" IsHitTestVisible="False" HorizontalContentAlignment="Center"/>
                                     <Border x:Name="WaringIcon2" BorderThickness="1" Width="39.151" Height="34.583" HorizontalAlignment="Left" Margin="28.849,0,0,100.084" VerticalAlignment="Bottom" Grid.ColumnSpan="2" IsHitTestVisible="False">
                                         <Border.Background>
                                             <ImageBrush ImageSource="/Minecraft Adaptable Studio;component/icon/Warning.png"/>
@@ -1249,65 +1060,65 @@
                                             <BlurEffect Radius="10"/>
                                         </WrapPanel.Effect>
                                         <!--#region  附魔属性 -->
-                                        <Label Content="{DynamicResource Ench16}"  FontSize="11" Width="{DynamicResource Ench16LabelLength}"/>
+                                        <Label Content="{DynamicResource Ench16}" FontSize="11" Width="{DynamicResource Ench16LabelLength}"/>
                                         <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench16NumberboxLength}" TabIndex="16" Interval="1" Maximum="32767" Tag="16"/>
-                                        <Label Content="{DynamicResource Ench48}"  FontSize="11" Width="{DynamicResource Ench48LabelLength}" Margin="10,0,0,0"/>
+                                        <Label Content="{DynamicResource Ench48}" FontSize="11" Width="{DynamicResource Ench48LabelLength}" Margin="10,0,0,0"/>
                                         <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench48NumberboxLength}" TabIndex="48" Interval="1" Maximum="32767" Tag="48"/>
-                                        <Label Content="{DynamicResource Ench19}"  FontSize="11" Width="{DynamicResource Ench19LabelLength}"/>
+                                        <Label Content="{DynamicResource Ench19}" FontSize="11" Width="{DynamicResource Ench19LabelLength}"/>
                                         <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench19NumberboxLength}" TabIndex="19" Interval="1" Maximum="32767" Tag="19"/>
-                                        <Label Content="{DynamicResource Ench49}"  FontSize="11" Width="{DynamicResource Ench49LabelLength}" Margin="10,0,0,0"/>
+                                        <Label Content="{DynamicResource Ench49}" FontSize="11" Width="{DynamicResource Ench49LabelLength}" Margin="10,0,0,0"/>
                                         <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench49NumberboxLength}" TabIndex="49" Interval="1" Maximum="32767" Tag="49"/>
-                                        <Label Content="{DynamicResource Ench20}"  FontSize="11" Width="{DynamicResource Ench20LabelLength}"/>
+                                        <Label Content="{DynamicResource Ench20}" FontSize="11" Width="{DynamicResource Ench20LabelLength}"/>
                                         <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench20NumberboxLength}" TabIndex="20" Interval="1" Maximum="32767" Tag="20"/>
-                                        <Label Content="{DynamicResource Ench51}"  FontSize="11" Width="{DynamicResource Ench51LabelLength}" Margin="10,0,0,0"/>
+                                        <Label Content="{DynamicResource Ench51}" FontSize="11" Width="{DynamicResource Ench51LabelLength}" Margin="10,0,0,0"/>
                                         <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench51NumberboxLength}" TabIndex="51" Interval="1" Maximum="32767" Tag="51"/>
-                                        <Label Content="{DynamicResource Ench17}" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" FontSize="11" Width="{DynamicResource Ench17LabelLength}"/>
+                                        <Label Content="{DynamicResource Ench17}" FontSize="11" Width="{DynamicResource Ench17LabelLength}"/>
                                         <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench17NumberboxLength}" TabIndex="17" Interval="1" Maximum="32767" Tag="17"/>
-                                        <Label Content="{DynamicResource Ench50}"  FontSize="11" Width="{DynamicResource Ench50LabelLength}" Margin="10,0,0,0"/>
+                                        <Label Content="{DynamicResource Ench50}" FontSize="11" Width="{DynamicResource Ench50LabelLength}" Margin="10,0,0,0"/>
                                         <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench50NumberboxLength}" TabIndex="50" Interval="1" Maximum="32767" Tag="50"/>
-                                        <Label Content="{DynamicResource Ench35}"  FontSize="11" Width="{DynamicResource Ench35LabelLength}"/>
+                                        <Label Content="{DynamicResource Ench35}" FontSize="11" Width="{DynamicResource Ench35LabelLength}"/>
                                         <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench35NumberboxLength}" TabIndex="35" Interval="1" Maximum="32767" Tag="35"/>
-                                        <Label Content="{DynamicResource Ench70}"  FontSize="11" Width="{DynamicResource Ench70LabelLength}" Margin="10,0,0,0"/>
+                                        <Label Content="{DynamicResource Ench70}" FontSize="11" Width="{DynamicResource Ench70LabelLength}" Margin="10,0,0,0"/>
                                         <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench70NumberboxLength}" TabIndex="70" Interval="1" Maximum="32767" Tag="70"/>
-                                        <Label Content="{DynamicResource Ench32}"  FontSize="11" Width="{DynamicResource Ench32LabelLength}"/>
+                                        <Label Content="{DynamicResource Ench32}" FontSize="11" Width="{DynamicResource Ench32LabelLength}"/>
                                         <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench32NumberboxLength}" TabIndex="32" Interval="1" Maximum="32767" Tag="32"/>
-                                        <Label Content="{DynamicResource Ench21}"  FontSize="11" Width="{DynamicResource Ench21LabelLength}" Margin="10,0,0,0"/>
+                                        <Label Content="{DynamicResource Ench21}" FontSize="11" Width="{DynamicResource Ench21LabelLength}" Margin="10,0,0,0"/>
                                         <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench21NumberboxLength}" TabIndex="21" Interval="1" Maximum="32767" Tag="21"/>
-                                        <Label Content="{DynamicResource Ench33}"  FontSize="11" Width="{DynamicResource Ench33LabelLength}"/>
+                                        <Label Content="{DynamicResource Ench33}" FontSize="11" Width="{DynamicResource Ench33LabelLength}"/>
                                         <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench33NumberboxLength}" TabIndex="33" Interval="1" Maximum="32767" Tag="33"/>
-                                        <Label Content="{DynamicResource Ench5}"  FontSize="11" Width="{DynamicResource Ench5LabelLength}" Margin="10,0,0,0"/>
+                                        <Label Content="{DynamicResource Ench5}" FontSize="11" Width="{DynamicResource Ench5LabelLength}" Margin="10,0,0,0"/>
                                         <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench5NumberboxLength}" TabIndex="5" Interval="1" Maximum="32767" Tag="5"/>
-                                        <Label Content="{DynamicResource Ench34}"  FontSize="11" Width="{DynamicResource Ench34LabelLength}"/>
+                                        <Label Content="{DynamicResource Ench34}" FontSize="11" Width="{DynamicResource Ench34LabelLength}"/>
                                         <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench34NumberboxLength}" TabIndex="34" Interval="1" Maximum="32767" Tag="34"/>
-                                        <Label Content="{DynamicResource Ench62}"  FontSize="11" Width="{DynamicResource Ench62LabelLength}" Margin="10,0,0,0"/>
+                                        <Label Content="{DynamicResource Ench62}" FontSize="11" Width="{DynamicResource Ench62LabelLength}" Margin="10,0,0,0"/>
                                         <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench62NumberboxLength}" TabIndex="62" Interval="1" Maximum="32767" Tag="62"/>
-                                        <Label Content="{DynamicResource Ench0}"  FontSize="11" Width="{DynamicResource Ench0LabelLength}"/>
+                                        <Label Content="{DynamicResource Ench0}" FontSize="11" Width="{DynamicResource Ench0LabelLength}"/>
                                         <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench0NumberboxLength}" TabIndex="0" Interval="1" Maximum="32767" Tag="0"/>
-                                        <Label Content="{DynamicResource Ench7}"  FontSize="11" Width="{DynamicResource Ench7LabelLength}" Margin="10,0,0,0"/>
+                                        <Label Content="{DynamicResource Ench7}" FontSize="11" Width="{DynamicResource Ench7LabelLength}" Margin="10,0,0,0"/>
                                         <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench7NumberboxLength}" TabIndex="7" Interval="1" Maximum="32767" Tag="7"/>
-                                        <Label Content="{DynamicResource Ench1}"  FontSize="11" Width="{DynamicResource Ench1LabelLength}"/>
+                                        <Label Content="{DynamicResource Ench1}" FontSize="11" Width="{DynamicResource Ench1LabelLength}"/>
                                         <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench1NumberboxLength}" TabIndex="1" Interval="1" Maximum="32767" Tag="1"/>
-                                        <Label Content="{DynamicResource Ench2}"  FontSize="11" Width="{DynamicResource Ench2LabelLength}"/>
+                                        <Label Content="{DynamicResource Ench2}" FontSize="11" Width="{DynamicResource Ench2LabelLength}"/>
                                         <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench2NumberboxLength}" TabIndex="2" Interval="1" Maximum="32767" Tag="2"/>
-                                        <Label Content="{DynamicResource Ench3}"  FontSize="11" Width="{DynamicResource Ench3LabelLength}"/>
+                                        <Label Content="{DynamicResource Ench3}" FontSize="11" Width="{DynamicResource Ench3LabelLength}"/>
                                         <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench3NumberboxLength}" TabIndex="3" Interval="1" Maximum="32767" Tag="3"/>
-                                        <Label Content="{DynamicResource Ench4}"  FontSize="11" Width="{DynamicResource Ench4LabelLength}"/>
+                                        <Label Content="{DynamicResource Ench4}" FontSize="11" Width="{DynamicResource Ench4LabelLength}"/>
                                         <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench4NumberboxLength}" TabIndex="4" Interval="1" Maximum="32767" Tag="4"/>
-                                        <Label Content="{DynamicResource Ench6}"  FontSize="11" Width="{DynamicResource Ench6LabelLength}"/>
+                                        <Label Content="{DynamicResource Ench6}" FontSize="11" Width="{DynamicResource Ench6LabelLength}"/>
                                         <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench6NumberboxLength}" TabIndex="6" Interval="1" Maximum="32767" Tag="6"/>
-                                        <Label Content="{DynamicResource Ench9}"  FontSize="11" Width="{DynamicResource Ench9LabelLength}"/>
+                                        <Label Content="{DynamicResource Ench9}" FontSize="11" Width="{DynamicResource Ench9LabelLength}"/>
                                         <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench9NumberboxLength}" TabIndex="9" Interval="1" Maximum="32767" Tag="9"/>
-                                        <Label Content="{DynamicResource Ench8}"  FontSize="11" Width="{DynamicResource Ench8LabelLength}"/>
+                                        <Label Content="{DynamicResource Ench8}" FontSize="11" Width="{DynamicResource Ench8LabelLength}"/>
                                         <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench8NumberboxLength}" TabIndex="8" Interval="1" Maximum="32767" Tag="8"/>
-                                        <Label Content="{DynamicResource Ench22}"  FontSize="11" Width="{DynamicResource Ench22LabelLength}"/>
+                                        <Label Content="{DynamicResource Ench22}" FontSize="11" Width="{DynamicResource Ench22LabelLength}"/>
                                         <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench22NumberboxLength}" TabIndex="22" Interval="1" Maximum="32767" Tag="22"/>
-                                        <Label Content="{DynamicResource Ench61}"  FontSize="11" Width="{DynamicResource Ench61LabelLength}" />
+                                        <Label Content="{DynamicResource Ench61}" FontSize="11" Width="{DynamicResource Ench61LabelLength}" />
                                         <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench61NumberboxLength}" TabIndex="61" Interval="1" Maximum="32767" Tag="61"/>
-                                        <Label Content="{DynamicResource Ench18}"  FontSize="11" Width="{DynamicResource Ench18LabelLength}"/>
+                                        <Label Content="{DynamicResource Ench18}" FontSize="11" Width="{DynamicResource Ench18LabelLength}"/>
                                         <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench18NumberboxLength}" TabIndex="18" Interval="1" Maximum="32767" Tag="18"/>
-                                        <Label Content="{DynamicResource Ench71}" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" FontSize="11" Width="{DynamicResource Ench71LabelLength}"/>
-                                        <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench71NumberboxLength}" TabIndex="71" Interval="1" Maximum="32767" Tag="71" Margin="0"/>
-                                        <Label Content="{DynamicResource Ench10}" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" FontSize="11" Width="{DynamicResource Ench10LabelLength}"/>
+                                        <Label Content="{DynamicResource Ench71}" FontSize="11" Width="{DynamicResource Ench71LabelLength}"/>
+                                        <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench71NumberboxLength}" TabIndex="71" Interval="1" Maximum="32767" Tag="71"/>
+                                        <Label Content="{DynamicResource Ench10}" FontSize="11" Width="{DynamicResource Ench10LabelLength}"/>
                                         <Custom:CustomNumberBox Height="20" Width="{DynamicResource Ench10NumberboxLength}" TabIndex="10" Interval="1" Maximum="32767" Tag="10"/>
                                         <!--#endregion-->
                                     </WrapPanel>
@@ -1390,25 +1201,26 @@
                 </WrapPanel>
             </ScrollViewer>
         </Grid>
-        <GroupBox x:Name="Preview" Header="ArmorStand Preview" Margin="279,2,0,104" Grid.RowSpan="3" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Background="#FF119EDA" BorderBrush="{x:Null}" Padding="5,8" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" Custom1:ControlsHelper.ContentCharacterCasing="Normal">
-            <Grid x:Name="PreviewGrid" Background="#FFCDCDCD" MouseMove="Viewport_MouseMove" MouseDown="Viewport_MouseDown" MouseWheel="Viewport_MouseWheel" MouseUp="Viewport_MouseUp" MouseLeave="Viewport_MouseLeave">
+        <GroupBox x:Name="Preview" Header="ArmorStand Preview" Margin="279,2,0,104" Grid.RowSpan="3" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Background="#FF119EDA" BorderBrush="{x:Null}" Padding="5,8" Custom1:ControlsHelper.ContentCharacterCasing="Normal">
+            <Grid x:Name="PreviewGrid" Background="#99DCDCDC">
                 <!--#region  Viewport3D -->
-                <HelixToolkit:HelixViewport3D x:Name="MainViewport"
-                                              ShowCoordinateSystem="True" 
-                                              CoordinateSystemHorizontalPosition="Right"
-                                              CoordinateSystemVerticalPosition="Top"
-                                              ShowViewCube="False"
-                                              IsRotationEnabled="False"
-                                              IsZoomEnabled="False">
-                    <HelixToolkit:HelixViewport3D.Camera>
+                <Helix:HelixViewport3D x:Name="MainViewport"
+                                       ShowCoordinateSystem="True" 
+                                       CoordinateSystemHorizontalPosition="Right"
+                                       CoordinateSystemVerticalPosition="Top"
+                                       ShowViewCube="False"
+                                       IsRotationEnabled="False"
+                                       IsZoomEnabled="False"
+                                       IsPanEnabled="False">
+                    <Helix:HelixViewport3D.Camera>
                         <PerspectiveCamera x:Name="MainCamera"
-                               Position="40,35,10"
-                               LookDirection="-42,-25,-11"
-                               UpDirection="0,1,0"
-                               NearPlaneDistance="0"
-                               FarPlaneDistance="100"
-                               FieldOfView="60"/>
-                    </HelixToolkit:HelixViewport3D.Camera>
+                                           Position="40,35,10"
+                                           LookDirection="-42,-25,-11"
+                                           UpDirection="0,1,0"
+                                           NearPlaneDistance="0"
+                                           FarPlaneDistance="100"
+                                           FieldOfView="60"/>
+                    </Helix:HelixViewport3D.Camera>
                     <ModelVisual3D x:Name="Directional_Light">
                         <ModelVisual3D.Content>
                             <DirectionalLight x:Name="DirectionalLight" Color="#88847c" Direction="-5,3,-2"/>
@@ -1419,40 +1231,35 @@
                             <AmbientLight Color="#606060"/>
                         </ModelVisual3D.Content>
                     </ModelVisual3D>
-
                     <ModelVisual3D x:Name="Models">
                         <ModelVisual3D x:Name="armor_stand">
-                            <ModelVisual3D x:Name="Head">
-                                <ModelVisual3D>
-                                    <ModelVisual3D Content="{DynamicResource AS_Head}"/>
-                                    <ModelVisual3D.Transform>
-                                        <Transform3DGroup>
-                                            <RotateTransform3D x:Name="HeadX" CenterX="0" CenterY="20.7" CenterZ="0">
-                                                <RotateTransform3D.Rotation>
-                                                    <AxisAngleRotation3D x:Name="HeadRotX"
+                            <ModelVisual3D x:Name="Head" Content="{DynamicResource AS_Head}">
+                                <ModelVisual3D.Transform>
+                                    <Transform3DGroup>
+                                        <RotateTransform3D x:Name="HeadX" CenterX="0" CenterY="20.7" CenterZ="0">
+                                            <RotateTransform3D.Rotation>
+                                                <AxisAngleRotation3D x:Name="HeadRotX"
                                                          Axis="0,0,1"
                                                          Angle="0"/>
-                                                </RotateTransform3D.Rotation>
-                                            </RotateTransform3D>
-                                            <RotateTransform3D x:Name="HeadY" CenterX="0" CenterY="20.7" CenterZ="0">
-                                                <RotateTransform3D.Rotation>
-                                                    <AxisAngleRotation3D x:Name="HeadRotY"
+                                            </RotateTransform3D.Rotation>
+                                        </RotateTransform3D>
+                                        <RotateTransform3D x:Name="HeadY" CenterX="0" CenterY="20.7" CenterZ="0">
+                                            <RotateTransform3D.Rotation>
+                                                <AxisAngleRotation3D x:Name="HeadRotY"
                                                          Axis="0,1,0"
                                                          Angle="0"/>
-                                                </RotateTransform3D.Rotation>
-                                            </RotateTransform3D>
-                                            <RotateTransform3D x:Name="HeadZ" CenterX="0" CenterY="20.7" CenterZ="0">
-                                                <RotateTransform3D.Rotation>
-                                                    <AxisAngleRotation3D x:Name="HeadRotZ"
+                                            </RotateTransform3D.Rotation>
+                                        </RotateTransform3D>
+                                        <RotateTransform3D x:Name="HeadZ" CenterX="0" CenterY="20.7" CenterZ="0">
+                                            <RotateTransform3D.Rotation>
+                                                <AxisAngleRotation3D x:Name="HeadRotZ"
                                                          Axis="1,0,0"
                                                          Angle="0"/>
-                                                </RotateTransform3D.Rotation>
-                                            </RotateTransform3D>
-                                        </Transform3DGroup>
-                                    </ModelVisual3D.Transform>
-                                </ModelVisual3D>
+                                            </RotateTransform3D.Rotation>
+                                        </RotateTransform3D>
+                                    </Transform3DGroup>
+                                </ModelVisual3D.Transform>
                             </ModelVisual3D>
-
                             <ModelVisual3D x:Name="Chest">
                                 <ModelVisual3D Content="{DynamicResource AS_Chest1}"/>
                                 <ModelVisual3D Content="{DynamicResource AS_Chest2}"/>
@@ -1484,9 +1291,7 @@
                                     </Transform3DGroup>
                                 </ModelVisual3D.Transform>
                             </ModelVisual3D>
-
-                            <ModelVisual3D x:Name="LA">
-                                <ModelVisual3D Content="{DynamicResource AS_LeftArm}"/>
+                            <ModelVisual3D x:Name="LA" Content="{DynamicResource AS_LeftArm}">
                                 <ModelVisual3D.Transform>
                                     <Transform3DGroup>
                                         <RotateTransform3D CenterX="0" CenterY="19.8" CenterZ="-5.4">
@@ -1513,9 +1318,7 @@
                                     </Transform3DGroup>
                                 </ModelVisual3D.Transform>
                             </ModelVisual3D>
-
-                            <ModelVisual3D x:Name="RA">
-                                <ModelVisual3D Content="{DynamicResource AS_RightArm}"/>
+                            <ModelVisual3D x:Name="RA" Content="{DynamicResource AS_RightArm}">
                                 <ModelVisual3D.Transform>
                                     <Transform3DGroup>
                                         <RotateTransform3D CenterX="0" CenterY="19.8" CenterZ="5.4">
@@ -1542,9 +1345,7 @@
                                     </Transform3DGroup>
                                 </ModelVisual3D.Transform>
                             </ModelVisual3D>
-
-                            <ModelVisual3D x:Name="LL">
-                                <ModelVisual3D Content="{DynamicResource AS_LeftLeg}"/>
+                            <ModelVisual3D x:Name="LL" Content="{DynamicResource AS_LeftLeg}">
                                 <ModelVisual3D.Transform>
                                     <Transform3DGroup>
                                         <RotateTransform3D CenterX="0" CenterY="9.9" CenterZ="-1.8">
@@ -1571,9 +1372,7 @@
                                     </Transform3DGroup>
                                 </ModelVisual3D.Transform>
                             </ModelVisual3D>
-
-                            <ModelVisual3D x:Name="RL">
-                                <ModelVisual3D Content="{DynamicResource AS_RightLeg}"/>
+                            <ModelVisual3D x:Name="RL" Content="{DynamicResource AS_RightLeg}">
                                 <ModelVisual3D.Transform>
                                     <Transform3DGroup>
                                         <RotateTransform3D CenterX="0" CenterY="9.9" CenterZ="1.8">
@@ -1600,23 +1399,19 @@
                                     </Transform3DGroup>
                                 </ModelVisual3D.Transform>
                             </ModelVisual3D>
-
                             <ModelVisual3D.Transform>
                                 <RotateTransform3D x:Name="MainRotation" CenterX="0" CenterY="0" CenterZ="0">
                                     <RotateTransform3D.Rotation>
-                                        <AxisAngleRotation3D x:Name="Rotation"
-                                                         Axis="0,1,0"
-                                                         Angle="0"/>
+                                        <AxisAngleRotation3D x:Name="Rotation" Axis="0,1,0" Angle="0"/>
                                     </RotateTransform3D.Rotation>
                                 </RotateTransform3D>
                             </ModelVisual3D.Transform>
                         </ModelVisual3D>
-
-                        <ModelVisual3D Content="{DynamicResource AS_BasePlate}"/>
+                        <ModelVisual3D x:Name="BasePlate" Content="{DynamicResource AS_BasePlate}"/>
                     </ModelVisual3D>
-                </HelixToolkit:HelixViewport3D>
+                </Helix:HelixViewport3D>
                 <!--#endregion-->
-                <Button x:Name="Relocation" Style="{DynamicResource CustomButton}" Margin="0,0,9,5" BorderBrush="{x:Null}" Width="20" Height="20" Click="Viewport_Relocation" VerticalAlignment="Bottom" HorizontalAlignment="Right" ToolTip="{DynamicResource Viewport_Relocation}" Background="#02252525">
+                <Button x:Name="Relocation" Style="{DynamicResource CustomButton}" Margin="0,0,9,5" BorderBrush="{x:Null}" Width="20" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" ToolTip="{DynamicResource Viewport_Relocation}" Background="#02252525">
                     <Path Margin="0" Stretch="Uniform" Fill="White" Data="{DynamicResource Icon.Crosshair}"/>
                 </Button>
             </Grid>
@@ -1677,7 +1472,7 @@
             </Label>
             <!--#endregion-->
         </Grid>
-        <userControl:CustomOutPutBox x:Name="OutPutBox" Height="280" Margin="-191.957,72.96,-97.958,162.96" Grid.Column="3" Grid.Row="3" Width="300" Grid.ColumnSpan="2" MouseDown="OutPut_MouseDown"/>
+        <userControl:CustomOutPutBox x:Name="OutPutBox" Height="280" Margin="-191.957,72.96,-97.958,162.96" Grid.Column="3" Grid.Row="3" Width="300" Grid.ColumnSpan="2"/>
     </Grid>
 </Page>
     

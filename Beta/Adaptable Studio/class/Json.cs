@@ -7,8 +7,8 @@ namespace Adaptable_Studio
 {
     class Json
     {
-        public List<string> CN;
-        public List<string> EN;
+        public List<string> CN = null;
+        public List<string> EN = null;
 
         /// <summary> Json反序列化 </summary>
         /// <param name="ReaderPath">文件路径</param>

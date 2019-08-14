@@ -54,8 +54,8 @@ namespace Adaptable_Studio
         private static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retVal, int size, string filePath);
         //定义读入函数
 
-        string iniPath = Environment.CurrentDirectory + @"\config.ini";//ini文件路径
-        StringBuilder StrName = new StringBuilder(255);//定义字符串  
+        public static string iniPath = @".\config.ini";//ini文件路径
+        public static StringBuilder StrName = new StringBuilder(255);//定义字符串  
         #endregion
 
         #region ini Read & Write

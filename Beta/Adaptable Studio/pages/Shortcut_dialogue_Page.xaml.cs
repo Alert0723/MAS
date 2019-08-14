@@ -13,8 +13,7 @@ namespace Adaptable_Studio
     /// <summary> shortcut_dialogue_Page.xaml 的交互逻辑 </summary>
     public partial class Shortcut_dialogue_Page : Page
     {
-        string AppPath = Environment.CurrentDirectory,//应用程序根目录
-               LogPath;//日志文件路径
+        string LogPath;//日志文件路径
 
         bool[] Marked = new bool[32767];//行标记存储
 
@@ -41,7 +40,7 @@ namespace Adaptable_Studio
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            LogPath = AppPath + @"\log.txt";
+            LogPath = @".\log.txt";
         }
 
         private void Import_Click(object sender, RoutedEventArgs e)

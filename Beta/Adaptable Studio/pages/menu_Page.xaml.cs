@@ -42,6 +42,13 @@ namespace Adaptable_Studio
         public menu_Page()
         {
             InitializeComponent();
+            #region Events
+            Loaded += Page_Loaded;
+            masb.Click += MASB;
+            masc.Click += MASC;
+            masp.Click += MASP;
+
+            #endregion
         }
 
         void Page_Loaded(object sender, RoutedEventArgs e)

@@ -119,7 +119,7 @@
     <system:String x:Key="LeftArm">左臂</system:String>
     <system:String x:Key="RightArm">右臂</system:String>
     <system:String x:Key="MainHand">主要手臂</system:String>
-    <system:String x:Key="OffHand">副要手臂</system:String>
+    <system:String x:Key="OffHand">次要手臂</system:String>
     <system:String x:Key="Legs">腿部</system:String>
     <system:String x:Key="LeftLeg">左腿</system:String>
     <system:String x:Key="RightLeg">右腿</system:String>

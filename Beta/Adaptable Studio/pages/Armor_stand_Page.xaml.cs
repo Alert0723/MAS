@@ -1,7 +1,5 @@
 ﻿using ArmorStand.CustomControl;
-using Newtonsoft.Json;
 using System;
-using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
@@ -86,24 +84,46 @@ namespace Adaptable_Studio
         public static bool poseChange;
         #endregion
 
-        #region ini配置文件
-        [DllImport("kernel32")]
-        static extern long WritePrivateProfileString(string section, string key, string val, string filePath);
-        //定义写入函数
-        //用途：若存在给定路径下的ini文件，就在其中写入给定节和键的值（若已存在此键就覆盖之前的值），若不存在ini文件，就创建该ini文件并写入。
-
-        [DllImport("kernel32")]
-        static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retVal, int size, string filePath);
-        //定义读入函数
-
-        string iniPath = Environment.CurrentDirectory + @"\config.ini";//ini文件路径
-        StringBuilder StrName = new StringBuilder(255);//定义字符串  
-        #endregion
         #endregion
 
         public Armor_stand_Page()
         {
             InitializeComponent();
+            #region Events
+            Loaded += Page_Loaded;
+            BackHome.Click += BackToMenu_Click;
+            #region 分类状态栏
+            Main.Click += Main_Settings;
+            Nbt.Click += Nbt_Settings;
+            Pose.Click += Rotation_Settings;
+            Item.Click += Item_Settings;
+            #endregion
+            #region 选项交互
+            Settings.ScrollChanged += SelectBar_Move;
+            //Pose
+            Rotation_Setting.ValueChanged += Pose_Changed;
+            Pose_Selector.SelectionChanged += PoseTabChanged;
+            X_Pose.ValueChanged += Pose_Changed;
+            Y_Pose.ValueChanged += Pose_Changed;
+            Z_Pose.ValueChanged += Pose_Changed;
+            Pose_Reset.MouseLeftButtonDown += PoseReset_LeftButtonDown;
+            //Items
+            ItemPanel.MouseEnter += ItemGrid_update;
+            ItemPanel.MouseLeave += ItemGrid_update;
+            Item_Reset.MouseLeftButtonDown += ItemReset_LeftButtonDown;
+            #endregion
+            #region Viewport3D
+            PreviewGrid.MouseUp += Viewport_MouseUp;
+            PreviewGrid.MouseMove += Viewport_MouseMove;
+            PreviewGrid.MouseLeave += Viewport_MouseLeave;
+            PreviewGrid.MouseWheel += Viewport_MouseWheel;
+
+            Relocation.Click += Viewport_Relocation;
+            #endregion
+            OutPutBox.MouseDown += OutPut_MouseDown;
+            #endregion
+
+            //物品部位-结构参数初始化
             for (int i = 0; i < 6; i++)
             {
                 Item_Data[i].IsEnabled = new bool();
@@ -112,7 +132,7 @@ namespace Adaptable_Studio
                 Item_Data[i].Value = new double[50];
                 Item_Data[i].Tag = new object[30];
                 Item_Data[i].Value[0] = 1;
-            }//物品部位-结构参数初始化
+            }
         }
 
         void Page_Loaded(object sender, RoutedEventArgs e)
@@ -147,10 +167,12 @@ namespace Adaptable_Studio
                         break;
                 }
 
-
                 //导入物品列表
                 if (MainWindow._langCN)
-                    foreach (var item in ItemName.CN) ItemList.Items.Add(new TextBlock() { Text = item });
+                {
+                    foreach (var item in ItemName.CN)
+                        ItemList.Items.Add(new TextBlock() { Text = item });
+                }
                 else
                 {
                     foreach (var item in ItemName.EN)
@@ -249,7 +271,7 @@ namespace Adaptable_Studio
         void PoseTabChanged(object sender, SelectionChangedEventArgs e)
         {
             double X = 0, Y = 0, Z = 0;
-            int index = Pose_Slector.SelectedIndex;
+            int index = Pose_Selector.SelectedIndex;
 
             switch (index)
             {
@@ -354,7 +376,38 @@ namespace Adaptable_Studio
             }
         }
 
-        /// <summary> 指令输出</summary>
+        /// <summary> 基础NBT输出判定 </summary>
+        void Generate_BasicNBT(ref string result)
+        {
+            if (UI_name.Text != string.Empty)
+                result += "CustomName:\"{\\\"text\\\":\\\"" + UI_name.Text + "\\\"}\",";
+            if (UI_tags.Text != string.Empty)
+                result += "Tags:[\"" + UI_tags.Text + "\"],";
+            if ((bool)disabled_hand.IsChecked | (bool)disabled_head.IsChecked | (bool)disabled_chest.IsChecked | (bool)disabled_legs.IsChecked | (bool)disabled_boots.IsChecked)
+            {
+                double a = 0; int b;
+                if ((bool)disabled_hand.IsChecked) { b = 0; DisabledSlots_print(ref a, ref b); }
+                if ((bool)disabled_boots.IsChecked) { b = 1; DisabledSlots_print(ref a, ref b); }
+                if ((bool)disabled_legs.IsChecked) { b = 2; DisabledSlots_print(ref a, ref b); }
+                if ((bool)disabled_chest.IsChecked) { b = 3; DisabledSlots_print(ref a, ref b); }
+                if ((bool)disabled_head.IsChecked) { b = 4; DisabledSlots_print(ref a, ref b); }
+                result += "DisabledSlots:" + a + ",";
+            }
+            if ((bool)UI_glowing.IsChecked) result += "Glowing:1b,";
+            if ((bool)UI_NoAI.IsChecked) result += "NoAI:1b,";
+            if ((bool)UI_invulnerable.IsChecked) result += "Invulnerable:1b,";
+            if ((bool)UI_invisible.IsChecked) result += "Invisible:1b,";
+            if ((bool)UI_silent.IsChecked) result += "Silent:1b,";
+            if ((bool)UI_small.IsChecked) result += "Small:1b,";
+            if ((bool)UI_showarms.IsChecked) result += "ShowArms:1b,";
+            if ((bool)UI_nobaseplate.IsChecked) result += "NoBasePlate:1b,";
+            if ((bool)UI_nogravity.IsChecked) result += "NoGravity:1b,";
+            if ((bool)UI_marker.IsChecked) result += "Marker:1b,";
+            if ((bool)UI_lefthanded.IsChecked) result += "LeftHanded:1b,";
+
+        }
+
+        /// <summary> 指令输出 </summary>
         void Generate_Click(object sender, RoutedEventArgs e)
         {
             //结构初始化
@@ -362,36 +415,13 @@ namespace Adaptable_Studio
             for (int i = 0; i < 10000; i++) { MainWindow.commands[i] = ""; }//NBT框架搭建数据              
             MainWindow.StructureNbt.Clear();
 
-            string result = string.Empty;
+            string result = MainWindow.result;
             MainWindow.result = string.Empty;
             if (!UI_advancedmode.IsChecked)
             {
                 result = "summon armor_stand ~ ~1 ~ {";
 
-                #region  基础NBT输出判定
-                if (UI_name.Text != string.Empty) result += "CustomName:\"{\\\"text\\\":\\\"" + UI_name.Text + "\\\"}\",";
-                if (UI_tags.Text != string.Empty) result += "Tags:[\"" + UI_tags.Text + "\"],";
-                if ((bool)disabled_hand.IsChecked | (bool)disabled_head.IsChecked | (bool)disabled_chest.IsChecked | (bool)disabled_legs.IsChecked | (bool)disabled_boots.IsChecked)
-                {
-                    double a = 0; int b;
-                    if ((bool)disabled_hand.IsChecked) { b = 0; DisabledSlots_print(ref a, ref b); }
-                    if ((bool)disabled_boots.IsChecked) { b = 1; DisabledSlots_print(ref a, ref b); }
-                    if ((bool)disabled_legs.IsChecked) { b = 2; DisabledSlots_print(ref a, ref b); }
-                    if ((bool)disabled_chest.IsChecked) { b = 3; DisabledSlots_print(ref a, ref b); }
-                    if ((bool)disabled_head.IsChecked) { b = 4; DisabledSlots_print(ref a, ref b); }
-                    result += "DisabledSlots:" + a + ",";
-                }
-                if ((bool)UI_glowing.IsChecked) result += "Glowing:1b,";
-                if ((bool)UI_NoAI.IsChecked) result += "NoAI:1b,";
-                if ((bool)UI_invulnerable.IsChecked) result += "Invulnerable:1b,";
-                if ((bool)UI_invisible.IsChecked) result += "Invisible:1b,";
-                if ((bool)UI_silent.IsChecked) result += "Silent:1b,";
-                if ((bool)UI_small.IsChecked) result += "Small:1b,";
-                if ((bool)UI_showarms.IsChecked) result += "ShowArms:1b,";
-                if ((bool)UI_nobaseplate.IsChecked) result += "NoBasePlate:1b,";
-                if ((bool)UI_nogravity.IsChecked) result += "NoGravity:1b,";
-                if ((bool)UI_marker.IsChecked) result += "Marker:1b,";
-                if ((bool)UI_lefthanded.IsChecked) result += "LeftHanded:1b,";
+                Generate_BasicNBT(ref result);
                 if ((bool)Pose_Settings.IsChecked)
                     result += "Pose:{Head:["
                         + pose[0].ToString("0.#") + "f," + pose[1].ToString("0.#") + "f," + pose[2].ToString("0.#") + "f],Body:["
@@ -400,8 +430,8 @@ namespace Adaptable_Studio
                         + pose[9].ToString("0.#") + "f," + pose[10].ToString("0.#") + "f," + pose[11].ToString("0.#") + "f],LeftLeg:["
                         + pose[12].ToString("0.#") + "f," + pose[13].ToString("0.#") + "f," + pose[14].ToString("0.#") + "f],RightLeg:["
                         + pose[15].ToString("0.#") + "f," + pose[16].ToString("0.#") + "f," + pose[17].ToString("0.#") + "f]},";
-                if (Rotation_Setting.Value != 0) result += "Rotation:[" + pose[18].ToString("0.#") + "f," + "0f],";
-                #endregion
+                if (Rotation_Setting.Value != 0)
+                    result += "Rotation:[" + pose[18].ToString("0.#") + "f," + "0f],";
 
                 #region 物品数据处理
                 for (int r = 0; r < 6; r++)
@@ -461,7 +491,7 @@ namespace Adaptable_Studio
                             {
                                 if (bool.Parse(OutPutItem[r, 6]))
                                 {
-                                    for (k = k; k < 50; k++)
+                                    for (; k < 50; k++)
                                     {
                                         if (Item_Data[r].Value[k] != 0)
                                         {
@@ -533,18 +563,18 @@ namespace Adaptable_Studio
             }//常规模式
             else
             {
-                string tag = string.Empty;
-
-                tag = UI_tags.Text;
+                string tag = UI_tags.Text;
 
                 for (int i = 0; i < TimeAxis.TotalTick; i++)
                 {
                     result = "data merge entity @e[type=armor_stand,limit=1";
+
                     if (UI_tags.Text != string.Empty) result += ",tag=" + tag;
                     result += ",scores={" + "ScoreName=" + i.ToString() + "}"
                      + "] {";
-
-                    if ((bool)Pose_Settings.IsChecked) result += "Pose:{Head:["
+                    Generate_BasicNBT(ref result);
+                    if ((bool)Pose_Settings.IsChecked)
+                        result += "Pose:{Head:["
                             + TimeAxis.pose[i].pos[0].ToString("0.#") + "f,"
                             + TimeAxis.pose[i].pos[1].ToString("0.#") + "f,"
                             + TimeAxis.pose[i].pos[2].ToString("0.#") + "f],Body:["
@@ -580,7 +610,7 @@ namespace Adaptable_Studio
 
         void BackToMenu_Click(object sender, RoutedEventArgs e)
         {
-            IniWrite("System", "PageIndex", "0", iniPath);
+            MainWindow.IniWrite("System", "PageIndex", "0", MainWindow.iniPath);
             MainWindow.PageIndex = 0;
             Page_masc = this;
             NavigationService.Navigate(Page_menu);
@@ -786,15 +816,6 @@ namespace Adaptable_Studio
         }
 
         #region 预览视角旋转-摄像机坐标计算
-        void Viewport_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            mouse_location[0] = e.GetPosition((IInputElement)sender).X;
-            mouse_location[1] = e.GetPosition((IInputElement)sender).Y;
-
-            if (e.LeftButton == MouseButtonState.Pressed) PreviewGrid.Cursor = Cursors.SizeAll;
-            else if (e.RightButton == MouseButtonState.Pressed) PreviewGrid.Cursor = Cursors.ScrollAll;
-        }
-
         void Viewport_MouseUp(object sender, MouseButtonEventArgs e)
         {
             PreviewGrid.Cursor = Cursors.Arrow;
@@ -810,13 +831,17 @@ namespace Adaptable_Studio
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
+
+            }
+            else if (e.RightButton == MouseButtonState.Pressed)
+            {
                 PreviewGrid.Cursor = Cursors.SizeAll;
                 CameraRot[0] += (e.GetPosition((IInputElement)sender).X - mouse_location[0]) * 180 / 460;
                 CameraRot[1] += -(e.GetPosition((IInputElement)sender).Y - mouse_location[1]) * 180 / 460;
 
                 LightDirectionReset();
-            }//左键转向
-            else if (e.RightButton == MouseButtonState.Pressed)
+            }//右键转向
+            else if (e.MiddleButton == MouseButtonState.Pressed)
             {
                 PreviewGrid.Cursor = Cursors.ScrollAll;
                 Vector3D MoveDir = Viewport_3D.UpDirection_Get(MainCamera.LookDirection, new Vector3D() { X = 0, Y = 1, Z = 0 });
@@ -838,7 +863,7 @@ namespace Adaptable_Studio
                     Y = CameraLookAtPoint[1] - MainCamera.Position.Y,
                     Z = CameraLookAtPoint[2] - MainCamera.Position.Z
                 };
-            }//右键平面移动
+            }//中键平移
 
             Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);
 
@@ -906,13 +931,13 @@ namespace Adaptable_Studio
         public void ChangePose(object sender, RoutedEventArgs e)
         {
             //判断动作选项卡的索引值
-            int i = 0;
-            if (PoseHead.IsSelected) i = 0;
-            else if (PoseBody.IsSelected) i = 3;
-            else if (PoseLeftArm.IsSelected) i = 6;
-            else if (PoseRightArm.IsSelected) i = 9;
-            else if (PoseLeftLeg.IsSelected) i = 12;
-            else if (PoseRightLeg.IsSelected) i = 15;
+            int i = 3 * Pose_Selector.SelectedIndex;
+            //if (PoseHead.IsSelected) i = 0;
+            //else if (PoseBody.IsSelected) i = 3;
+            //else if (PoseLeftArm.IsSelected) i = 6;
+            //else if (PoseRightArm.IsSelected) i = 9;
+            //else if (PoseLeftLeg.IsSelected) i = 12;
+            //else if (PoseRightLeg.IsSelected) i = 15;
 
             if (!UI_advancedmode.IsChecked)
             {
@@ -967,21 +992,5 @@ namespace Adaptable_Studio
             }//高级模式
             setPose();
         }
-
-        #region ini文件读写
-        /// <summary> 读取配置文件(字符串, "节名", "键名", 文件路径) </summary>
-        public static void IniRead(ref StringBuilder StrName, string configureNode, string key, string path)
-        {
-            //获取节中 键的值，存在字符串中
-            //格式：GetPrivateProfileString("节名", "键名", "", 字符串, 255, 文件路径)
-            GetPrivateProfileString(configureNode, key, "", StrName, 255, path);
-        }
-
-        /// <summary> 写入配置文件("节名", "键名", 键值, 文件路径) </summary>
-        public static void IniWrite(string configureNode, string key, string keyValue, string path)
-        {
-            WritePrivateProfileString(configureNode, key, keyValue, path);
-        }
-        #endregion
     }
 }
