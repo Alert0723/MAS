@@ -6,47 +6,29 @@
       xmlns:customcontrol="clr-namespace:ArmorStand.CustomControl"
       xmlns:Custom="http://metro.mahapps.com/winfx/xaml/controls"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300" Width="942" Height="569"
-      Title="Option_Page" Loaded="Page_Loaded">
-
+      d:DesignHeight="300" d:DesignWidth="300" Width="942" Height="569" Title="Option_Page">
     <Grid>
-        <Button x:Name="home" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="35" Height="35" Margin="10,10,0,0" BorderBrush="{x:Null}" Click="Back_Click" RenderTransformOrigin="0.5,0.5" Background="#02DCDCDC">
+        <Button x:Name="Back" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="35" Height="35" Margin="10,10,0,0" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" Background="#02DCDCDC">
             <StackPanel>
                 <Path Fill="White" Stretch="Uniform" Margin="5" Data="{DynamicResource Icon.LeftArrow}"/>
             </StackPanel>
         </Button>
         <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="80,0,0,0" FontFamily="{DynamicResource Font}">
-            <Grid Height="559" MouseDown="Option_Save" MouseLeave="Option_Save">
+            <Grid x:Name="OptionGrid" Height="559">
                 <!--#region  常规 -->
                 <Label Content="{DynamicResource Option_Routine_Setting}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="{DynamicResource Font}"/>
+                
                 <WrapPanel Name="Language_Panel" Margin="0,50,0,0" Height="30" VerticalAlignment="Top">
                     <Label Content="{DynamicResource Option_Language}" Margin="20,1,0,0" VerticalAlignment="Top" Height="27" HorizontalAlignment="Left" FontSize="14" FontFamily="{DynamicResource Font}"/>
-                    <RadioButton x:Name="Lang_CN" Content="中文" HorizontalAlignment="Left" Margin="50,6,0,0" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI" Click="Lang_Save" IsChecked="True"/>
-                    <RadioButton x:Name="Lang_EN" Content="English" HorizontalAlignment="Left" Margin="90,6,0,0" VerticalAlignment="Top" IsChecked="True" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" Click="Lang_Save"/>
+                    <RadioButton x:Name="Lang_CN" Content="中文" HorizontalAlignment="Left" Margin="50,6,0,0" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI" IsChecked="True"/>
+                    <RadioButton x:Name="Lang_EN" Content="English" HorizontalAlignment="Left" Margin="90,6,0,0" VerticalAlignment="Top" IsChecked="True" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa"/>
                 </WrapPanel>
 
                 <WrapPanel Name="Guidance_Panel" Margin="0,85,0,0" Height="30" VerticalAlignment="Top">
                     <Label Content="{DynamicResource Option_Guidance}" Margin="20,1,0,0" VerticalAlignment="Top" Height="27" HorizontalAlignment="Left" FontSize="14" FontFamily="{DynamicResource Font}"/>
-                    <RadioButton x:Name="Guidance_on" Content="{DynamicResource Option_On}" HorizontalAlignment="Left" Margin="50,6,0,0" VerticalAlignment="Top" FontFamily="{DynamicResource Font}" IsChecked="True"/>
+                    <RadioButton x:Name="Guidance_on" Content="{DynamicResource Option_On}" HorizontalAlignment="Left" Margin="50,6,0,0" VerticalAlignment="Top" IsChecked="True" FontFamily="{DynamicResource Font}"/>
                     <RadioButton x:Name="Guidance_off" Content="{DynamicResource Option_Off}" HorizontalAlignment="Left" Margin="90,6,0,0" VerticalAlignment="Top" IsChecked="True" FontFamily="{DynamicResource Font}"/>
                 </WrapPanel>
-                <!--#endregion-->
-                <Grid Name="Struct_Grid" Margin="0,130,0,0" Height="244" VerticalAlignment="Top">
-                    <Label Content="{DynamicResource Option_Structures_Setting}" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="{DynamicResource Font}"/>
-                    <Label Content="{DynamicResource Option_MaxLength}" Margin="21,42,0,0" VerticalAlignment="Top" Height="27" HorizontalAlignment="Left" FontSize="14" FontFamily="{DynamicResource Font}"/>
-                    <customcontrol:CustomNumberBox x:Name="Max_length" Value="16" Minimum="2" Maximum="99" Interval="1" Margin="222,42,0,0" FontSize="14" ToolTip="Max length" Height="27" VerticalAlignment="Top" HorizontalAlignment="Left" Width="110"/>
-                    <GroupBox x:Name="Portrait" Header="{DynamicResource Option_Chain_extension_direction}" Margin="21,81,0,0" VerticalAlignment="Top" Height="75" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="311" Custom:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="{DynamicResource Font}">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <RadioButton x:Name="Horizontal" Content="{DynamicResource Option_Chain_Horizontal}" Margin="10,10,0,0" VerticalAlignment="Top" Height="19" HorizontalAlignment="Left" Width="105" Grid.Column="1" FontFamily="{DynamicResource Font}"/>
-                            <RadioButton x:Name="Vertical" Content="{DynamicResource Option_Chain_Vertical}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" IsChecked="True" Width="105" Height="19" FontFamily="{DynamicResource Font}"/>
-                        </Grid>
-                    </GroupBox>
-                    <CheckBox Style="{DynamicResource ResourceKey=CustomCheckBox}" x:Name="Flat_structure" Content="{DynamicResource Option_Paved_structure}" Margin="21,161,0,0" FontSize="14" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" FontFamily="{DynamicResource Font}"/>
-                </Grid>
                 <!--#endregion-->
 
             </Grid>

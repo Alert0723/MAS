@@ -15,9 +15,12 @@
     <!--#region  Version Messager -->
     <system:String x:Key="SearchNewVer">正在检测新版本...</system:String>
     <system:String x:Key="LatestVer">当前为最新版本</system:String>
-    <system:String x:Key="FindNewVer" xml:space="preserve">发现新版本  </system:String>
+    <system:String x:Key="FindNewVer" xml:space="preserve">发现新版本：</system:String>
     <system:String x:Key="UpdateNow">立即更新</system:String>
     <system:String x:Key="SearchNewVerErr">版本检测失败</system:String>
+    <system:String x:Key="UpdaterDownloading">准备中……</system:String>
+    <system:String x:Key="UpdaterDownloadFail">更新器下载异常，请检查网络设置</system:String>
+    <system:String x:Key="Retry">重试</system:String>
     <!--#endregion-->
 
     <!--#region  OutPut Window -->
@@ -29,15 +32,8 @@
     <system:String x:Key="Option_On">开</system:String>
     <system:String x:Key="Option_Off">关</system:String>
     <system:String x:Key="Option_Routine_Setting">常规</system:String>
-    <system:String x:Key="Option_Language">语言切换:</system:String>
-    <system:String x:Key="Option_Guidance">启动时启用页面引导:</system:String>
-
-    <system:String x:Key="Option_Structures_Setting">结构设置</system:String>
-    <system:String x:Key="Option_MaxLength">每层最大长度(2~99):</system:String>
-    <system:String x:Key="Option_Chain_extension_direction">链式延伸方向:</system:String>
-    <system:String x:Key="Option_Chain_Vertical">纵向延伸</system:String>
-    <system:String x:Key="Option_Chain_Horizontal">横向延伸</system:String>
-    <system:String x:Key="Option_Paved_structure">平铺结构</system:String>
+    <system:String x:Key="Option_Language">语言切换 :</system:String>
+    <system:String x:Key="Option_Guidance">启动时启用页面引导 :</system:String>
     <!--#endregion-->
 
     <!--#region  About Page -->

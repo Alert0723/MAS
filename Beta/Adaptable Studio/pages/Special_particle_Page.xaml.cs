@@ -1,16 +1,15 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
 using System.Windows.Threading;
+using static Adaptable_Studio.IniConfig;
+using static Adaptable_Studio.MainWindow;
 using static Adaptable_Studio.PublicControl;
 
 namespace Adaptable_Studio
@@ -46,19 +45,6 @@ namespace Adaptable_Studio
         #endregion
         #endregion
 
-        #region ini配置文件
-        [DllImport("kernel32")]
-        static extern long WritePrivateProfileString(string section, string key, string val, string filePath);
-        //定义写入函数
-        //用途：若存在给定路径下的ini文件，就在其中写入给定节和键的值（若已存在此键就覆盖之前的值），若不存在ini文件，就创建该ini文件并写入。
-
-        [DllImport("kernel32")]
-        static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retVal, int size, string filePath);
-        //定义读入函数
-
-        string iniPath = Environment.CurrentDirectory + @"\config.ini";//ini文件路径
-        StringBuilder StrName = new StringBuilder(255);//定义字符串  
-        #endregion
         #endregion
 
         public Special_particle_Page()
@@ -68,10 +54,10 @@ namespace Adaptable_Studio
 
         void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            MainWindow.Log_Write(MainWindow.LogPath, "[masp]粒子生成器初始化");
+            Log_Write(LogPath, "[masp]粒子生成器初始化");
 
             #region Viewport3D
-            MainWindow.Log_Write(MainWindow.LogPath, "[masp]Viewport3D初始化");
+            Log_Write(LogPath, "[masp]Viewport3D初始化");
             Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);
             #endregion
 
@@ -130,14 +116,14 @@ namespace Adaptable_Studio
                 Generate_Click(sender, e);
                 OutPutBox.OutPut = false;
                 OutPut output = new OutPut();
-                output.Print.Text = MainWindow.result;
+                output.Print.Text = result;
                 output.Show();
             }
             else if (OutPutBox.Retrieval)
             {
                 OutPutBox.Retrieval = false;
                 OutPut output = new OutPut();
-                output.Print.Text = MainWindow.result;
+                output.Print.Text = result;
                 output.Show();
             }
         }
@@ -480,7 +466,7 @@ namespace Adaptable_Studio
         void Generate_Click(object sender, RoutedEventArgs e)
         {
 
-            MainWindow.result = string.Empty;//指令输出
+            result = string.Empty;//指令输出
             int index = 0;
 
             try
@@ -507,7 +493,7 @@ namespace Adaptable_Studio
                                 if (ty.GetMethod("StyleName").Invoke(ClassObject, null).ToString() == StyleTypeItem.ToString())
                                 {
                                     mi = ty.GetMethod("Generate");
-                                    mi.Invoke(ClassObject, new object[] { MainWindow.result, ControlValue[index] });
+                                    mi.Invoke(ClassObject, new object[] { result, ControlValue[index] });
                                 }
                                 else continue;
 
@@ -520,18 +506,13 @@ namespace Adaptable_Studio
             }
             catch { }
 
-            #region fNBT
-            MainWindow.k = 0;
-            for (int i = 0; i < 10000; i++) { MainWindow.commands[i] = ""; }//NBT框架搭建数据              
-            MainWindow.StructureNbt.Clear();
-            #endregion
 
         }
 
         void BackToMenu_Click(object sender, RoutedEventArgs e)
         {
             IniWrite("System", "PageIndex", "0", iniPath);
-            MainWindow.PageIndex = 0;
+            PageIndex = 0;
             Page_masp = this;
             NavigationService.Navigate(Page_menu);
         }
@@ -732,7 +713,7 @@ namespace Adaptable_Studio
             //    else { Ones += Start[0].ToString("0.###") + " " + Start[1].ToString("0.###") + " " + Start[2].ToString("0.###"); }
             //    //if (Colorful) { Ones += " " + R + " " + G + " " + B + " 1 1"; }
             //    //else { Ones += " 0 0 0 0 1"; }
-            //    MainWindow.commands[MainWindow.k] = Ones; MainWindow.k++;
+            //    commands[k] = Ones; k++;
             //    result += Ones + "\r\n";
             //    count++;
             //} while (count <= particle_num);
@@ -896,7 +877,7 @@ namespace Adaptable_Studio
             //if (ScoreSwitch)
             //{
             //    string Ones = "scoreboard players add " + Selector + " " + Scorename + " 1";
-            //    MainWindow.commands[MainWindow.k] = Ones; MainWindow.k++;
+            //    commands[k] = Ones; k++;
             //    result += Ones + "\r\n";
             //}
         }
@@ -921,24 +902,9 @@ namespace Adaptable_Studio
             //if (ScoreSwitch)
             //{
             //    string Ones = "scoreboard players set " + Selector + " " + Scorename + " 0";
-            //    MainWindow.commands[MainWindow.k] = Ones; MainWindow.k++;
+            //    commands[k] = Ones; k++;
             //    result += Ones;
             //}
-        }
-        #endregion
-
-        #region ini文件读写
-        /// <summary> 读取配置文件(字符串, "节名", "键名", 文件路径) </summary>
-        public static void IniRead(ref StringBuilder StrName, string configureNode, string key, string path)
-        {
-            //获取节中 键的值，存在字符串中
-            //格式：GetPrivateProfileString("节名", "键名", "", 字符串, 255, 文件路径)
-            GetPrivateProfileString(configureNode, key, "", StrName, 255, path);
-        }
-        /// <summary> 写入配置文件("节名", "键名", 键值, 文件路径) </summary>
-        public static void IniWrite(string configureNode, string key, string keyValue, string path)
-        {
-            WritePrivateProfileString(configureNode, key, keyValue, path);
         }
         #endregion
     }

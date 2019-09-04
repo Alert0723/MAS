@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using static Adaptable_Studio.MainWindow;
 
 namespace Adaptable_Studio
 {
@@ -22,7 +23,7 @@ namespace Adaptable_Studio
                     string JSONcontent = line.ReadToEnd();
                     json = JsonConvert.DeserializeObject<Json>(JSONcontent);
                 }
-                catch { MainWindow.Log_Write(MainWindow.LogPath, "json文件反序列化失败"); }
+                catch { Log_Write(LogPath, "json文件反序列化失败"); }
             }
         }
     }

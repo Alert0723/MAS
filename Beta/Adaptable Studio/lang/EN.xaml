@@ -15,9 +15,12 @@
     <!--#region  Version Messager -->
     <system:String x:Key="SearchNewVer">Detecting new version...</system:String>
     <system:String x:Key="LatestVer">Latest</system:String>
-    <system:String x:Key="FindNewVer" xml:space="preserve">Find new Version  </system:String>
+    <system:String x:Key="FindNewVer" xml:space="preserve">New Version:</system:String>
     <system:String x:Key="UpdateNow">Update Now</system:String>
     <system:String x:Key="SearchNewVerErr">Detect error</system:String>
+    <system:String x:Key="UpdaterDownloading">Preparing……</system:String>
+    <system:String x:Key="UpdaterDownloadFail">Updater download error，please check the Internet.</system:String>
+    <system:String x:Key="Retry">Retry</system:String>
     <!--#endregion-->
 
     <!--#region  OutPut Window -->
@@ -31,13 +34,6 @@
     <system:String x:Key="Option_Routine_Setting">Routine</system:String>
     <system:String x:Key="Option_Language">Language:</system:String>
     <system:String x:Key="Option_Guidance">Page guidance when start up:</system:String>
-
-    <system:String x:Key="Option_Structures_Setting">Structures Setting</system:String>
-    <system:String x:Key="Option_MaxLength">Max length per layer(2~99):</system:String>
-    <system:String x:Key="Option_Chain_extension_direction">Chain extension direction:</system:String>
-    <system:String x:Key="Option_Chain_Vertical">Vertical</system:String>
-    <system:String x:Key="Option_Chain_Horizontal">Horizontal</system:String>
-    <system:String x:Key="Option_Paved_structure">Paved structure</system:String>
     <!--#endregion-->
 
     <!--#region  About Page -->

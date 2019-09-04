@@ -3,6 +3,7 @@
     public static class PublicControl
     {
         public static MainWindow Main;
+        public static VersionMessager vmsg;
         //Page成员静态化
         public static menu_Page Page_menu;
         public static Super_banner_Page Page_masb;

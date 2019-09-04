@@ -56,7 +56,7 @@ namespace Updater
                     Dispatcher.Invoke(new ThreadStart(delegate { State.Text = "升级异常"; }));
                 Dispatcher.Invoke(new ThreadStart(delegate
                 {
-                    Tip.Text = "等待响应";
+                    Tip.Text = "等待响应，即将重启程序";
                     ProgressBar.Value = 100;
                 }));
                 timer.Start();
@@ -243,7 +243,7 @@ namespace Updater
             }
         }
 
-        ///<summary> 资源文件下载 </summary>
+        ///<summary> 文件下载 </summary>
         private static void Download(string download_path, string url, string fileName)
         {
             try

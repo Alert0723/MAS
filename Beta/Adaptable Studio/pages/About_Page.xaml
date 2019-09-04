@@ -14,7 +14,7 @@
             <VisualStateGroup x:Name="SwitchGroup">
                 <VisualState x:Name="SwitchOn">
                     <Storyboard>
-                        <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="home">
+                        <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="Back">
                             <EasingThicknessKeyFrame KeyTime="0" Value="15,25,0,0"/>
                             <EasingThicknessKeyFrame KeyTime="0:0:0.2" Value="25,25,0,0">
                                 <EasingThicknessKeyFrame.EasingFunction>
@@ -22,7 +22,7 @@
                                 </EasingThicknessKeyFrame.EasingFunction>
                             </EasingThicknessKeyFrame>
                         </ThicknessAnimationUsingKeyFrames>
-                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="home">
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Back">
                             <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
                             <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
                                 <EasingDoubleKeyFrame.EasingFunction>
@@ -230,7 +230,7 @@
                 <ei:GoToStateAction StateName="SwitchOff"/>
             </i:EventTrigger>
         </i:Interaction.Triggers>
-        <Button x:Name="home" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="35" Height="35" Click="Back_Click" Margin="25,25,0,0" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" Background="#02DDDDDD">
+        <Button x:Name="Back" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="35" Height="35" Margin="25,25,0,0" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" Background="#02DDDDDD">
             <StackPanel>
                 <Path Fill="White" Stretch="Uniform" Margin="5" Data="{DynamicResource Icon.LeftArrow}"/>
             </StackPanel>
@@ -253,7 +253,7 @@
             <Run Text="     "/><Run Text="{DynamicResource About_Compressed_Library}"/><Run Text="DoNetZip"/><LineBreak/>
             <Run Text="     "/><Run Text="{DynamicResource About_Plugin_Library}"/><Run Text="SPS.Plugin"/><LineBreak/>
         </TextBlock>
-        <Button x:Name="Donate" Content="捐助作者" HorizontalAlignment="Left" Margin="145,525,0,0" VerticalAlignment="Top" Width="130" FontSize="15" ToolTipService.ShowDuration="10000" ToolTipService.InitialShowDelay="0" Style="{DynamicResource CustomButton}" BorderBrush="{x:Null}" Background="{x:Null}" Height="33.999" FontFamily="Microsoft YaHei UI" Click="Donate_Click">
+        <Button x:Name="Donate" Content="捐助作者" HorizontalAlignment="Left" Margin="145,525,0,0" VerticalAlignment="Top" Width="130" FontSize="15" ToolTipService.ShowDuration="10000" ToolTipService.InitialShowDelay="0" Style="{DynamicResource CustomButton}" BorderBrush="{x:Null}" Background="{x:Null}" Height="33.999" FontFamily="Microsoft YaHei UI">
             <Button.ToolTip>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock FontSize="15"><Run Text="爱 "/><LineBreak/><Run Text="发 "/><LineBreak/><Run Text="电 "/></TextBlock>
@@ -265,6 +265,6 @@
                 </StackPanel>
             </Button.ToolTip>
         </Button>
-        <Button x:Name="feedback" Content="建议反馈" HorizontalAlignment="Left" Margin="10,525,0,0" VerticalAlignment="Top" Width="130" FontSize="15" Foreground="White" BorderBrush="{x:Null}" Background="{x:Null}" Style="{DynamicResource CustomButton}" Height="34" FontFamily="Microsoft YaHei UI" Click="Feedback_Click"/>
+        <Button x:Name="feedback" Content="建议反馈" HorizontalAlignment="Left" Margin="10,525,0,0" VerticalAlignment="Top" Width="130" FontSize="15" Foreground="White" BorderBrush="{x:Null}" Background="{x:Null}" Style="{DynamicResource CustomButton}" Height="34" FontFamily="Microsoft YaHei UI"/>
     </Grid>
 </Page>

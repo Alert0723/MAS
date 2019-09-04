@@ -8,6 +8,8 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Media3D;
 using static Adaptable_Studio.PublicControl;
+using static Adaptable_Studio.IniConfig;
+using static Adaptable_Studio.MainWindow;
 
 namespace Adaptable_Studio
 {
@@ -138,7 +140,7 @@ namespace Adaptable_Studio
         void Page_Loaded(object sender, RoutedEventArgs e)
         {
             //引导页面
-            if (MainWindow.Guiding)
+            if (Guiding)
             {
                 Settings_guide.Visibility = Visibility.Visible;
                 Timeaxis_guide.Visibility = Visibility.Visible;
@@ -150,10 +152,10 @@ namespace Adaptable_Studio
             }
 
             #region Viewport3D 初始化
-            MainWindow.Log_Write(MainWindow.LogPath, "[masc]Viewport3D初始化");
+            Log_Write(LogPath, "[masc]Viewport3D初始化");
             Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);
             LightDirectionReset();
-            MainWindow.Log_Write(MainWindow.LogPath, "[Viewport3D]初始化完成");
+            Log_Write(LogPath, "[Viewport3D]初始化完成");
             #endregion           
 
             #region json列表获取
@@ -168,7 +170,7 @@ namespace Adaptable_Studio
                 }
 
                 //导入物品列表
-                if (MainWindow._langCN)
+                if (_langCN)
                 {
                     foreach (var item in ItemName.CN)
                         ItemList.Items.Add(new TextBlock() { Text = item });
@@ -182,9 +184,9 @@ namespace Adaptable_Studio
                     }
                 }
                 ItemList.SelectedIndex = 0;
-                MainWindow.Log_Write(MainWindow.LogPath, "[masc]物品列表json读取完成");
+                Log_Write(LogPath, "[masc]物品列表json读取完成");
             }
-            catch { MainWindow.Log_Write(MainWindow.LogPath, "[masc]json读取失败"); }
+            catch { Log_Write(LogPath, "[masc]json读取失败"); }
             #endregion
         }
 
@@ -364,14 +366,14 @@ namespace Adaptable_Studio
                 Generate_Click(sender, e);
                 OutPutBox.OutPut = false;
                 OutPut output = new OutPut();
-                output.Print.Text = MainWindow.result;
+                output.Print.Text = result;
                 output.Show();
             }
             else if (OutPutBox.Retrieval)
             {
                 OutPutBox.Retrieval = false;
                 OutPut output = new OutPut();
-                output.Print.Text = MainWindow.result;
+                output.Print.Text = result;
                 output.Show();
             }
         }
@@ -410,13 +412,8 @@ namespace Adaptable_Studio
         /// <summary> 指令输出 </summary>
         void Generate_Click(object sender, RoutedEventArgs e)
         {
-            //结构初始化
-            MainWindow.k = 0;
-            for (int i = 0; i < 10000; i++) { MainWindow.commands[i] = ""; }//NBT框架搭建数据              
-            MainWindow.StructureNbt.Clear();
-
             string result = MainWindow.result;
-            MainWindow.result = string.Empty;
+            result = string.Empty;
             if (!UI_advancedmode.IsChecked)
             {
                 result = "summon armor_stand ~ ~1 ~ {";
@@ -559,7 +556,6 @@ namespace Adaptable_Studio
                 #endregion
 
                 result += "}";
-                Add_ones(result, false);
             }//常规模式
             else
             {
@@ -597,39 +593,21 @@ namespace Adaptable_Studio
                             + TimeAxis.pose[i].pos[18].ToString("0.#") + "f," + "0f],";
 
                     result += "}";
-                    Add_ones(result, true);
                 }//时间轴数据
 
                 //加分
                 result = "scoreboard players add @e";
                 if (UI_tags.Text != string.Empty) result += "[tag=" + tag + "]";
                 result += " ScoreName 1";
-                Add_ones(result, true);
             }//高级模式            
         }
 
         void BackToMenu_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.IniWrite("System", "PageIndex", "0", MainWindow.iniPath);
-            MainWindow.PageIndex = 0;
+            IniWrite("System", "PageIndex", "0", iniPath);
+            PageIndex = 0;
             Page_masc = this;
             NavigationService.Navigate(Page_menu);
-        }
-
-        /// <summary> 结构文件-单条存储 </summary>
-        /// <param name="Ones">添加的字符</param>
-        /// <param name="Add">是否为添加模式（否则直接替换结果）</param>
-        static void Add_ones(string Ones, bool Add = false)
-        {
-            Ones = Ones.Replace("False", "0");
-            Ones = Ones.Replace("True", "1");
-            Ones = Ones.Replace(",]", "]");
-            Ones = Ones.Replace(",}", "}");
-            MainWindow.commands[MainWindow.k] = Ones;
-            MainWindow.k++;
-
-            if (Add) MainWindow.result += Ones + "\r\n";
-            else MainWindow.result = Ones + "\r\n";
         }
 
         #region 装备页面
@@ -775,7 +753,6 @@ namespace Adaptable_Studio
         void Equipment_check(object sender, RoutedEventArgs e)
         {
             OutPut output = new OutPut();
-            output.ToNBT.IsEnabled = false;
             output.Print.Text = "#头部\n" + Item_PartData[0]
                              + "\n#胸甲\n" + Item_PartData[1]
                              + "\n#主手\n" + Item_PartData[2]
