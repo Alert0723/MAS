@@ -22,28 +22,22 @@
                 <VisualState x:Name="IncreaseNormal"/>
                 <VisualState x:Name="IncreaseMouseOver">
                     <Storyboard>
-                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="path">
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="Increase_Button">
                             <EasingDoubleKeyFrame KeyTime="0" Value="-1.35"/>
                         </DoubleAnimationUsingKeyFrames>
                     </Storyboard>
                 </VisualState>
                 <VisualState x:Name="IncreasePressed">
                     <Storyboard>
-                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="path">
-                            <EasingDoubleKeyFrame KeyTime="0" Value="0.843"/>
-                        </DoubleAnimationUsingKeyFrames>
-                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="path">
-                            <EasingDoubleKeyFrame KeyTime="0" Value="0.843"/>
-                        </DoubleAnimationUsingKeyFrames>
-                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="path">
-                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                        </DoubleAnimationUsingKeyFrames>
-                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="path">
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="Increase_Button">
                             <EasingDoubleKeyFrame KeyTime="0" Value="-1.35"/>
                         </DoubleAnimationUsingKeyFrames>
-                        <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="path">
-                            <EasingColorKeyFrame KeyTime="0" Value="#FFC7C7C7"/>
-                        </ColorAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="Increase_Button">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0.843"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="Increase_Button">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0.843"/>
+                        </DoubleAnimationUsingKeyFrames>
                     </Storyboard>
                 </VisualState>
             </VisualStateGroup>
@@ -58,28 +52,22 @@
                 <VisualState x:Name="DecreaseNormal"/>
                 <VisualState x:Name="DecreaseMouseOver">
                     <Storyboard>
-                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="path1">
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="Decrease_Button">
                             <EasingDoubleKeyFrame KeyTime="0" Value="1.35"/>
                         </DoubleAnimationUsingKeyFrames>
                     </Storyboard>
                 </VisualState>
                 <VisualState x:Name="DecreasePressed">
                     <Storyboard>
-                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="path1">
-                            <EasingDoubleKeyFrame KeyTime="0" Value="0.831"/>
-                        </DoubleAnimationUsingKeyFrames>
-                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="path1">
-                            <EasingDoubleKeyFrame KeyTime="0" Value="0.831"/>
-                        </DoubleAnimationUsingKeyFrames>
-                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="path1">
-                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                        </DoubleAnimationUsingKeyFrames>
-                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="path1">
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="Decrease_Button">
                             <EasingDoubleKeyFrame KeyTime="0" Value="1.35"/>
                         </DoubleAnimationUsingKeyFrames>
-                        <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="path1">
-                            <EasingColorKeyFrame KeyTime="0" Value="#FFC7C7C7"/>
-                        </ColorAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="Decrease_Button">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0.843"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="Decrease_Button">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0.843"/>
+                        </DoubleAnimationUsingKeyFrames>
                     </Storyboard>
                 </VisualState>
             </VisualStateGroup>
@@ -88,26 +76,30 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <TextBox TextWrapping="Wrap" Text="0" Background="#FF2F2F2F" BorderBrush="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Padding="5,0,0,0" FontSize="10" TextChanged="CheckNumber" BorderThickness="1" x:Name="NumberBox" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" MinHeight="20" Height="{Binding Height, ElementName=userControl}"/>
-        <Border MouseDown="Increase_Value" Padding="0" BorderThickness="0,1" Background="#00000000" MinHeight="20" MinWidth="16" Margin="0,0,16,0" Width="16" HorizontalAlignment="Right" x:Name="Increase_Button" MouseEnter="IncreaseMouseOverEvent" MouseLeave="IncreaseNormalEvent" MouseLeftButtonUp="IncreaseOverPressedEvent">
-            <Path x:Name="path" Data="M3.8750001,0 L7.7500001,5.1669999 6.7859909,5.1669999 3.8696645,2.4844424 0.97162113,5.1669999 -9.3270701E-09,5.1669999 z" Fill="White" MaxWidth="9" MaxHeight="6" Margin="7.011,6.673,1,6" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
-                <Path.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Path.RenderTransform>
-            </Path>
+        <Border MouseDown="Increase_Value" Padding="0" BorderThickness="0,1" Background="#00000000" MinHeight="20" MinWidth="16" Margin="0,0,16,0" Width="16" HorizontalAlignment="Right" x:Name="Increase_Button" MouseEnter="IncreaseMouseOverEvent" MouseLeave="IncreaseNormalEvent" MouseLeftButtonUp="IncreaseOverPressedEvent" RenderTransformOrigin="0.5,0.5">
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Border.RenderTransform>
+            <Path x:Name="path" Data="M3.8750001,0 L7.7500001,5.1669999 6.7859909,5.1669999 3.8696645,2.4844424 0.97162113,5.1669999 -9.3270701E-09,5.1669999 z" Fill="White" MaxWidth="9" MaxHeight="6" Margin="7.011,6.673,1,6" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
         </Border>
-        <Border MouseDown="Decrease_Value" BorderThickness="0,1" Background="#00000000" MinWidth="16" MinHeight="20" Width="16" HorizontalAlignment="Right" x:Name="Decrease_Button" MouseEnter="DecreaseMouseOverEvent" MouseLeave="DecreaseNormalEvent" MouseLeftButtonUp="DecreaseOverPressedEvent">
+        <Border MouseDown="Decrease_Value" BorderThickness="0,1" Background="#00000000" MinWidth="16" MinHeight="20" Width="16" HorizontalAlignment="Right" x:Name="Decrease_Button" MouseEnter="DecreaseMouseOverEvent" MouseLeave="DecreaseNormalEvent" MouseLeftButtonUp="DecreaseOverPressedEvent" RenderTransformOrigin="0.5,0.5">
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Border.RenderTransform>
             <Path x:Name="path1" Data="M3.8750001,0 L7.7500001,5.1669999 6.7859909,5.1669999 3.8696645,2.4844424 0.97162113,5.1669999 -9.3270701E-09,5.1669999 z" Fill="White" MaxWidth="9" MaxHeight="6" Stretch="Fill" HorizontalAlignment="Left" Width="7.989" Margin="0,6.673,0,6" RenderTransformOrigin="0.5,0.5">
                 <Path.RenderTransform>
                     <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
                         <RotateTransform Angle="180"/>
-                        <TranslateTransform/>
                     </TransformGroup>
                 </Path.RenderTransform>
             </Path>

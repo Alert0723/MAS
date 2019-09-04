@@ -14,7 +14,7 @@
             <VisualStateGroup x:Name="SwitchGroup">
                 <VisualState x:Name="SwitchOn">
                     <Storyboard>
-                        <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="home">
+                        <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="Back">
                             <EasingThicknessKeyFrame KeyTime="0" Value="15,25,0,0"/>
                             <EasingThicknessKeyFrame KeyTime="0:0:0.2" Value="25,25,0,0">
                                 <EasingThicknessKeyFrame.EasingFunction>
@@ -22,7 +22,7 @@
                                 </EasingThicknessKeyFrame.EasingFunction>
                             </EasingThicknessKeyFrame>
                         </ThicknessAnimationUsingKeyFrames>
-                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="home">
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Back">
                             <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
                             <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
                                 <EasingDoubleKeyFrame.EasingFunction>
@@ -230,18 +230,10 @@
                 <ei:GoToStateAction StateName="SwitchOff"/>
             </i:EventTrigger>
         </i:Interaction.Triggers>
-        <Button x:Name="home" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="35" Height="35" Click="Back_Click" Margin="25,25,0,0" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5">
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-90"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
-            <Button.Background>
-                <ImageBrush ImageSource="/Minecraft Adaptable Studio;component/icon/Up.png"/>
-            </Button.Background>
+        <Button x:Name="Back" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="35" Height="35" Margin="25,25,0,0" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" Background="#02DDDDDD">
+            <StackPanel>
+                <Path Fill="White" Stretch="Uniform" Margin="5" Data="{DynamicResource Icon.LeftArrow}"/>
+            </StackPanel>
         </Button>
         <TextBlock x:Name="Developers" HorizontalAlignment="Left" FontSize="14" TextWrapping="Wrap" VerticalAlignment="Top" Height="215" Width="642" Foreground="White" Margin="300,10,0,0">
             <LineBreak/>
@@ -250,27 +242,29 @@
             <LineBreak/><Run Text="{DynamicResource About_Technical_participants}"/><Run Text="skeleton小白      pca006132       bobby825        龙腾猫跃"/><LineBreak/>
             <LineBreak/><Run Text="{DynamicResource About_Acknowledgements}"/><Run Text="chengzi_SC        乙烯_中国       chyx"/><LineBreak/>
         </TextBlock>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="807.333,547.826,0,0" TextWrapping="Wrap" Text="The Command's Power 2018" VerticalAlignment="Top" FontSize="10" Foreground="White" Width="124.667"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="807.333,547.826,0,0" TextWrapping="Wrap" Text="The Command's Power 2019" VerticalAlignment="Top" FontSize="10" Foreground="White" Width="124.667"/>
         <TextBlock x:Name="DllUsed" FontSize="14" Foreground="White" Margin="300,275,0,119">
             <Run Text="{DynamicResource About_DLL_Reference}"/><LineBreak/>
             <Run/><LineBreak/>
             <Run Text="     "/><Run Text="{DynamicResource About_Program_Framework}"/><Run Text=".Net Framework"/><LineBreak/>
             <Run Text="     "/><Run Text="{DynamicResource About_Controls}"/><Run Text="Mahapps.Metro"/><LineBreak/>
-            <Run Text="     "/><Run Text="{DynamicResource About_3D_Environment}"/><Run Text="SharpGL"/><LineBreak/>
+            <Run Text="     "/><Run Text="{DynamicResource About_3D_Environment}"/><Run Text="Helix Toolkit"/><LineBreak/>
             <Run Text="     "/><Run Text="{DynamicResource About_Json_Library}"/><Run Text="Newtonsoft.Json"/><LineBreak/>
             <Run Text="     "/><Run Text="{DynamicResource About_Compressed_Library}"/><Run Text="DoNetZip"/><LineBreak/>
             <Run Text="     "/><Run Text="{DynamicResource About_Plugin_Library}"/><Run Text="SPS.Plugin"/><LineBreak/>
         </TextBlock>
-        <Button x:Name="Donate" Content="捐助作者" HorizontalAlignment="Left" Margin="145,525,0,0" VerticalAlignment="Top" Width="130" FontSize="15" ToolTipService.ShowDuration="10000" Style="{DynamicResource CustomButton}" BorderBrush="{x:Null}" Background="{x:Null}" Height="33.999" FontFamily="Microsoft YaHei UI">
+        <Button x:Name="Donate" Content="捐助作者" HorizontalAlignment="Left" Margin="145,525,0,0" VerticalAlignment="Top" Width="130" FontSize="15" ToolTipService.ShowDuration="10000" ToolTipService.InitialShowDelay="0" Style="{DynamicResource CustomButton}" BorderBrush="{x:Null}" Background="{x:Null}" Height="33.999" FontFamily="Microsoft YaHei UI">
             <Button.ToolTip>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock FontSize="15"><Run Text="支 "/><LineBreak/><Run Text="付 "/><LineBreak/><Run Text="宝 "/></TextBlock>
-                    <Image Width="150" Height="150" Source="/Minecraft Adaptable Studio;component/image/Alipay.png"/>
+                    <TextBlock FontSize="15"><Run Text="爱 "/><LineBreak/><Run Text="发 "/><LineBreak/><Run Text="电 "/></TextBlock>
+                    <Image Width="100" Height="100" Source="/Minecraft Adaptable Studio;component/image/afdian.png"/>
+                    <TextBlock FontSize="15"><Run Text="  支 "/><LineBreak/><Run Text="  付 "/><LineBreak/><Run Text="  宝 "/></TextBlock>
+                    <Image Width="100" Height="100" Source="/Minecraft Adaptable Studio;component/image/Alipay.png"/>
                     <TextBlock FontSize="15"><Run Text="  微 "/><LineBreak/><Run Text="  信 "/></TextBlock>
-                    <Image Width="150" Height="150" Source="/Minecraft Adaptable Studio;component/image/WeChat.png"/>
+                    <Image Width="100" Height="100" Source="/Minecraft Adaptable Studio;component/image/WeChat.png"/>
                 </StackPanel>
             </Button.ToolTip>
         </Button>
-        <Button x:Name="feedback" Content="建议反馈" HorizontalAlignment="Left" Margin="10,525,0,0" VerticalAlignment="Top" Width="130" FontSize="15" Foreground="White" BorderBrush="{x:Null}" Background="{x:Null}" Style="{DynamicResource CustomButton}" Height="34" FontFamily="Microsoft YaHei UI" Click="Feedback_Click"/>
+        <Button x:Name="feedback" Content="建议反馈" HorizontalAlignment="Left" Margin="10,525,0,0" VerticalAlignment="Top" Width="130" FontSize="15" Foreground="White" BorderBrush="{x:Null}" Background="{x:Null}" Style="{DynamicResource CustomButton}" Height="34" FontFamily="Microsoft YaHei UI"/>
     </Grid>
 </Page>

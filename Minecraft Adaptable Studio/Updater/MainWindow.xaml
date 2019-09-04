@@ -14,5 +14,6 @@
         <TextBlock x:Name="Tip" HorizontalAlignment="Left" Margin="150,305,0,0" TextWrapping="Wrap" Text="升级程序初始化" VerticalAlignment="Top" Height="33" FontSize="22"/>
         <TextBlock x:Name="State" HorizontalAlignment="Left" Margin="220,198,0,0" TextWrapping="Wrap" Text="准备中" VerticalAlignment="Top" Height="50" Width="580" FontSize="36"/>
         <TextBlock x:Name="VerCode" Margin="150,253,144,280" FontSize="20"/>
+        <TextBlock x:Name="test" Text="0"/>
     </Grid>
 </controls:MetroWindow>

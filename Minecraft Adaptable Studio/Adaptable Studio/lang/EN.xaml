@@ -13,8 +13,14 @@
     <!--#endregion-->
 
     <!--#region  Version Messager -->
-    <system:String x:Key="FindNewVer">New Version：</system:String>
+    <system:String x:Key="SearchNewVer">Detecting new version...</system:String>
+    <system:String x:Key="LatestVer">Latest</system:String>
+    <system:String x:Key="FindNewVer" xml:space="preserve">New Version:</system:String>
     <system:String x:Key="UpdateNow">Update Now</system:String>
+    <system:String x:Key="SearchNewVerErr">Detect error</system:String>
+    <system:String x:Key="UpdaterDownloading">Preparing……</system:String>
+    <system:String x:Key="UpdaterDownloadFail">Updater download error，please check the Internet.</system:String>
+    <system:String x:Key="Retry">Retry</system:String>
     <!--#endregion-->
 
     <!--#region  OutPut Window -->
@@ -28,13 +34,6 @@
     <system:String x:Key="Option_Routine_Setting">Routine</system:String>
     <system:String x:Key="Option_Language">Language:</system:String>
     <system:String x:Key="Option_Guidance">Page guidance when start up:</system:String>
-
-    <system:String x:Key="Option_Structures_Setting">Structures Setting</system:String>
-    <system:String x:Key="Option_MaxLength">Max length per layer(2~99):</system:String>
-    <system:String x:Key="Option_Chain_extension_direction">Chain extension direction:</system:String>
-    <system:String x:Key="Option_Chain_Vertical">Vertical</system:String>
-    <system:String x:Key="Option_Chain_Horizontal">Horizontal</system:String>
-    <system:String x:Key="Option_Paved_structure">Paved structure</system:String>
     <!--#endregion-->
 
     <!--#region  About Page -->
@@ -46,13 +45,15 @@
     <system:String x:Key="About_DLL_Reference">DLL Reference：</system:String>
     <system:String x:Key="About_Program_Framework">Program Framework：</system:String>
     <system:String x:Key="About_Controls">UI Controls：</system:String>
-    <system:String x:Key="About_3D_Environment">3D Environment：</system:String>
+    <system:String x:Key="About_3D_Environment">3D Extension：</system:String>
     <system:String x:Key="About_Json_Library">Json Library：</system:String>
     <system:String x:Key="About_Compressed_Library">Compressed Library：</system:String>
     <system:String x:Key="About_Plugin_Library">Plugin Developing Platform：</system:String>
     <!--#endregion-->
-    
+
     <!--#region  3D预览 -->
+    <system:String x:Key="Viewport_Relocation">Reset 3D viewport</system:String>
+
     <system:String x:Key="OpenGL_Grid">Grid</system:String>
     <system:String x:Key="OpenGL_Axis">Axis</system:String>
     <system:String x:Key="OpenGL_Scale">Scale</system:String>
@@ -61,7 +62,7 @@
     <!--#region  MAS.C -->
     <!--#region  页面引导 -->
     <system:String x:Key="Guide_switch">Guidance switch</system:String>
-    
+
     <system:String x:Key="Guide_pose">Check to set pose</system:String>
     <system:String x:Key="Guide_advance_mode">Enable/disable Advance mode</system:String>
 
@@ -201,7 +202,7 @@
     <!--#endregion-->
 
     <!--#region  Transition ContextMenu -->
-    <system:String x:Key="Position_Direction">Reverse rotation Setting</system:String>
+    <system:String x:Key="Direction_ReserveAll">Reserve all</system:String>
     <!--#endregion-->
     <!--#endregion-->
 

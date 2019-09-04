@@ -1,12 +1,24 @@
-D:\Visual Studio Objectives\Minecraft\MAS\Minecraft Adaptable Studio\Plugins\bin\Debug\Plugins.dll
-D:\Visual Studio Objectives\Minecraft\MAS\Minecraft Adaptable Studio\Plugins\bin\Debug\Plugins.pdb
-D:\Visual Studio Objectives\Minecraft\MAS\Minecraft Adaptable Studio\Plugins\obj\Debug\Plugins.csprojAssemblyReference.cache
-D:\Visual Studio Objectives\Minecraft\MAS\Minecraft Adaptable Studio\Plugins\obj\Debug\Plugins.csproj.CoreCompileInputs.cache
-D:\Visual Studio Objectives\Minecraft\MAS\Minecraft Adaptable Studio\Plugins\obj\Debug\Plugins.dll
-D:\Visual Studio Objectives\Minecraft\MAS\Minecraft Adaptable Studio\Plugins\obj\Debug\Plugins.pdb
-D:\Programs\Visual Studio Projects\Minecraft\MAS\Minecraft Adaptable Studio\Plugins\bin\Debug\Plugins.dll
-D:\Programs\Visual Studio Projects\Minecraft\MAS\Minecraft Adaptable Studio\Plugins\bin\Debug\Plugins.pdb
-D:\Programs\Visual Studio Projects\Minecraft\MAS\Minecraft Adaptable Studio\Plugins\obj\Debug\Plugins.csprojAssemblyReference.cache
-D:\Programs\Visual Studio Projects\Minecraft\MAS\Minecraft Adaptable Studio\Plugins\obj\Debug\Plugins.csproj.CoreCompileInputs.cache
-D:\Programs\Visual Studio Projects\Minecraft\MAS\Minecraft Adaptable Studio\Plugins\obj\Debug\Plugins.dll
-D:\Programs\Visual Studio Projects\Minecraft\MAS\Minecraft Adaptable Studio\Plugins\obj\Debug\Plugins.pdb
+D:\Visual Studio Objectives\Minecraft\MAS\Beta\Plugins\bin\Debug\Plugins.dll
+D:\Visual Studio Objectives\Minecraft\MAS\Beta\Plugins\bin\Debug\Plugins.pdb
+D:\Visual Studio Objectives\Minecraft\MAS\Beta\Plugins\bin\Debug\Minecraft Adaptable Studio.exe
+D:\Visual Studio Objectives\Minecraft\MAS\Beta\Plugins\bin\Debug\Microsoft.Expression.Drawing.dll
+D:\Visual Studio Objectives\Minecraft\MAS\Beta\Plugins\bin\Debug\Minecraft Adaptable Studio.pdb
+D:\Visual Studio Objectives\Minecraft\MAS\Beta\Plugins\bin\Debug\Minecraft Adaptable Studio.exe.config
+D:\Visual Studio Objectives\Minecraft\MAS\Beta\Plugins\bin\Debug\Microsoft.Expression.Drawing.xml
+D:\Visual Studio Objectives\Minecraft\MAS\Beta\Plugins\obj\Debug\Plugins.csprojAssemblyReference.cache
+D:\Visual Studio Objectives\Minecraft\MAS\Beta\Plugins\obj\Debug\Plugins.csproj.CoreCompileInputs.cache
+D:\Visual Studio Objectives\Minecraft\MAS\Beta\Plugins\obj\Debug\Plugins.csproj.CopyComplete
+D:\Visual Studio Objectives\Minecraft\MAS\Beta\Plugins\obj\Debug\Plugins.dll
+D:\Visual Studio Objectives\Minecraft\MAS\Beta\Plugins\obj\Debug\Plugins.pdb
+D:\Visual Studio Objectives\Minecraft\MAS\Beta\Plugins\bin\Debug\Plugins.dll.config
+D:\Programs\Visual Studio Projects\Minecraft\MAS\Beta\Plugins\bin\Debug\Plugins.dll.config
+D:\Programs\Visual Studio Projects\Minecraft\MAS\Beta\Plugins\bin\Debug\Plugins.dll
+D:\Programs\Visual Studio Projects\Minecraft\MAS\Beta\Plugins\bin\Debug\Plugins.pdb
+D:\Programs\Visual Studio Projects\Minecraft\MAS\Beta\Plugins\bin\Debug\Minecraft Adaptable Studio.exe
+D:\Programs\Visual Studio Projects\Minecraft\MAS\Beta\Plugins\bin\Debug\Minecraft Adaptable Studio.pdb
+D:\Programs\Visual Studio Projects\Minecraft\MAS\Beta\Plugins\bin\Debug\Minecraft Adaptable Studio.exe.config
+D:\Programs\Visual Studio Projects\Minecraft\MAS\Beta\Plugins\obj\Debug\Plugins.csprojAssemblyReference.cache
+D:\Programs\Visual Studio Projects\Minecraft\MAS\Beta\Plugins\obj\Debug\Plugins.csproj.CoreCompileInputs.cache
+D:\Programs\Visual Studio Projects\Minecraft\MAS\Beta\Plugins\obj\Debug\Plugins.csproj.CopyComplete
+D:\Programs\Visual Studio Projects\Minecraft\MAS\Beta\Plugins\obj\Debug\Plugins.dll
+D:\Programs\Visual Studio Projects\Minecraft\MAS\Beta\Plugins\obj\Debug\Plugins.pdb

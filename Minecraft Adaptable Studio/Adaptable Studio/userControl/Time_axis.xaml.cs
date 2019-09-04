@@ -1,12 +1,12 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using static Adaptable_Studio.PublicControl;
 
 namespace Adaptable_Studio
 {
@@ -26,30 +26,36 @@ namespace Adaptable_Studio
         //12~14:left leg
         //15~17:right leg
         //18:rotation
-        public struct Pose { public float[] pos; public bool key; }//时间轴结构体        
-
+        public struct Pose
+        {
+            public double[] pos;
+            public bool key;
+        }//时间轴结构体
         public Pose[] pose = new Pose[32767];//时间轴数据存储
 
-        public static bool[] OneResersed = new bool[19];//方向数据缓存
-        public static bool[][] IsReversed = new bool[32767][];//部位方向数据
+        /// <summary> 当前帧 方向数据缓存 </summary>
+        public static bool[] OneReversed = new bool[19];
+        /// <summary> 全局 部位方向数据 </summary>
+        public static bool[][] IsReversed = new bool[32767][];
 
-        DispatcherTimer timer = new DispatcherTimer() { Interval = new TimeSpan(0, 0, 0, 0, 50) };//播放        
+        DispatcherTimer timer = new DispatcherTimer() { Interval = new TimeSpan(0, 0, 0, 0, 50) };//播放
 
         #region 暂存数据
-        public static long ClickMark = 0;//位置暂存
-        Pose MarkPose = new Pose();//帧结构数据暂存
+        /// <summary> 当前帧位置缓存 </summary>
+        public long ClickMark = 0;
+        Pose MarkPose = new Pose();//帧结构数据缓存
         #endregion
 
         #region 自定义属性
-        /// <summary> (只读)全局数据结构体 </summary>
+        /// <summary> (只读)全局数据结构体,存储控件的所有帧数据 </summary>
         [Description("(只读)全局数据结构体"), Category("User Control")]
         public Pose[] PoseStructure
         {
             get { return pose; }
         }
 
-        /// <summary> 独立数据结构体 </summary>
-        [Description("独立数据结构体"), Category("User Control")]
+        /// <summary> 当前帧数据结构体，存储当前选中帧的动作数据 </summary>
+        [Description("当前数据结构体"), Category("User Control")]
         public Pose FramePose
         {
             get { return pose[Tick]; }
@@ -60,8 +66,8 @@ namespace Adaptable_Studio
         [Description("当前Tick值"), Category("User Control")]
         public long Tick { get; set; }
 
-        /// <summary> 总Tick值 </summary>
-        [Description("总Tick值"), Category("User Control")]
+        /// <summary> Tick上限值 </summary>
+        [Description("Tick上限值"), Category("User Control")]
         public long TotalTick
         {
             get { return (long)(Canvas.Width / KeyWidth); }
@@ -96,7 +102,7 @@ namespace Adaptable_Studio
             pose[0].key = true;
             for (int i = 0; i < 32767; i++)
             {
-                pose[i].pos = new float[19];
+                pose[i].pos = new double[19];
                 IsReversed[i] = new bool[19];
             } //动作数据初始化
         }
@@ -109,7 +115,8 @@ namespace Adaptable_Studio
 
         private void Control_Loaded(object sender, RoutedEventArgs e)
         {
-            if (TotalTick < Canvas.Width) TotalTick = (long)(Canvas.Width / KeyWidth);
+            if (TotalTick < Canvas.Width)
+                TotalTick = (long)(Canvas.Width / KeyWidth);
             TimeGridRedraw(sender, e);
             //时间线
             timePoint = new Line()
@@ -129,7 +136,7 @@ namespace Adaptable_Studio
 
         private void Control_Focus(object sender, RoutedEventArgs e)
         {
-            KeyChanged();
+            KeyChanged(sender, e);
         }
 
         private void Scroll_Changed(object sender, ScrollChangedEventArgs e)
@@ -151,45 +158,71 @@ namespace Adaptable_Studio
         }
 
         /// <summary> 关键帧补间数据运算 </summary>
-        private void KeyChanged()
+        private void KeyChanged(object sender, RoutedEventArgs e)
         {
-            int start, end = 0,//补间始末数据
+            int start, end = 0,//补间始末位置
                 mark = 0,//运算标记
-                TimeIndex = 0,//时间轴起点                              
-                TransitionIndex = 0;//过渡段索引
+                TimeIndex = 0,//时间轴运算起点  
+                TransitionIndex = 0;//过渡段顺序索引
 
+            //大循环，循环遍历所有帧
             while (TimeIndex < TotalTick)
             {
-                start = mark;
+                start = mark;//标记起点
+                //从标记点开始，搜索相邻关键帧位置，并获得头尾的参数
                 for (TimeIndex = mark + 1; TimeIndex < TotalTick; TimeIndex++)
                 {
-                    if (pose[TimeIndex].key) { end = TimeIndex; mark = TimeIndex; break; }
+                    if (pose[TimeIndex].key)
+                    {
+                        end = TimeIndex;
+                        mark = TimeIndex;
+                        break;
+                    }
                 }//提取两个相邻关键帧数据↓
 
-                int TickDelay = end - start + 1;//tick间隔
+                int TickDelay = end - start + 1;//计算相邻帧的间隔
+                //间隔>0
                 if (TickDelay > 0)
                 {
-                    //p:独立补间区间
+                    //p:两个相邻帧的补间区间
                     //q:pos[0~18]
-                    for (int p = start; p < end; p++)
+                    for (int p = start; p < end; p++)//外循环：遍历区间内的所有帧
                     {
-                        for (int q = 0; q < 19; q++)
+                        for (int q = 0; q < 19; q++)//内循环：遍历当前帧的所有动作参数
                         {
                             pose[p].pos[q] = pose[start].pos[q];
-                            //判断反向旋转
+                            //若当前帧当前部位需要反向计算
                             if (IsReversed[TransitionIndex][q])
                             {
-                                float Alpha, Beta;
-                                if (pose[start].pos[q] >= pose[end].pos[q]) { Alpha = pose[start].pos[q]; Beta = pose[end].pos[q]; }
-                                else { Beta = pose[start].pos[q]; Alpha = pose[end].pos[q]; }
+                                //定义存储始末状态的角度参数
+                                double Alpha, Beta;
+                                //比较始末角度大小
+                                if (pose[start].pos[q] >= pose[end].pos[q])
+                                {
+                                    Alpha = pose[start].pos[q];
+                                    Beta = pose[end].pos[q];
+                                }
+                                else//否则交换赋值对象
+                                {
+                                    Beta = pose[start].pos[q];
+                                    Alpha = pose[end].pos[q];
+                                }
 
-                                float DeltaAngel = (360 - Math.Abs(Alpha - Beta)) / TickDelay;
+                                //计算每帧角度偏移值
+                                double DeltaAngel = (360 - Math.Abs(Alpha - Beta)) / TickDelay;
 
-                                if (pose[start].pos[q] < pose[end].pos[q]) DeltaAngel = -DeltaAngel;
+                                //若初角小于末角，运算结果取相反数
+                                if (pose[start].pos[q] < pose[end].pos[q])
+                                    DeltaAngel = -DeltaAngel;
 
+                                //计算结果存储
                                 pose[p].pos[q] = (p - start + 1) * DeltaAngel;
-                                while (pose[p].pos[q] < -180) pose[p].pos[q] += 360;
-                                while (pose[p].pos[q] > 180) pose[p].pos[q] -= 360;
+
+                                //将任意角度转换到[-180,180]区间
+                                while (pose[p].pos[q] < -180)
+                                    pose[p].pos[q] += 360;
+                                while (pose[p].pos[q] > 180)
+                                    pose[p].pos[q] -= 360;
                             }
                             else
                             {
@@ -200,7 +233,6 @@ namespace Adaptable_Studio
                             }
                         }
                     }
-
                 }
                 TransitionIndex++;
             }
@@ -211,6 +243,9 @@ namespace Adaptable_Studio
                 for (int j = 0; j < 19; j++)
                     pose[TimeIndex].pos[j] = pose[end].pos[j];
             }
+
+            Armor_stand_Page.poseChange = true;
+            Page_masc.ChangePose(sender, e);
         }
 
         #region UI绘制模板     
@@ -249,18 +284,23 @@ namespace Adaptable_Studio
         private void TimeGridRedraw(object sender, EventArgs e)
         {
             #region Clear
-            //倒序索引删除刻度+标识
+            //倒序索引删除 刻度+标识
             int index = Canvas.Children.Count;
             for (int i = index - 1; i >= 0; i--)
             {
-                if (Canvas.Children[i] is Line) Canvas.Children.Remove(Canvas.Children[i]);
-                else if (Canvas.Children[i] is TextBlock) Canvas.Children.Remove(Canvas.Children[i]);
+                if (Canvas.Children[i] is Line)
+                    Canvas.Children.Remove(Canvas.Children[i]);
+                else if (Canvas.Children[i] is TextBlock)
+                    Canvas.Children.Remove(Canvas.Children[i]);
             }
 
             //倒序索引删除 时间线+关键帧+过渡段
             index = TimeGrid.Children.Count;
             for (int i = index - 1; i >= 0; i--)
-                if (TimeGrid.Children[i] is Line) TimeGrid.Children.Remove(TimeGrid.Children[i]);
+            {
+                if (TimeGrid.Children[i] is Line)
+                    TimeGrid.Children.Remove(TimeGrid.Children[i]);
+            }
             #endregion
 
             int t = 0;//关键帧偶数量检测
@@ -330,10 +370,10 @@ namespace Adaptable_Studio
                         X2 = (end + 1) * KeyWidth - 4 * KeyWidth / 5,
                         Y1 = top,
                         Y2 = top,
-                        ContextMenu = (ContextMenu)FindResource("TransitionMenu")
+                        ContextMenu = new TimeAxis_ContextMenu(IsReversed, OneReversed, ClickMark)
                     };
                     Panel.SetZIndex(transition, 0);
-                    transition.MouseDown += TransitionMouseDown;
+                    transition.MouseRightButtonDown += Transition_MouseRightButtonDown;
                     TimeGrid.Children.Add(transition);
                     TransitionIndex++;
                     t = 1;//数量统计清空
@@ -357,11 +397,6 @@ namespace Adaptable_Studio
             Armor_stand_Page.poseChange = true;
         }
 
-        private void TimeGrid_PreviewMouseMove(object sender, MouseEventArgs e)
-        {
-            Armor_stand_Page.poseChange = true;
-        }
-
         private void TimeGridMouseDown(object sender, MouseButtonEventArgs e)
         {
             //时间轴暂停
@@ -372,22 +407,23 @@ namespace Adaptable_Studio
             {
                 if (e.GetPosition(TimeGrid).X >= i * KeyWidth && e.GetPosition(TimeGrid).X <= i * KeyWidth + KeyWidth)
                     Position = (long)(i * KeyWidth + KeyWidth / 2);
-            }//计算鼠标对应帧位置
+            }//计算鼠标当前位置 对应帧位置
 
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 mousedown = true;
                 Tick = (long)(Position / KeyWidth);
-            }//鼠标左键按下
+            }//鼠标左键按下,定位当前位置对应帧
             else if (e.RightButton == MouseButtonState.Pressed)
             {
                 pose[(int)(Position / KeyWidth - 0.5)].key = true;//关键帧位置
-            }//鼠标右键按下
+            }//鼠标右键按下,在当前位置产生关键帧
 
             TimeGridRedraw(sender, e);
-            KeyChanged();
+            KeyChanged(sender, e);
         }
 
+        /// <summary> 光标在时间轴移动时，实时反馈动作过渡效果 </summary>
         private void TimeGridMouseMove(object sender, MouseEventArgs e)
         {
             //重绘时间线
@@ -400,6 +436,8 @@ namespace Adaptable_Studio
                 }
                 TimeLine(Tick);
             }
+            Armor_stand_Page.poseChange = true;
+            Page_masc.ChangePose(sender, e);
         }
 
         private void TimeGridMouseUp(object sender, MouseButtonEventArgs e)
@@ -410,8 +448,10 @@ namespace Adaptable_Studio
             for (int i = 0; i < TotalTick; i++)
             {
                 foreach (Line item in TimeGrid.Children)
+                {
                     if (item.Tag != null && item.Tag.ToString() == i.ToString())
                         item.IsHitTestVisible = true;
+                }
             }
         }
 
@@ -434,50 +474,32 @@ namespace Adaptable_Studio
                 e.Handled = true;
                 ClickMark = long.Parse(((Line)sender).Tag.ToString());
             }//鼠标右键按下            
-            KeyChanged();
+            KeyChanged(sender, e);
         }
 
         /// <summary> 过渡段 右键菜单 </summary>
-        private void TransitionMouseDown(object sender, MouseButtonEventArgs e)
+        private void Transition_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-
-            }//鼠标左键按下
-            else if (e.RightButton == MouseButtonState.Pressed)
-            {
-                e.Handled = true;
-                MousePosition.GetCursorPos(out p);
-                ClickMark = long.Parse(((Line)sender).Tag.ToString().Replace("transition", ""));
-                OneResersed = IsReversed[ClickMark];
-            }//鼠标右键按下
+            e.Handled = true;
+            ClickMark = long.Parse(((Line)sender).Tag.ToString().Replace("transition", ""));
+            OneReversed = IsReversed[ClickMark];
         }
         #endregion
 
-        MousePosition.POINT p = new MousePosition.POINT(0, 0);
-        #region TransitionMenu
-        private void PartDirection_Click(object sender, RoutedEventArgs e)
-        {
-            MASC_Part_Direction pd = new MASC_Part_Direction();
-            pd.Left = p.X + 20;
-            pd.Top = p.Y - 150;
-            pd.Show();
-            pd.Activate();
-        }
-        #endregion
-
-        #region KeyFrame ContestMenu        
+        #region KeyFrame ContestMenu
         /// <summary> 复制关键帧数据 </summary>
         private void FrameCopy_Click(object sender, RoutedEventArgs e)
         {
-            MarkPose = pose[ClickMark];
+            MarkPose.pos = pose[ClickMark].pos;
+            MarkPose.key = pose[ClickMark].key;
         }
 
-        /// <summary> 黏贴关键帧数据 </summary>
+        /// <summary> 粘贴关键帧数据 </summary>
         private void FramePaste_Click(object sender, RoutedEventArgs e)
         {
-            pose[ClickMark] = MarkPose;
-            KeyChanged();
+            pose[ClickMark].pos = MarkPose.pos;
+            pose[ClickMark].key = MarkPose.key;
+            KeyChanged(sender, e);
         }
 
         /// <summary> 关键帧删除 </summary>
@@ -487,7 +509,7 @@ namespace Adaptable_Studio
             {
                 pose[ClickMark].key = false;
                 TimeGridRedraw(sender, e);
-                KeyChanged();
+                KeyChanged(sender, e);
             }
         }
         #endregion
@@ -512,9 +534,12 @@ namespace Adaptable_Studio
             TimeLine(Tick);
             TimeGrid.Children.Add(timePoint);
 
+            Page_masc.ChangePose(sender, e as RoutedEventArgs);
+
             //判断时间线是否超出视野，是则视野向后滚动
             double p = Scroll.HorizontalOffset;
-            if (Tick * KeyWidth >= p + Width) Scroll.ScrollToHorizontalOffset(p + Width / 2);
+            if (Tick * KeyWidth >= p + Width)
+                Scroll.ScrollToHorizontalOffset(p + Width / 2);
         }
 
         private void Scroll_Horizontal_Changed(object sender, MouseWheelEventArgs e)
@@ -540,7 +565,7 @@ namespace Adaptable_Studio
 
         private void Play_Mousedown(object sender, MouseButtonEventArgs e)
         {
-            KeyChanged();
+            KeyChanged(sender, e);
             if (play_pause_button.Pressed) timer.Start();
             else timer.Stop();
         }
@@ -560,24 +585,24 @@ namespace Adaptable_Studio
         }
 
         /// <summary> 重置时间轴 </summary>
-        private void Reset_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Reset_Click(object sender, RoutedEventArgs e)
         {
             Armor_stand_Page.poseChange = true;
 
             for (int i = 0; i < 32767; i++)
             {
                 IsReversed[i] = new bool[19];
-                pose[i].pos = new float[19];
+                pose[i].pos = new double[19];
                 pose[i].key = false;
             } //动作数据初始化
 
             Tick = 0;
             play_pause_button.Pressed = false;
-            reset_button.Pressed = false;
 
-            Play_Mousedown(sender, e);
+            Play_Mousedown(sender, e as MouseButtonEventArgs);
             Control_Loaded(sender, e);
             TimeGridRedraw(sender, e);
+            Page_masc.ChangePose(sender, e);
         }
         #endregion
     }

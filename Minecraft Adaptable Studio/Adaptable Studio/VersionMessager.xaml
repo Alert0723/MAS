@@ -5,10 +5,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
         mc:Ignorable="d"
-        Title="Version Messager" Height="490" Width="520" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" TitleCharacterCasing="Normal" ShowMinButton="False" BorderBrush="#FF7C7C7C" Topmost="True" Closed="Window_Closed" Loaded="Window_Loaded">
+        Title="Version Messager" Height="500" Width="520" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" TitleCharacterCasing="Normal" ShowMinButton="False" BorderBrush="#FF7C7C7C" Topmost="True">
     <Grid>
-        <TextBlock x:Name="VersionText" Text="{DynamicResource FindNewVer}" Margin="10,10,12,423" FontSize="18" FontWeight="Bold" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa"/>
-        <TextBox x:Name="UpdateLog" Height="367" Margin="10,38,10,0" TextWrapping="Wrap" Text="Update Log" VerticalAlignment="Top" UndoLimit="0" IsReadOnly="True" IsUndoEnabled="False" FontSize="14" VerticalScrollBarVisibility="Auto" BorderBrush="{x:Null}" CaretBrush="{x:Null}" IsHitTestVisible="True" Focusable="False" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa"/>
-        <Button Content="{DynamicResource UpdateNow}" FontFamily="{DynamicResource Font}" Margin="10,410,10,0" VerticalAlignment="Top" Height="41" FontSize="14" Background="#FF252525" controls:ControlsHelper.ContentCharacterCasing="Normal" Click="Update_Click"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="UpdateLog" Height="367" Margin="10,47,9.6,0" TextWrapping="Wrap" Text="Update Log" VerticalAlignment="Top" UndoLimit="0" IsReadOnly="True" IsUndoEnabled="False" FontSize="14" VerticalScrollBarVisibility="Auto" BorderBrush="{x:Null}" CaretBrush="{x:Null}" IsHitTestVisible="True" Focusable="False" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa"/>
+        <Button x:Name="ExeButton" Content="{DynamicResource UpdateNow}" FontFamily="{DynamicResource Font}" Margin="10,419,9.6,0" VerticalAlignment="Top" Height="41" FontSize="14" Background="#FF252525" controls:ControlsHelper.ContentCharacterCasing="Normal"/>
+        <Label x:Name="VersionText" Content="{DynamicResource FindNewVer}" Margin="10,6,389.6,428.4" FontSize="18" FontWeight="Bold" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa"/>
+        <Label x:Name="Version" Margin="124,6,0,428.4" FontSize="18" FontWeight="Bold" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" HorizontalAlignment="Left"/>
     </Grid>
 </controls:MetroWindow>

@@ -5,16 +5,16 @@ using System.IO;
 using System.Net;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Windows;
+using static Adaptable_Studio.IniConfig;
+using static Adaptable_Studio.MainWindow;
 
 namespace Adaptable_Studio
 {
     /// <summary> VersionMessager.xaml 的交互逻辑 </summary>
     public partial class VersionMessager : MetroWindow
     {
-        string AppPath = Environment.CurrentDirectory,//应用程序根目录
-               LogPath;//日志文件路径
-
         bool updated;
 
         //更新器下载链接
@@ -37,18 +37,22 @@ namespace Adaptable_Studio
         public VersionMessager()
         {
             InitializeComponent();
+            //控件事件
+            this.Loaded += Window_Loaded;
+            this.Closed += Window_Closed;
+            ExeButton.Click += Update_Click;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            LogPath = AppPath + @"\log.txt";
+
         }
 
         private void Window_Closed(object sender, EventArgs e)
         {
             if (updated)
             {
-                Process.Start(AppPath + @"\MAS Updater.exe");
+                Process.Start(@".\MAS Updater.exe");
                 Log_Write(LogPath, "[Main]开始升级程序");
                 IniWrite("System", "PageIndex", "-1", iniPath);
                 Environment.Exit(0);
@@ -59,51 +63,45 @@ namespace Adaptable_Studio
         {
             try
             {
-                //向目标网页发送Post请求
-                Stream responseStream = WebRequest.Create(updaterlink).GetResponse().GetResponseStream();
-                //创建本地文件写入流
-                using (Stream stream = new FileStream(AppPath + @"\MAS Updater.exe", FileMode.Create))
+                ExeButton.Content = FindResource("UpdaterDownloading");
+                ExeButton.IsEnabled = false;
+                Thread th_updaterdownload = new Thread(new ThreadStart(delegate
                 {
-                    byte[] bArr = new byte[1024];
-                    int size = responseStream.Read(bArr, 0, bArr.Length);
-                    while (size > 0)
+                    //向目标网页发送Post请求
+                    Stream responseStream = WebRequest.Create(updaterlink).GetResponse().GetResponseStream();
+                    //创建本地文件写入流
+                    using (Stream stream = new FileStream(@".\MAS Updater.exe", FileMode.Create))
                     {
-                        stream.Write(bArr, 0, size);
-                        size = responseStream.Read(bArr, 0, bArr.Length);
-                    }
-                    stream.Close();
-                    responseStream.Close();
+                        byte[] bArr = new byte[1024];
+                        int size = responseStream.Read(bArr, 0, bArr.Length);
+                        while (size > 0)
+                        {
+                            stream.Write(bArr, 0, size);
+                            size = responseStream.Read(bArr, 0, bArr.Length);
+                        }
+                        stream.Close();
+                        responseStream.Close();
 
-                    updated = true;
-                }
+                        updated = true;
+                        Dispatcher.Invoke(new ThreadStart(delegate
+                        {
+                            Close();
+                        }));
+                    }
+                }));
+
+                th_updaterdownload.Start();
             }
             catch
             {
+                ExeButton.Content = FindResource("Retry");
                 Log_Write(LogPath, "[VersionMessager]更新器下载失败");
+                MessageBox.Show(FindResource("UpdaterDownloadFail") as string, "Error");
+            }
+            finally
+            {
+                ExeButton.IsEnabled = true;
             }
         }
-
-        /// <summary> 日志文件输出 </summary>
-        public static void Log_Write(string path, string information)
-        {
-            using (StreamWriter file = new StreamWriter(path, true))
-            { file.WriteLine("[" + DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second + "." + DateTime.Now.Millisecond + "] " + information); }
-        }
-
-        #region ini文件读写
-        /// <summary> 读取配置文件(字符串, "节名", "键名", 文件路径) </summary>
-        public static void IniRead(ref StringBuilder StrName, string configureNode, string key, string path)
-        {
-            //获取节中 键的值，存在字符串中
-            //格式：GetPrivateProfileString("节名", "键名", "", 字符串, 255, 文件路径)
-            GetPrivateProfileString(configureNode, key, "", StrName, 255, path);
-        }
-
-        /// <summary> 写入配置文件("节名", "键名", 键值, 文件路径) </summary>
-        public static void IniWrite(string configureNode, string key, string keyValue, string path)
-        {
-            WritePrivateProfileString(configureNode, key, keyValue, path);
-        }
-        #endregion
     }
 }

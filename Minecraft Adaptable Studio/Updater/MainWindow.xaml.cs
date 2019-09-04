@@ -15,8 +15,6 @@ namespace Updater
     /// <summary> MainWindow.xaml 的交互逻辑 </summary>
     public partial class MainWindow : MetroWindow
     {
-        static string AppPath = Environment.CurrentDirectory;//应用程序根目录
-
         #region 更新模块
         //在线更新日志链接
         const string updatelog = "http://minecraft-adaptable-studio-1254149191.coscd.myqcloud.com/update.log";
@@ -36,27 +34,36 @@ namespace Updater
 
         private void Main_Loaded(object sender, RoutedEventArgs e)
         {
-            string download = AppPath + @"\download\",
-                              textures = AppPath + @"\textures\",
-                              json = AppPath + @"\json\";
+            string download = @".\download\",
+                   textures = @".\textures\",
+                   json = @".\json\";
             int t = 0;
             //创建文件夹
-            if (!Directory.Exists(download)) Directory.CreateDirectory(download);
-            if (!Directory.Exists(textures)) Directory.CreateDirectory(textures);
-            if (!Directory.Exists(json)) Directory.CreateDirectory(json);
+            if (!Directory.Exists(download))
+                Directory.CreateDirectory(download);
+            if (!Directory.Exists(textures))
+                Directory.CreateDirectory(textures);
+            if (!Directory.Exists(json))
+                Directory.CreateDirectory(json);
 
             //升级结束响应
-            Thread th6 = new Thread(new ThreadStart(delegate
-        {
-            Thread.Sleep(100);
-            if (t >= 5) Dispatcher.Invoke(new ThreadStart(delegate { State.Text = "升级完成"; }));
-            else Dispatcher.Invoke(new ThreadStart(delegate { State.Text = "升级异常"; }));
-            Dispatcher.Invoke(new ThreadStart(delegate { Tip.Text = "等待响应"; ProgressBar.Value = 100; }));
-            timer.Start();
-        }));
+            Thread th_end = new Thread(new ThreadStart(delegate
+            {
+                Thread.Sleep(100);
+                if (t >= 5)
+                    Dispatcher.Invoke(new ThreadStart(delegate { State.Text = "升级完成"; }));
+                else
+                    Dispatcher.Invoke(new ThreadStart(delegate { State.Text = "升级异常"; }));
+                Dispatcher.Invoke(new ThreadStart(delegate
+                {
+                    Tip.Text = "等待响应，即将重启程序";
+                    ProgressBar.Value = 100;
+                }));
+                timer.Start();
+            }));
 
             //删除多余文件
-            Thread th5 = new Thread(new ThreadStart(delegate
+            Thread th_delete = new Thread(new ThreadStart(delegate
             {
                 Thread.Sleep(100);
                 Dispatcher.Invoke(new ThreadStart(delegate
@@ -64,13 +71,17 @@ namespace Updater
                     Tip.Text = "正在清理升级缓存...";
                     ProgressBar.Value += 20;
                 }));
-                Directory.Delete(AppPath + @"\download\", true);
+                Directory.Delete(@".\download\", true);
                 t++;
-                th6.Start();
+                Dispatcher.Invoke(new ThreadStart(delegate
+                {
+                    test.Text = t.ToString();
+                }));
+                th_end.Start();
             }));
 
             //覆盖文件
-            Thread th4 = new Thread(new ThreadStart(delegate
+            Thread th_update = new Thread(new ThreadStart(delegate
             {
                 Thread.Sleep(100);
                 Dispatcher.Invoke(new ThreadStart(delegate { ProgressBar.Value += 20; }));
@@ -81,9 +92,15 @@ namespace Updater
                     try
                     {
                         Dispatcher.Invoke(new ThreadStart(delegate { Tip.Text = "正在升级核心程序..."; }));
-                        File.Delete(AppPath + @"\Minecraft Adaptable Studio.exe");
-                        Directory.Move(AppPath + @"\download\Minecraft Adaptable Studio.temp", AppPath + @"\Minecraft Adaptable Studio.exe");
+                        //删除旧文件
+                        File.Delete(@".\Minecraft Adaptable Studio.exe");
+                        //移动新文件
+                        Directory.Move(@".\download\Minecraft Adaptable Studio.temp", @".\Minecraft Adaptable Studio.exe");
                         t++;
+                        Dispatcher.Invoke(new ThreadStart(delegate
+                        {
+                            test.Text = t.ToString();
+                        }));
                     }
                     catch
                     {
@@ -100,11 +117,11 @@ namespace Updater
                         }
                     }
                 } while (pass);
-                th5.Start();
+                th_delete.Start();
             }));
 
             //解压资源
-            Thread th3 = new Thread(new ThreadStart(delegate
+            Thread th_unzip = new Thread(new ThreadStart(delegate
             {
                 Thread.Sleep(100);
                 Dispatcher.Invoke(new ThreadStart(delegate
@@ -114,13 +131,17 @@ namespace Updater
                     ProgressBar.Value += 20;
                 }));
                 using (ZipFile zip = new ZipFile(download + @"\mas_package.zip"))
-                { zip.ExtractAll(AppPath, ExtractExistingFileAction.OverwriteSilently); }
+                { zip.ExtractAll(@".\", ExtractExistingFileAction.OverwriteSilently); }
                 t++;
-                th4.Start();
+                Dispatcher.Invoke(new ThreadStart(delegate
+                {
+                    test.Text = t.ToString();
+                }));
+                th_update.Start();
             }));
 
             //下载核心文件
-            Thread th2 = new Thread(new ThreadStart(delegate
+            Thread th_core = new Thread(new ThreadStart(delegate
             {
                 Thread.Sleep(100);
                 try
@@ -128,25 +149,31 @@ namespace Updater
                     Dispatcher.Invoke(new ThreadStart(delegate
                     {
                         Tip.Text = "正在下载Minecraft Adaptable Studio.temp";
-                        ProgressBar.Value += 10;
+                        ProgressBar.Value += 5;
                     }));
                     Download(download, core, @"\Minecraft Adaptable Studio.temp");
                     t++;
-                    th3.Start();
+                    Dispatcher.Invoke(new ThreadStart(delegate
+                    {
+                        test.Text = t.ToString();
+                    }));
+                    th_unzip.Start();
                 }
                 catch
                 {
                     Dispatcher.Invoke(new ThreadStart(delegate
                     {
                         Tip.Text = "下载Minecraft Adaptable Studio.temp失败";
-                        th6.Start();
+                        MessageBox.Show("下载Minecraft Adaptable Studio.temp失败");
+                        th_delete.Start();
                     }));
                 }
             }));
 
             //下载更新资源
-            Thread th1 = new Thread(new ThreadStart(delegate
+            Thread th_rec = new Thread(new ThreadStart(delegate
             {
+
                 Thread.Sleep(100);
                 try
                 {
@@ -158,17 +185,22 @@ namespace Updater
                     }));
                     Download(download, pack, @"\mas_package.zip");
                     t++;
-                    th2.Start();
+                    Dispatcher.Invoke(new ThreadStart(delegate
+                    {
+                        test.Text = t.ToString();
+                    }));
+                    th_core.Start();
                 }
                 catch
                 {
                     Tip.Text = "下载mas_package.zip失败";
-                    th6.Start();
+                    //MessageBox.Show("下载mas_package.zip失败");
+                    th_delete.Start();
                 }
             }));
 
             //获取升级版本号
-            Thread th0 = new Thread(new ThreadStart(delegate
+            Thread th_begin = new Thread(new ThreadStart(delegate
             {
                 Thread.Sleep(800);
                 string VerStr;
@@ -180,15 +212,16 @@ namespace Updater
                     }
                     Dispatcher.Invoke(new ThreadStart(delegate
                     {
-                        if (VerStr != null) VerCode.Text = VerStr;
+                        if (VerStr != null)
+                            VerCode.Text = VerStr;
                     }));
                 }
                 catch { }
 
-                th1.Start();
+                th_rec.Start();
             }));
 
-            th0.Start();
+            th_begin.Start();
         }
 
         private void Main_Closed(object sender, EventArgs e)
@@ -200,15 +233,17 @@ namespace Updater
         {
             Opacity -= 0.005;
             if (Opacity <= 0.3)
+            {
                 try
                 {
-                    Process.Start(AppPath + @"\Minecraft Adaptable Studio.exe");
+                    Process.Start(@".\Minecraft Adaptable Studio.exe");
                     Close();
                 }
                 catch { }
+            }
         }
 
-        ///<summary> 资源文件下载 </summary>
+        ///<summary> 文件下载 </summary>
         private static void Download(string download_path, string url, string fileName)
         {
             try
