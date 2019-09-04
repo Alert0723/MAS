@@ -328,7 +328,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="class\CreateNBT.cs" />
     <Compile Include="class\Json.cs" />
     <Compile Include="ColorBoard.xaml.cs">
       <DependentUpon>ColorBoard.xaml</DependentUpon>

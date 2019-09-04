@@ -34,7 +34,7 @@
         <controls:WindowCommands>
             <Button x:Name="Help_Button" FontFamily="{DynamicResource Font}" ToolTip="{DynamicResource MainHelp}" Click="Help_Click">
                 <StackPanel Orientation="Horizontal">
-                    <Path Stretch="Uniform" Fill="White" Margin="4" Data="{DynamicResource Icon.HelpBook}"/>
+                    <Path Stretch="Uniform" Fill="White" Margin="5" Data="{DynamicResource Icon.HelpBook}"/>
                 </StackPanel>
             </Button>
         </controls:WindowCommands>
@@ -43,12 +43,12 @@
         <controls:WindowCommands>
             <Button x:Name="Option_Button" FontFamily="{DynamicResource Font}" Click="Option_Click" ToolTip="{DynamicResource MainOption}">
                 <StackPanel Orientation="Horizontal">
-                    <Path Stretch="Uniform" Fill="White" Margin="4" Data="{DynamicResource Icon.Tools}"/>
+                    <Path Stretch="Uniform" Fill="White" Margin="5" Data="{DynamicResource Icon.Tools}"/>
                 </StackPanel>
             </Button>
             <Button x:Name="About_Button" FontFamily="{DynamicResource Font}" Click="About_Click" ToolTip="{DynamicResource MainAbout}">
                 <StackPanel Orientation="Horizontal">
-                    <Path Stretch="Uniform" Fill="White" Margin="4" Data="{DynamicResource Icon.Tags}"/>
+                    <Path Stretch="Uniform" Fill="White" Margin="5" Data="{DynamicResource Icon.Tags}"/>
                 </StackPanel>
             </Button>
         </controls:WindowCommands>
