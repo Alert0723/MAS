@@ -16,7 +16,7 @@
             <MenuItem Name="DeleteFrame" FontSize="11" Header="{DynamicResource DeleteFrame}" ToolTip="{DynamicResource DeleteTip}" Click="DeleteFrame_Click"/>
         </ContextMenu>
 
-        <ControlTemplate x:Key="ScrollViewerControlTemplate1" TargetType="{x:Type ScrollViewer}">
+        <ControlTemplate x:Key="ScrollViewerControlTemplate" TargetType="{x:Type ScrollViewer}">
             <Grid x:Name="Grid" Background="{TemplateBinding Background}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -477,7 +477,7 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        <Style x:Key="KeepButtonStyle1" TargetType="{x:Type local:KeepButton}">
+        <Style x:Key="KeepButtonStyle" TargetType="{x:Type local:KeepButton}">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type local:KeepButton}">
@@ -494,7 +494,7 @@
             <RowDefinition Height="20"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <ScrollViewer x:Name="Scroll" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" Background="{Binding Background, ElementName=TimeGrid}" Template="{DynamicResource ScrollViewerControlTemplate1}" Grid.RowSpan="2" ScrollChanged="Scroll_Changed">
+        <ScrollViewer x:Name="Scroll" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" Background="{Binding Background, ElementName=TimeGrid}" Template="{DynamicResource ScrollViewerControlTemplate}" Grid.RowSpan="2" ScrollChanged="Scroll_Changed">
             <i:Interaction.Behaviors>
                 <ei:FluidMoveBehavior Duration="0:0:0.5" AppliesTo="Children">
                     <ei:FluidMoveBehavior.EaseY>
@@ -565,11 +565,11 @@
                 </PathGeometry>
             </Path.Data>
         </Path>
-        <local:KeepButton x:Name="add_tick" HorizontalAlignment="Left" Margin="-50.667,30,0,0" Width="20" Default_Path="{DynamicResource Icon.Plus}" Pressed_Path="{DynamicResource Icon.Plus}" ToolTip="{DynamicResource AddTick}" Background="#00000000" Style="{DynamicResource KeepButtonStyle1}" Height="20" Grid.Row="1" VerticalAlignment="Top" MouseDown="AddTick_MouseDown"/>
-        <local:KeepButton x:Name="remove_tick" HorizontalAlignment="Left" Margin="-100.667,30,0,0" Width="20" Default_Path="{DynamicResource Icon.Minus}" Pressed_Path="{DynamicResource Icon.Minus}" ToolTip="{DynamicResource RemoveTick}" Background="#00000000" Style="{DynamicResource KeepButtonStyle1}" Height="20" Grid.Row="1" VerticalAlignment="Top" MouseDown="RemoveTick_MouseDown"/>
-        <local:KeepButton x:Name="repeat_button" HorizontalAlignment="Left" Margin="-50.667,5,0,0" Width="20" Default_Path="{DynamicResource Icon.Media.Repeat}" Pressed_Path="{DynamicResource Icon.Media.NotRepeat}" ToolTip="{DynamicResource TimeRepeat}" Background="#00000000" Style="{DynamicResource KeepButtonStyle1}" Height="20" Grid.Row="1" VerticalAlignment="Top"/>
-        <local:KeepButton x:Name="play_pause_button" HorizontalAlignment="Left" Margin="-75.667,5,0,0" Width="20" Default_Path="{DynamicResource Icon.Media.Play}" Pressed_Path="{DynamicResource Icon.Media.Pause}" MouseDown="Play_Mousedown" ToolTip="{DynamicResource Play/Pause}" Style="{DynamicResource KeepButtonStyle1}" Background="#00000000" Height="20" Grid.Row="1" VerticalAlignment="Top"/>
-        <local:KeepButton x:Name="home_button" HorizontalAlignment="Left" Margin="-100.667,5,0,0" Width="20" Default_Path="{DynamicResource Icon.Media.Rewind}" Pressed_Path="{DynamicResource Icon.Media.Rewind}" MouseDown="BackHome_MouseDown" ToolTip="{DynamicResource BackTimeHome}" Style="{DynamicResource KeepButtonStyle1}" Background="#00000000" Height="20" Grid.Row="1" VerticalAlignment="Top"/>
+        <local:KeepButton x:Name="add_tick" HorizontalAlignment="Left" Margin="-50.667,30,0,0" Width="20" Default_Path="{DynamicResource Icon.Plus}" Pressed_Path="{DynamicResource Icon.Plus}" ToolTip="{DynamicResource AddTick}" Background="#00000000" Style="{DynamicResource KeepButtonStyle}" Height="20" Grid.Row="1" VerticalAlignment="Top" MouseDown="AddTick_MouseDown"/>
+        <local:KeepButton x:Name="remove_tick" HorizontalAlignment="Left" Margin="-100.667,30,0,0" Width="20" Default_Path="{DynamicResource Icon.Minus}" Pressed_Path="{DynamicResource Icon.Minus}" ToolTip="{DynamicResource RemoveTick}" Background="#00000000" Style="{DynamicResource KeepButtonStyle}" Height="20" Grid.Row="1" VerticalAlignment="Top" MouseDown="RemoveTick_MouseDown"/>
+        <local:KeepButton x:Name="repeat_button" HorizontalAlignment="Left" Margin="-50.667,5,0,0" Width="20" Default_Path="{DynamicResource Icon.Media.Repeat}" Pressed_Path="{DynamicResource Icon.Media.NotRepeat}" ToolTip="{DynamicResource TimeRepeat}" Background="#00000000" Style="{DynamicResource KeepButtonStyle}" Height="20" Grid.Row="1" VerticalAlignment="Top"/>
+        <local:KeepButton x:Name="play_pause_button" HorizontalAlignment="Left" Margin="-75.667,5,0,0" Width="20" Default_Path="{DynamicResource Icon.Media.Play}" Pressed_Path="{DynamicResource Icon.Media.Pause}" MouseDown="Play_Mousedown" ToolTip="{DynamicResource Play/Pause}" Style="{DynamicResource KeepButtonStyle}" Background="#00000000" Height="20" Grid.Row="1" VerticalAlignment="Top"/>
+        <local:KeepButton x:Name="home_button" HorizontalAlignment="Left" Margin="-100.667,5,0,0" Width="20" Default_Path="{DynamicResource Icon.Media.Rewind}" Pressed_Path="{DynamicResource Icon.Media.Rewind}" MouseDown="BackHome_MouseDown" ToolTip="{DynamicResource BackTimeHome}" Style="{DynamicResource KeepButtonStyle}" Background="#00000000" Height="20" Grid.Row="1" VerticalAlignment="Top"/>
         <Button x:Name="reset_button" Margin="0,0,10,0" Click="Reset_Click" ToolTip="重置时间轴" HorizontalAlignment="Right" Width="20" Background="#02000000" BorderBrush="{x:Null}" Style="{DynamicResource CustomButton}">
             <Path Margin="1" Stretch="Uniform" Fill="White" Data="{DynamicResource Icon.Reset}"/>
         </Button>

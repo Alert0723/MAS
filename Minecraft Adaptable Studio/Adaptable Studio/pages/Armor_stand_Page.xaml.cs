@@ -19,7 +19,6 @@ namespace Adaptable_Studio
         #region Define
         #region EquipItem
         Json ItemName;
-        int part = 0;//当前编辑部位
         public struct ItemData
         {
             public bool IsEnabled;
@@ -612,20 +611,30 @@ namespace Adaptable_Studio
 
         #region 装备页面
         int[] ComboBox_Index = new int[6];//部位物品索引值
+        int part = 0;//当前编辑部位
         /// <summary> 物品部位切换/读取参数 </summary>
         void Item_TabChanged(object sender, SelectionChangedEventArgs e)
         {
+            //获取当前编辑部位
             part = Part_Slector.SelectedIndex;
+            //控制当前部位输出开关
             EnablePart_Settings.IsChecked = Item_Data[part].IsEnabled;
+
             //页面Index索引,Text-i,Bool-j,Value-k
             int i = 0, j = 0, k = 0;
-            #region 基本属性遍历        
+
+            #region 基本属性遍历
+            //遍历物品设置容器内的控件
             foreach (var item in grid1.Children)
             {
+                //下拉选框
                 if (item is ComboBox)
+                    //获取列表内的物品对应索引值
                     ((ComboBox)item).SelectedIndex = ComboBox_Index[part];
+                //数字控件
                 else if (item is CustomNumberBox)
                 {
+                    //按顺序存储所有Value值 到Value[]数组
                     ((CustomNumberBox)item).Value = Item_Data[part].Value[k];
                     k++;
                 }
@@ -635,6 +644,7 @@ namespace Adaptable_Studio
             {
                 if (item is CheckBox)
                 {
+                    //按顺序存储所有布尔值 到Bool[]数组
                     ((CheckBox)item).IsChecked = Item_Data[part].Bool[j];
                     j++;
                 }
@@ -644,6 +654,7 @@ namespace Adaptable_Studio
             {
                 if (item is TextBox)
                 {
+                    //按顺序存储所有String值 到Content[]数组
                     ((TextBox)item).Text = Item_Data[part].Content[i];
                     i++;
                 }
@@ -655,11 +666,13 @@ namespace Adaptable_Studio
             {
                 if (item is CustomNumberBox)
                 {
+                    //按顺序存储所有Value值 到Value[] 数组
                     ((CustomNumberBox)item).Value = Item_Data[part].Value[k];
                     k++;
                 }
                 else if (item is CheckBox)
                 {
+                    //按顺序存储所有布尔值 到Bool[]数组
                     ((CheckBox)item).IsChecked = Item_Data[part].Bool[j];
                     j++;
                 }

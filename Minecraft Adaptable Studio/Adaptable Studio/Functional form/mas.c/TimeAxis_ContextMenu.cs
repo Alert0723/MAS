@@ -44,13 +44,16 @@ namespace Adaptable_Studio
             oneReversed = OneReversed;
             #region 初始化
             Style = FindResource("CustomContextMenu") as Style;
+            //全部反向
             this.Items.Add(new MenuItem()
             {
                 Header = FindResource("Direction_ReserveAll"),
                 Style = FindResource("CustomMenuItem") as Style
             });
-            this.Items.Add(new Separator() { Style = FindResource("CustomSeparator") as Style });
 
+            this.Items.Add(new Separator() { Style = FindResource("CustomSeparator") as Style });//分割线
+
+            //头部
             this.Items.Add(new MenuItem()
             {
                 Style = FindResource("CustomMenuItem") as Style,
@@ -65,6 +68,7 @@ namespace Adaptable_Studio
                 }
             });
 
+            //躯干
             this.Items.Add(new MenuItem()
             {
                 Style = FindResource("CustomMenuItem") as Style,
@@ -79,6 +83,7 @@ namespace Adaptable_Studio
                 }
             });
 
+            //左臂
             this.Items.Add(new MenuItem()
             {
                 Style = FindResource("CustomMenuItem") as Style,
@@ -93,6 +98,7 @@ namespace Adaptable_Studio
                 }
             });
 
+            //右臂
             this.Items.Add(new MenuItem()
             {
                 Style = FindResource("CustomMenuItem") as Style,
@@ -107,6 +113,7 @@ namespace Adaptable_Studio
                 }
             });
 
+            //左腿
             this.Items.Add(new MenuItem()
             {
                 Style = FindResource("CustomMenuItem") as Style,
@@ -121,6 +128,7 @@ namespace Adaptable_Studio
                 }
             }); ;
 
+            //右腿
             this.Items.Add(new MenuItem()
             {
                 Style = FindResource("CustomMenuItem") as Style,
@@ -134,6 +142,17 @@ namespace Adaptable_Studio
                     { Name = "RightLegZ", Content = "Z" ,Style = FindResource("CustomCheckBox") as Style,IsChecked = OneReversed[17],Tag = "17"}
                 }
             });
+
+            this.Items.Add(new Separator() { Style = FindResource("CustomSeparator") as Style });//分割线
+
+            //曲线
+            this.Items.Add(new MenuItem()
+            {
+                Style = FindResource("CustomMenuItem") as Style,
+                Header = FindResource("Direction_Curve"),
+                Items = { new Canvas() { Width = 100, Height = 100 } }
+            });
+
         }
 
         #endregion
