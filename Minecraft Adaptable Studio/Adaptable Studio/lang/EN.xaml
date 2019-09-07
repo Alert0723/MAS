@@ -61,7 +61,7 @@
 
     <!--#region  MAS.C -->
     <!--#region  页面引导 -->
-    <system:String x:Key="Guide_switch">Guidance switch</system:String>
+    <system:String x:Key="Guide_switch">Guidance switch on the left-up corner</system:String>
 
     <system:String x:Key="Guide_pose">Check to set pose</system:String>
     <system:String x:Key="Guide_advance_mode">Enable/disable Advance mode</system:String>
@@ -204,6 +204,13 @@
     <!--#region  Transition ContextMenu -->
     <system:String x:Key="Direction_ReserveAll">Reserve all</system:String>
     <!--#endregion-->
+    <!--#endregion-->
+
+    <!--#region  引导界面设置UI -->
+    <Thickness x:Key="GuideSwitchMargin">10,3,10,0</Thickness>
+    <Thickness x:Key="GuideHighlightPoseMargin">133,316,10,0</Thickness>
+    <Thickness x:Key="GuidePoseSwitchMargin">165,461,10,0</Thickness>
+    <Thickness x:Key="GuideAdvancedModeMargin">18,655,18,0</Thickness>
     <!--#endregion-->
 
     <!--#region  动作属性设置UI -->

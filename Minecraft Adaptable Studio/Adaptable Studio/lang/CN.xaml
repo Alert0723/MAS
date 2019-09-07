@@ -61,9 +61,9 @@
 
     <!--#region  MAS.C -->
     <!--#region  页面引导 -->
-    <system:String x:Key="Guide_switch">引导功能开关</system:String>
+    <system:String x:Key="Guide_switch">页面左上角为引导功能开关</system:String>
 
-    <system:String x:Key="Guide_pose">勾选以启用动作设置</system:String>
+    <system:String x:Key="Guide_pose">勾选动作以启用动作设置</system:String>
     <system:String x:Key="Guide_advance_mode">时间轴模式开关</system:String>
 
     <system:String x:Key="Guide_time_axis1">右键点击黑色区域添加关键帧</system:String>
@@ -206,6 +206,13 @@
     <!--#endregion-->
     <!--#endregion-->
 
+    <!--#region  引导界面设置UI -->
+    <Thickness x:Key="GuideSwitchMargin">10,-9.996,10,0</Thickness>
+    <Thickness x:Key="GuideHighlightPoseMargin">133,308.334,10,0</Thickness>
+    <Thickness x:Key="GuidePoseSwitchMargin">120,454.333,10,0</Thickness>
+    <Thickness x:Key="GuideAdvancedModeMargin">18,650.75,18,0</Thickness>
+    <!--#endregion-->
+    
     <!--#region  动作属性设置UI -->
     <Thickness x:Key="RotationPadding">10,2,4,1.5</Thickness>
     <system:Double x:Key="PoseWidth">58.875</system:Double>

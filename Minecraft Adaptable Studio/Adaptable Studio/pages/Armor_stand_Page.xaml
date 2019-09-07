@@ -174,7 +174,11 @@
             </VisualStateGroup>
             <VisualStateGroup x:Name="SwitchGroup">
                 <VisualStateGroup.Transitions>
-                    <VisualTransition GeneratedDuration="0"/>
+                    <VisualTransition GeneratedDuration="0:0:0.1">
+                        <VisualTransition.GeneratedEasingFunction>
+                            <CubicEase EasingMode="EaseOut"/>
+                        </VisualTransition.GeneratedEasingFunction>
+                    </VisualTransition>
                 </VisualStateGroup.Transitions>
                 <VisualState x:Name="SwitchOn">
                     <Storyboard>
@@ -372,24 +376,6 @@
                                 </EasingDoubleKeyFrame.EasingFunction>
                             </EasingDoubleKeyFrame>
                         </DoubleAnimationUsingKeyFrames>
-                        <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="PartSlectorPanel">
-                            <EasingThicknessKeyFrame KeyTime="0" Value="-10,0,0,10"/>
-                            <EasingThicknessKeyFrame KeyTime="0:0:0.9" Value="-10,0,0,10"/>
-                            <EasingThicknessKeyFrame KeyTime="0:0:1.1" Value="0,0,0,10">
-                                <EasingThicknessKeyFrame.EasingFunction>
-                                    <QuarticEase EasingMode="EaseOut"/>
-                                </EasingThicknessKeyFrame.EasingFunction>
-                            </EasingThicknessKeyFrame>
-                        </ThicknessAnimationUsingKeyFrames>
-                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PartSlectorPanel">
-                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                            <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0"/>
-                            <EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="1">
-                                <EasingDoubleKeyFrame.EasingFunction>
-                                    <QuarticEase EasingMode="EaseOut"/>
-                                </EasingDoubleKeyFrame.EasingFunction>
-                            </EasingDoubleKeyFrame>
-                        </DoubleAnimationUsingKeyFrames>
                         <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="ItemPanel">
                             <EasingThicknessKeyFrame KeyTime="0" Value="-10,0,0,0"/>
                             <EasingThicknessKeyFrame KeyTime="0:0:1" Value="-10,0,0,0"/>
@@ -462,6 +448,46 @@
                                 </EasingThicknessKeyFrame.EasingFunction>
                             </EasingThicknessKeyFrame>
                         </ThicknessAnimationUsingKeyFrames>
+                        <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="PartSlectorPanel">
+                            <EasingThicknessKeyFrame KeyTime="0" Value="-10,0,0,10"/>
+                            <EasingThicknessKeyFrame KeyTime="0:0:0.9" Value="-10,0,0,10"/>
+                            <EasingThicknessKeyFrame KeyTime="0:0:1.1" Value="0,0,0,10"/>
+                        </ThicknessAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PartSlectorPanel">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Settings_guide">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="textBlock">
+                            <EasingThicknessKeyFrame KeyTime="0" Value="123.334,0,176,118.665"/>
+                            <EasingThicknessKeyFrame KeyTime="0:0:0.8" Value="123.334,0,176,118.665"/>
+                            <EasingThicknessKeyFrame KeyTime="0:0:1" Value="133.334,0,166,118.665"/>
+                        </ThicknessAnimationUsingKeyFrames>
+                        <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="textBlock1">
+                            <EasingThicknessKeyFrame KeyTime="0" Value="123.334,0,176,98.465"/>
+                            <EasingThicknessKeyFrame KeyTime="0:0:0.8" Value="123.334,0,176,98.465"/>
+                            <EasingThicknessKeyFrame KeyTime="0:0:1" Value="133.334,0,166,98.465"/>
+                        </ThicknessAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="border">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock1">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
                     </Storyboard>
                 </VisualState>
             </VisualStateGroup>
@@ -596,8 +622,8 @@
             <Button x:Name="Nbt" Content="N" Background="#02000000" BorderBrush="{x:Null}" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="-0.261,88,0,0" Height="35" VerticalAlignment="Top" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" Width="35" FontFamily="Comfortaa" d:LayoutOverrides="HorizontalAlignment" Grid.Column="1"/>
             <Button x:Name="Pose" Background="#02000000" BorderBrush="{x:Null}" Foreground="White" Margin="-0.172,128,0,0" Height="35" VerticalAlignment="Top" Content="P" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" Width="35" FontFamily="Comfortaa" d:LayoutOverrides="HorizontalAlignment" Grid.Column="1"/>
             <Button x:Name="Item" Background="#02000000" BorderBrush="{x:Null}" Foreground="White" Margin="-0.172,168,0,0" Content="I" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" Width="35" FontFamily="Comfortaa" d:LayoutOverrides="HorizontalAlignment" Grid.Column="1" Height="35" VerticalAlignment="Top"/>
-            <ScrollViewer x:Name="Settings" BorderThickness="0" Padding="0" VerticalScrollBarVisibility="Hidden" CanContentScroll="True" Width="268" Grid.Column="1" MinWidth="268.343" Margin="35.166,0,0.167,0">
-                <WrapPanel x:Name="wrapPanel" ScrollViewer.VerticalScrollBarVisibility="{Binding VerticalScrollBarVisibility, ElementName=Settings}" ScrollViewer.CanContentScroll="{Binding CanContentScroll, ElementName=Settings}" UseLayoutRounding="False" Width="268.343" MinWidth="{Binding MinWidth, ElementName=Settings}" Height="1799.18">
+            <ScrollViewer x:Name="Settings" BorderThickness="0" Padding="0" VerticalScrollBarVisibility="Hidden" CanContentScroll="True" Width="268" Grid.Column="1" MinWidth="268.343" Margin="35,0,0.167,0">
+                <WrapPanel x:Name="wrapPanel" ScrollViewer.VerticalScrollBarVisibility="{Binding VerticalScrollBarVisibility, ElementName=Settings}" ScrollViewer.CanContentScroll="{Binding CanContentScroll, ElementName=Settings}" UseLayoutRounding="False" Width="268.343" MinWidth="{Binding MinWidth, ElementName=Settings}" Height="1799.18" Margin="0">
                     <i:Interaction.Behaviors>
                         <ei:FluidMoveBehavior Duration="0:0:0.2">
                             <ei:FluidMoveBehavior.EaseX>
@@ -765,21 +791,11 @@
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                         </userControl:CustomToggleButton>
-                        <Label Content="{DynamicResource AdvancedMode}" Margin="45,125,85,0" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa"/>
-                        <userControl:CustomRestButton x:Name="Pose_Reset" Height="20" Width="120" Margin="0,125,5,0" Padding="0" HorizontalAlignment="Right" RestContent="Reset?"/>
+                        <Label Content="{DynamicResource AdvancedMode}" Margin="47,123.46,83,1.54" FontFamily="{DynamicResource Font}"/>
+                        <userControl:CustomRestButton x:Name="Pose_Reset" Height="20" Width="120" Margin="0,126,5,5" Padding="0" HorizontalAlignment="Right" RestContent="Reset?"/>
                     </Grid>
                     <Label x:Name="ItemSettings" Content="{DynamicResource Item_Settings}" Foreground="White" Background="{x:Null}" FontSize="25"  IsHitTestVisible="False" BorderThickness="0,15" Margin="5,0,0,0" Padding="5"/>
-                    <WrapPanel x:Name="PartSlectorPanel" Width="305" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Margin="0,0,0,10">
-                        <i:Interaction.Behaviors>
-                            <ei:FluidMoveBehavior Duration="0:0:0.2">
-                                <ei:FluidMoveBehavior.EaseX>
-                                    <QuarticEase EasingMode="EaseOut"/>
-                                </ei:FluidMoveBehavior.EaseX>
-                                <ei:FluidMoveBehavior.EaseY>
-                                    <QuarticEase EasingMode="EaseOut"/>
-                                </ei:FluidMoveBehavior.EaseY>
-                            </ei:FluidMoveBehavior>
-                        </i:Interaction.Behaviors>
+                    <ScrollViewer x:Name="PartSlectorPanel" Width="{Binding Width, ElementName=wrapPanel}" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="0,0,0,10" PanningMode="HorizontalOnly" HorizontalScrollBarVisibility="Hidden">
                         <TabControl x:Name="Part_Slector" Background="{x:Null}" BorderBrush="{x:Null}" IsSynchronizedWithCurrentItem="False" UseLayoutRounding="False" Style="{DynamicResource CustomTabControl_Horizontal}" IsHitTestVisible="True" RenderTransformOrigin="0.5,0.5" ScrollViewer.VerticalScrollBarVisibility="Disabled" Padding="2" Margin="0" ItemContainerStyle="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" Height="24" Width="305" SelectionChanged="Item_TabChanged">
                             <TabControl.RenderTransform>
                                 <TransformGroup>
@@ -795,57 +811,17 @@
                                 </ItemsPanelTemplate>
                             </TabControl.ItemsPanel>
                             <TabItem Header="{DynamicResource Head}"
-                                     Background="{x:Null}" BorderBrush="{x:Null}"
-                                     Style="{DynamicResource CustomTabItem_Horizontal}"
-                                     Foreground="White" FontSize="10" Margin="-2,0,-2,-2" Padding="6,2" UseLayoutRounding="False"
-                                     ScrollViewer.CanContentScroll="True" Width="44" VerticalContentAlignment="Bottom">
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="PreviewMouseDown">
-                                        <ei:ChangePropertyAction TargetName="Part_Slector_wrapPanel" TargetObject="{Binding ElementName=PartSlectorPanel}" PropertyName="Margin">
-                                            <ei:ChangePropertyAction.Value>
-                                                <Thickness>0,0,0,10</Thickness>
-                                            </ei:ChangePropertyAction.Value>
-                                        </ei:ChangePropertyAction>
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                            </TabItem>
-                            <TabItem Header="{DynamicResource Body}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontSize="10" Margin="1,0,-2,-2" Style="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" Width="44" VerticalContentAlignment="Bottom">
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="PreviewMouseDown">
-                                        <ei:ChangePropertyAction TargetName="Part_Slector_wrapPanel" TargetObject="{Binding ElementName=PartSlectorPanel}" PropertyName="Margin">
-                                            <ei:ChangePropertyAction.Value>
-                                                <Thickness>0,0,0,10</Thickness>
-                                            </ei:ChangePropertyAction.Value>
-                                        </ei:ChangePropertyAction>
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                            </TabItem>
+                                Background="{x:Null}" BorderBrush="{x:Null}"
+                                Style="{DynamicResource CustomTabItem_Horizontal}"
+                                Foreground="White" FontSize="10" Margin="-2,0,-2,-2" Padding="6,2" UseLayoutRounding="False"
+                                ScrollViewer.CanContentScroll="True" Width="44" VerticalContentAlignment="Bottom"/>
+                            <TabItem Header="{DynamicResource Body}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontSize="10" Margin="1,0,-2,-2" Style="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" Width="44" VerticalContentAlignment="Bottom"/>
                             <TabItem Header="{DynamicResource MainHand}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontSize="10" Margin="1,0,-2,-2" Style="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" Width="61" VerticalContentAlignment="Bottom"/>
                             <TabItem Header="{DynamicResource OffHand}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontSize="10" Margin="1,0,-2,-2" Style="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" Width="60" VerticalContentAlignment="Bottom"/>
-                            <TabItem Header="{DynamicResource Legs}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontSize="10" Margin="1,0,-2,-2" Style="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" Width="44" VerticalContentAlignment="Bottom">
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="PreviewMouseDown">
-                                        <ei:ChangePropertyAction TargetName="Part_Slector_wrapPanel" TargetObject="{Binding ElementName=PartSlectorPanel}" PropertyName="Margin">
-                                            <ei:ChangePropertyAction.Value>
-                                                <Thickness>-31,0,0,10</Thickness>
-                                            </ei:ChangePropertyAction.Value>
-                                        </ei:ChangePropertyAction>
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                            </TabItem>
-                            <TabItem Header="{DynamicResource Boots}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontSize="10" Margin="1,0,-2,-2" Style="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" Width="44" VerticalContentAlignment="Bottom">
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="PreviewMouseDown">
-                                        <ei:ChangePropertyAction TargetName="Part_Slector_wrapPanel" TargetObject="{Binding ElementName=PartSlectorPanel}" PropertyName="Margin">
-                                            <ei:ChangePropertyAction.Value>
-                                                <Thickness>-31,0,0,10</Thickness>
-                                            </ei:ChangePropertyAction.Value>
-                                        </ei:ChangePropertyAction>
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                            </TabItem>
+                            <TabItem Header="{DynamicResource Legs}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontSize="10" Margin="1,0,-2,-2" Style="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" Width="44" VerticalContentAlignment="Bottom"/>
+                            <TabItem Header="{DynamicResource Boots}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontSize="10" Margin="1,0,-2,-2" Style="{DynamicResource CustomTabItem_Horizontal}" ScrollViewer.CanContentScroll="True" Width="44" VerticalContentAlignment="Bottom"/>
                         </TabControl>
-                    </WrapPanel>
+                    </ScrollViewer>
                     <WrapPanel x:Name="ItemPanel" Height="1020">
                         <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="EnablePart_Settings" Height="20" Width="100" Content="{DynamicResource Enable_Part_Check}" Margin="5,0,0,5" >
                             <i:Interaction.Triggers>
@@ -1143,23 +1119,12 @@
                             <RowDefinition Height="20*"/>
                             <RowDefinition Height="1779*"/>
                         </Grid.RowDefinitions>
-                        <Label Content=". . . . . . ." VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282" RenderTransformOrigin="0.5,0.5" Margin="-5,0,0,0" Grid.RowSpan="2">
-                            <Label.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform/>
-                                    <SkewTransform/>
-                                    <RotateTransform Angle="30"/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Label.RenderTransform>
-                        </Label>
-                        <Label Content=". . ." VerticalAlignment="Top" Margin="47,12,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282" Grid.RowSpan="2"/>
-                        <Label Content="{DynamicResource Guide_switch}" FontFamily="{DynamicResource Font}" VerticalAlignment="Top" Margin="71,17,0,0" HorizontalAlignment="Left" FontWeight="Bold" Foreground="#FFFF8282" Grid.RowSpan="2"/>
+                        <Label Content="{DynamicResource Guide_switch}" FontFamily="{DynamicResource Font}" VerticalAlignment="Top" Margin="{DynamicResource GuideSwitchMargin}" FontWeight="Bold" Foreground="White" Grid.Row="1" Background="#FFC78513" FontSize="10"/>
                         <!--#endregion-->
                         <!--#endregion-->
 
                         <!--#region  Pose Guidance -->
-                        <Border Margin="131,308,0,0" BorderBrush="#FFFF8282" BorderThickness="1.5" HorizontalAlignment="Left" Width="90" Height="24" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Grid.Row="1">
+                        <Border Margin="{DynamicResource GuideHighlightPoseMargin}" BorderBrush="#FFC78513" BorderThickness="1.5" Height="22" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Grid.Row="1">
                             <Border.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform ScaleY="-1"/>
@@ -1169,34 +1134,9 @@
                                 </TransformGroup>
                             </Border.RenderTransform>
                         </Border>
-                        <Label FontFamily="Microsoft YaHei UI" Content=". . . . . . . . . . . . . . . . . . . . . . . . ." Margin="141,400,-98.657,0" RenderTransformOrigin="0.5,0.5" FontSize="14" FontWeight="Bold" Foreground="#FFFF8282" HorizontalAlignment="Left" VerticalAlignment="Top" Width="226" Grid.Row="1">
-                            <Label.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform/>
-                                    <SkewTransform/>
-                                    <RotateTransform Angle="-90"/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Label.RenderTransform>
-                        </Label>
-                        <Label FontFamily="Microsoft YaHei UI" Content=". . . ." VerticalAlignment="Top" Margin="219,305,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282" Grid.Row="1"/>
-                        <Border Margin="10,525,0,0" BorderBrush="#FFFF8282" BorderThickness="1.5" HorizontalAlignment="Left" Width="250" Height="100" VerticalAlignment="Top" Grid.Row="1"/>
-                        <Label Content="{DynamicResource Guide_pose}" FontFamily="{DynamicResource Font}" VerticalAlignment="Top" Margin="111,425,0,0" HorizontalAlignment="Left" FontWeight="Bold" Foreground="#FFFF8282" Grid.Row="1"/>
-                        <Label FontFamily="Microsoft YaHei UI" Content=". . ." VerticalAlignment="Top" Margin="227,420,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282" Grid.Row="1"/>
+                        <Label Content="{DynamicResource Guide_pose}" FontFamily="{DynamicResource Font}" VerticalAlignment="Top" Margin="{DynamicResource GuidePoseSwitchMargin}" FontWeight="Bold" Foreground="White" Grid.Row="1" FontSize="10" Background="#FFC78513"/>
                         <!--#region  AdvanceMode Guidance -->
-                        <Border Margin="10,628,0,0" BorderBrush="#FFFF8282" BorderThickness="1.5" HorizontalAlignment="Left" Width="160" Height="25" VerticalAlignment="Top" Grid.Row="1"/>
-                        <Label Content="{DynamicResource Guide_advance_mode}" FontFamily="{DynamicResource Font}" VerticalAlignment="Top" Margin="28,653,0,0" HorizontalAlignment="Left" FontWeight="Bold" Foreground="#FFFF8282" Grid.Row="1"/>
-                        <Label Content="." VerticalAlignment="Top" Margin="8,645,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282" RenderTransformOrigin="0.5,0.5" Grid.Row="1">
-                            <Label.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform/>
-                                    <SkewTransform/>
-                                    <RotateTransform Angle="90"/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Label.RenderTransform>
-                        </Label>
-                        <Label Content=". . ." VerticalAlignment="Top" Margin="4,648,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282" RenderTransformOrigin="0.5,0.5" Grid.Row="1"/>
+                        <Label Content="{DynamicResource Guide_advance_mode}" FontFamily="{DynamicResource Font}" VerticalAlignment="Top" Margin="{DynamicResource GuideAdvancedModeMargin}" FontWeight="Bold" Foreground="White" Grid.Row="1" FontSize="9" Background="#FFC78513" Padding="5"/>
                     </Grid>
                 </WrapPanel>
             </ScrollViewer>
@@ -1431,23 +1371,10 @@
         </Grid>
         <Grid x:Name="Timeaxis_guide" IsHitTestVisible="False" Grid.ColumnSpan="3" Margin="284,0,0,0" Grid.RowSpan="4" Grid.Column="2">
             <!--#region  全局 -->
-            <Border Margin="0,0,14,9" BorderBrush="#FFFF8282" BorderThickness="1.5" HorizontalAlignment="Right" Width="475" Height="66" VerticalAlignment="Bottom"/>
-            <TextBlock Text="{DynamicResource Guide_time_axis1}" Foreground="#FFFF8282" FontWeight="Bold" VerticalAlignment="Bottom" Margin="127,0,-0.4,112" HorizontalAlignment="Left" Width="491" FontSize="14"/>
-            <Label FontFamily="Microsoft YaHei UI" Content=". ." VerticalAlignment="Top" Margin="108,504,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282"/>
-            <Label FontFamily="Microsoft YaHei UI" Content="." VerticalAlignment="Top" Margin="116,429,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282"/>
-            <Label FontFamily="Microsoft YaHei UI" Content=". . . . . . . . ." VerticalAlignment="Top" Margin="80,468,0,0" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14" Foreground="#FFFF8282" RenderTransformOrigin="0.5,0.5">
-                <Label.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="90"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Label.RenderTransform>
-            </Label>
+            <TextBlock x:Name="textBlock" Text="{DynamicResource Guide_time_axis1}" Foreground="White" FontWeight="Bold" Margin="133.334,0,166,118.665" Background="#FFC78513" Padding="5" FontSize="10" VerticalAlignment="Bottom"/>
             <!--#endregion-->
             <!--#region  关键帧/过渡段 -->
-            <Border Margin="0,0,467,41" BorderBrush="#FFFF8282" BorderThickness="1" HorizontalAlignment="Right" Width="16" Height="16" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5">
+            <Border x:Name="border" Margin="0,0,470.94,44.086" BorderThickness="1" HorizontalAlignment="Right" Height="8.5" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" Width="8.5" Background="#FFDC9908">
                 <Border.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -1457,19 +1384,7 @@
                     </TransformGroup>
                 </Border.RenderTransform>
             </Border>
-            <TextBlock Text="{DynamicResource Guide_time_axis2}" Foreground="#FFFF8282" FontWeight="Bold" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="174,0,0,94" Width="431"/>
-            <Label FontFamily="Microsoft YaHei UI" Content=". ." VerticalAlignment="Top" Margin="157,449,0,0" HorizontalAlignment="Left" FontWeight="Bold" Foreground="#FFFF8282" BorderThickness="0" FontSize="10"/>
-            <Label FontFamily="Microsoft YaHei UI" Content=". ." VerticalAlignment="Top" Margin="151,501,0,0" HorizontalAlignment="Left" FontWeight="Bold" Foreground="#FFFF8282" BorderThickness="0" FontSize="10"/>
-            <Label FontFamily="Microsoft YaHei UI" Content=". . . . . . . ." VerticalAlignment="Top" Margin="133,478,0,0" HorizontalAlignment="Left" FontWeight="Bold" Foreground="#FFFF8282" BorderThickness="0" FontSize="10" RenderTransformOrigin="0.5,0.5">
-                <Label.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="-90"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Label.RenderTransform>
-            </Label>
+            <TextBlock x:Name="textBlock1" Text="{DynamicResource Guide_time_axis2}" Foreground="White" FontWeight="Bold" VerticalAlignment="Bottom" Margin="133.334,0,166,98.465" Background="#FFC78513" Padding="5" FontSize="10"/>
             <!--#endregion-->
         </Grid>
         <userControl:CustomOutPutBox x:Name="OutPutBox" Height="280" Margin="-191.957,72.96,-97.958,162.96" Grid.Column="3" Grid.Row="3" Width="300" Grid.ColumnSpan="2"/>

@@ -76,7 +76,7 @@ namespace Adaptable_Studio
         /// <summary> 水平旋转角,竖直旋转角(相对于原点) </summary>
         double[] CameraRot = new double[2] { 15, 60 };
         /// <summary> 摄像机视点 </summary>
-        double[] CameraLookAtPoint = new double[3] { 0, 10, 0 };
+        double[] CameraLookAtPoint = new double[3] { 0, 15, 0 };
         /// <summary> 获取鼠标位置 </summary>
         double[] mouse_location = new double[2];
         /// <summary> 与模型动作关联的角度参数 </summary>
@@ -782,8 +782,8 @@ namespace Adaptable_Studio
         void Viewport_Relocation(object sender, RoutedEventArgs e)
         {
             CameraRadius = 50;
-            CameraRot = new double[2] { 15, 60 };//水平旋转角,竖直旋转角(相对于原点)
-            CameraLookAtPoint = new double[3] { 0, 10, 0 };//摄像机视点
+            CameraRot = new double[2] { 15, 60 };
+            CameraLookAtPoint = new double[3] { 0, 15, 0 };
             Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);
             LightDirectionReset();
         }
