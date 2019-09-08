@@ -53,10 +53,6 @@
 
     <!--#region  3D预览 -->
     <system:String x:Key="Viewport_Relocation">重置3D视角</system:String>
-
-    <system:String x:Key="OpenGL_Grid">网格</system:String>
-    <system:String x:Key="OpenGL_Axis">坐标系</system:String>
-    <system:String x:Key="OpenGL_Scale">缩放</system:String>
     <!--#endregion-->
 
     <!--#region  MAS.C -->
@@ -68,6 +64,8 @@
 
     <system:String x:Key="Guide_time_axis1">右键点击黑色区域添加关键帧</system:String>
     <system:String x:Key="Guide_time_axis2">右键点击 关键帧/过渡段 进行操作与编辑</system:String>
+    <system:String x:Key="Guide_preview1">右键拖动 旋转视角</system:String>
+    <system:String x:Key="Guide_preview2">中键拖动 平移视角.</system:String>
     <!--#endregion-->
 
     <!--#region  禁用提示 -->

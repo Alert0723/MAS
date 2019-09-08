@@ -53,10 +53,6 @@
 
     <!--#region  3D预览 -->
     <system:String x:Key="Viewport_Relocation">Reset 3D viewport</system:String>
-
-    <system:String x:Key="OpenGL_Grid">Grid</system:String>
-    <system:String x:Key="OpenGL_Axis">Axis</system:String>
-    <system:String x:Key="OpenGL_Scale">Scale</system:String>
     <!--#endregion-->
 
     <!--#region  MAS.C -->
@@ -68,6 +64,8 @@
 
     <system:String x:Key="Guide_time_axis1">Right click black areas to add key frames.</system:String>
     <system:String x:Key="Guide_time_axis2">Right click keyframe / transition section to operate and edit them.</system:String>
+    <system:String x:Key="Guide_preview1">Right button drag to rotate.</system:String>
+    <system:String x:Key="Guide_preview2">Middle button drag to move.</system:String>
     <!--#endregion-->
 
     <!--#region  禁用提示 -->

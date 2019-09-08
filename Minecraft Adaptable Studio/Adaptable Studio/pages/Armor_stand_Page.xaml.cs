@@ -74,7 +74,7 @@ namespace Adaptable_Studio
         /// <summary> 摄像机半径(相对于原点) </summary>
         double CameraRadius = 50;
         /// <summary> 水平旋转角,竖直旋转角(相对于原点) </summary>
-        double[] CameraRot = new double[2] { 15, 60 };
+        double[] CameraRot = new double[2] { 15, 80 };
         /// <summary> 摄像机视点 </summary>
         double[] CameraLookAtPoint = new double[3] { 0, 15, 0 };
         /// <summary> 获取鼠标位置 </summary>
@@ -782,9 +782,10 @@ namespace Adaptable_Studio
         void Viewport_Relocation(object sender, RoutedEventArgs e)
         {
             CameraRadius = 50;
-            CameraRot = new double[2] { 15, 60 };
+            CameraRot = new double[2] { 15, 80 };
             CameraLookAtPoint = new double[3] { 0, 15, 0 };
             Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);
+            AxisCamera.LookDirection = MainCamera.LookDirection;
             LightDirectionReset();
         }
         #endregion
@@ -802,7 +803,7 @@ namespace Adaptable_Studio
             else if (CameraRadius <= 10)
                 CameraRadius = 10;
 
-            Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);//主摄像机            
+            Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);//主摄像机   
         }
 
         #region 预览视角旋转-摄像机坐标计算
@@ -856,6 +857,7 @@ namespace Adaptable_Studio
             }//中键平移
 
             Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);
+            AxisCamera.LookDirection = MainCamera.LookDirection;
 
             mouse_location[0] = e.GetPosition((IInputElement)sender).X;
             mouse_location[1] = e.GetPosition((IInputElement)sender).Y;
