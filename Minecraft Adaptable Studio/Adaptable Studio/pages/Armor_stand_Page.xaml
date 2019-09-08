@@ -1163,8 +1163,8 @@
                                        IsPanEnabled="False">
                     <Helix:HelixViewport3D.Camera>
                         <PerspectiveCamera x:Name="MainCamera"
-                                           Position="40,35,10"
-                                           LookDirection="-42,-25,-11"
+                                           Position="40,30,10"
+                                           LookDirection="-42,-15,-11"
                                            UpDirection="0,1,0"
                                            NearPlaneDistance="0"
                                            FarPlaneDistance="100"
