@@ -98,7 +98,13 @@ namespace Adaptable_Studio
         public Time_axis()
         {
             InitializeComponent();
-            timer.Tick += PlayTimer;//timer事件
+            #region Events
+            Loaded += Control_Loaded;
+            GotFocus += Control_Focus;
+            LostFocus += Control_Focus;
+
+            timer.Tick += PlayTimer;
+            #endregion
             pose[0].key = true;
             for (int i = 0; i < 32767; i++)
             {

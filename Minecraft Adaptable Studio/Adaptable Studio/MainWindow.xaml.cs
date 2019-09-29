@@ -18,7 +18,7 @@ namespace Adaptable_Studio
     /// <summary> xaml 的交互逻辑 </summary>
     public partial class MainWindow : MetroWindow
     {
-        public static string LogPath = @".\log.txt";//程序根目录 日志文件路径
+        public static string LogPath = "log.txt";//程序根目录 日志文件路径
 
         string version = "Version:" + ConfigurationManager.AppSettings["MainVersion"];//当前版本号
         string updatelog = ConfigurationManager.AppSettings["UpdateLog"]; //更新日志链接
@@ -88,7 +88,7 @@ namespace Adaptable_Studio
 
             //删除更新文件
             KillProcess("MAS Updater", false);
-            File.Delete(@".\MAS Updater.exe");
+            File.Delete("MAS Updater.exe");
 
             try
             {

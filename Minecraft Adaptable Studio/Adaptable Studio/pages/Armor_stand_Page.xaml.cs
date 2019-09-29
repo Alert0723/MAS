@@ -1,7 +1,5 @@
 ﻿using ArmorStand.CustomControl;
 using System;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -84,7 +82,6 @@ namespace Adaptable_Studio
         /// <summary> 高级模式下，控制模型是否随当前帧变化而改变 </summary>
         public static bool poseChange;
         #endregion
-
         #endregion
 
         public Armor_stand_Page()
@@ -164,7 +161,7 @@ namespace Adaptable_Studio
                 switch (true)
                 {
                     default:
-                        Json.Deserialize(@".\json\masc\1_12.json", ref ItemName);//1.12
+                        Json.Deserialize(@"json\masc\1_12.json", ref ItemName);//1.12
                         break;
                 }
 

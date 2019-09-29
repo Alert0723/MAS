@@ -52,7 +52,7 @@ namespace Adaptable_Studio
         {
             if (updated)
             {
-                Process.Start(@".\MAS Updater.exe");
+                Process.Start("MAS Updater.exe");
                 Log_Write(LogPath, "[Main]开始升级程序");
                 IniWrite("System", "PageIndex", "-1", iniPath);
                 Environment.Exit(0);
@@ -70,7 +70,7 @@ namespace Adaptable_Studio
                     //向目标网页发送Post请求
                     Stream responseStream = WebRequest.Create(updaterlink).GetResponse().GetResponseStream();
                     //创建本地文件写入流
-                    using (Stream stream = new FileStream(@".\MAS Updater.exe", FileMode.Create))
+                    using (Stream stream = new FileStream("MAS Updater.exe", FileMode.Create))
                     {
                         byte[] bArr = new byte[1024];
                         int size = responseStream.Read(bArr, 0, bArr.Length);

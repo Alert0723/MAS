@@ -6,8 +6,7 @@
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"             
              x:Name="userControl" x:Class="Adaptable_Studio.Time_axis"
-             mc:Ignorable="d" Height="80" Width="608.055"
-             Loaded="Control_Loaded" GotFocus="Control_Focus" LostFocus="Control_Focus">
+             mc:Ignorable="d" Height="80" Width="608.055">
     <UserControl.Resources>
         <ContextMenu x:Key="KeyFrameMenu">
             <MenuItem Name="CopyData" FontSize="11" Header="{DynamicResource CopyFrame}" Click="FrameCopy_Click"/>
