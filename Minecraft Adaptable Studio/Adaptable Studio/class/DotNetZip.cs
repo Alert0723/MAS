@@ -11,7 +11,7 @@ namespace DotNetZip
     {
         /// <summary> 压缩文件 </summary>
         /// <param name="targetFileName">目标文件名</param>
-        /// <param name="sourceFileNames">源文件名</param>
+        /// <param name="sourceFileNames">源文件名列表</param>
         /// <returns>压缩包压缩是否成功</returns>
         public static bool ZipFile(string targetFileName, params string[] sourceFileNames)
         {

@@ -90,6 +90,8 @@ namespace Adaptable_Studio
         public Armor_stand_Page()
         {
             InitializeComponent();
+           
+
             #region Events
             Loaded += Page_Loaded;
             BackHome.Click += BackToMenu_Click;
@@ -99,6 +101,7 @@ namespace Adaptable_Studio
             Pose.Click += Rotation_Settings;
             Item.Click += Item_Settings;
             #endregion
+
             #region 选项交互
             Settings.ScrollChanged += SelectBar_Move;
             //Pose
@@ -113,6 +116,7 @@ namespace Adaptable_Studio
             ItemPanel.MouseLeave += ItemGrid_update;
             Item_Reset.MouseLeftButtonDown += ItemReset_LeftButtonDown;
             #endregion
+
             #region Viewport3D
             PreviewGrid.MouseUp += Viewport_MouseUp;
             PreviewGrid.MouseMove += Viewport_MouseMove;
@@ -138,6 +142,8 @@ namespace Adaptable_Studio
 
         void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            Log_Write(LogPath, "==========MASC==========");
+            Log_Write(LogPath, "环境初始化");
             //引导页面
             if (Guiding)
             {
@@ -151,10 +157,9 @@ namespace Adaptable_Studio
             }
 
             #region Viewport3D 初始化
-            Log_Write(LogPath, "[masc]Viewport3D初始化");
             Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);
             LightDirectionReset();
-            Log_Write(LogPath, "[Viewport3D]初始化完成");
+            Log_Write(LogPath, "Viewport3D初始化完成");
             #endregion           
 
             #region json列表获取
@@ -164,7 +169,7 @@ namespace Adaptable_Studio
                 switch (true)
                 {
                     default:
-                        Json.Deserialize(@".\json\masc\1_12.json", ref ItemName);//1.12
+                        Json.Deserialize(@"json\masc\1_12.json", ref ItemName);//1.12
                         break;
                 }
 
@@ -183,9 +188,12 @@ namespace Adaptable_Studio
                     }
                 }
                 ItemList.SelectedIndex = 0;
-                Log_Write(LogPath, "[masc]物品列表json读取完成");
+                Log_Write(LogPath, "物品json读取完成");
             }
-            catch { Log_Write(LogPath, "[masc]json读取失败"); }
+            catch (Exception ex)
+            {
+                Log_Write(LogPath, "json读取失败:" + ex);
+            }
             #endregion
         }
 

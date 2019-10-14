@@ -41,14 +41,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Minecraft Adaptable Studio.exe" size="3327488">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Minecraft Adaptable Studio.exe" size="3328000">
       <assemblyIdentity name="Minecraft Adaptable Studio" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>EOI+inHwjiObVJo8MbnAB60KQZMrEsJQ8qoxKpyxRRw=</dsig:DigestValue>
+        <dsig:DigestValue>Os8+CwCFYgsu+ZiPAJrpfl9N5Y+80x2AzcxiBIAFPKs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -58,7 +58,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>ivPSjVfdSeF3uk+Wx+VeWhbirHt3ee/p5ie06ggdcn4=</dsig:DigestValue>
+      <dsig:DigestValue>s8tYhqT7g0rl8n29W2/+TOQrfSb87de4Wp1Z+ZlGD8c=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
