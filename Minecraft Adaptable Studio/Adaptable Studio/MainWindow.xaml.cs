@@ -1,5 +1,4 @@
-﻿using fNbt;
-using MahApps.Metro.Controls;
+﻿using MahApps.Metro.Controls;
 using System;
 using System.Configuration;
 using System.Diagnostics;
@@ -18,7 +17,11 @@ namespace Adaptable_Studio
     /// <summary> xaml 的交互逻辑 </summary>
     public partial class MainWindow : MetroWindow
     {
+<<<<<<< HEAD
         public static string LogPath = "log.txt";//程序根目录 日志文件路径
+=======
+        public static string LogPath = @"log.txt";//程序根目录 日志文件路径
+>>>>>>> develop
 
         string version = "Version:" + ConfigurationManager.AppSettings["MainVersion"];//当前版本号
         string updatelog = ConfigurationManager.AppSettings["UpdateLog"]; //更新日志链接
@@ -27,7 +30,7 @@ namespace Adaptable_Studio
         public static bool Guiding = true;//引导状态
         public static string result = "";//指令结果
 
-        #region 设置
+        #region Options
         /// <summary> 程序英汉显示切换 </summary>
         public static bool _langCN = true;
         /// <summary> 启动时是否开启引导 </summary>
@@ -46,16 +49,14 @@ namespace Adaptable_Studio
             InitializeComponent();
         }
 
-        /// <summary> 日志文件输出 </summary>
+        /// <summary> 本地日志文件输出 </summary>
         public static void Log_Write(string path, string information)
         {
             using (StreamWriter file = new StreamWriter(path, true))
             {
                 file.WriteLine("["
-                    + DateTime.Now.Hour
-                    + ":" + DateTime.Now.Minute
-                    + ":" + DateTime.Now.Second
-                    + "." + DateTime.Now.Millisecond
+                    + DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day + "--"
+                    + DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second + "." + DateTime.Now.Millisecond
                     + "] " + information);
             }
         }
@@ -84,19 +85,23 @@ namespace Adaptable_Studio
         void Main_Loaded(object sender, RoutedEventArgs e)
         {
             File.Delete(LogPath);//清除日志文件
-            Log_Write(LogPath, "[Main]全局初始化");
+            Log_Write(LogPath, "全局初始化");
 
             //删除更新文件
             KillProcess("MAS Updater", false);
+<<<<<<< HEAD
             File.Delete("MAS Updater.exe");
+=======
+            File.Delete(@"MAS Updater.exe");
+>>>>>>> develop
 
             try
             {
                 StreamReader test = new StreamReader(WebRequest.Create("http://www.mcbbs.net/thread-580119-1-1.html").GetResponse().GetResponseStream(), Encoding.UTF8);
                 WebView.Navigate(new Uri("http://p9fi3mtgy.bkt.clouddn.com/MAS-Stat.html"));
-                Log_Write(LogPath, "[Main]测试访问成功");
+                Log_Write(LogPath, "测试访问成功");
             }
-            catch { Log_Write(LogPath, "[Main]测试访问失败"); }//测试访问
+            catch { Log_Write(LogPath, "测试访问失败"); }//测试访问
 
             try
             {
@@ -146,7 +151,7 @@ namespace Adaptable_Studio
                 IniWrite("System", "Guiding", Guiding.ToString(), iniPath);
             }//引导
 
-            Log_Write(LogPath, "[Main]配置文件初始化完成");
+            Log_Write(LogPath, "配置文件初始化完成");
 
             NewVerTest();//Version Testing
 
@@ -156,7 +161,7 @@ namespace Adaptable_Studio
         /// <summary> 窗体关闭 </summary>
         void MainClosed(object sender, EventArgs e)
         {
-            Log_Write(LogPath, "[Main]正常关闭");
+            Log_Write(LogPath, "正常关闭");
             IniWrite("System", "PageIndex", "-1", iniPath);
             Environment.Exit(0);
         }
@@ -175,18 +180,18 @@ namespace Adaptable_Studio
                         {
                             NewVerStr = sr.ReadLine();
                             int strl = ("Version:").Length;
-                            NewVer = NewVerStr.Substring(strl, NewVerStr.Length - strl);//读取主程序内容
+                            NewVer = NewVerStr.Substring(strl, NewVerStr.Length - strl);//读取版本号
                             Infor = sr.ReadToEnd();//读取剩余内容
-                            Log_Write(LogPath, "[Main]版本检测完成");
+                            Log_Write(LogPath, "版本检测完成");
                         }
 
-                        _ = Dispatcher.Invoke(new ThreadStart(delegate
+                        Dispatcher.Invoke(new ThreadStart(delegate
                           {
                               //校验版本号
                               if (version != NewVerStr)
                               {
                                   //主页检测提示
-                                  VersionText.Content = FindResource("FindNewVer");
+                                  VersionText.Content = FindResource("FindNewVer") + NewVer;
                                   VerPath.Data = FindResource("Icon.Warning") as Geometry;
                                   VerPath.Fill = new SolidColorBrush(Color.FromRgb(255, 0, 0));
 
@@ -203,13 +208,13 @@ namespace Adaptable_Studio
                               }
                           }));//Version Messager
                     }
-                    catch
+                    catch (Exception ex)
                     {
                         Dispatcher.Invoke(new ThreadStart(delegate
                         {
                             VersionText.Content = FindResource("SearchNewVerErr");
                         }));
-                        Log_Write(LogPath, "[Main]获取版本信息失败");
+                        Log_Write(LogPath, "获取版本信息失败：" + ex);
                     }
                 }));
                 th.Start();

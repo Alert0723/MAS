@@ -54,10 +54,10 @@ namespace Adaptable_Studio
 
         void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            Log_Write(LogPath, "[masp]粒子生成器初始化");
-
+            Log_Write(LogPath, "==========MASP==========");
+            Log_Write(LogPath, "环境初始化");
             #region Viewport3D
-            Log_Write(LogPath, "[masp]Viewport3D初始化");
+            Log_Write(LogPath, "Viewport3D初始化");
             Viewport_3D.CameraReset(ref MainCamera, CameraRot, CameraLookAtPoint, CameraRadius);
             #endregion
 
@@ -78,6 +78,7 @@ namespace Adaptable_Studio
         /// <param name="AddToList">是否将返回结果加入dll索引列表</param>
         void StyleFiles_Load(string ClassName, string MethodName, bool AddToList = false)
         {
+            Log_Write(LogPath, "样式模板列表构建");
             try
             {
                 //获取dll列表
@@ -104,7 +105,10 @@ namespace Adaptable_Studio
                     }
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                Log_Write(LogPath, "样式模板列表构建失败：" + ex);
+            }
         }
 
         /// <summary> 输出控件 </summary>
@@ -868,44 +872,6 @@ namespace Adaptable_Studio
             //}
         }
         #endregion
-        #endregion
-
-        #region Scoreboard
-        /// <summary> 计分板模块初始 </summary>
-        public static void Score_Start(ref string result, ref string Selector)
-        {
-            //if (ScoreSwitch)
-            //{
-            //    string Ones = "scoreboard players add " + Selector + " " + Scorename + " 1";
-            //    commands[k] = Ones; k++;
-            //    result += Ones + "\r\n";
-            //}
-        }
-
-        /// <summary> 选择器重置 </summary>
-        public static void Selector_reset(ref int score_, ref string Selector, ref string select_mark)
-        {
-            //Selector = select_mark == null ? "@p" : select_mark;
-            //int Start_len = Selector.IndexOf("["), End_len = Selector.IndexOf("]");
-            //string Replace_text;
-            //if (Start_len == -1)
-            //    Selector += "[score_" + Scorename + "_min=" + score_ + ",score_" + Scorename + "=" + score_ + "]";
-            //else if (End_len > Start_len)
-            //    Selector = Selector.Replace("[", "[score_" + Scorename + "_min=" + score_ + ",score_" + Scorename + "=" + score_ + "<>");
-            //Replace_text = End_len - Start_len > 1 ? "," : null;
-            //Selector = Selector.Replace("<>", Replace_text);
-        }
-
-        /// <summary> 计分板模块结束 </summary>
-        public static void Score_End(ref string result, ref string Selector)
-        {
-            //if (ScoreSwitch)
-            //{
-            //    string Ones = "scoreboard players set " + Selector + " " + Scorename + " 0";
-            //    commands[k] = Ones; k++;
-            //    result += Ones;
-            //}
-        }
         #endregion
     }
 }

@@ -4,7 +4,10 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using static Adaptable_Studio.PublicControl;
+using static Adaptable_Studio.IniConfig;
 using static Adaptable_Studio.MainWindow;
+using System;
 
 namespace Adaptable_Studio
 {
@@ -22,7 +25,12 @@ namespace Adaptable_Studio
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+<<<<<<< HEAD
 
+=======
+            Log_Write(LogPath, "==========MASD==========");
+            Log_Write(LogPath, "环境初始化");
+>>>>>>> develop
         }
 
         private void Import_Click(object sender, RoutedEventArgs e)
@@ -41,7 +49,7 @@ namespace Adaptable_Studio
 
                 if (filename != null)
                 {
-                    //读取剧情文件
+                    //读取文件
                     Log_Write(LogPath, "[masd]正在读取txt文件");
                     try
                     {
@@ -66,9 +74,12 @@ namespace Adaptable_Studio
                             }
                         }
                         list_lines = lines;//列表文本行数保存
-                        Log_Write(LogPath, "[masd]txt读取成功");
+                        Log_Write(LogPath, "文本读取成功");
                     }
-                    catch { Log_Write(LogPath, "[masd]txt读取失败"); }
+                    catch (Exception ex)
+                    {
+                        Log_Write(LogPath, "文本读取失败：" + ex);
+                    }
                 }
                 else return;
             }
@@ -175,17 +186,17 @@ namespace Adaptable_Studio
                 ((TextBlock)Dialogue_List.Items[i]).Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
                 ((TextBlock)Dialogue_List.Items[i]).FontWeight = FontWeights.Regular;
             }
-            for (int i = 0; i < 32767; i++) { Marked[i] = false; }
+            for (int i = 0; i < 32767; i++) Marked[i] = false;
         }
         #endregion
 
         #region 高级格式编辑
         /// <summary> 标记操作func(索引初位,索引末位,初位长度,截取初位,截取末位) </summary>
-        private void Format(int index0, int index1, int length, string start, string end, ref string str)
+        private void Format(int StartIndex, int EndIndex, int length, string start, string end, ref string str)
         {
-            index0 = format_input.Text.IndexOf(start);
-            index1 = format_input.Text.IndexOf(end);
-            str = format_input.Text.Substring(index0 + length, index1 - length);
+            StartIndex = format_input.Text.IndexOf(start);
+            EndIndex = format_input.Text.IndexOf(end);
+            str = format_input.Text.Substring(StartIndex + length, EndIndex - length);
         }
 
         /// <summary> 格式编辑事件 </summary>
