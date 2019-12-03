@@ -179,6 +179,11 @@
     <system:String x:Key="Ench62">Lure:</system:String>
     <system:String x:Key="Ench70">Mending:</system:String>
     <system:String x:Key="Ench71">Curse of Vanishing:</system:String>
+    <!-- #1.14 !-->
+    <system:String x:Key="EnchChanneling">Channeling:</system:String>
+    <system:String x:Key="EnchLoyalty">Loyalty:</system:String>
+    <system:String x:Key="EnchRiptide">Riptide:</system:String>
+    <system:String x:Key="EnchImpaling">Impaling:</system:String>
     <!--#endregion-->
     <!--#endregion-->
 
@@ -205,10 +210,10 @@
     <!--#endregion-->
 
     <!--#region  引导界面设置UI -->
-    <Thickness x:Key="GuideSwitchMargin">10,3,10,0</Thickness>
-    <Thickness x:Key="GuideHighlightPoseMargin">133,316,10,0</Thickness>
-    <Thickness x:Key="GuidePoseSwitchMargin">165,461,10,0</Thickness>
-    <Thickness x:Key="GuideAdvancedModeMargin">18,655,18,0</Thickness>
+    <Thickness x:Key="GuideSwitchMargin">10,1,10,0</Thickness>
+    <Thickness x:Key="GuideHighlightPoseMargin">133,313.5,10,0</Thickness>
+    <Thickness x:Key="GuidePoseSwitchMargin">165,460,10,0</Thickness>
+    <Thickness x:Key="GuideAdvancedModeMargin">18,652,18,0</Thickness>
     <!--#endregion-->
 
     <!--#region  动作属性设置UI -->
@@ -220,7 +225,7 @@
 
     <!--#region  页面布局属性设置UI -->
     <system:Double x:Key="NameLabelLength">59</system:Double>
-    <system:Double x:Key="NameTextboxLength">191</system:Double>
+    <system:Double x:Key="NameTextboxLength">190</system:Double>
     <system:Double x:Key="TagLabelLength">50</system:Double>
     <system:Double x:Key="TagTextboxLength">200</system:Double>
     <system:Double x:Key="ItemNameTextboxLength">196</system:Double>
@@ -304,6 +309,15 @@
     <system:Double x:Key="Ench70NumberboxLength">61</system:Double>
     <system:Double x:Key="Ench71LabelLength">111</system:Double>
     <system:Double x:Key="Ench71NumberboxLength">144</system:Double>
+    <!-- #1.14 !-->
+    <system:Double x:Key="EnchChannelingLabelLength">70</system:Double>
+    <system:Double x:Key="EnchChannelingNumberboxLength">58</system:Double>
+    <system:Double x:Key="EnchLoyaltyLabelLength">50</system:Double>
+    <system:Double x:Key="EnchLoyaltyNumberboxLength">68</system:Double>
+    <system:Double x:Key="EnchRiptideLabelLength">48</system:Double>
+    <system:Double x:Key="EnchRiptideNumberboxLength">80</system:Double>
+    <system:Double x:Key="EnchImpalingLabelLength">55</system:Double>
+    <system:Double x:Key="EnchImpalingNumberboxLength">62</system:Double>
     <!--#endregion-->
     <!--#endregion-->
 

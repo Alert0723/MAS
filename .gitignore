@@ -7,4 +7,9 @@ Minecraft Adaptable Studio/Updater/obj/
 Minecraft Adaptable Studio/Updater/bin/
 
 Minecraft Adaptable Studio/Plugins/obj/
+<<<<<<< HEAD
 Minecraft Adaptable Studio/Plugins/bin/
+=======
+Minecraft Adaptable Studio/Plugins/bin/Release/
+Minecraft Adaptable Studio/Plugins/bin/Debug/
+>>>>>>> develop

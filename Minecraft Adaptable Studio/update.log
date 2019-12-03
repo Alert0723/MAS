@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿Version:0.6.6 Alpha
 <<<<<<< HEAD
 Updater version:1.8.9
@@ -12,8 +13,11 @@ Updater version:1.8.9
     时间轴事件解耦
     优化路径表达式
 =======
+=======
+﻿Version:0.7.0 Alpha
+>>>>>>> develop
 Updater version:1.9.0
-更新时间:2019/10/14
+更新时间:2019/12/04
 
 「更新内容」
 ●更新器
@@ -24,7 +28,13 @@ Updater version:1.9.0
     日志文件输出优化
     
 ●MAS.C
+<<<<<<< HEAD
 
+>>>>>>> develop
+=======
+    重构生成算法逻辑
+    加入1.14附魔属性，输出逻辑升级为1.14版
+    初步搭建 数据存储框架
 >>>>>>> develop
 
 ●MAS.P

@@ -1,0 +1,7 @@
+常规:
+	尺寸绑定在CN/EN.xaml文档内设置
+
+附魔面板添加控件：
+	手动加长了EnchantExpandGrid的高度，刚好容纳即可，
+ 	查找修改Item_grid、ItemPanel、wrapPanel元素高度(区分大小写)
+	最后修改Settings_guide的Margin偏移

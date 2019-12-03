@@ -179,6 +179,11 @@
     <system:String x:Key="Ench62">饵钓:</system:String>
     <system:String x:Key="Ench70">经验修补:</system:String>
     <system:String x:Key="Ench71">消失诅咒:</system:String>
+
+    <system:String x:Key="EnchChanneling">引雷:</system:String>
+    <system:String x:Key="EnchLoyalty">忠诚:</system:String>
+    <system:String x:Key="EnchRiptide">激流:</system:String>
+    <system:String x:Key="EnchImpaling">穿刺:</system:String>
     <!--#endregion-->
     <!--#endregion-->
 
@@ -205,9 +210,9 @@
     <!--#endregion-->
 
     <!--#region  引导界面设置UI -->
-    <Thickness x:Key="GuideSwitchMargin">10,-9.996,10,0</Thickness>
-    <Thickness x:Key="GuideHighlightPoseMargin">133,308.334,10,0</Thickness>
-    <Thickness x:Key="GuidePoseSwitchMargin">120,454.333,10,0</Thickness>
+    <Thickness x:Key="GuideSwitchMargin">10,-12.996,10,0</Thickness>
+    <Thickness x:Key="GuideHighlightPoseMargin">133,311,10,0</Thickness>
+    <Thickness x:Key="GuidePoseSwitchMargin">120,456.333,10,0</Thickness>
     <Thickness x:Key="GuideAdvancedModeMargin">18,650.75,18,0</Thickness>
     <!--#endregion-->
     
@@ -304,6 +309,15 @@
     <system:Double x:Key="Ench70NumberboxLength">60</system:Double>
     <system:Double x:Key="Ench71LabelLength">58</system:Double>
     <system:Double x:Key="Ench71NumberboxLength">197</system:Double>
+
+    <system:Double x:Key="EnchChannelingLabelLength">36</system:Double>
+    <system:Double x:Key="EnchChannelingNumberboxLength">91</system:Double>
+    <system:Double x:Key="EnchLoyaltyLabelLength">36</system:Double>
+    <system:Double x:Key="EnchLoyaltyNumberboxLength">82</system:Double>
+    <system:Double x:Key="EnchRiptideLabelLength">36</system:Double>
+    <system:Double x:Key="EnchRiptideNumberboxLength">91</system:Double>
+    <system:Double x:Key="EnchImpalingLabelLength">36</system:Double>
+    <system:Double x:Key="EnchImpalingNumberboxLength">82</system:Double>
     <!--#endregion-->
     <!--#endregion-->
 
