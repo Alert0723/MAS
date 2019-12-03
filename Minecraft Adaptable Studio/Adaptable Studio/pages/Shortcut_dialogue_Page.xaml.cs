@@ -25,12 +25,8 @@ namespace Adaptable_Studio
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-<<<<<<< HEAD
-
-=======
             Log_Write(LogPath, "==========MASD==========");
             Log_Write(LogPath, "环境初始化");
->>>>>>> develop
         }
 
         private void Import_Click(object sender, RoutedEventArgs e)

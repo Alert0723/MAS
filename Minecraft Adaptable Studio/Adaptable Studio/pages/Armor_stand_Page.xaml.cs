@@ -1,9 +1,6 @@
 ﻿using ArmorStand.CustomControl;
 using System;
-<<<<<<< HEAD
-=======
 using System.Collections.Generic;
->>>>>>> develop
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -109,6 +106,7 @@ namespace Adaptable_Studio
         /// <summary> 高级模式下，控制模型是否随当前帧变化而改变 </summary>
         public static bool poseChange;
         #endregion
+
         #endregion
 
         public Armor_stand_Page()

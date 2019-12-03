@@ -22,13 +22,3 @@ D:\Programs\Visual Studio Projects\Minecraft\MAS\Beta\Plugins\obj\Debug\Plugins.
 D:\Programs\Visual Studio Projects\Minecraft\MAS\Beta\Plugins\obj\Debug\Plugins.csproj.CopyComplete
 D:\Programs\Visual Studio Projects\Minecraft\MAS\Beta\Plugins\obj\Debug\Plugins.dll
 D:\Programs\Visual Studio Projects\Minecraft\MAS\Beta\Plugins\obj\Debug\Plugins.pdb
-D:\Programs\Visual Studio Projects\Minecraft\MAS\Minecraft Adaptable Studio\Plugins\bin\Debug\Plugins.dll.config
-D:\Programs\Visual Studio Projects\Minecraft\MAS\Minecraft Adaptable Studio\Plugins\bin\Debug\Plugins.dll
-D:\Programs\Visual Studio Projects\Minecraft\MAS\Minecraft Adaptable Studio\Plugins\bin\Debug\Plugins.pdb
-D:\Programs\Visual Studio Projects\Minecraft\MAS\Minecraft Adaptable Studio\Plugins\bin\Debug\Minecraft Adaptable Studio.exe
-D:\Programs\Visual Studio Projects\Minecraft\MAS\Minecraft Adaptable Studio\Plugins\bin\Debug\Minecraft Adaptable Studio.pdb
-D:\Programs\Visual Studio Projects\Minecraft\MAS\Minecraft Adaptable Studio\Plugins\bin\Debug\Minecraft Adaptable Studio.exe.config
-D:\Programs\Visual Studio Projects\Minecraft\MAS\Minecraft Adaptable Studio\Plugins\obj\Debug\Plugins.csprojAssemblyReference.cache
-D:\Programs\Visual Studio Projects\Minecraft\MAS\Minecraft Adaptable Studio\Plugins\obj\Debug\Plugins.csproj.CopyComplete
-D:\Programs\Visual Studio Projects\Minecraft\MAS\Minecraft Adaptable Studio\Plugins\obj\Debug\Plugins.dll
-D:\Programs\Visual Studio Projects\Minecraft\MAS\Minecraft Adaptable Studio\Plugins\obj\Debug\Plugins.pdb

@@ -5,7 +5,7 @@ namespace Adaptable_Studio
 {
     class IniConfig
     {
-        public static string iniPath = "config.ini";//ini文件路径
+        public static string iniPath = @".\config.ini";//ini文件路径
         public static StringBuilder StrName = new StringBuilder(255);//定义字符串  
 
         #region Ini配置文件

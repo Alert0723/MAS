@@ -82,7 +82,7 @@ namespace Adaptable_Studio
             try
             {
                 //获取dll列表
-                foreach (FileInfo file in new DirectoryInfo(@"appfile\temp\masp").GetFiles("*.dll"))
+                foreach (FileInfo file in new DirectoryInfo(@".\appfile\temp\masp").GetFiles("*.dll"))
                 {
                     string DllPath = file.FullName;
                     Assembly assem = Assembly.LoadFile(DllPath);
@@ -364,7 +364,7 @@ namespace Adaptable_Studio
             try
             {
                 //获取dll列表
-                foreach (FileInfo file in new DirectoryInfo(@"appfile\temp\masp").GetFiles("*.dll"))
+                foreach (FileInfo file in new DirectoryInfo(@".\appfile\temp\masp").GetFiles("*.dll"))
                 {
                     string DllPath = file.FullName;
                     Assembly assem = Assembly.LoadFile(DllPath);
