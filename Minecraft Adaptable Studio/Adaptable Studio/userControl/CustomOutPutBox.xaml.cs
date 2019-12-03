@@ -99,12 +99,14 @@ namespace Adaptable_Studio.userControl
             VisualStateManager.GoToState(this, "RetrievalButtonUnspread", true);
             VisualStateManager.GoToState(this, "SideButtonNormal", true);
         }
-        
+
+        /// <summary> 输出模式 </summary>
         public bool OutPut { get; set; }
+        /// <summary> 检索模式 </summary>
         public bool Retrieval { get; set; }
 
         private void OutPut_LeftButtonDown(object sender, MouseButtonEventArgs e)
-        {            
+        {
             OutPut = true;
         }
 
