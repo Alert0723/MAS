@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,12 +27,17 @@ namespace Adaptable_Studio
         //12~14:left leg
         //15~17:right leg
         //18:rotation
+        /// <summary> 时间轴结构体 </summary>
         public struct Pose
         {
+            /// <summary> 当前帧结构动作数据 </summary>
             public double[] pos;
+            /// <summary> 当前帧结构是否为关键帧 </summary>
             public bool key;
-        }//时间轴结构体
-        public Pose[] pose = new Pose[32767];//时间轴数据存储
+        }
+        //时间轴数据存储
+        public Pose[] pose = new Pose[32767];
+        //public List<Pose> poses = new List<Pose>();
 
         /// <summary> 当前帧 方向数据缓存 </summary>
         public static bool[] OneReversed = new bool[19];
@@ -48,10 +54,11 @@ namespace Adaptable_Studio
 
         #region 自定义属性
         /// <summary> (只读)全局数据结构体,存储控件的所有帧数据 </summary>
-        [Description("(只读)全局数据结构体"), Category("User Control")]
+        [Description("全局数据结构体"), Category("User Control")]
         public Pose[] PoseStructure
         {
             get { return pose; }
+            set { pose = value; }
         }
 
         /// <summary> 当前帧数据结构体，存储当前选中帧的动作数据 </summary>

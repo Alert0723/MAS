@@ -8,7 +8,7 @@
                     <Setter Property="Control.Template">
                         <Setter.Value>
                             <ControlTemplate>
-                                <Rectangle Margin="2" SnapsToDevicePixels="True" Stroke="{DynamicResource ColorBrush1}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                                <Rectangle Margin="2" SnapsToDevicePixels="True" Stroke="{DynamicResource AccentBaseColorBrush}" StrokeThickness="1" StrokeDashArray="1 2"/>
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>
@@ -47,7 +47,7 @@
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
                         <Border x:Name="mainBorder" BorderThickness="1,1,1,0" Margin="0">
-                            <Border x:Name="innerBorder" BorderBrush="{x:Null}" BorderThickness="1,1,1,0" Background="#FF119EDA" Margin="-2,0,-1,-2" Opacity="0"/>
+                            <Border x:Name="innerBorder" BorderBrush="{x:Null}" BorderThickness="1,1,1,0" Background="{DynamicResource AccentBaseColorBrush}" Margin="-2,0,-1,-2" Opacity="0"/>
                         </Border>
                         <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding HeaderTemplate}" Content="{TemplateBinding Header}" ContentStringFormat="{TemplateBinding HeaderStringFormat}" ContentSource="Header" Focusable="False" HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type ItemsControl}}}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type ItemsControl}}}" RenderTransformOrigin="0.5,0.5">
                             <ContentPresenter.RenderTransform>
@@ -234,7 +234,7 @@
                     <Setter Property="Control.Template">
                         <Setter.Value>
                             <ControlTemplate>
-                                <Rectangle Margin="2" SnapsToDevicePixels="True" Stroke="{DynamicResource ColorBrush1}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                                <Rectangle Margin="2" SnapsToDevicePixels="True" Stroke="{DynamicResource AccentBaseColorBrush}" StrokeThickness="1" StrokeDashArray="1 2"/>
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>
@@ -273,7 +273,7 @@
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
                         <Border x:Name="mainBorder" BorderThickness="1,1,1,0" Margin="0,-1.5,0,0">
-                            <Border x:Name="innerBorder" BorderBrush="{x:Null}" BorderThickness="1,1,1,0" Background="#FF119EDA" Margin="-2,-1,-1,-2" Opacity="0"/>
+                            <Border x:Name="innerBorder" BorderBrush="{x:Null}" BorderThickness="1,1,1,0" Background="{DynamicResource AccentBaseColorBrush}" Margin="-2,-1,-1,-2" Opacity="0"/>
                         </Border>
                         <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding HeaderTemplate}" Content="{TemplateBinding Header}" ContentStringFormat="{TemplateBinding HeaderStringFormat}" ContentSource="Header" Focusable="False" HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type ItemsControl}}}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type ItemsControl}}}" RenderTransformOrigin="0.5,0.5">
                             <ContentPresenter.RenderTransform>

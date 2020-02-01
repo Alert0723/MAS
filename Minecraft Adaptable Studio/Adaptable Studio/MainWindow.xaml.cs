@@ -43,6 +43,13 @@ namespace Adaptable_Studio
             Page_masc = new Armor_stand_Page();
 
             InitializeComponent();
+
+            #region Events
+            Help_Button.Click += Help_Click;
+            Save_Button.Click += Save_Click;
+            Option_Button.Click += Option_Click;
+            About_Button.Click += About_Click;
+            #endregion
         }
 
         /// <summary> 本地日志文件输出 </summary>
@@ -246,6 +253,16 @@ namespace Adaptable_Studio
 
                     break;
             }//page读取
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            switch (PageIndex)
+            {
+                case 3://masc
+                    Page_masc.PageSaveFile(sender, e);
+                    break;
+            }
         }
 
         private void Option_Click(object sender, RoutedEventArgs e)

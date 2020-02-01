@@ -3,7 +3,7 @@
 
     <Style TargetType="{x:Type ComboBox}" x:Key="CustomComboBoxStyle">
         <Setter Property="OverridesDefaultStyle" Value="True" />
-        <Setter Property="Foreground" Value="{StaticResource ColorBrushGray2}" />
+        <Setter Property="Foreground" Value="{DynamicResource ForegroundBrush}" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="FontSize" Value="13" />
         <Setter Property="Template">

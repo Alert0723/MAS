@@ -6,18 +6,25 @@
       xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
+      FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa"
       Title="menu_Page" Width="942" Height="569">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="95"/>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="95"/>
         </Grid.ColumnDefinitions>
-        <Controls:Tile x:Name="masc" Title="Armor Stand Creater" TiltFactor="2" Width="Auto" Height="100" Count="盔甲架生成器" Margin="241,234,10,235" Grid.RowSpan="2"></Controls:Tile>
-        <Controls:Tile x:Name="masp" Title="Special Particle" TiltFactor="2" Width="Auto" Height="100" Count="粒子特效生成器" Margin="10,234,241,235" Grid.Column="1" Grid.RowSpan="2"></Controls:Tile>
-        <Controls:Tile x:Name="masb" Title="Art Super Banner" TiltFactor="2" Width="Auto" Height="100" Count="旗帜生成器" Margin="241,76,10,109" Grid.Row="1"/>
+        <Controls:Tile x:Name="masc" Title="Armor Stand Creater" TitleFontSize="12" TiltFactor="2" Width="240" Height="100" Count="盔甲架生成器" Margin="4.8,45.6,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1"/>
+        <Controls:Tile x:Name="masp" Title="Special Particle" TitleFontSize="12" TiltFactor="2" Width="240" Height="100" Count="粒子特效生成器" Margin="4.6,45.6,0,0" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1"/>
+        <Controls:Tile x:Name="masb" Title="Super Banner" TitleFontSize="12" TiltFactor="2" Width="240" Height="100" Count="旗帜生成器" Margin="5.2,45.6,0,0" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1"/>
     </Grid>
 </Page>

@@ -7,6 +7,7 @@
     <!--#endregion-->
 
     <!--#region  Window -->
+    <system:String x:Key="MainSave">Save</system:String>
     <system:String x:Key="MainOption">Option</system:String>
     <system:String x:Key="MainAbout">About</system:String>
     <system:String x:Key="MainHelp">Page guidance</system:String>

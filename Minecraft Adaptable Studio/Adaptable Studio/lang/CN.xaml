@@ -7,6 +7,7 @@
     <!--#endregion-->
 
     <!--#region  Window -->
+    <system:String x:Key="MainSave">保存</system:String>
     <system:String x:Key="MainOption">设置</system:String>
     <system:String x:Key="MainAbout">关于</system:String>
     <system:String x:Key="MainHelp">页面功能引导</system:String>
@@ -213,7 +214,7 @@
     <Thickness x:Key="GuideSwitchMargin">10,-12.996,10,0</Thickness>
     <Thickness x:Key="GuideHighlightPoseMargin">133,311,10,0</Thickness>
     <Thickness x:Key="GuidePoseSwitchMargin">120,456.333,10,0</Thickness>
-    <Thickness x:Key="GuideAdvancedModeMargin">18,650.75,18,0</Thickness>
+    <Thickness x:Key="GuideAdvancedModeMargin">18,653.75,18,0</Thickness>
     <!--#endregion-->
     
     <!--#region  动作属性设置UI -->

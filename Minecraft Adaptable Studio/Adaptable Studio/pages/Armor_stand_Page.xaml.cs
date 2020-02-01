@@ -1,21 +1,66 @@
 ﻿using ArmorStand.CustomControl;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Media3D;
+using static Adaptable_Studio.Armor_stand_Page;
 using static Adaptable_Studio.IniConfig;
 using static Adaptable_Studio.MainWindow;
 using static Adaptable_Studio.PublicControl;
 
 namespace Adaptable_Studio
 {
+    class Page_DropInfo
+    {
+        public SortedList<string, string> BasicData = null;
+        public SortedList<string, bool> NBTData = null;
+        public List<double> PoseData = null;
+        public bool IsAdvanceEnabled = false;
+        public ItemData[] ItemsData = null;
+        public long TimeAxisTotalTick = 20;
+        public Time_axis.Pose[] TimeAxisPoses = null;
+
+        /// <summary> Json反序列化 </summary>
+        /// <param name="ReaderPath">文件路径</param>
+        /// <param name="json">Json类型变量</param>
+        public static void Deserialize(string ReaderPath, ref Page_DropInfo json)
+        {
+            using (StreamReader line = new StreamReader(ReaderPath))
+            {
+                try
+                {
+                    string JSONcontent = line.ReadToEnd();
+                    json = JsonConvert.DeserializeObject<Page_DropInfo>(JSONcontent);
+                }
+                catch { Log_Write(LogPath, "json文件反序列化失败"); }
+            }
+        }
+    }
+
     /// <summary> armor_stand_Page.xaml 的交互逻辑 </summary>
     public partial class Armor_stand_Page : Page
     {
         #region Define
+        #region Data Store
+        public struct Data
+        {
+            public SortedList<string, string> BasicData;
+            public SortedList<string, bool> NBTData;
+            public List<double> PoseData;
+            public bool IsAdvanceEnabled;
+            public ItemData[] ItemsData;
+            public long TimeAxisTotalTick;
+            public Time_axis.Pose[] TimeAxisPoses;
+        }
+        Page_DropInfo page_DropInfo;//存档结构体
+        bool loading = false;
+        #endregion
+
         #region EquipItem
         Json ItemName;
         /// <summary> 物品部位结构体 </summary>
@@ -115,6 +160,8 @@ namespace Adaptable_Studio
 
             #region Events
             Loaded += Page_Loaded;
+            DragEnter += Page_DragEnter;
+            Drop += Page_DragDrop;
             BackHome.Click += BackToMenu_Click;
             #region 分类状态栏
             Main.Click += Main_Settings;
@@ -185,6 +232,130 @@ namespace Adaptable_Studio
                 #endregion
             }
             #endregion
+        }
+
+        private void Page_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effects = DragDropEffects.Copy;
+        }
+        /// <summary> 存档数据读取 </summary>
+        private void Page_DragDrop(object sender, DragEventArgs e)
+        {
+            string path = ((Array)e.Data.GetData(DataFormats.FileDrop)).GetValue(0).ToString();
+            Page_DropInfo.Deserialize(path, ref page_DropInfo);
+            loading = true;
+
+            //BasicData
+            foreach (var item in page_DropInfo.BasicData)
+            {
+                foreach (var element in BasicPannel.Children)
+                {
+                    //匹配元素名,赋值
+                    if (element is TextBox && ((TextBox)element).Name == item.Key)
+                    {
+                        ((TextBox)element).Text = item.Value;
+                        break;
+                    }
+                }
+            }
+
+            //NBTData
+            foreach (var item in page_DropInfo.NBTData)
+            {
+                foreach (var element in NbtPannel.Children)
+                {
+                    //匹配元素名,赋值
+                    if (element is CheckBox && ((CheckBox)element).Name == item.Key)
+                    {
+                        ((CheckBox)element).IsChecked = item.Value;
+                        break;
+                    }
+                }
+            }
+
+            //PoseData
+            for (int i = 0; i < page_DropInfo.PoseData.Count; i++)
+                pose[i] = page_DropInfo.PoseData[i];
+
+            UI_advancedmode.IsChecked = page_DropInfo.IsAdvanceEnabled;
+            {
+                //将控件值存储到变量
+                int i = Pose_Selector.SelectedIndex * 3;
+                pose[18] = Rotation_Setting.Value;
+                X_Pose.Value = pose[i];
+                Y_Pose.Value = pose[i + 1];
+                Z_Pose.Value = pose[i + 2];
+            }//用户页面更新
+
+            //ItemData
+            for (int i = 0; i < 6; i++)
+                Item_Data[i] = page_DropInfo.ItemsData[i];
+            Item_TabChanged(sender, e);//用户页面更新
+
+            //TimeAxis
+            TimeAxis.TotalTick = page_DropInfo.TimeAxisTotalTick;
+
+            for (int i = 0; i < page_DropInfo.TimeAxisTotalTick; i++)
+            {
+                TimeAxis.pose[i] = page_DropInfo.TimeAxisPoses[i];
+            }
+
+            loading = false;
+        }
+
+        /// <summary> 页面数据存储 </summary>
+        public void PageSaveFile(object sender, EventArgs e)
+        {
+            Data data = new Data()
+            {
+                BasicData = new SortedList<string, string>(),
+                NBTData = new SortedList<string, bool>(),
+                PoseData = new List<double>(),
+                IsAdvanceEnabled = (bool)UI_advancedmode.IsChecked,
+                ItemsData = new ItemData[6],
+                TimeAxisTotalTick = TimeAxis.TotalTick,
+                TimeAxisPoses = new Time_axis.Pose[TimeAxis.TotalTick]
+            };
+
+            //basic
+            foreach (var item in BasicPannel.Children)
+            {
+                if (item is TextBox)
+                    data.BasicData.Add(((TextBox)item).Name, ((TextBox)item).Text);
+            }
+
+            //nbts
+            foreach (var item in NbtPannel.Children)
+            {
+                if (item is CheckBox)
+                    data.NBTData.Add(((CheckBox)item).Name, (bool)((CheckBox)item).IsChecked);
+            }
+
+            //pose
+            for (int i = 0; i < pose.Length; i++)
+                data.PoseData.Add(pose[i]);
+
+            //items
+            for (int i = 0; i < 6; i++)
+                data.ItemsData[i] = Item_Data[i];
+
+            //time_axis
+            for (int i = 0; i < data.TimeAxisPoses.Length; i++)
+                data.TimeAxisPoses[i] = TimeAxis.pose[i];
+
+            //序列化 -> json
+            string DataResult = JsonConvert.SerializeObject(data);
+            //保存到路径
+            System.Windows.Forms.SaveFileDialog file = new System.Windows.Forms.SaveFileDialog()
+            {
+                Filter = "(*.masc)|*.masc",
+                FileName = "Save.masc",
+                AddExtension = true
+            };
+            if (file.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                File.WriteAllText(file.FileName, DataResult);
+            }
         }
 
         void Page_Loaded(object sender, RoutedEventArgs e)
@@ -351,7 +522,7 @@ namespace Adaptable_Studio
                 for (int i = 0; i < 19; i++)
                 {
                     pose[i] = 0;
-                    if (UI_advancedmode.IsChecked && TimeAxis.FramePose.key)
+                    if ((bool)UI_advancedmode.IsChecked && TimeAxis.FramePose.key)
                         TimeAxis.FramePose.pos[i] = 0;
                 }
 
@@ -466,7 +637,7 @@ namespace Adaptable_Studio
         /// <summary> 反序列化指令并输出 </summary>
         void Generate_Click(object sender, RoutedEventArgs e)
         {
-            if (!UI_advancedmode.IsChecked)
+            if (!(bool)UI_advancedmode.IsChecked)
             {
                 result = "summon armor_stand ~ ~1 ~ {";
 
@@ -495,7 +666,7 @@ namespace Adaptable_Studio
                     List<string> DisplayResult = new List<string>();//Display属性结果存储
                     List<string> AttriResult = new List<string>();//附加属性结果存储
                     List<string> EnchResult = new List<string>();//附魔属性结果存储
-                    //数组数据初始化
+                                                                 //数组数据初始化
                     for (int i = 0; i < ItemData_List.Length; i++)
                     {
                         OutPutItem[r, i] = ItemData_List[i];
@@ -683,7 +854,7 @@ namespace Adaptable_Studio
 
         #region 物品设置
         /// <summary> 物品部位切换,读取参数 </summary>
-        void Item_TabChanged(object sender, SelectionChangedEventArgs e)
+        void Item_TabChanged(object sender, RoutedEventArgs e)
         {
             //获取当前编辑部位
             int part = Part_Slector.SelectedIndex;
@@ -941,7 +1112,7 @@ namespace Adaptable_Studio
 
         void Pose_Changed(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            ChangePose(sender, e);
+            if (!loading) ChangePose(sender, e);
         }
 
         /// <summary> 3D视窗反馈 </summary>
@@ -980,7 +1151,7 @@ namespace Adaptable_Studio
             //判断动作选项卡的索引值
             int i = Pose_Selector.SelectedIndex * 3;
 
-            if (!UI_advancedmode.IsChecked)
+            if (!(bool)UI_advancedmode.IsChecked)
             {
                 //将控件值存储到变量
                 double X = X_Pose.Value,

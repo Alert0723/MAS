@@ -16,12 +16,13 @@
                 <!--控件样式-->
                 <ResourceDictionary Source="pack://application:,,,/ResourceDictionary/ControlStyles.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/ResourceDictionary/Theme/BaseDark.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/ResourceDictionary/Theme/Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ResourceDictionary/Theme/CustomBlueAccent.xaml" />
+                <!--<ResourceDictionary Source="pack://application:,,,/ResourceDictionary/Theme/Blue.xaml" />-->
 
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+                <!--<ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />-->
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseDark.xaml" />
 
                 <!--矢量图资源-->

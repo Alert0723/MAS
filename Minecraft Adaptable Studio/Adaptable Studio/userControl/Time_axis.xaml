@@ -516,7 +516,7 @@
                       MouseLeave="TimeGridMouseLeave"/>
             </Canvas>
         </ScrollViewer>
-        <Rectangle StrokeThickness="0" Fill="#FF119EDA" Margin="-132.813,0,0,0" Width="608.055">
+        <Rectangle StrokeThickness="0" Fill="{DynamicResource AccentBaseColorBrush}" Margin="-132.813,0,0,0" Width="608.055">
             <Rectangle.Effect>
                 <DropShadowEffect Opacity="0.25" Direction="245" ShadowDepth="3"/>
             </Rectangle.Effect>

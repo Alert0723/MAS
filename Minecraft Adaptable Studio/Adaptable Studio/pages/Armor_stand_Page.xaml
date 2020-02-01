@@ -13,7 +13,7 @@
       x:Class="Adaptable_Studio.Armor_stand_Page"
       mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300"
       FontFamily="{DynamicResource Font}"
-      Title="armor_stand_Page" Width="942" Height="569">
+      Title="armor_stand_Page" Width="942" Height="569" AllowDrop="True">
     <!--Height="569"-->
     <!--Height="2000"-->
     <Grid x:Name="ALL">
@@ -607,7 +607,7 @@
                 <Path Fill="White" Stretch="Uniform" Margin="5" Data="{DynamicResource Icon.Home}"/>
             </Button>
 
-            <Rectangle x:Name="SelectBar" Fill="#FF119EDA" Margin="0.005,47,0.005,0" Height="37" VerticalAlignment="Top" Width="5">
+            <Rectangle x:Name="SelectBar" Fill="{DynamicResource AccentBaseColorBrush}" Margin="0.005,47,0.005,0" Height="37" VerticalAlignment="Top" Width="5">
                 <i:Interaction.Behaviors>
                     <ei:FluidMoveBehavior Duration="0:0:0.2">
                         <ei:FluidMoveBehavior.EaseY>
@@ -656,19 +656,7 @@
                         <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="UI_invisible" Height="20" Width="105" Content="{DynamicResource as_Invisible}" HorizontalAlignment="Left" VerticalAlignment="Top" />
                         <CheckBox Style="{DynamicResource CustomCheckBox}" x:Name="Pose_Settings" Height="20" Width="105" Content="{DynamicResource as_Pose}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,0,0,0" >
                             <i:Interaction.Triggers>
-                                <i:EventTrigger SourceName="Pose_Settings" SourceObject="{Binding ElementName=Pose_Settings}" EventName="PreviewMouseDown">
-                                    <i:Interaction.Behaviors>
-                                        <ei:ConditionBehavior>
-                                            <ei:ConditionalExpression>
-                                                <ei:ComparisonCondition LeftOperand="{Binding IsChecked, ElementName=Pose_Settings}" RightOperand="False"/>
-                                            </ei:ConditionalExpression>
-                                        </ei:ConditionBehavior>
-                                    </i:Interaction.Behaviors>
-                                    <ei:ChangePropertyAction TargetName="grid" TargetObject="{Binding ElementName=grid, Mode=OneWay}" PropertyName="Effect"/>
-                                    <ei:ChangePropertyAction TargetName="grid" TargetObject="{Binding ElementName=grid, Mode=OneWay}" PropertyName="IsHitTestVisible" Value="True"/>
-                                    <ei:GoToStateAction StateName="RotationUnLocked"/>
-                                </i:EventTrigger>
-                                <i:EventTrigger SourceName="Pose_Settings" SourceObject="{Binding ElementName=Pose_Settings}" EventName="PreviewMouseDown">
+                                <i:EventTrigger SourceName="Pose_Settings" SourceObject="{Binding ElementName=Pose_Settings}" EventName="Checked">
                                     <i:Interaction.Behaviors>
                                         <ei:ConditionBehavior>
                                             <ei:ConditionalExpression>
@@ -676,12 +664,24 @@
                                             </ei:ConditionalExpression>
                                         </ei:ConditionBehavior>
                                     </i:Interaction.Behaviors>
-                                    <ei:ChangePropertyAction TargetName="grid" TargetObject="{Binding ElementName=grid, Mode=OneWay}" PropertyName="Effect">
+                                    <ei:ChangePropertyAction TargetName="PoseGrid" TargetObject="{Binding ElementName=PoseGrid, Mode=OneWay}" PropertyName="Effect"/>
+                                    <ei:ChangePropertyAction TargetName="PoseGrid" TargetObject="{Binding ElementName=PoseGrid, Mode=OneWay}" PropertyName="IsHitTestVisible" Value="True"/>
+                                    <ei:GoToStateAction StateName="RotationUnLocked"/>
+                                </i:EventTrigger>
+                                <i:EventTrigger SourceName="Pose_Settings" SourceObject="{Binding ElementName=Pose_Settings}" EventName="Unchecked">
+                                    <i:Interaction.Behaviors>
+                                        <ei:ConditionBehavior>
+                                            <ei:ConditionalExpression>
+                                                <ei:ComparisonCondition LeftOperand="{Binding IsChecked, ElementName=Pose_Settings}" RightOperand="False"/>
+                                            </ei:ConditionalExpression>
+                                        </ei:ConditionBehavior>
+                                    </i:Interaction.Behaviors>
+                                    <ei:ChangePropertyAction TargetName="PoseGrid" TargetObject="{Binding ElementName=PoseGrid, Mode=OneWay}" PropertyName="Effect">
                                         <ei:ChangePropertyAction.Value>
                                             <BlurEffect/>
                                         </ei:ChangePropertyAction.Value>
                                     </ei:ChangePropertyAction>
-                                    <ei:ChangePropertyAction TargetName="grid" TargetObject="{Binding ElementName=grid, Mode=OneWay}" PropertyName="IsHitTestVisible"/>
+                                    <ei:ChangePropertyAction TargetName="PoseGrid" TargetObject="{Binding ElementName=PoseGrid, Mode=OneWay}" PropertyName="IsHitTestVisible"/>
                                     <ei:GoToStateAction StateName="RotationLocked"/>
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
@@ -697,7 +697,7 @@
                     <Grid x:Name="PosePannel" Height="150" Width="250" Margin="10,0,0,0" Background="#00000000" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                         <Label Content="{DynamicResource Rotation}" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" FontSize="10" Width="60" VerticalContentAlignment="Center" Height="20" HorizontalContentAlignment="{DynamicResource RotationAlignment}" Padding="5"/>
                         <Slider Style="{DynamicResource CustomSlider}" x:Name="Rotation_Setting" Width="190" Margin="55,0,5,130" FontSize="9" Maximum="180" Minimum="-180" AutoToolTipPlacement="TopLeft" Foreground="{x:Null}" BorderBrush="White"/>
-                        <Grid x:Name="grid" Margin="0,20,0,0" IsHitTestVisible="False" Height="105" VerticalAlignment="Top" d:IsEffectDisabled="True">
+                        <Grid x:Name="PoseGrid" Margin="0,20,0,0" IsHitTestVisible="False" Height="105" VerticalAlignment="Top" d:IsEffectDisabled="True">
                             <Grid.Effect>
                                 <BlurEffect/>
                             </Grid.Effect>
@@ -753,19 +753,19 @@
                                 <Slider Style="{DynamicResource CustomSlider}" x:Name="Z_Pose" Width="Auto" Margin="30,50,0,10" FontSize="9" Maximum="180" Minimum="-180" AutoToolTipPlacement="TopLeft"/>
                             </Grid>
                         </Grid>
-                        <Label x:Name="label" Content="{DynamicResource Enable_Pose}" Background="{x:Null}" Foreground="White" Margin="58,57,-1,0"  UseLayoutRounding="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalAlignment="Top" IsHitTestVisible="False" HorizontalContentAlignment="Center"/>
+                        <Label x:Name="label" Content="{DynamicResource Enable_Pose}" Background="{x:Null}" Foreground="White" Margin="58,57,-1,0" UseLayoutRounding="False" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalAlignment="Top" IsHitTestVisible="False" HorizontalContentAlignment="Center"/>
                         <Border x:Name="WaringIcon" BorderThickness="1" HorizontalAlignment="Left" Width="39.151" Margin="18.849,50.324,0,0" Height="34.583" VerticalAlignment="Top" IsHitTestVisible="False">
                             <Border.Background>
                                 <ImageBrush ImageSource="/Minecraft Adaptable Studio;component/icon/Warning.png"/>
                             </Border.Background>
                         </Border>
-                        <userControl:CustomToggleButton x:Name="UI_advancedmode" Height="25" Margin="{DynamicResource AdvancedModeMargin}" Width="35" VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <ToggleButton x:Name="UI_advancedmode" Style="{DynamicResource CustomToggleButton}" Margin="{DynamicResource AdvancedModeMargin}" Height="25" Width="35" VerticalAlignment="Top" HorizontalAlignment="Left">
                             <i:Interaction.Triggers>
-                                <i:EventTrigger SourceName="UI_advancedmode" SourceObject="{Binding ElementName=UI_advancedmode}" EventName="PreviewMouseDown">
+                                <i:EventTrigger SourceName="UI_advancedmode" SourceObject="{Binding ElementName=UI_advancedmode}" EventName="Checked">
                                     <i:Interaction.Behaviors>
                                         <ei:ConditionBehavior>
                                             <ei:ConditionalExpression>
-                                                <ei:ComparisonCondition LeftOperand="{Binding IsChecked, ElementName=UI_advancedmode}" RightOperand="False"/>
+                                                <ei:ComparisonCondition LeftOperand="{Binding IsChecked, ElementName=UI_advancedmode}" RightOperand="True"/>
                                             </ei:ConditionalExpression>
                                         </ei:ConditionBehavior>
                                     </i:Interaction.Behaviors>
@@ -773,11 +773,11 @@
                                     <ei:ChangePropertyAction TargetName="TimeAxis" TargetObject="{Binding ElementName=TimeAxis}" PropertyName="Effect"/>
                                     <ei:GoToStateAction StateName="TimeAxisUnLocked"/>
                                 </i:EventTrigger>
-                                <i:EventTrigger SourceName="UI_advancedmode" SourceObject="{Binding ElementName=UI_advancedmode}" EventName="PreviewMouseDown">
+                                <i:EventTrigger SourceName="UI_advancedmode" SourceObject="{Binding ElementName=UI_advancedmode}" EventName="Unchecked">
                                     <i:Interaction.Behaviors>
                                         <ei:ConditionBehavior>
                                             <ei:ConditionalExpression>
-                                                <ei:ComparisonCondition LeftOperand="{Binding IsChecked, ElementName=UI_advancedmode}" RightOperand="True"/>
+                                                <ei:ComparisonCondition LeftOperand="{Binding IsChecked, ElementName=UI_advancedmode}" RightOperand="False"/>
                                             </ei:ConditionalExpression>
                                         </ei:ConditionBehavior>
                                     </i:Interaction.Behaviors>
@@ -790,9 +790,9 @@
                                     <ei:GoToStateAction StateName="TimeAxisLocked"/>
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
-                        </userControl:CustomToggleButton>
-                        <Label Content="{DynamicResource AdvancedMode}" Margin="47,123.46,83,1.54" FontFamily="{DynamicResource Font}"/>
-                        <userControl:CustomRestButton x:Name="Pose_Reset" Height="20" Width="120" Margin="0,126,5,5" Padding="0" HorizontalAlignment="Right" RestContent="Reset?"/>
+                        </ToggleButton>
+                        <Label Content="{DynamicResource AdvancedMode}" Margin="47,125,83,0" FontFamily="{DynamicResource Font}" Height="25" VerticalAlignment="Top"/>
+                        <userControl:CustomRestButton x:Name="Pose_Reset" Height="20" Width="120" Margin="0,128,5,0" Padding="0" HorizontalAlignment="Right" RestContent="Reset?" VerticalAlignment="Top"/>
                     </Grid>
                     <Label x:Name="ItemSettings" Content="{DynamicResource Item_Settings}" Foreground="White" Background="{x:Null}" FontSize="25"  IsHitTestVisible="False" BorderThickness="0,15" Margin="5,0,0,0" Padding="5"/>
                     <ScrollViewer x:Name="PartSlectorPanel" Width="{Binding Width, ElementName=wrapPanel}" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="0,0,0,10" PanningMode="HorizontalOnly" HorizontalScrollBarVisibility="Hidden">
@@ -1242,7 +1242,7 @@
                 </WrapPanel>
             </ScrollViewer>
         </Grid>
-        <GroupBox x:Name="Preview" Header="ArmorStand Preview" Margin="279,2,0,104" Grid.RowSpan="3" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Background="#FF119EDA" BorderBrush="{x:Null}" Padding="5,8" Custom1:ControlsHelper.ContentCharacterCasing="Normal">
+        <GroupBox x:Name="Preview" Header="ArmorStand Preview" Margin="279,2,0,104" Grid.RowSpan="3" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Background="{DynamicResource AccentBaseColorBrush}" BorderBrush="{x:Null}" Padding="5,8" Custom1:ControlsHelper.ContentCharacterCasing="Normal">
             <Grid x:Name="PreviewGrid" Background="#99DCDCDC">
                 <!--#region  Viewport3D -->
                 <Helix:HelixViewport3D ShowCoordinateSystem="True" 
@@ -1254,7 +1254,7 @@
                                        HorizontalAlignment="Right" VerticalAlignment="Top"
                                        Width="80" Height="80">
                     <Helix:HelixViewport3D.Camera>
-                        <PerspectiveCamera x:Name="AxisCamera"/>
+                        <PerspectiveCamera x:Name="AxisCamera" LookDirection="{Binding ElementName=MainCamera, Path=LookDirection}"/>
                     </Helix:HelixViewport3D.Camera>
                 </Helix:HelixViewport3D>
                 <Helix:HelixViewport3D x:Name="MainViewport"

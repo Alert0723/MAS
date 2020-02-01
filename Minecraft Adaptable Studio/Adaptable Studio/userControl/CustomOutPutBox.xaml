@@ -247,7 +247,7 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Grid.RenderTransform>
-            <Ellipse x:Name="ellipse" Fill="#FF119EDA" StrokeThickness="0" RenderTransformOrigin="0.5,0.5">
+            <Ellipse x:Name="ellipse" Fill="{DynamicResource AccentBaseColorBrush}" StrokeThickness="0" RenderTransformOrigin="0.5,0.5">
                 <Ellipse.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>

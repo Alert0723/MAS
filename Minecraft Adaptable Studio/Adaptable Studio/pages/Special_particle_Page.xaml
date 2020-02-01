@@ -10,7 +10,7 @@
       mc:Ignorable="d"  d:DesignHeight="300" d:DesignWidth="300"
       Title="special_particle_Page" Width="942" Height="569" Loaded="Page_Loaded">
     <Grid x:Name="Main_grid">
-        <GroupBox Header="Preview" Margin="406,10,0,22" Background="#CC119EDA" BorderBrush="#CC119EDA" HorizontalAlignment="Left" Width="526" Custom:ControlsHelper.ContentCharacterCasing="Normal">
+        <GroupBox Header="Preview" Margin="406,10,0,22" HorizontalAlignment="Left" Width="526" Custom:ControlsHelper.ContentCharacterCasing="Normal">
             <Grid x:Name="PreviewGrid" Background="#FFCDCDCD" MouseDown="Viewport_MouseDown" MouseMove="Viewport_MouseMove" MouseUp="Viewport_MouseUp" MouseWheel="Viewport_MouseWheel" Margin="0,0,0,2" MouseLeave="Viewport_MouseLeave">
                 <!--#region  ViewPort3D -->
                 <HelixToolkit:HelixViewport3D x:Name="MainViewport" 
@@ -58,7 +58,7 @@
                             <ImageBrush ImageSource="/Minecraft Adaptable Studio;component/icon/Round.png"/>
                         </Ellipse.Fill>
                     </Ellipse>
-                    <Slider x:Name="Scale" Style="{DynamicResource CustomSlider}" Margin="5,2,0,0" Height="30" Width="160" SmallChange="0.5" Value="4" Maximum="15" Minimum="1" LargeChange="1" ScrollViewer.HorizontalScrollBarVisibility="Auto" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top" ToolTip="{DynamicResource OpenGL_Scale}" ValueChanged="Scale_ValueChanged" MouseMove="Scale_MouseMove"/>
+                    <Slider x:Name="Scale" Style="{DynamicResource CustomSlider}" Margin="5,2,0,0" Height="30" Width="160" SmallChange="0.5" Value="4" Maximum="15" Minimum="1" LargeChange="1" ScrollViewer.HorizontalScrollBarVisibility="Auto" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top" ValueChanged="Scale_ValueChanged" MouseMove="Scale_MouseMove"/>
                 </WrapPanel>
 
             </Grid>

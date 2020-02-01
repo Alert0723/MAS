@@ -10,7 +10,6 @@ namespace Adaptable_Studio
     {
         public List<string> CN = null;
         public List<string> EN = null;
-
         /// <summary> Json反序列化 </summary>
         /// <param name="ReaderPath">文件路径</param>
         /// <param name="json">Json类型变量</param>
