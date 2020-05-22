@@ -1,23 +1,20 @@
 ﻿<controls:MetroWindow 
-        x:Class="Adaptable_Studio.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        Title="Minecraft Adaptable Studio - Alpha"
-        Height="600" Width="950" mc:Ignorable="d"
-        Closed="MainClosed" Loaded="Main_Loaded"
-        WindowStartupLocation="CenterScreen"
-        MinHeight="600" MinWidth="950" MaxHeight="600" MaxWidth="950" ResizeMode="CanMinimize"
-        FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" TitleCharacterCasing="Normal">
+    x:Class="Adaptable_Studio.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+    Title="Minecraft Adaptable Studio - Alpha"
+    Height="600" Width="950" mc:Ignorable="d"
+    WindowStartupLocation="CenterScreen"
+    MinHeight="600" MinWidth="950" MaxHeight="600" MaxWidth="950" ResizeMode="CanMinimize"
+    FontFamily="/Minecraft Adaptable Studio;component/font/#Comfortaa" TitleCharacterCasing="Normal"
+    WindowTitleBrush="{DynamicResource CustomBaseColorBrush}">
     <controls:MetroWindow.Resources>
         <!--快捷键绑定-->
         <!--<RoutedUICommand x:Key="DeveloperPage" Text="开发者页面" />-->
     </controls:MetroWindow.Resources>
-    <controls:MetroWindow.WindowTitleBrush>
-        <Binding Mode="OneWay" Source="{StaticResource AccentBaseColorBrush}"/>
-    </controls:MetroWindow.WindowTitleBrush>
 
     <!--<controls:MetroWindow.InputBindings>
         -->

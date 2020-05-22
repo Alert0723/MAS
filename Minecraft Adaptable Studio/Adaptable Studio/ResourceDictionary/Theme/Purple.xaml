@@ -1,0 +1,44 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:options="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
+                    mc:Ignorable="options">
+    <Color x:Key="CustomBaseColor">#ba68c8</Color>
+
+    <Color x:Key="CustomLightColor">#ee98fb</Color>
+
+    <Color x:Key="CustomDarkColor">#883997</Color>
+
+    <Color x:Key="IdealForegroundColor">#edf9ff</Color>
+
+    <!--  re-set brushes too  -->
+    <SolidColorBrush x:Key="CustomBaseColorBrush" Color="{StaticResource CustomBaseColor}" options:Freeze="True"/>
+    <SolidColorBrush x:Key="CustomLightColorBrush" Color="{StaticResource CustomLightColor}" options:Freeze="True"/>
+    <SolidColorBrush x:Key="CustomDarkColorBrush" Color="{StaticResource CustomDarkColor}" options:Freeze="True"/>
+    <SolidColorBrush x:Key="IdealForegroundColorBrush" Color="{StaticResource IdealForegroundColor}" options:Freeze="True" />
+    
+    <SolidColorBrush x:Key="WindowTitleColorBrush" Color="{StaticResource CustomBaseColor}" options:Freeze="True"/>
+
+    <LinearGradientBrush x:Key="ProgressBrush" StartPoint="1.002,0.5" EndPoint="0.001,0.5" options:Freeze="True">
+        <GradientStop Offset="0" Color="{StaticResource CustomBaseColor}" />
+        <GradientStop Offset="1" Color="{StaticResource CustomLightColor}" />
+    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="CheckmarkFill" Color="White" options:Freeze="True" />
+    <SolidColorBrush x:Key="RightArrowFill" Color="{StaticResource CustomLightColor}" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="IdealForegroundDisabledBrush" Opacity="0.4" Color="{StaticResource IdealForegroundColor}" options:Freeze="True" />
+    <SolidColorBrush x:Key="CustomSelectedColorBrush" Color="{StaticResource IdealForegroundColor}" options:Freeze="True" />
+
+    <!--  DataGrid brushes  -->
+    <SolidColorBrush x:Key="MetroDataGrid.HighlightBrush" Color="{StaticResource CustomLightColor}" options:Freeze="True" />
+    <SolidColorBrush x:Key="MetroDataGrid.HighlightTextBrush" Color="{StaticResource IdealForegroundColor}" options:Freeze="True" />
+    <SolidColorBrush x:Key="MetroDataGrid.MouseOverHighlightBrush" Color="{StaticResource CustomLightColor}" options:Freeze="True" />
+    <SolidColorBrush x:Key="MetroDataGrid.FocusBorderBrush" Color="{StaticResource CustomLightColor}" options:Freeze="True" />
+    <SolidColorBrush x:Key="MetroDataGrid.InactiveSelectionHighlightBrush" Color="{StaticResource CustomLightColor}" options:Freeze="True" />
+    <SolidColorBrush x:Key="MetroDataGrid.InactiveSelectionHighlightTextBrush" Color="{StaticResource IdealForegroundColor}" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="MahApps.Metro.Brushes.ToggleSwitchButton.OnSwitchBrush.Win10" Color="{StaticResource CustomBaseColor}" options:Freeze="True" />
+    <SolidColorBrush x:Key="MahApps.Metro.Brushes.ToggleSwitchButton.OnSwitchMouseOverBrush.Win10" Color="{StaticResource CustomLightColor}" options:Freeze="True" />
+    <SolidColorBrush x:Key="MahApps.Metro.Brushes.ToggleSwitchButton.ThumbIndicatorCheckedBrush.Win10" Color="{StaticResource IdealForegroundColor}" options:Freeze="True" />
+</ResourceDictionary>

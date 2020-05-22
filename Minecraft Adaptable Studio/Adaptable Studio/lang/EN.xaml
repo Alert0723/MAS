@@ -35,6 +35,11 @@
     <system:String x:Key="Option_Routine_Setting">Routine</system:String>
     <system:String x:Key="Option_Language">Language:</system:String>
     <system:String x:Key="Option_Guidance">Page guidance when start up:</system:String>
+
+    <system:String x:Key="Option_Theme_Setting">Theme Color:</system:String>
+    <system:String x:Key="Option_Theme_Blue">xuan_su Blue</system:String>
+    <system:String x:Key="Option_Theme_Green">Halcyon Green</system:String>
+    <system:String x:Key="Option_Theme_Purple">BlackNight Purple</system:String>
     <!--#endregion-->
 
     <!--#region  About Page -->
@@ -207,6 +212,8 @@
 
     <!--#region  Transition ContextMenu -->
     <system:String x:Key="Direction_ReserveAll">Reserve all</system:String>
+    <system:String x:Key="Direction_Curve">Curve</system:String>
+
     <!--#endregion-->
     <!--#endregion-->
 

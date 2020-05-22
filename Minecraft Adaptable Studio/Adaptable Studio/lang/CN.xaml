@@ -35,6 +35,11 @@
     <system:String x:Key="Option_Routine_Setting">常规</system:String>
     <system:String x:Key="Option_Language">语言切换 :</system:String>
     <system:String x:Key="Option_Guidance">启动时启用页面引导 :</system:String>
+
+    <system:String x:Key="Option_Theme_Setting">主题色 :</system:String>
+    <system:String x:Key="Option_Theme_Blue">玄素蓝</system:String>
+    <system:String x:Key="Option_Theme_Green">小草绿</system:String>
+    <system:String x:Key="Option_Theme_Purple">暗夜紫</system:String>
     <!--#endregion-->
 
     <!--#region  About Page -->
@@ -207,6 +212,7 @@
 
     <!--#region  Transition ContestMenu -->
     <system:String x:Key="Direction_ReserveAll">全部反向</system:String>
+    <system:String x:Key="Direction_Curve">曲线</system:String>
     <!--#endregion-->
     <!--#endregion-->
 

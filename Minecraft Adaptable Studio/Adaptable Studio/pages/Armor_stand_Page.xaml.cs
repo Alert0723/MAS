@@ -15,14 +15,14 @@ using static Adaptable_Studio.PublicControl;
 
 namespace Adaptable_Studio
 {
-    class Page_DropInfo
+    class Page_DropInfo : Page
     {
         public SortedList<string, string> BasicData = null;
         public SortedList<string, bool> NBTData = null;
         public List<double> PoseData = null;
         public bool IsAdvanceEnabled = false;
         public ItemData[] ItemsData = null;
-        public long TimeAxisTotalTick = 20;
+        public int TimeAxisTotalTick = 20;
         public Time_axis.Pose[] TimeAxisPoses = null;
 
         /// <summary> Json反序列化 </summary>

@@ -5,7 +5,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
         mc:Ignorable="d"
-        Title="Version Messager" Height="500" Width="520" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" TitleCharacterCasing="Normal" ShowMinButton="False" BorderBrush="#FF7C7C7C" Topmost="True">
+        Title="Version Messager" Height="500" Width="520" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen" TitleCharacterCasing="Normal" ShowMinButton="False" BorderBrush="#FF7C7C7C" Topmost="True"
+        WindowTitleBrush="{DynamicResource CustomBaseColorBrush}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

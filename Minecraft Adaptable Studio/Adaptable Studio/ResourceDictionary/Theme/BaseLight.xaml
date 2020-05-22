@@ -5,7 +5,7 @@
     <Color x:Key="BackGroundColor">#FFFFFF</Color>
     <Color x:Key="BorderColor">#000000</Color>
 
-    <SolidColorBrush x:Key="ForegroundBrush" Color="{StaticResource ForegroundColor}"/>
-    <SolidColorBrush x:Key="BackGroundBrush" Color="{StaticResource BackGroundColor}"/>
-    <SolidColorBrush x:Key="BorderBrush" Color="{StaticResource BorderColor}"/>
+    <SolidColorBrush x:Key="ForegroundBrush" Color="{DynamicResource ForegroundColor}"/>
+    <SolidColorBrush x:Key="BackGroundBrush" Color="{DynamicResource BackGroundColor}"/>
+    <SolidColorBrush x:Key="BorderBrush" Color="{DynamicResource BorderColor}"/>
 </ResourceDictionary>

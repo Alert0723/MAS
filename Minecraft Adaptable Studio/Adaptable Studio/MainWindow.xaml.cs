@@ -1,5 +1,6 @@
 ﻿using MahApps.Metro.Controls;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
 using System.IO;
@@ -17,6 +18,8 @@ namespace Adaptable_Studio
     /// <summary> xaml 的交互逻辑 </summary>
     public partial class MainWindow : MetroWindow
     {
+        public static MagneticMagnager magneticMagnager;
+
         public static string LogPath = @"log.txt";//程序根目录 日志文件路径
 
         string version = "Version:" + ConfigurationManager.AppSettings["MainVersion"];//当前版本号
@@ -31,11 +34,19 @@ namespace Adaptable_Studio
         public static bool _langCN = true;
         /// <summary> 启动时是否开启引导 </summary>
         public static bool Guidance = true;
+        /// <summary> 默认颜色主题 </summary>
+        public static string DefaultTheme = "Theme_Blue";
+        public static SortedList<string, string> ThemeList = new SortedList<string, string>();
         #endregion
 
         public MainWindow()
         {
-            //静态资源初始化
+            //主题色加载
+            ThemeList.Add("Theme_Blue", @"ResourceDictionary\Theme\Blue.xaml");
+            ThemeList.Add("Theme_Green", @"ResourceDictionary\Theme\Green.xaml");
+            ThemeList.Add("Theme_Purple", @"ResourceDictionary\Theme\Purple.xaml");
+
+            //静态界面初始化
             Main = this;
             vmsg = new VersionMessager();
             Page_menu = new menu_Page();
@@ -45,6 +56,9 @@ namespace Adaptable_Studio
             InitializeComponent();
 
             #region Events
+            Loaded += Main_Loaded;
+            Closed += MainClosed;
+
             Help_Button.Click += Help_Click;
             Save_Button.Click += Save_Click;
             Option_Button.Click += Option_Click;
@@ -97,11 +111,13 @@ namespace Adaptable_Studio
             try
             {
                 StreamReader test = new StreamReader(WebRequest.Create("http://www.mcbbs.net/thread-580119-1-1.html").GetResponse().GetResponseStream(), Encoding.UTF8);
-                WebView.Navigate(new Uri("http://p9fi3mtgy.bkt.clouddn.com/MAS-Stat.html"));
+                //WebView.Navigate(new Uri("http://p9fi3mtgy.bkt.clouddn.com/MAS-Stat.html"));
                 Log_Write(LogPath, "测试访问成功");
             }
             catch { Log_Write(LogPath, "测试访问失败"); }//测试访问
 
+
+            //Language
             try
             {
                 IniRead(ref StrName, "System", "PageIndex", iniPath);
@@ -120,15 +136,16 @@ namespace Adaptable_Studio
             catch
             {
                 IniWrite("System", "Lang", true.ToString(), iniPath);
-            }//Language
+            }
             //语言文件初始化
-            ResourceDictionary dict = new ResourceDictionary();
+            ResourceDictionary LangDict = new ResourceDictionary();
             if (_langCN)
-                dict.Source = new Uri(@"lang\CN.xaml", UriKind.Relative);
+                LangDict.Source = new Uri(@"lang\CN.xaml", UriKind.Relative);
             else
-                dict.Source = new Uri(@"lang\EN.xaml", UriKind.Relative);
-            Application.Current.Resources.MergedDictionaries[0] = dict;//资源赋值
+                LangDict.Source = new Uri(@"lang\EN.xaml", UriKind.Relative);
+            Application.Current.Resources.MergedDictionaries[0] = LangDict;//资源赋值
 
+            //引导
             try
             {
                 IniRead(ref StrName, "System", "Guidance", iniPath);
@@ -148,7 +165,36 @@ namespace Adaptable_Studio
             {
                 IniWrite("System", "Guidance", Guidance.ToString(), iniPath);
                 IniWrite("System", "Guiding", Guiding.ToString(), iniPath);
-            }//引导
+            }
+
+            //主题色
+            try
+            {
+                IniRead(ref StrName, "System", "Theme", iniPath);
+
+                if (StrName.ToString() != "")
+                {
+                    DefaultTheme = StrName.ToString();
+                    foreach (var ListItem in ThemeList.Keys)
+                    {
+                        if (ListItem.ToString() == DefaultTheme)
+                        {
+                            ResourceDictionary ThemeDict = new ResourceDictionary();
+                            ThemeDict.Source = new Uri(ThemeList.Values[ThemeList.IndexOfKey(DefaultTheme)].ToString(), UriKind.Relative);
+                            Application.Current.Resources.MergedDictionaries[1] = ThemeDict;//资源赋值
+                            break;
+                        }
+                    }
+                }
+                else
+                    IniWrite("System", "Theme", DefaultTheme, iniPath);
+            }
+            catch
+            {
+                Log_Write(LogPath, "主题色获取/设置失败");
+            }
+
+            //*************************
 
             Log_Write(LogPath, "配置文件初始化完成");
 

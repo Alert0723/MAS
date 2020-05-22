@@ -1,5 +1,5 @@
 常规:
-	尺寸绑定在CN/EN.xaml文档内设置
+	尺寸绑定在lang\CN/EN.xaml文档内设置
 
 附魔面板添加控件：
 	手动加长了EnchantExpandGrid的高度，刚好容纳即可，

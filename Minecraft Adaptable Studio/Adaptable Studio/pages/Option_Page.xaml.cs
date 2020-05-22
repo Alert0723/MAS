@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -13,12 +14,20 @@ namespace Adaptable_Studio
         public Option_Page()
         {
             InitializeComponent();
+
+            #region Events
             this.Loaded += Page_Loaded;
-            Lang_CN.Click += Lang_Save;
-            Lang_EN.Click += Lang_Save;
+            Lang_CN.Click += LangSave;
+            Lang_EN.Click += LangSave;
             Back.Click += Back_Click;
-            OptionGrid.MouseDown += Option_Save;
-            OptionGrid.MouseLeave += Option_Save;
+
+            Theme_Blue.Click += ThemeSave;
+            Theme_Green.Click += ThemeSave;
+            Theme_Purple.Click += ThemeSave;
+
+            OptionGrid.MouseDown += OptionSave;
+            OptionGrid.MouseLeave += OptionSave;
+            #endregion
         }
 
         void Back_Click(object sender, RoutedEventArgs e)
@@ -40,10 +49,18 @@ namespace Adaptable_Studio
                 Guidance_on.IsChecked = true;
             else
                 Guidance_off.IsChecked = true;
+
+            //主题色
+            foreach (var item in Theme_Panel.Children)
+            {
+                if (item is RadioButton && ((RadioButton)item).Name == DefaultTheme)
+                    ((RadioButton)item).IsChecked = true;
+            }
+
         }
 
         /// <summary> 语言切换 </summary>
-        void Lang_Save(object sender, RoutedEventArgs e)
+        void LangSave(object sender, RoutedEventArgs e)
         {
             _langCN = (bool)Lang_CN.IsChecked;//语言
             //语言文件初始化
@@ -57,12 +74,23 @@ namespace Adaptable_Studio
             IniWrite("System", "Lang", _langCN.ToString(), iniPath);
         }
 
-        void Option_Save(object sender, MouseEventArgs e)
+        void ThemeSave(object sender, RoutedEventArgs e)
+        {
+            ResourceDictionary ThemeDict = new ResourceDictionary();
+            ThemeDict.Source = new Uri(((RadioButton)sender).Tag.ToString(), UriKind.Relative);
+
+            Application.Current.Resources.MergedDictionaries[1] = ThemeDict;//资源赋值
+
+            DefaultTheme = ((RadioButton)sender).Name;
+            IniWrite("System", "Theme", DefaultTheme, iniPath);
+        }
+
+        void OptionSave(object sender, MouseEventArgs e)
         {
             Option_save();
         }
 
-        void Option_Save(object sender, MouseButtonEventArgs e)
+        void OptionSave(object sender, MouseButtonEventArgs e)
         {
             Option_save();
         }

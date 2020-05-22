@@ -607,7 +607,7 @@
                 <Path Fill="White" Stretch="Uniform" Margin="5" Data="{DynamicResource Icon.Home}"/>
             </Button>
 
-            <Rectangle x:Name="SelectBar" Fill="{DynamicResource AccentBaseColorBrush}" Margin="0.005,47,0.005,0" Height="37" VerticalAlignment="Top" Width="5">
+            <Rectangle x:Name="SelectBar" Fill="{DynamicResource CustomBaseColorBrush}" Margin="0.005,47,0.005,0" Height="37" VerticalAlignment="Top" Width="5">
                 <i:Interaction.Behaviors>
                     <ei:FluidMoveBehavior Duration="0:0:0.2">
                         <ei:FluidMoveBehavior.EaseY>
@@ -1242,7 +1242,7 @@
                 </WrapPanel>
             </ScrollViewer>
         </Grid>
-        <GroupBox x:Name="Preview" Header="ArmorStand Preview" Margin="279,2,0,104" Grid.RowSpan="3" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Background="{DynamicResource AccentBaseColorBrush}" BorderBrush="{x:Null}" Padding="5,8" Custom1:ControlsHelper.ContentCharacterCasing="Normal">
+        <GroupBox x:Name="Preview" Header="ArmorStand Preview" Margin="279,2,0,104" Grid.RowSpan="3" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Background="{DynamicResource CustomBaseColorBrush}" BorderBrush="{x:Null}" Padding="5,8" Custom1:ControlsHelper.ContentCharacterCasing="Normal">
             <Grid x:Name="PreviewGrid" Background="#99DCDCDC">
                 <!--#region  Viewport3D -->
                 <Helix:HelixViewport3D ShowCoordinateSystem="True" 

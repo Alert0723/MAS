@@ -156,6 +156,12 @@
     <Compile Include="class\Viewport_3D.cs" />
     <Compile Include="class\FileProcess.cs" />
     <Compile Include="class\IniConfig.cs" />
+    <Compile Include="Curves.xaml.cs">
+      <DependentUpon>Curves.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MagneticMagnager.xaml.cs">
+      <DependentUpon>MagneticMagnager.xaml</DependentUpon>
+    </Compile>
     <Compile Include="pages\Option_Page.xaml.cs">
       <DependentUpon>Option_Page.xaml</DependentUpon>
     </Compile>
@@ -191,6 +197,30 @@
     <Page Include="3D Model.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Curves.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MagneticMagnager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResourceDictionary\RadioButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResourceDictionary\Theme\Blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ResourceDictionary\Theme\Green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ResourceDictionary\Theme\Purple.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="ResourceDictionary\ToggleButton.xaml">
       <SubType>Designer</SubType>
@@ -257,10 +287,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ResourceDictionary\Theme\CustomBlueAccent.xaml">
-      <SubType>Designer</SubType>
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
-    </Page>
     <Page Include="userControl\CustomNumberBox.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -293,10 +319,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ColorBoard.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="pages\menu_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -326,9 +348,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="class\Json.cs" />
-    <Compile Include="ColorBoard.xaml.cs">
-      <DependentUpon>ColorBoard.xaml</DependentUpon>
-    </Compile>
     <Compile Include="pages\menu_Page.xaml.cs">
       <DependentUpon>menu_Page.xaml</DependentUpon>
     </Compile>

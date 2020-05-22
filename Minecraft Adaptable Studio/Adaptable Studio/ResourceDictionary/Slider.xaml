@@ -135,7 +135,7 @@
                                                             <VisualState x:Name="Disabled"/>
                                                         </VisualStateGroup>
                                                     </VisualStateManager.VisualStateGroups>
-                                                    <Ellipse x:Name="ellipse" Fill="{DynamicResource BackGroundBrush}" Stroke="{DynamicResource AccentBaseColorBrush}" StrokeThickness="2" Width="11" Height="11" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                                                    <Ellipse x:Name="ellipse" Fill="{DynamicResource BackGroundBrush}" Stroke="{DynamicResource CustomBaseColorBrush}" StrokeThickness="2" Width="11" Height="11" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
                                                         <Ellipse.RenderTransform>
                                                             <TransformGroup>
                                                                 <ScaleTransform/>

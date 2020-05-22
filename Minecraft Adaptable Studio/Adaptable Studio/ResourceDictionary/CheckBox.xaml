@@ -16,7 +16,7 @@
         </Setter>
         <Setter Property="Background" Value="{x:Null}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource ForegroundBrush }"/>
+        <Setter Property="Foreground" Value="{DynamicResource ForegroundBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
@@ -125,7 +125,7 @@
                         </VisualStateManager.VisualStateGroups>
                         <Border x:Name="checkBoxBorder" BorderThickness="{TemplateBinding BorderThickness}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="1" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Width="18" Height="18">
                             <Grid x:Name="markGrid" Width="18" Height="18" Margin="-2">
-                                <Ellipse x:Name="ellipse" Fill="{x:Null}" Margin="1" Width="12" Height="12" Stroke="{DynamicResource AccentBaseColorBrush}" StrokeThickness="2" RenderTransformOrigin="0.5,0.5">
+                                <Ellipse x:Name="ellipse" Fill="{x:Null}" Margin="1" Width="12" Height="12" Stroke="{DynamicResource CustomBaseColorBrush}" StrokeThickness="2" RenderTransformOrigin="0.5,0.5">
                                     <Ellipse.RenderTransform>
                                         <TransformGroup>
                                             <ScaleTransform/>

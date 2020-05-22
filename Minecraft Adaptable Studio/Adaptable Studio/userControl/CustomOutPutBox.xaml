@@ -2,8 +2,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Adaptable_Studio.userControl"
-             xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" xmlns:Adaptable_Studio="clr-namespace:Adaptable_Studio" x:Class="Adaptable_Studio.userControl.CustomOutPutBox"
+             xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+             x:Class="Adaptable_Studio.userControl.CustomOutPutBox"
              mc:Ignorable="d" d:DesignWidth="300" Height="280" MouseLeave="CloseSideButtonEvent">
     <Grid Margin="0,0,0,10" Height="280">
         <VisualStateManager.VisualStateGroups>
@@ -197,7 +197,7 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Grid.RenderTransform>
-            <ed:Arc x:Name="arc1" ArcThickness="1" ArcThicknessUnit="Percent" EndAngle="270" Fill="#FF119EDA" Stretch="None" StrokeThickness="0" StartAngle="220" Height="245" VerticalAlignment="Top" HorizontalAlignment="Right" Width="245">
+            <ed:Arc x:Name="arc1" ArcThickness="1" ArcThicknessUnit="Percent" EndAngle="270" Fill="{DynamicResource CustomBaseColorBrush}" Stretch="None" StrokeThickness="0" StartAngle="220" Height="245" VerticalAlignment="Top" HorizontalAlignment="Right" Width="245">
                 <ed:Arc.Effect>
                     <DropShadowEffect Direction="-90" BlurRadius="30" Opacity="0.75" ShadowDepth="0"/>
                 </ed:Arc.Effect>
@@ -222,7 +222,7 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Grid.RenderTransform>
-            <ed:Arc x:Name="arc" ArcThickness="1" ArcThicknessUnit="Percent" EndAngle="320" Fill="#FF119EDA" Stretch="None" StrokeThickness="0" StartAngle="270" Height="245" VerticalAlignment="Top" HorizontalAlignment="Right" Width="245">
+            <ed:Arc x:Name="arc" ArcThickness="1" ArcThicknessUnit="Percent" EndAngle="320" Fill="{DynamicResource CustomBaseColorBrush}" Stretch="None" StrokeThickness="0" StartAngle="270" Height="245" VerticalAlignment="Top" HorizontalAlignment="Right" Width="245">
                 <ed:Arc.Effect>
                     <DropShadowEffect Direction="-90" BlurRadius="30" Opacity="0.75" ShadowDepth="0"/>
                 </ed:Arc.Effect>
@@ -247,7 +247,7 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Grid.RenderTransform>
-            <Ellipse x:Name="ellipse" Fill="{DynamicResource AccentBaseColorBrush}" StrokeThickness="0" RenderTransformOrigin="0.5,0.5">
+            <Ellipse x:Name="ellipse" Fill="{DynamicResource CustomBaseColorBrush}" StrokeThickness="0" RenderTransformOrigin="0.5,0.5">
                 <Ellipse.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>

@@ -506,17 +506,10 @@
                 </ei:FluidMoveBehavior>
             </i:Interaction.Behaviors>
             <Canvas x:Name="Canvas" Background="{Binding Background, ElementName=TimeGrid}" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="{Binding Width, ElementName=Scroll}" Margin="0,20,0,0">
-                <Grid x:Name="TimeGrid" Height="{Binding Height, ElementName=Canvas}" Background="#FF363636" VerticalAlignment="Top" Width="473" Canvas.Left="0" 
-                      SizeChanged="TimeGridResized"
-                      PreviewMouseDown="TimeGrid_PreviewMouseDown"
-                      MouseDown="TimeGridMouseDown"
-                      MouseUp="TimeGridMouseUp"
-                      MouseMove="TimeGridMouseMove"
-                      MouseWheel="Scroll_Horizontal_Changed"
-                      MouseLeave="TimeGridMouseLeave"/>
+                <Grid x:Name="TimeGrid" Height="{Binding Height, ElementName=Canvas}" Background="#FF363636" VerticalAlignment="Top" Width="473" Canvas.Left="0" />
             </Canvas>
         </ScrollViewer>
-        <Rectangle StrokeThickness="0" Fill="{DynamicResource AccentBaseColorBrush}" Margin="-132.813,0,0,0" Width="608.055">
+        <Rectangle StrokeThickness="0" Fill="{DynamicResource CustomBaseColorBrush}" Margin="-132.813,0,0,0" Width="608.055">
             <Rectangle.Effect>
                 <DropShadowEffect Opacity="0.25" Direction="245" ShadowDepth="3"/>
             </Rectangle.Effect>

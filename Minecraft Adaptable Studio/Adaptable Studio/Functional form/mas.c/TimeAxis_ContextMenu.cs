@@ -126,7 +126,7 @@ namespace Adaptable_Studio
                     new TimeAxis_ContextMenu_CheckBox(IsReversed,ClickMark)
                     { Name = "LeftLegZ", Content = "Z" ,Style = FindResource("CustomCheckBox") as Style,IsChecked = OneReversed[14],Tag = "14"}
                 }
-            }); ;
+            });
 
             //右腿
             this.Items.Add(new MenuItem()
@@ -150,7 +150,7 @@ namespace Adaptable_Studio
             {
                 Style = FindResource("CustomMenuItem") as Style,
                 Header = FindResource("Direction_Curve"),
-                Items = { new Canvas() { Width = 100, Height = 100 } }
+                Items = { new Curves() { Width = 100, Height = 100 } }
             });
 
         }

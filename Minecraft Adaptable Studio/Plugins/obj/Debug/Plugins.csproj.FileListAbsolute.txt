@@ -32,3 +32,4 @@ D:\Programs\Visual Studio Projects\Minecraft\MAS\Minecraft Adaptable Studio\Plug
 D:\Programs\Visual Studio Projects\Minecraft\MAS\Minecraft Adaptable Studio\Plugins\obj\Debug\Plugins.csproj.CopyComplete
 D:\Programs\Visual Studio Projects\Minecraft\MAS\Minecraft Adaptable Studio\Plugins\obj\Debug\Plugins.dll
 D:\Programs\Visual Studio Projects\Minecraft\MAS\Minecraft Adaptable Studio\Plugins\obj\Debug\Plugins.pdb
+D:\Programs\Visual Studio Projects\Minecraft\MAS\Minecraft Adaptable Studio\Plugins\obj\Debug\Plugins.csproj.CoreCompileInputs.cache

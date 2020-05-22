@@ -3,17 +3,15 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"       
-      xmlns:customcontrol="clr-namespace:ArmorStand.CustomControl"
-      xmlns:Custom="http://metro.mahapps.com/winfx/xaml/controls"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300" Width="942" Height="569" Title="Option_Page">
     <Grid>
-        <Button x:Name="Back" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="35" Height="35" Margin="10,10,0,0" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" Background="#02DCDCDC">
+        <Button x:Name="Back" Style="{DynamicResource CustomButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="35" Height="35" Margin="25,25,0,0" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" Background="#02DCDCDC">
             <StackPanel>
                 <Path Fill="White" Stretch="Uniform" Margin="5" Data="{DynamicResource Icon.LeftArrow}"/>
             </StackPanel>
         </Button>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="80,0,0,0" FontFamily="{DynamicResource Font}">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="80,0,0,0">
             <Grid x:Name="OptionGrid" Height="559">
                 <!--#region  常规 -->
                 <Label Content="{DynamicResource Option_Routine_Setting}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="{DynamicResource Font}"/>
@@ -30,6 +28,16 @@
                     <RadioButton x:Name="Guidance_off" Content="{DynamicResource Option_Off}" HorizontalAlignment="Left" Margin="90,6,0,0" VerticalAlignment="Top" IsChecked="True" FontFamily="{DynamicResource Font}"/>
                 </WrapPanel>
                 <!--#endregion-->
+                
+                <WrapPanel Name="Theme_Panel" Margin="0,120,0,0" Height="30" VerticalAlignment="Top">
+                    <Label Content="{DynamicResource Option_Theme_Setting}" Margin="20,1,0,0" VerticalAlignment="Top" Height="27" HorizontalAlignment="Left" FontSize="14" FontFamily="{DynamicResource Font}"/>
+                    <RadioButton x:Name="Theme_Blue" Tag="ResourceDictionary\Theme\Blue.xaml"
+                                 Content="{DynamicResource Option_Theme_Blue}" HorizontalAlignment="Left" Margin="50,6,0,0" VerticalAlignment="Top" FontFamily="{DynamicResource Font}" IsChecked="True"/>
+                    <RadioButton x:Name="Theme_Green" Tag="ResourceDictionary\Theme\Green.xaml"
+                                 Content="{DynamicResource Option_Theme_Green}" HorizontalAlignment="Left" Margin="90,6,0,0" VerticalAlignment="Top" FontFamily="{DynamicResource Font}"/>
+                    <RadioButton x:Name="Theme_Purple" Tag="ResourceDictionary\Theme\Purple.xaml"
+                                 Content="{DynamicResource Option_Theme_Purple}" HorizontalAlignment="Left" Margin="90,6,0,0" VerticalAlignment="Top" FontFamily="{DynamicResource Font}"/>
+                </WrapPanel>
 
             </Grid>
         </ScrollViewer>
