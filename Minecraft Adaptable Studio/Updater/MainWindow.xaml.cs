@@ -263,7 +263,7 @@ namespace Updater
                     }
                 }
             }
-            catch (Exception ee) { throw ee; }//抛出异常
+            catch (Exception e) { throw e; }//抛出异常
         }
 
         /// <summary> 终止外部进程 </summary>
